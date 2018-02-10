@@ -1,0 +1,441 @@
+// 新建商品
+.create-spu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 6.8% 6.8% 0 6.8%;
+  background: #eeeeee;
+  overflow-y: auto;
+  .sto-spec{
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    border-left: 2px solid rgba(54, 188, 155, 1) ;
+    .sto-container{
+      padding: 15px 0;
+      width: 100%;
+      height: 100%;
+      border-top: 1px dashed #ddd;
+      border-bottom: 1px dashed #ddd;
+      .required{
+        color: red;
+        width: 30px;
+        text-align: left;
+        padding-left: 10px;
+        flex: 0.5;
+        display: inline-block;
+      }
+      input[type='text'] {
+        margin-left: 6px;
+        height: 38px;
+        background: #f9f9f9;
+        border: none;
+        &:disabled {
+          border: none;
+          box-shadow: none;
+          background: #fff;
+        }
+      }
+
+      .spu-sto{
+        width: 100%;
+        .spu-sto-select{
+          margin-right: 90px;
+          text-align: left;
+          height: 80px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          .left{
+            button{
+              background-color: white;
+              float: left;
+              text-align: center;
+              font-size: 16px;
+              display:inline-block;
+              width: 50%;
+              height: 100%;
+              line-height: 100%;
+            }
+            margin-right: 30px;
+            width: 90px;
+            height: 20px;
+            text-align: center;
+          }
+          .right{
+            padding-right: 110px;
+            width: 100%;
+            input{
+              margin-left: 0;
+              width: 80%;
+            }
+          }
+        }
+        .pull-down-menu{
+          display: flex;
+          position: relative;
+          align-content: flex-start;
+          flex-flow: row wrap;
+          padding-left: 110px;
+          max-height: 500px;
+          width: 80%;
+          background-color: white;
+          opacity: 1;
+          overflow: hidden;
+          margin-bottom: 10px;
+          div {
+            width: 25%;
+            span {
+              margin-top: 1px;
+              width: 90%;
+              height: 25px;
+              border: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              background: #f9f9f9;
+              &:hover {
+                color: white;
+                background-color: grey;
+              }
+            }
+            .new {
+              background-color: $subthemeColor;
+              color: white;
+            }
+            .first-qcode {
+              background-color: $themeColor;
+              color: white;
+            }
+          }
+        }
+      }
+      .spu-stoSpec{
+        height: 50px;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        box-sizing: border-box;
+         align-items: center;
+        .itemContainer{
+          height: 50px;
+          width: 25%;
+          span{
+            width: 5%;
+          }
+          input{
+            width: 50%;
+          }
+        }
+        .itemContainerBehind{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 25%;
+          height: 50px;
+          p,button{
+            flex: 1;
+            width: 30%;
+          }
+          p{
+            span{
+              margin-right:5px ;
+            }
+            input[type=checkbox]{
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+        &:before{
+          content: "";
+          width: 8px;
+          height: 8px;
+          background-color: rgba(54, 188, 155, 1);
+          border-radius: 50%;
+          position: relative;
+          left: -23px;
+        }
+      }
+      .upload{
+        text-align: left;
+        
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 7px;
+
+        div{
+          display: inline-block;
+        }
+        .picture{
+          width:100px;
+          height:100px;
+          border:1px solid #ddd;
+          border-radius: 5px;
+          margin: 15px;
+          text-align: center;
+          font-size: 10px;
+          .hint1{
+            color: red;
+          }
+          .hint2{
+            color: #ddd;
+            font-size: 30px;
+          }
+          .hint3{
+            color: #ddd;
+          }
+        }
+      }
+      button{
+        border: none;
+      }
+      .add-spec-btn{
+        margin: 15px auto 0;
+        width: 100px;
+        height: 30px;
+        background-color: rgba(54, 188, 155, 1);
+        color: #fff;
+        text-align: center;
+
+      }
+      .delete-spec-btn {
+        height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 13px;
+        cursor: pointer;
+        background-color: white;
+        &:hover {
+          background: $subthemeColor;
+          color: #fff;
+        }
+      }
+    }
+
+  }
+  .create-spu-container {
+    margin-bottom: 110px;
+    padding-top: 10px;
+    background: #fff;
+
+    // 填写商品信息容器
+    .fill-info-container {
+      margin-top: 28px;
+      margin-left: 23px;
+      margin-right: 90px;
+      display: flex;
+      align-items: flex-start;
+
+      .left {
+        font-size: 15px;
+        margin-top: 13px;
+        margin-right: 24px;
+        font-weight: bold;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+
+        div {
+          display: flex;
+          flex-flow: row;
+          align-items: center;
+          margin-bottom: 8px;
+
+          span {
+            width: 80px;
+            flex-shrink: 0;
+          }
+
+          input {
+            width: 100%;
+            height: 38px;
+            padding-left: 20px;
+            background: #f9f9f9;
+            border: none;
+            font-size: 13px;
+          }
+        }
+
+        .pull-down-menu {
+          position: relative;
+          display: flex;
+          align-content: flex-start;
+          flex-flow: row wrap;
+          max-height: 500px;
+          width: 100%;
+          background-color: white;
+          opacity: 1;
+          overflow: hidden;
+          div {
+            width: 25%;
+            span {
+              margin-top: 1px;
+              width: 90%;
+              height: 25px;
+              border: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              background: #f9f9f9;
+              &:hover {
+                color: white;
+                background-color: grey;
+              }
+            }
+            .new {
+              background-color: $subthemeColor;
+              color: white;
+            }
+            .first-qcode {
+              background-color: $themeColor;
+              color: white;
+            }
+          }
+        }
+
+        .content {
+          display: flex;
+          align-items: center;
+          padding-left: 20px;
+          height: 30px;
+          width: 80%;
+          color: #303030;
+        }
+      }
+    }
+  }
+
+  .new-spec {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px 0 22px;
+    width: 100%;
+    height: 56px;
+    border-left: 2px solid $subthemeColor;
+
+    span {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    label {
+      @extend span;
+    }
+
+    input[type='text'],input[type='number'] {
+      margin-left: 6px;
+      height: 30px;
+      background: #f9f9f9;
+      border: none;
+      width: 100%;
+
+      &:disabled {
+        border: none;
+        box-shadow: none;
+        background: #fff;
+      }
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      // justify-content: space-between;
+      width: 80px;
+    }
+
+    .input-container {
+      width: 250px;
+    }
+
+    .delete-spec {
+      height: 30px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 13px;
+      cursor: pointer;
+
+      &:hover {
+        background: $subthemeColor;
+        color: #fff;
+      }
+    }
+
+    .highlight {
+      background: $subthemeColor;
+      color: #fff;
+    }
+  }
+
+  .add-spec-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    background: rgba(#aaa, 0.5);
+
+    // 增加规格
+    .add-spec {
+      /*width: 20%;*/
+      padding-left: 60px;
+      padding-right: 60px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      outline: none;
+      background: #f5f5f5;
+      color: #999;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
+
+
+  .add-spec:hover {
+    background: darken(#f5f5f5, 5%);
+  }
+
+  .bottom-menu {
+    width: 100%;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3%;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $themeColor;
+      height: 32px;
+      /*width: 159px;*/
+      padding-left: 50px;
+      padding-right: 50px;
+      color: #fdfdfd;
+      border: none;
+      outline: none;
+      font-weight: bold;
+      font-size: 15px;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background: darken(#ee7258, 5%);
+    }
+  }
+}

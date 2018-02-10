@@ -1,0 +1,27 @@
+{
+  "name": "xyweb",
+  "version": "1.10.0",
+  "description": "xyweb",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^1.1.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xyweb"
+  ],
+  "author": "xy",
+  "license": "ISC"
+}

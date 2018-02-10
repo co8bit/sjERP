@@ -1,0 +1,39 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+   
+
+    <div class="container">
+        <h1>androidUpdateCheck</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Update/androidUpdateCheck")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>version_name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="version_name" type="text" autofocus="" value='1.0.0'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,411 @@
+<div id="scrollArea" class="sales-order" ng-class="{'shadow':PickGoodTabIsShow==true}" ng-controller="SalesOrderController" autoscroll="true">
+	<div class="body-class" ng-class="{'shadow':PickGoodTabIsShow==true}" autoscroll="true">
+		<!-- 标题栏 -->
+		<div ng-show="!PickGoodTabIsShow" class="title-bar">
+			<span class="function-name" ng-show="orderInfo._class == 1">订单 / 销售开单</span>
+			<span class="function-name" ng-show="orderInfo._class == 2">订单 / 销售退货</span>
+			<span class="function-name" ng-show="orderInfo._class == 3">订单 / 采购开单</span>
+			<span class="function-name" ng-show="orderInfo._class == 4">订单 / 采购退货</span>
+			<div class="quit" ng-click="quit()">
+				<img src="web/app/img/misc/pic_close.png"></img>
+			</div>
+		</div>
+		<!-- 客户信息货物列表等 -->
+		<div id="pickgoodInfo">
+			<div class="cstmr-info-tab typical-left-right-narrow">
+				<!-- 左半部分 -->
+				<div class="t-left">
+					<div class="left-container" id="left-container">
+						<div class="cstmr-container">
+							<div class="title-name-row">
+								<span class="title-name" ng-show="orderInfo._class == 1 || orderInfo._class == 2">客户信息</span>
+								<span class="title-name" ng-show="orderInfo._class == 3 || orderInfo._class == 4">供货商信息</span>
+							</div>
+							<div class="input-row">
+								<input ng-show="orderInfo._class == 1 || orderInfo._class == 2" class="cstmr-name-input" ng-class="{'color-blue': orderInfo.company.cid > 0}" type="text" placeholder="客户名称" 									ng-model="companyNameInput" ng-focus="clickcompanyNameInput()">
+								<input ng-show="orderInfo._class == 3 || orderInfo._class == 4" class="cstmr-name-input" ng-class="{'color-blue': orderInfo.company.cid > 0}" type="text" placeholder="供货商名称" 									ng-model="companyNameInput" ng-focus="clickcompanyNameInput()">
+								<span class="required">*</span>
+							</div>
+							<div class="cstmr-list" ng-show="isCompanyListShow">
+								<div class="auto-complete-content">
+									<button class="active" ng-click="clickAddNewCompany()">增加新单位</button>
+								</div>
+								<!-- 自动完成的往来单位列表 -->
+								<!-- 选择单位 -->
+								<div class="auto-complete-content" ng-repeat="item in companyList | filter:companyNameInput">
+									<button ng-click="clickCompany(item);">{{item.name}}</button>
+								</div>
+							</div>
+						</div>
+						<div class="xy-checkbox" ng-show="orderInfo._class == 1 || orderInfo._class == 2">
+							<label>
+		                        <input type="checkbox" ng-model="whetherDeliver" >
+								送货信息
+		                    </label>
+						</div>
+						<div class="xy-checkbox" ng-show="orderInfo._class == 3 || orderInfo._class == 4">
+							<label>
+		                        <input type="checkbox" ng-model="whetherDeliver" >
+								收货信息
+		                    </label>
+						</div>
+						<!-- <div class="step-number two">2</div> -->
+						<div class="lianxirenxinxi" ng-show="whetherDeliver">
+							<span>本次交易的联系人信息</span>
+						</div>
+						<div class="cstmr-info-group" ng-show="whetherDeliver">
+							<div class="zuijinshiyongdelianxiren">
+								<span ng-show="(orderInfo._class == 1 || orderInfo._class == 2) && companyNameInput != undefined && companyNameInput != ''">该客户的联系人</span>
+								<span ng-show="(orderInfo._class == 3 || orderInfo._class == 4) && companyNameInput != undefined && companyNameInput != ''">该供货商的联系人</span>
+							</div>
+							<!-- 联系人列表 -->
+							<div class="recent-cstmr-container" ng-show="whetherDeliver">
+								<button class="mr-s" ng-repeat="item in contactList " ng-click="clickContact(item);">{{item.contact_name}}</button>
+								<button class="mr-s add-contact" ng-click="addContact();">或直接填写新的信息</button>
+							</div>
+							<div class="cstmr-info" ng-show="whetherDeliver">
+								<div>
+									<span>姓名：</span>
+									<input class="" type="text" ng-model="orderInfo.contact_name">
+									<span class="required">*</span>
+								</div>
+
+								<div>
+									<span>电话：</span>
+									<input class="contact-phonenum" type="text" ng-model="orderInfo.mobile" ng-focus="isContactPhonenumListShow = true;" ng-keyup="onlyNumber('mobile')">
+									<span class="required"></span>
+								</div>
+								<div ng-show="isContactPhonenumListShow" class="cstmr-list">
+									<button ng-repeat="item in selectedContact.phonenum" ng-click="orderInfo.setPhonenum(item.mobile); isContactPhonenumListShow = false;">{{item.mobile}}</button>
+								</div>
+
+								<div>
+									<span>车牌号：</span>
+									<input class="car-license-input" type="text" ng-model="orderInfo.car_license" ng-focus="isCarLicenseListShow = true;">
+									<span class="required"></span>
+								</div>
+								<div class="cstmr-list" ng-show="isCarLicenseListShow">
+									<button ng-repeat="item in selectedContact.car_license | filter:orderInfo.car_license" ng-click="orderInfo.setCarLicense(item.car_license);">{{item.car_license}}</button>
+								</div>
+
+								<div>
+									<span>停车位置：</span>
+									<input class="parkaddress-input" type="text" ng-model="orderInfo.park_address" ng-focus="isParkAddressListShow = true;">
+									<span class="required"></span>
+								</div>
+								<div class="cstmr-list" ng-show="isParkAddressListShow">
+									<button ng-repeat="item in parkAddressList | filter:orderInfo.park_address" ng-click="orderInfo.setParkAddress(item.park_address);">{{item.park_address}}</button>
+								</div>
+								<div>
+									<span>备注：</span>
+									<textarea class="cstmr-list" type="text" ng-model="orderInfo.contact_remark"></textarea>
+									<span class="required"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="typical-left-right-narrow order-good-list-tab">
+				<div class="t-left">
+					<div class="table-container">
+						<div class="title-name-row">
+							<span class="title-name" ng-show="orderInfo._class == 2||orderInfo._class ==3">入库仓库</span>
+							<span class="title-name" ng-show="orderInfo._class == 1||orderInfo._class ==4">出库仓库</span>
+						</div>
+						<div class="sto-container">
+
+							<div class="input-row">
+
+								<input class="sto-name-input"  type="text" placeholder="仓库名称" ng-model="orderInfo.sto_name" ng-focus="clickStoNameInput()">
+								<span class="required">*</span>
+							</div>
+							<div class="sto-list" ng-show="isStoListShow">
+								<div class="auto-complete-content">
+									<button class="active" ng-click="clickAddNewSto()">增加新仓库</button>
+								</div>
+								<!-- 自动完成的往来单位列表 -->
+								<!-- 选择单位 -->
+								<div class="auto-complete-content" ng-repeat="item in stoList | filter:stoNameInput">
+									<button ng-click="clickSto(item);">{{item.sto_name}}</button>
+								</div>
+							</div>
+						</div>
+						<div class="title-name-row">
+							<span class="title-name" >商品信息</span>
+						</div>
+						<div class="table">
+							<div class="head table-row">
+								<span>编号</span>
+								<span>商品名称</span>
+								<span>规格</span>
+								<span>{{quantityType}}</span>
+								<span>单价</span>
+								<span>金额</span>
+								<span ng-show="allocateIsShow">分摊金额</span>
+								<span>备注</span>
+								<span>操作</span>
+							</div>
+							<div class="table-row" ng-repeat="item in cartAgent.cartItemList track by $index">
+								<span>{{$index + 1}}</span>
+								<span class="ellipsis">{{item.spu_name}}</span>
+								<span class="ellipsis">{{item.spec_name}}</span>
+								<span class="pointer" ng-show="!isQuaBan"  ng-click="quantityBan()" >{{item.quantity | number:2}}</span>
+								<input  type="number" ng-show="isQuaBan" ng-change="watchQuantity(item)"  ng-model="item.quantity" ng-blur="quantityBan(item);">
+								<span class="pointer" ng-show="!isPriBan"  ng-click="priceBan()" >{{item.unit_price | number:2}}</span>
+								<input  type="number" ng-show="isPriBan" ng-model="item.unit_price" ng-blur="priceBan(item);">
+								<span>{{item.pile_price | number:2}}</span>
+								<span ng-show="allocateIsShow && allocate == 1">{{cartAgent.freight / item.count * item.quantity | number:2}}</span>
+								<span ng-show="allocateIsShow && allocate == 2">{{cartAgent.freight / item.price * item.pile_price | number:2}}</span>
+								<span class="ellipsis">{{item.comment}}</span>
+								<span class="two-imgs">
+                        			<span ng-click="editCartItem(item);"><img src="web/app/img/misc/pic_edit.png"></span>
+									<span ng-click="deleteItem(item)"><img src="web/app/img/misc/pic_delete.png"></span>
+								</span>
+							</div>
+							<div class="table-row" ng-show="cartAgent.cartItemListLength<2">
+								<!-- 添加空白项 -->
+								<span></span>
+								<span>{{blankOrderisHidden}}</span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span ng-show="allocateIsShow"></span>
+								<span></span>
+								<span class="two-imgs">
+                        			<span></span>
+									<span></span>
+								</span>
+							</div>
+							<div class="table-row" ng-show="cartAgent.cartItemListLength<3">
+								<!-- 添加空白项 -->
+								<span></span>
+								<span>{{blankOrderisHidden}}</span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span ng-show="allocateIsShow"></span>
+								<span></span>
+								<span class="two-imgs">
+                        			<span></span>
+									<span></span>
+								</span>
+							</div>
+							<div class="table-row" >
+								<!-- 添加空白项 -->
+								<span>合计</span>
+								<span>{{blankOrderisHidden}}</span>
+								<span></span>
+								<span ng-bind="cartAgent.addcount| number: 2"></span>
+								<span></span>
+								<span ng-bind="cartAgent.totPrice | number: 2">0</span>
+								<span ng-show="allocateIsShow">{{cartAgent.freight|number:2}}</span>
+								<span></span>
+								<span class="two-imgs">
+                        			<span></span>
+									<span></span>
+								</span>
+							</div>
+
+						</div>
+						<!-- 按钮：添加商品 -->
+						<div class="div-add-btn" autoscroll="true" id="bottom">
+							<button id="scrolltarget" class="xy-btn xy-btn-orange" ng-click="addPickGoodTab()">添加商品</button>
+						</div>
+						<div class="freight-div" ng-show="orderInfo._class == 3">
+							<div class="input-row">
+								<span>运送费用</span>
+								<input type="number" ng-model="cartAgent.freight" ng-change="cartAgent.updateCartInfo();" ng-focus="cartAgent.freight = '';" placeholder="(元)">
+							</div>
+							<div class="xy-checkbox">
+								<label><input type="checkbox" ng-model="allocateIsShow"/>运费分摊入成本</label>
+								<span class="tip" ng-show="orderInfo._class == 3">
+									注：运送费用未摊入成本，则另外生成一张"运费"支出费用单，默认支出方式为现金支付
+								</span>
+							</div>
+							<div class="check-box" ng-show="allocateIsShow">
+								<span>分摊方式:</span>
+								<div class="xy-checkbox-inline">
+									<label><input type="radio" ng-model="allocate" ng-init="allocate = 1" ng-value="2"/>按金额分摊</label>
+								</div>
+								<div class="xy-checkbox-inline">
+									<label><input type="radio" ng-model="allocate" ng-value="1"/>按数量分摊</label>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="submit-tab">
+				<div class="submit-tab-sub">
+					<div class="title-name-row">
+							<span class="title-name" >备注信息</span>
+						</div>
+					<div class="orderremark">
+						<textarea type="text" ng-model="orderInfo.remark"></textarea>
+					</div>
+					<div>
+						<label>开单日期</label>
+						<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+					</div>
+					<!--<div class="chose-action" ng-show="orderInfo.isSeller">-->
+					<div class="chose-action">
+						<div class="xy-radio">
+							<label><input type="radio" ng-value="5" ng-model="orderInfo.status">暂不通知库管处理</label>
+						</div>
+						<div class="mt-s xy-radio">
+							<label><input type="radio" ng-value="4" ng-model="orderInfo.status">立即通知库管处理</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 选择货物列表 -->
+		<div id="goodList" ng-show="PickGoodTabIsShow" class="GoodListDialog">
+			<div class="goodListTotal">
+				<div class="search-and-cat">
+					<div class="search-bar-red">
+						<div>
+							<img src="web/app/img/misc/pic_search_grey.png">
+							<input type="text" ng-model="queryInfo.query" placeholder="类别/商品名/规格/速查码" />
+						</div>
+						<div class="btnquit" ng-click="quitGoodListTotal()">
+							<button>
+                    <img src="web/app/img/misc/good_list_close.png"></img>
+                </button>
+						</div>
+					</div>
+					<div class="filter-bar-red">
+						<div>
+							<span>类别筛选</span>
+							<button ng-click="setCatTo('')" ng-class="{highlight:selectedCatId == ''}">全部</button>
+							<button ng-class="{highlight:selectedCatId == item.cat_id}" ng-repeat="item in catInfo" ng-click="setCatTo(item.cat_id)" ng-show="item.status == '1'">{{item.cat_name}}</button>
+						</div>
+						<button class="xy-btn xy-btn-orange create-spu-btn " ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_SPU);">创建商品</button>
+					</div>
+				</div>
+				<!--编辑商品-->
+				<div ng-if="cartAgent.editingCartItem.sku_id > 0 && priceInput.isShow" ng-include="'web/app/src/SharedComponent/GoodSpecPriceInput/GoodSpecPriceInput.html'" ng-controller="GoodSpecPriceInputController"></div>
+				<div class="good-list" id="good-list">
+					<div class="good-unit" ng-repeat="item in skuInfo" ng-show="item.status == '1'&& item.isShowAgain">
+						<div class="item-info" ng-click="addCartItem(item);">
+							<div class="spec-name ellipsis">{{item.spec_name}}</div>
+							<div class="spu-name ellipsis">{{item.spu_name}}</div>
+							<div>{{item.stock|number:2}}件</div>
+						</div>
+						<div class="already-add" ng-click="editCartItem(item)" ng-class="{editing:cartAgent.editingCartItem.sku_id == item.sku_id}" ng-show="(cartAgent.cartItemList[item.sku_id].quantity > 0 || cartAgent.editingCartItem.sku_id == item.sku_id)">
+							<div class="ellipsis">{{cartAgent.cartItemList[item.sku_id].spu_name}}</div>
+							<div>已添加</div>
+							<div>{{cartAgent.cartItemList[item.sku_id].quantity|number:2}}件</div>
+							<div class="click-to-modify">点击修改</div>
+						</div>
+					</div>
+				</div>
+				<div  class="quit" ng-click="quitGoodListTotal();gotoBottom()">
+					<button class="btn-submit">完成添加</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--右侧悬浮-->
+	<div ng-show="!PickGoodTabIsShow">
+		<div class="value-floating-panel" ng-class="{'shadow':PickGoodTabIsShow==true}">
+			<div class="money-number">
+				<div class="good-value">
+					<span class="bigger-span">{{orderInfo.cartAgent.totPrice | number:2}}</span>
+					<span>货物价值</span>
+				</div>
+			</div>
+			<div class="money-line line1">
+				<div class="money-line-div">
+					<span for="">-&nbsp&nbsp优惠金额</span>
+					<input class="" type="number" ng-model="orderInfo.off" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(0); orderInfo.off='';" placeholder="元" ng-keyup="onlyNumber('off')">
+				</div>
+				<div class="money-line-div" ng-show="orderInfo.isSeller">
+					<span for="">=&nbsp&nbsp应收金额</span>
+					<input class="" type="text" ng-value="orderInfo.receivableThisTime | number:2" disabled="true" placeholder="元">
+				</div>
+				<div class="money-line-div" ng-show="!orderInfo.isSeller">
+					<span for="">=&nbsp&nbsp应付金额</span>
+					<input class="" type="text" ng-value="orderInfo.payableThisTime | number:2" disabled="true">
+				</div>
+			</div>
+			<div class="money-line line-btn">
+				<div class="money-line-div">
+					<button ng-click="inFull('cash');">现金全款</button>
+					<button ng-click="inFull('bank');">银行全款</button>
+					<button ng-click="inFull('online_pay');">网络全款</button>
+				</div>
+			</div>
+			<div class="money-line line2">
+				<div class="money-line-div">
+					<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">&nbsp&nbsp&nbsp&nbsp现金支付</span>
+					<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">&nbsp&nbsp&nbsp&nbsp现金收款</span>
+					<input class="input-s-s" type="number" ng-model="orderInfo.cash" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(2); orderInfo.cash = '';" ng-keyup="onlyNumber('cash')">
+				</div>
+				<div class="money-line-div">
+					<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">+&nbsp&nbsp银行支付</span>
+					<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">+&nbsp&nbsp银行收款</span>
+					<input class="input-s-s" type="number" ng-model="orderInfo.bank" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(3); orderInfo.bank = '';" ng-keyup="onlyNumber('bank')">
+				</div>
+
+				<div class="money-line-div">
+					<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">+&nbsp&nbsp网络支付</span>
+					<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">+&nbsp&nbsp网络收款</span>
+					<input class="input-s-s" type="number" ng-model="orderInfo.online_pay" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(1); orderInfo.online_pay = '';" ng-keyup="onlyNumber('online_pay')">
+
+				</div>
+				<div class="money-line-div" ng-show="orderInfo.isSeller">
+					<span for="">=&nbsp&nbsp实收金额</span>
+					<input class="" type="text" ng-value="orderInfo.actualReceipt | number:2" disabled="true">
+
+				</div>
+				<div class="money-line-div" ng-show="!orderInfo.isSeller">
+					<span for="">=&nbsp&nbsp实付金额</span>
+					<input type="text" ng-value="orderInfo.actualPayment | number:2" disabled="true">
+
+				</div>
+			</div>
+			<div class="money-line line3">
+
+				<div class="money-line-div">
+					<span for="">&nbsp&nbsp&nbsp&nbsp本次结余</span>
+					<input class="" type="text" ng-value="orderInfo.balanceThisTime | number:2" disabled="true">
+				</div>
+				<div class="money-line-div">
+					<span for="">+&nbsp&nbsp此前结余</span>
+					<input class="" type="text" ng-value="orderInfo.company.balance == undefined ? 0 : orderInfo.company.balance | number:2" disabled="true">
+
+				</div>
+				<div class="money-line-div">
+					<span for="">=&nbsp&nbsp总结余&nbsp&nbsp&nbsp</span>
+					<input type="text" ng-value="orderInfo.balanceAfterPaying | number:2" disabled="true">
+				</div>
+			</div>
+			<div class="notes">
+				<span>注：结余为负代表</span>
+				<span class="red">他欠您</span>
+				<span>，为正代表</span>
+				<span class="red">您欠他</span>
+			</div>
+			<div class="submit-btn">
+				<div class="btn-submit" ng-click="createOrder(isPrint)">
+					{{createOrderItem}}
+				</div>
+				<div class="dropUp-btn" ng-click="CheckBoxIsShow()">
+					^
+				</div>
+				<div class="floatCheckBox" ng-if="createOrderCheckBoxIsShow">
+					<div ng-click="createOrderCheck(true);" ng-show="!isPrint">
+						开单并打印
+					</div>
+					<div ng-click="createOrderCheck();" ng-show="isPrint">
+						开单
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

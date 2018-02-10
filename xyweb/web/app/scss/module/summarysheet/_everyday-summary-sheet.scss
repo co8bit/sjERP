@@ -1,0 +1,25 @@
+.everyday-summary-sheet {
+  position: relative;
+  top: 0;
+  bottom: 0;
+
+  
+
+  .table {
+
+    span {
+      width: 10%;
+    }
+    .time {
+      width: 10%;
+    }
+    .price_title{
+      display: block;      
+      text-align: right;        
+    }
+    .price{
+      display: block;
+      text-align: right;        
+    }
+  }
+}

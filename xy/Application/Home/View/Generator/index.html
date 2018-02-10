@@ -1,0 +1,95 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h2>{$Think.CONTROLLER_NAME}</h2>
+<a href={:U("Index/index")}>返回Index</a>
+<h3>==============================================</h3>
+
+<body class="metro">
+
+<div style="background:#5bc0de;">
+<h1>一、安装相关：</h1>
+<h2>1.方法一：</h2>
+<form id="form" method="post" action="{:U("Install/auto_updateSQL_generator")}">
+  <div>服务器默认seed：521521</div>
+    <div class="tile-group three">
+        <div class="row">
+
+                  <label><font color=black>seed:</font></label>
+                     <input name="seed" type="text" value='521521'>
+
+              <div class="row">
+            <input value="一键自动部署" type="submit">
+          </div>
+        </div>
+    </div>
+</form>
+
+
+<h2>2.方法二：分阶段部署</h2>
+    <h3>Setp1:  <a href={:U("Install/UpdateSQL")}>重置数据库</a></h3>
+
+    <div class="container">
+        <h3>Setp2:  生成数据</h3>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Generator/generator")}">
+                <div>服务器默认seed：521521</div>
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>seed:</font></label>
+                                   <input name="seed" type="text" value='521521'>
+
+                            <div class="row">
+                          <input value="生成数据" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+        <h3>备注:  生成过程中产生任何中断，都必须重置数据库，才能再generator</h3>
+    </div>
+</div>
+
+
+
+<div style="background:#5cb85c;">
+<h1>二.维护相关</h1>
+<h2>1.重新生成权限</h2>
+<a href={:U("Generator/genAuth")}>重新生成权限</a>
+</div>
+
+
+
+
+
+
+
+<div style="background:#f0ad4e;">
+<h1>三、体验账户相关：</h1>
+<h2>1.生成体验账户假数据</h2>
+<a href={:U("RealDataGenerator/generator")}>生成体验账户假数据</a>
+
+<h2>2.注销管理员账户信息(删除账户数据库中所有信息)（代码需要手动开启）</h2>
+<form method="post" action="{:U("RealDataGenerator/deleteAdminInfoByAdminId")}">
+  <label>用户admin_id</label>
+  <input type="number" name="admin_uid">
+  <input value="注销" type="submit">
+</form>
+</div>
+
+<div style="background:#5cb85c;">
+<h1>四.其他</h1>
+<h2>1.修改数据库remain小数点超过两位的情况,四舍五入（只运行一次）</h2>
+<a href={:U("UpdateDatabaseFormat/resetRemain")}>重置</a>
+</div>
+
+<h2>2.多仓多库初始化（只运行一次）</h2>
+<a href={:U("UpdateDatabaseFormat/initializeStoSku")}>重置</a>
+</div>
+
+
+
+</body>
+</html>

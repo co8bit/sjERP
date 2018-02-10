@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>打印设计</title>
+
+<script language="javascript" src="LodopFuncs.js"></script>
+
+<script language="javascript" src="http://www.lodop.net/uploads/file/sample/LodopFuncs.js"></script>
+<object  id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+       <embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0></embed>
+</object>
+
+
+</head>
+<body>
+<h2><font color="#009999">演示如何获得打印结果和程序代码：</font>
+</h2>
+<table>
+<tr><td>一般情况下，打印设计的程序代码需要用界面的“生成程序代码”菜单命令生成后，</td>
+</tr>
+<tr><td>手工复制出来融合到页面程序中使用。但实际上无论是<font color="#0000FF">直接打印、打印预览、打印维护</font>还是<font color="#0000FF">打印设计</font>，在运行结束或关闭窗口时都会返回相应的执行结果：</td></tr>
+<tr><td><font color="#0000FF">直接打印</font><font color="#000000">返回逻辑真假结果（1或true代表真，false或0代表假），表示是否成功（关于进一步捕获打印状态<a href="PrintSample45.html">参考样例45</a>）；</font></td></tr>
+<tr><td><font color="#0000FF">打印维护</font><font color="#000000">和</font><font color="#0000FF">打印预览</font><font color="#000000">返回打印次数，大于0表示打印成功的次数；</font></td></tr>
+<tr><td><font color="#0000FF">打印设计</font><font color="#000000">窗口关闭后会自动生成程序代码并返给页面，页面程序可以进一步验证这些代码或提交保存；</font></td></tr>
+<tr><td><font color="#0000FF">打印设计</font><font color="#000000">返回的程序代码借用js的 eval()函数 ，从而实现0内容开始的全动态设计；</font></td></tr>
+</table>
+<p><font size="2"><input type="button" value="打印预览" onclick="prn1_preview()">
+<input type="button" value="打印维护" onclick="prn1_setup()">
+<input type="button" value="打印设计" onclick="prn1_design()">
+<input type="button" value="打印维护返回程序代码" onclick="prn2_setup()"></p>
+<form method="POST" action="--WEBBOT-SELF--">
+  <p><textarea rows="12" id="S1" cols="107" >返回的结果值</textarea>
+<div id='id01'  disabled = true>
+  <input type="button" value="用这些代码执行打印预览" id="button02"   onclick="prn2_Preview()"> 
+  <input type="button" value="保存这些代码到本地文件" id="button03" onclick="myWriteFile(document.getElementById('S1').value)"> 
+  <input type="button" value="导入程序代码" id="button04" onclick="document.getElementById('S1').value=myReadFile()"> 
+  <input type="button" value="用以上代码设计并返回结果(循环互动)" id="button05"   onclick="prn2_design()"> 
+</div>
+</font>
+</form>
+<p></p>
+
+<script language="javascript" type="text/javascript"> 
+	var LODOP;  
+	
+	var lodop_mShopName     = '__lodop_mShopName__';
+	var lodop_contact_name  = '__lodop_contact_name__';
+	var lodop_value         = '__lodop_value__';
+	var lodop_reg_date      = '__lodop_reg_date__';
+	var lodop_park_address  = '__lodop_park_address__';
+	var lodop_cid_name      = '__lodop_cid_name__';
+	var lodop_car_license   = '__lodop_car_license__';
+	var lodop_off           = '__lodop_off__';
+	var lodop_yingshou      = '__lodop_yingshou__';
+	var lodop_data_table    = '__lodop_data_table__';
+	var lodop_sn            = '__lodop_sn__';
+	var lodop_num           = '__lodop_num__'
+	var lodop_cash          = '__lodop_cash__'
+	var lodop_bank          = '__lodop_bank__'
+	var lodop_onlinepay     = '__lodop_onlinepay__'
+	var lodop_income        = '__lodop_income__'
+	var lodop_remain        = '__lodop_remain__'
+	var lodop_operator_name = '__lodop_operator_name__'
+	var lodop_remark        = '__lodop_lodop_remark__'
+
+
+
+
+	var HtmStr="<!DOCTYPE>\n<style>table,td{border:1px solid black;}</style>\n<body style=\"background-color:transparent;margin:0\" >\n<table>\n<tr>\n<td>透明超文本表格</td>\n<td>预览就看出透明</td>\n<td>预览才看出透明</td>\n</tr>\n<tr>\n<td>非表格也能透明</td>\n<td>预览看出透明</td>\n<td>预览看出透明</td>\n</tr>\n</table>";	
+	function prn1_preview() {	
+		CreateOneFormPage();	
+		document.getElementById('S1').value="打印预览返回结果："+LODOP.PREVIEW();
+		document.getElementById('id01').disabled = true;	
+	};
+	function prn1_setup() {		
+		CreateOneFormPage();
+		document.getElementById('S1').value=LODOP.PRINT_SETUP();
+		document.getElementById('id01').disabled = true;	
+	};
+	function prn1_design() {		
+		CreateOneFormPage();
+		document.getElementById('S1').value=LODOP.PRINT_DESIGN();
+		document.getElementById('id01').disabled = false; 	
+	};
+	function prn2_setup() {		
+		CreateOneFormPage();
+		LODOP.SET_PRINT_MODE("PRINT_SETUP_PROGRAM",true);
+		document.getElementById('S1').value=LODOP.PRINT_SETUP();
+		document.getElementById('id01').display =false; 		
+	};	
+	function prn2_Preview() {
+		LODOP= getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));	
+		eval(document.getElementById('S1').value); 
+		LODOP.PREVIEW();
+	};
+	function prn2_design() {
+		LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));	
+		eval(document.getElementById('S1').value); 
+		document.getElementById('S1').value=LODOP.PRINT_DESIGN();
+	};		
+	function CreateOneFormPage(){		
+		LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));        
+		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_获得程序代码");
+	};
+	function myWriteFile(strText){
+		var strFilename=LODOP.GET_DIALOG_VALUE("LocalFileFullNameforSave","保存的新文件名.txt");
+	 	if (LODOP.WRITE_FILE_TEXT(0,strFilename,strText)=="ok")
+		   {alert("写入成功！");} else {alert("写入失败！");}
+	};
+	function myReadFile() {
+		var strFilename=LODOP.GET_DIALOG_VALUE("LocalFileFullNameforOpen","导入的文件名.txt")		
+		return LODOP.GET_FILE_TEXT(strFilename);
+	};
+</script> 
+
+
+
+
+</body>
+</html>

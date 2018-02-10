@@ -1,0 +1,25 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+<h1>loadExcelFrom_ForCompany</h1>
+<form method="post" action="{:U("Other/loadExcelFrom_ForCompany")}" enctype="multipart/form-data">
+<input type="file" name="exceldata" />
+<input type="submit" value="提交" >
+</form>
+
+<h1>loadExcelFrom_ForSku</h1>
+<form method="post" action="{:U("Other/loadExcelFrom_ForSku")}" enctype="multipart/form-data">
+<input type="file" name="exceldata" />
+<input type="submit" value="提交" >
+</form>
+
+
+</body>
+</html>

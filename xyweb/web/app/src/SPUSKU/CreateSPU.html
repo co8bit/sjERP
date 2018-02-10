@@ -1,0 +1,125 @@
+<!-- 创建和编辑SPU都是这个 -->
+<div class="create-spu">
+    <div class="create-spu-container">
+        <div class="fill-info-container">
+            <span class="left">填写商品信息</span>
+            <div class="right">
+                <div>
+                    <span>商品名称：</span>
+                    <input type="text" ng-model="spuInfo.spu_name" ng-change="genQcode()"/>
+                    <span class="required">*</span>
+                </div>
+                <div>
+                    <span>速查码：</span>
+                    <input type="text" ng-model="spuInfo.qcode" ng-click="clickQcodeInput();"/>
+                    <span class="required">*</span>
+                </div>
+                <!-- 速查码下拉菜单 -->
+                <div class="pull-down-menu" ng-show="isQcodeListShow">
+                    <div ng-repeat="item in qcodeList">
+                        <span ng-class="{ 'first-qcode' : $index == 0 }" ng-click="clickQcode(item);">{{item}}</span>
+                    </div>
+                </div>
+                <div>
+                    <span>所属类别：</span>
+                    <input class="cat-name" type="text" ng-model="spuInfo.cat_name" ng-click="clickCatInput();"/>
+                    <span class="required">*</span>
+                </div>
+                <!-- 类别下拉菜单 -->
+                <div class="pull-down-menu" ng-show="isCatListShow">
+                    <div>
+                        <span ng-show="isCreateEditCatShow" class="new" ng-click="clickNewCat();">新建类别</span>
+                    </div>
+                    <div ng-repeat="item in catList | filter: spuInfo.cat_name" ng-show="item.status == '1'">
+                        <span ng-click="clickCat(item);">{{item.cat_name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sto-spec">
+            <div class="sto-container" ng-repeat="($stoIndex,sto) in stoInfo.stos">
+                <div class="spu-sto">
+                    <div class="spu-sto-select">
+                        <div class="left">
+                            <button  ng-click="addSto()" class="fa fa-plus"></button>
+                            <button ng-click="deleteSto($stoIndex)" class="fa fa-minus"></button>
+                        </div>
+                        <div class="right">
+                            <span>所属仓库：</span>
+                            <input class="sto-name" type="text" ng-model="sto.sto_name" ng-click="clickStoInput($stoIndex);"/>
+                            <span class="required">*</span>
+                        </div>
+                    </div>
+                    <div class="pull-down-menu" ng-show="isStoListShow[$stoIndex]">
+                        <div>
+                            <span class="new" ng-click="clickNewSto();">新建仓库</span>
+                        </div>
+                        <div  ng-repeat="item in stoInfo.allSto track by $index">
+                            <span ng-click="selectSto($index,$stoIndex)" >{{item.sto_name}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="spu-stoSpec" ng-repeat="item  in  spuInfo.skus.data[$index].skuStoData">
+                    <div class="itemContainer"><span>规格：</span> <input type="text" ng-model="item.spec_name" placeholder="10只/包/箱/件"><span class="required">*</span></div>
+                    <div class="itemContainer"><span>成本：</span> <input type="text" ng-model="item.unit_price" ng-keyup="onlyNumber(item,'unit_price');" placeholder="0"><span class="required">*</span></div>
+                    <div class="itemContainer"><span>库存：</span> <input type="text" ng-model="item.stock" ng-keyup="onlyNumber(item,'stock');" placeholder="0"><span class="required">*</span></div>
+                    <div class="itemContainerBehind">
+                        <p><span>置顶</span><input type="checkbox" ng-model="item.sku_sto_index" ng-true-value="'1'" ng-false-value="'2'"></p>
+                        <p><span>启用</span><input type="checkbox" ng-model="item.sku_sto_status"ng-true-value="'1'" ng-false-value="'0'"></p>
+                        <button class="delete-spec-btn" ng-click="removeSKU($index,$stoIndex,item)">删除规格</button>
+                    </div>
+                  </div>
+            <!--    <div class="upload">
+                    <div class="word">图片&nbsp;:</div>
+                    <div class="picture">
+                        <p class="hint1">建议像素500*300</p>
+                        <p class="hint2"><i class="fa fa-plus fa-2x"></i></p>
+                        <p class="hint3">最多添加6张</p>
+
+                    </div>
+                </div>-->
+                <button class="add-spec-btn" ng-click="addSKU($stoIndex,sto.sto_id)" >增加规格</button>
+            </div>
+        </div>
+        <!--新增的规格-->
+        <!--<div class="new-spec" ng-repeat="item in spuInfo.skus">-->
+        <!--<div class="input-container">-->
+        <!--<span for="">规格名称：</span>-->
+        <!--<input placeholder="10只/件/箱/双/串 等" type="text" ng-model="item.spec_name"/>-->
+        <!--<span class="required">*</span>-->
+        <!--</div>-->
+        <!--<div class="input-container" >-->
+        <!--<span for="">成本单价：</span>-->
+        <!--<input placeholder="0" type="number" ng-model="item.unit_price" style="ime-mode:Disabled"/>-->
+        <!--<span class="required">*</span>-->
+        <!--</div>-->
+        <!--<div class="input-container">-->
+        <!--<span ng-show="!isEdit">期初库存：</span>-->
+        <!--<span ng-show="isEdit">库存：</span>-->
+        <!--<input placeholder="0" type="number" ng-model="item.stock" style="ime-mode:Disabled"/>-->
+        <!--<span class="required">*</span>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<span for="">置顶：</span>-->
+        <!--<input type="checkbox" ng-model="item.sku_index" ng-true-value="'1'"-->
+        <!--ng-false-value="'2'">-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<span for="">启用：</span>-->
+        <!--<input type="checkbox" ng-model="item.status" ng-true-value="'1'"-->
+        <!--ng-false-value="'0'">-->
+        <!--</div>-->
+        <!--<span class="delete-spec" ng-class="{'highlight':item.delete}" ng-if="1" ng-click="removeSKU($index)">删除规格</span>-->
+        <!--</div>-->
+        <!--<div class="add-spec-background">-->
+        <!--<button class="add-spec" ng-click="addSKU()">增加规格</button>-->
+        <!--</div>-->
+
+        <div class="bottom-menu">
+            <!--<button ng-show="spuInfo.spu_id > 0" ng-click="delete();">删除商品</button>-->
+            <button ng-show="!(spuInfo.spu_id > 0)" ng-click="create();">创建并退出</button>
+            <button ng-show="!(spuInfo.spu_id > 0)" ng-click="create(1);">创建并继续</button>
+            <button ng-show="spuInfo.spu_id > 0" ng-click="saveEdit();">完成编辑并保存</button>
+        </div>
+    </div>
+</div>

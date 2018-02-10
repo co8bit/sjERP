@@ -1,0 +1,96 @@
+<!-- 此页面使用bootstart -->
+<div class="print_settings">
+	<h2 class="xy-page-header xy-text-center title">
+		打印设置
+	</h2>
+	<div class="xy-panel xy-panel-default">
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="template">
+				打印模板（请勿直接操作）：
+			</div>
+            <input type="text" ng-model='printTemplateContent' id="printTemplateContent"/>
+            <button class="xy-btn xy-btn-design " ng-click="design();">打印模板设计</button>
+            <button class="xy-btn xy-btn-design " ng-click="recover();">恢复默认模板</button>
+        </div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="xy-checkbox">
+				<table class="xy-table">
+					<tr>
+						<td>
+							设置表格列 ：
+						</td>
+						<td>
+							<label class="checkAll" ><input type="checkbox" ng-model="isCheckAll" ng-change="checkAll();">全选</label>
+						</td>
+						<td>列宽比例</td>
+						<td></td>
+					</tr>
+						<tr ng-repeat="item in data">
+							<td></td>
+							<td>
+								<label>
+									<input  type="checkbox" 
+											value="item.id" 
+											ng-model="item.isChecked" 
+											ng-click="checkbox(item.isChecked, item)"
+											>
+									{{item.name}}
+								</label>
+							</td>
+							<td>
+								<select ng-model="item.widthString" 
+										ng-options="x for x in item.widthSelections"
+										ng-change="widthChange(item)"
+										ng-show="item.isChecked"
+										>
+								</select>
+							</td>
+							<td>
+								<button class="btn btn-default fa fa-arrow-circle-up" aria-hidden="true" ng-click="orderUp($index)" ng-show="item.isChecked">上移</button>
+								<!-- <i class="fa fa-arrow-circle-up" aria-hidden="true" ng-click="orderUp($index)" ng-show="item.isChecked">上移</i> -->
+							</td>
+						</tr>
+				</table>
+			</div>
+		</div>
+		<div class="xy-panel-body xy-panel-body-row">
+			注：选择显示的列，以及设置列的宽度、顺序
+		</div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="check_font_size">
+				选择打印字体大小 ：
+			</div>
+			<div class="dropdown ">
+			    <select ng-init="font_size_checked = font_size[font_size_checked - 10]" ng-model="font_size_checked" ng-options="x for x in font_size">
+				</select>
+			</div>
+		</div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="check_font_size">
+				是否打印网格线 ：
+			</div>
+			<div class="check_gridLine">
+				<label><input type="radio" name="gridLine"  ng-value='true' ng-model="gridLine" />是</label>
+				<label><input type="radio" name="gridLine"  ng-value='false' ng-model="gridLine" />否</label>
+			</div>
+		</div>
+		<!--<div class="xy-panel-body xy-panel-body-row">
+			<div class="check_font_size">
+				是否打印备注 ：
+			</div>
+			<div class="check_gridLine">
+				<label><input type="radio" name="gridLine"  ng-value='true' ng-model="remark" />是</label>
+				<label><input type="radio" name="gridLine"  ng-value='false' ng-model="remark" />否</label>
+			</div>
+		</div>
+		<div class="panel-body">-->
+			<!--<script type="text/javascript" language="javascript" src="web/lib/Lodop/LodopFuncs.js"></script>-->
+			<!--<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+			    <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="../Lodop/install_lodop.exe"></embed>
+			</object>
+		</div>-->
+			<div class="xy-text-center">
+				<button class="xy-btn xy-btn-lg btn-subject " ng-click="submit_template()" ng-disabled="">保存模板</button>
+			</div>
+	</div>
+</div>

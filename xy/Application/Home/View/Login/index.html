@@ -1,0 +1,108 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+
+<form class="form-signin" method="post" action="{:U('Login/admin_register')}">
+  <label for="inputEmail" class="sr-only">管理员账户--手机号注册</label>
+  <label for="inputEmail" class="sr-only">用户名</label>
+  <input type="text" id="inputEmail" name="username" class="form-control"  value='18966666666'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">密码</label>
+  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码"  value="123456">
+  <label for="inputEmail" class="sr-only">邀请码</label>
+  <input type="text" id="inputinvitcode" name="invitated_code" class="form-control" placeholder="邀请码"  >
+  <label for="inputEmail" class="sr-only">very验证码</label>
+  <input type="text" id="inputverify_code" name="verify_code" class="form-control" placeholder="邀请码"  >
+  <label for="inputEmail" class="sr-only">注册什么</label>
+  <input type="text" id="reg_what" name="reg_what" class="form-control" placeholder="注册什么"  >
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">注册</button>
+</form>
+
+<p>
+
+
+<form class="form-signin" method="post" action="{:U('Login/login')}">
+  <label for="inputEmail" class="sr-only">管理员账户--手机号登录</label>
+  <label for="inputEmail" class="sr-only">手机号</label>
+  <input type="text" id="inputEmail" name="username" class="form-control" required autofocus>
+  <label></label>
+  <label for="inputEmail" class="sr-only">密码</label>
+  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+  <label></label>
+
+  <input type="text" id="inputPassword" name="mode" value="2" class="form-control"  required>
+  <input type="text" id="inputPassword" name="type" value="1" class="form-control"  required>
+  <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+</form>
+
+<p>
+
+<form class="form-signin" method="post" action="{:U('Login/login')}">
+  <label for="inputEmail" class="sr-only">普通用户--管理员手机登录</label>
+  <label for="inputEmail" class="sr-only">管理员手机号</label>
+  <input type="text" id="inputEmail" name="admin" class="form-control" required autofocus>
+  <label></label>
+  <label for="inputEmail" class="sr-only">用户名</label>
+  <input type="text" id="inputEmail" name="username" class="form-control" required autofocus>
+  <label></label>
+  <label for="inputEmail" class="sr-only">密码</label>
+  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+  <label></label>
+
+  <input type="text" id="inputPassword" name="mode" value="1" class="form-control"  required>
+  <input type="text" id="inputPassword" name="type" value="1" class="form-control"  required>
+  <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+</form>
+
+<p>
+
+<form class="form-signin" method="post" action="{:U('Login/login')}">
+  <label for="inputEmail" class="sr-only">普通用户--公司用户名登录</label>
+  <label for="inputEmail" class="sr-only">公司用户名</label>
+  <input type="text" id="inputEmail" name="admin" class="form-control" required autofocus>
+  <label></label>
+  <label for="inputEmail" class="sr-only">用户名</label>
+  <input type="text" id="inputEmail" name="username" class="form-control" required autofocus>
+  <label></label>
+  <label for="inputEmail" class="sr-only">密码</label>
+  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+  <label></label>
+
+  <input type="text" id="inputPassword" name="mode" value="1" class="form-control"  required>
+  <input type="text" id="inputPassword" name="type" value="2" class="form-control"  required>
+  <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('Login/create_proxy')}">
+  <label for="name" class="sr-only">姓名</label>
+  <input type="text" id="name" name="name" class="form-control" value = '李聪佳' required autofocus>
+  <label></label>
+  <label for="mobile" class="sr-only">手机</label>
+  <input type="mobile" id="mobile" name="mobile" class="form-control" placeholder="密码" value = '13456321997' required>
+  <label for="area" class="sr-only">所在区域</label>
+  <input type="text" id="area" name="area" value="浙江省杭州市" class="form-control"  required>
+  <input type="text" id="inputPassword" name="type" value="1" class="form-control"  required>
+  <button class="btn btn-lg btn-success btn-block" type="submit">登记</button>
+</form>
+<form class="form-signin" method="post" action="{:U('UpdateDatabaseFormat/history_trans_form')}">
+  <button class="btn btn-lg btn-success btn-block" type="submit">转换</button>
+</form>
+<h1>检测验证码</h1>
+<form class="form-signin" method="post" action="{:U('Login/check_xy_verify_code')}">
+  <label for="name" class="sr-only">验证码</label>
+  <input type="text" id="name" name="verify_code" class="form-control"  required autofocus>
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+<h1>获取验证码</h1>
+<form class="form-signin" method="post" action="{:U('Util/get_xy_verify_code')}">
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+<p>

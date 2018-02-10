@@ -1,0 +1,58 @@
+.check-receiver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -17px;
+  bottom: 0;
+  background: rgba(163, 163, 163, 0.6);
+  z-index: 1000;
+
+  .check-receiver-wrapper{
+    color: #444;
+    padding: 20px;
+    width: 700px;
+    height: 500px;
+    background: #fff;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    .label{
+      font-weight: 500;
+      min-width: 5em;
+      display: inline-block;
+    }
+    .check-box{
+      height: 15em;
+    }
+    .phone-list{
+      border:2px solid #ee7258;
+      margin-top: -2px;
+      min-height: 4em;
+    }
+    .item{
+      width: 15%;
+      display: inline-block;
+      margin-right: 2em;
+      text-align:center;
+      cursor: pointer;
+      padding: 1em;
+    }
+    .checked-contact{
+      border: 2px solid #ee7258;
+      border-bottom:2px solid #ffffff;
+    }
+    .btn-box{
+      text-align: center;
+    }
+    .btn-container{
+      cursor: pointer;
+      padding: 5px 20px;
+      margin: 0 10px;
+      color: #fff;
+      background: #36bc9b;
+    }
+  }
+}

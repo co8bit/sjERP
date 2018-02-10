@@ -1,0 +1,53 @@
+.filter-bar {
+  background: #fff;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  flex-flow: row;
+
+  span {
+    margin-right: 18px;
+    flex-shrink: 0;
+  }
+
+  div {
+    margin: 10px 0;
+
+    button {
+      border: none;
+      outline: none;
+      color: #000000;
+      margin: 3px 18px 3px 0px;
+      padding: 4px 7px;
+      font-size: 13px;
+      background: #eeeeee;
+    }
+
+    button:hover {
+      background: $subthemeColor;
+      color: #fff;
+    }
+
+    .highlight {
+      background: $subthemeColor;
+      color: #fff;
+    }
+  }
+}
+
+.filter-bar-red {
+  @extend .filter-bar;
+  margin: 0;
+  padding-right: 150px;
+
+  div {
+    button:hover {
+      background: $themeColor;
+    }
+
+    .highlight {
+      background: $themeColor;
+    }
+  }
+}

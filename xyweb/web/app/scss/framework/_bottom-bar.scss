@@ -1,0 +1,98 @@
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0px 11px 0px 11px;
+  height: 50px;
+  background: darken(#ee7258, 5%);
+  z-index: 1000;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d1644d;
+    color: #ebbeb8;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+  }
+
+  .last-step {
+    // height:22px;
+    button {
+      width: 81px;
+      height: 27px;
+
+      &:hover {
+        background: #fff;
+        color: #ee7258;
+      }
+    }
+  }
+  .next-step {
+    // height:22px;
+    button {
+      width: 81px;
+      height: 27px;
+      background: #fff;
+      color: #ee7258;
+
+      &:hover {
+        background: darken(#fff, 10%);
+      }
+    }
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  // 中间4个按钮
+  .btn-tab-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 27px;
+    color: white;
+    background: #d1644d;
+    border-radius: 20px;
+
+    div {
+      display: flex;
+      align-items: center;
+      button {
+        height: 18px;
+        line-height: 10px;
+      }
+      .btn-tab-num-circle {
+        width: 18px;
+        border-radius: 20px;
+        background: #e9b9af;
+        color: #d1644d;
+      }
+      .tab {
+
+      }
+
+      &:hover {
+        .btn-tab-num-circle {
+          background: #fff;
+          color: #ee7258;
+        }
+        .tab {
+          color: #fff;
+        }
+      }
+    }
+
+    .highlight {
+      @extend div:hover;
+    }
+  }
+}

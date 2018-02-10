@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/statementWechatOnMobile.css" />
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/statementWechatOnMobile.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body ng-app="wechatOnMobile" ng-controller="wechatOnMobile">
+		<div class="wechat-content" id="wechat-content" ng-if="!detailIsShow">
+			<div class="head ">对账单</div>
+			<div class="customer-info">
+				<div>
+					<span class="info-left">客户名称</span><span class="info-right">{{cid_name}}</span>
+				</div>
+				<div>
+					<span class="info-left">订单结余</span>
+					<span class="info-right red" ng-if="balance > 0">应付{{balance |number : 2}}元</span>
+					<span class="info-right" ng-if="balance == 0">0元</span>
+					<span class="info-right blue" ng-if="balance < 0">应收{{0-balance |number : 2}}元</span>
+				</div>
+			</div>
+			<div class="body">
+				<div class="list" id="list" ng-repeat="item in data" ng-click="clickViewDetails(item)">
+					<div class="list-title">{{item.class_show}}</div>
+					<div class="list-info">
+						<span class="list-info-left">
+							<span class="sn">{{item.sn}}</span>
+							<span class="time">{{item.reg_time_show}}</span>
+						</span>
+						<span class="list-info-right">
+							<span ng-if="item.remain < 0" class="blue">应收{{0 - item.remain |number : 2}}元</span>
+							<span ng-if="item.remain > 0" class="red">应付{{item.remain |number : 2}}元</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="xy-logo">星云进销存</div>
+		</div>
+		<div class="detail" ng-if="detailIsShow" id="detail">
+			<div class="back-row" ng-click="closeDetail()"><span><img src="img/close.png"/></span></div>
+			<div class="head">
+				<div class="title">{{detail.class_show}}</div>
+				<div class="sn">订单号:{{detail.sn}}</div>
+			</div>
+			<div class="body">
+				<div class="list">
+					<div class="list-row">
+						<span class="left">客户名称</span>
+						<span class="right">{{detail.cid_name}}</span>
+					</div>
+					<div class="list-row">
+						<span class="left">经办人</span>
+						<span class="right">跃迁科技</span>
+					</div>
+					<div class="list-row">
+						<span class="left">销售时间</span>
+						<span class="right">{{detail.reg_time_show}}</span>
+					</div>
+				</div>
+				<div class="list" ng-repeat="item in itemDetail">
+					<div class="place"></div>
+					<div class="list-row">
+						<span class="left">商品名</span>
+						<span class="right">{{item.spu_name}}</span>
+					</div>
+					<div class="list-row">
+						<span class="left">规格</span>
+						<span class="right">{{item.spec_name}}</span>
+					</div>
+					<div class="list-row">
+						<span class="left">单价</span>
+						<span class="right">{{item.unitPrice}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">数量</span>
+						<span class="right">{{item.quantity}}</span>
+					</div>
+					<div class="list-row">
+						<span class="left">金额</span>
+						<span class="right">{{item.pilePrice}}</span>
+					</div>
+				</div>
+				<div class="list">
+					<div class="place"></div>
+					<div class="list-row">
+						<span class="left">货物价值</span>
+						<span class="right">{{detail.value |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">优惠金额</span>
+						<span class="right">{{detail.off |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">应收金额</span>
+						<span class="right">{{detail.receivable |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">现金收款</span>
+						<span class="right">{{detail.cash |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">银行收款</span>
+						<span class="right">{{detail.bank |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">网络收款</span>
+						<span class="right">{{detail.online_pay |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">实收金额</span>
+						<span class="right">{{detail.income |number : 2}}元</span>
+					</div>
+					<div class="list-row">
+						<span class="left">待收金额</span>
+						<span class="right">{{detail.remain |number : 2}}元</span>
+					</div>
+				</div>
+			</div>
+			<div class="xy-logo">星云进销存</div>
+		</div>
+		</div>
+	</body>
+
+</html>

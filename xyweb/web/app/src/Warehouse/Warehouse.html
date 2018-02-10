@@ -1,0 +1,47 @@
+<div class="warehouse">
+	<!--页面标题-->
+	<div class="page-title">仓库管理</div>
+	<!--搜索框-->
+	<div class="search-bar">
+		<div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="仓库编号/仓库名" ng-model="queryInfo.query">
+        </div>
+		<button type="button" ng-click="CreateWarehouse()">新增仓库</button>
+	</div>
+	<!--查看仓库数据-->
+	<div class="table">
+        <div class="head table-row">
+            <span>编号</span>
+            <span>仓库名称</span>
+            <span ng-show="rpg!=3">库存金额</span>
+            <span>备注</span>
+            <span>状态</span>
+            <span class="operate">操作</span>
+        </div>
+        <div class="table-row content" ng-repeat="item in stoInfo.allSto"><!--ng-repeat="item in xxxxxxxx"-->
+            <span>{{item.sn}}</span>
+            <span class="ellipsis">{{item.sto_name}}</span>
+            <span ng-show="rpg!=3">{{item.totalValue}}</span>
+            <span>{{item.remark}}</span>
+            <span>{{statusName[item.status]}}</span>
+            <span class="operate">
+                <span><button  ng-click="onpenViewStock(item.sto_id)">查看详情</button></span>
+                <span><button ng-click="EditWarehouse(item)">修改仓库</button></span>
+            </span>
+        </div>
+        <div class="table-row content"  ng-show="rpg!=3"><!--ng-repeat="item in xxxxxxxx"-->
+            <span>总计</span>
+            <span></span>
+            <span>{{allStoValue | number:2}}</span>
+            <span></span>
+            <span></span>
+            <span class="operate"></span>
+        </div>
+    </div>
+    <!--<div class="page-navi">
+        <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true}" ng-repeat="item in pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>-->
+</div>

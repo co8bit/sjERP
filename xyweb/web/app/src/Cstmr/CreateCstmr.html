@@ -1,0 +1,138 @@
+<!--新建往来单位页面-->
+<div class="create-cstmr" ng-controller="CreateCstmrController">
+
+    <div class="title-bar">
+        <span ng-show="isManageCstmrShow" class="function-name">添加 / 编辑往来单位</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+    <div class="content">
+        <div class="top-container">
+            <div class="left">
+                <div ng-show="pageState.isEdit">
+                    <span>编号:</span>
+                    <input type="text" ng-model="cstmrInfo.sn" ng-disabled="true"/>
+                    <span class="required"> </span>
+                </div>
+                <div>
+                    <span>单位名称:</span>
+                    <input type="text"  ng-model="cstmrInfo.name" ng-change="genQcode()"/>
+                    <span class="required">*</span>
+                </div>
+                <div>
+                    <span>速查编码:</span>
+                    <input type="text" ng-model="cstmrInfo.qcode" ng-click="clickQcodeInput();"/>
+                    <span class="required">*</span>
+                </div>
+                <!-- 速查码下拉菜单 -->
+                <div class="pull-down-menu" ng-show="isQcodeListShow">
+                    <div ng-repeat="item in qcodeList">
+                        <span ng-class="{ 'first-qcode' : $index == 0 }" ng-click="clickQcode(item);">{{item}}</span>
+                    </div>
+                </div>
+                <div ng-show="!pageState.isEdit">
+                    <span>期初应收款:</span>
+                    <input type="number" ng-model="cstmrInfo.init_payable"/>
+                    <span class="required">*</span>
+                    <div class="note">注：结余为负代表 <span class="red">您欠他</span> ，为正代表 <span class="red">他欠您</span></div>
+                </div>
+
+                <div>
+                    <span>地址:</span>
+                    <input type="text" ng-model="cstmrInfo.address"/>
+                    <span class="required"></span>
+                </div>
+                <div>
+                    <span>备注:</span>
+                    <textarea rows="5" ng-model="cstmrInfo.remark"/>
+                    <span class="required"></span>
+                </div>
+                <div class="enable">
+                    <span>启用</span>
+                    <input type="checkbox" ng-model="cstmrInfo.status" ng-true-value="'1'"
+                           ng-false-value="'0'">
+                </div>
+            </div>
+
+            <div class="right">
+                <!--<div class="edit">-->
+                    <!--&lt;!&ndash; 新增了一个编辑按钮 &ndash;&gt;-->
+                    <!--<button ng-show="model.pageState.isEdit" ng-click="clickStartEdit();"-->
+                       <!--ng-disabled="pageState.isEditing">编辑</button>-->
+                <!--</div>-->
+                <div class="contact-container" ng-repeat="item in cstmrInfo.contact">
+                    <!-- 联系人单元 -->
+                    <!-- 联系人单元 -->
+                    <div class="contact" ng-show="item.delete != 1">
+                        <div class="contact-bar">
+                            <span>联系人：</span>
+                            <input type="text" placeholder="联系人" ng-model="item.contact_name"ng-focus="isCopy(false)">
+                        </div>
+                        <div class="phone">
+                            <span>电话号：</span>
+                            <div class="container">
+                                <!-- 电话号码单元 -->
+                                <div class="outer"
+                                     ng-repeat="phonenumItem in item.phonenum track by $index">
+                                    <div ng-show="phonenumItem.delete != 1">
+                                        <input type="number" ng-model="phonenumItem.mobile"
+                                               placeholder="电话号">
+                                        <img src="web/app/img/misc/pic_delete_big.png"
+                                             ng-click="item.deleteMobile($index)"></img>
+                                    </div>
+                                </div>
+                                <!-- 电话号码end -->
+                                <div class="add" ng-show="item.__phonenumCount < 6"
+                                     ng-click="item.addMobile()">
+                                    <img src="web/app/img/misc/pic_add_big.png"
+                                    ></img>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="car-license">
+                            <span>车牌号：</span>
+                            <div class="container">
+                                <!-- 车牌号单元 -->
+                                <div class="outer"
+                                     ng-repeat="carLicenseItem in item.car_license track by $index">
+                                    <div ng-show="carLicenseItem.delete != 1">
+                                        <input type="text" ng-model="carLicenseItem.car_license"
+                                               placeholder="车牌号">
+                                        <img src="web/app/img/misc/pic_delete_big.png"
+                                             ng-click="item.deleteCarLicense($index)"></img>
+                                    </div>
+                                </div>
+                                <!-- 车牌号end -->
+                                <div class="add" ng-show="item.__carLicenseCount < 6 && pageState.isEditing"
+                                    ng-click="item.addCarLicense()">
+                                    <img src="web/app/img/misc/pic_add_big.png"></img>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="delete-contact">
+                            <div ng-click="cstmrInfo.deleteContact($index);">
+                                <img src="web/app/img/misc/pic_delete_big.png"></img>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 联系人单元end -->
+                    <!-- 联系人单元end -->
+                </div>
+                <div class="add-contact">
+                    <div ng-click="cstmrInfo.addContact();"
+                         ng-show="cstmrInfo.__contactCount < 6">
+                        <img src="web/app/img/misc/pic_add_big.png"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-btn">
+            <button ng-show="!model.pageState.isEdit" ng-click="createCompany();">创建并退出</button>
+            <button ng-show="!model.pageState.isEdit" ng-click="createCompany(1);">创建并继续</button>
+            <button ng-show="model.pageState.isEdit" ng-click="editCompany();">完成编辑</button>
+        </div>
+    </div>
+</div>

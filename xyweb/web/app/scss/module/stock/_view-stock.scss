@@ -1,0 +1,199 @@
+// 查看库存
+.view-stock {
+    position: relative;
+
+    .filter-bar{
+        display: flex;
+        .name{
+            text-align: right;
+            display: inline-block;
+            width: 60px;
+        }
+        .filter-item{
+            margin-left: 80px;
+        }
+        .sto-section{
+            flex: 1;
+        }
+        .class-section{
+            flex: 1;
+        }
+    }
+    .btn-back {
+        border: none;
+        width: 120px;
+        height: 30px;
+        padding: 0 20px;
+        background: #36bc9b;
+        color: #fff;
+        margin-bottom: 15px;
+        &:hover{
+            background: #30a88b;
+        }
+
+    }
+    .row {
+        display: flex;
+        margin:0px 0px 10px 0px;
+        .total {
+            border-top: 2px solid orangered;
+            padding: 1em 0;
+            background-color: white;
+            width: 100%;
+            min-height: 84px;
+            div {
+                color: #a3a3a3;
+            }
+            .item {
+                padding: 0 10px;
+                display: inline-block;
+                border-right: 2px solid grey;
+                padding: 0 auto;
+                min-width: 10em;
+                text-align: center;
+                .red {
+                    color: red;
+                    font-size: 22px;
+                    font-weight: bold;
+                }
+                .blue {
+                    color: blue;
+                    font-weight: bold;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    .before {
+        margin-bottom: 0;
+    }
+    // 内容数据
+    .table {
+        position: relative;
+        .setting {
+            position: absolute;
+            top: 2px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .table-row {
+            padding-left: 10px;
+            span {
+                width: 11%;
+            }
+            .stock {
+                display: block;
+                width: 80px;
+                text-align: center;
+            }
+            .unit_price {
+                width: 100px;
+            }
+            .tot_price {
+                width: 110px;
+            }
+            .price_title{
+              display: block;
+              text-align: right;
+            }
+            .price{
+              display: block;
+              text-align: right;
+            }
+        }
+
+        .replace {
+            padding-left: 40px;
+        }
+    }
+    .colSetting-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        .setBox {
+            height: 50%;
+            max-width: 600px;
+            min-height: 480px;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 0 auto;
+            margin-top: 15%;
+            background: white;
+            position: relative;
+            .header {
+                height: 50px;
+                display: flex;
+                padding: 0 15px;
+                
+                align-items: center;
+                border-radius: 5px;
+                border-bottom: 2px solid #bbb;
+                justify-content: space-between;
+                span.word{
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #ee7258;
+
+                }
+                    img {
+                        font-size: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                
+            }
+            .table {
+                .table-row {
+                    th,
+                    td {
+                        width: 25%;
+                        text-align: center;
+                        input[type=text] {
+                            width: 100%;
+                            height: 30px;
+                            text-align: center;
+                            border-radius: 5px;
+                        }
+                    }
+                    td {
+                        cursor: pointer;
+                    }
+                    .hide {
+                        display: none;
+                    }
+                }
+            }
+            .footer {
+                position: absolute;
+                bottom: 10px;
+                width: 90%;
+                margin-left: 15px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow:none;
+                span {
+                    height: 30px;
+                    border-radius: 2px;
+                    align-items: center;
+                    line-height: 15px;
+                }
+            }
+        }
+        //在平板或者分辨率低于1024*768的使用inPad中的css
+        .inPad {
+            margin-top: 20px;
+            min-height: 480px;
+        }
+    }
+}

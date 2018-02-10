@@ -1,0 +1,29 @@
+<div class="check-receiver" ng-controller="CheckReceiverController">
+    <div class="check-receiver-wrapper">
+        <div class="input-container">
+            <div class="label">收件号码：</div>
+            <input type="text"  ng-model="mobile">
+        </div>
+        <div class="check-box">
+            <div class="contact-list" >
+                <div class="label">联系人:</div>
+                <div ng-click="checkContact(contact)" class="contact-item item {{contact['checked-contact']}}" ng-repeat="contact in contactList" >
+                    {{ contact.contact_name }}
+                </div>
+            </div>
+            <div class="phone-list">
+                <div class="label">号码：</div>
+                <div ng-click="checkPhone(value.mobile)" class="contact-phone item" ng-repeat="value in checkedContact.phonenum" >
+                    {{ value.mobile }}
+                </div>
+            </div>
+        </div>
+        <div class="btn-box" >
+            <a class="btn-container" ng-click="closeCheckReceiver()">确定</a>
+            <a class="btn-container" ng-click="quit()">取消</a>
+        </div>
+    </div>
+</div>
+<style>
+
+</style>

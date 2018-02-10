@@ -1,0 +1,151 @@
+/*!*全局样式start*!*/
+
+/*.highlight {*/
+    /*background-color: red;*/
+/*}*/
+
+
+/*!*全局样式end*!*/
+
+
+/*!*下面主要是首页样式*!*/
+
+/*body {*/
+    /*margin: 0px;*/
+    /*background-color: white;*/
+/*}*/
+
+/*.spu,*/
+/*.cstmr {*/
+    /*float: left;*/
+    /*width: 7em;*/
+    /*height: 3em;*/
+    /*list-style: none;*/
+    /*background-color: lightblue;*/
+    /*padding: 0.2em 0.6em;*/
+    /*border-right: 1px solid white;*/
+    /*border-bottom: 1px solid white;*/
+/*}*/
+
+/*.hover-and-click:hover,*/
+/*.spu:hover,*/
+/*.cstmr:hover {*/
+    /*background-color: yellow;*/
+/*}*/
+
+/*.hover-and-click:active .spu:active,*/
+/*.cstmr:active {*/
+    /*background-color: orange;*/
+/*}*/
+
+/*.newline {*/
+    /*float: right;*/
+    /*clear: left;*/
+/*}*/
+
+/*.shoppingCart {*/
+    /*clear: both;*/
+/*}*/
+
+/*.activeInput {*/
+    /*!*-webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;*!*/
+    /*border-color: #99BBFF;*/
+    /*!*-webkit-box-shadow: 0 0 18px rgba(111, 1, 32, 3);*!*/
+/*}*/
+
+/*.function-area span {*/
+    /*color: white;*/
+/*}*/
+
+/*.function-area button {*/
+    /*color: white;*/
+    /*background-color: rgb(60, 60, 60);*/
+/*}*/
+
+/*.homepage-btn-container {*/
+    /*margin-top: 32px;*/
+/*}*/
+
+/*.sidenav2 {*/
+    /*position: absolute;*/
+    /*!*vertical-align: top;*!*/
+    /*width: 170px;*/
+    /*font-size: 15px;*/
+    /*background-color: rgb(60, 60, 60);*/
+/*}*/
+
+/*.sidenav .highlight {*/
+    /*background-color: red;*/
+/*}*/
+
+
+/*!*功能主题*!*/
+
+/*.sidenav button {*/
+    /*display: block;*/
+/*}*/
+
+/*.numpad button {*/
+    /*width: 50px;*/
+    /*height: 50px;*/
+/*}*/
+
+/*#aabb:before {*/
+    /*content: "123";*/
+    /*position: absolute;*/
+    /*top: 0vw;*/
+    /*width: 100vw;*/
+    /*height: 100vh;*/
+    /*color: pink;*/
+    /*background-color: #222;*/
+    /*opacity: 0.5;*/
+/*}*/
+
+/*#ccc {*/
+    /*position: absolute;*/
+    /*top: 500px;*/
+    /*left: 0px;*/
+    /*bottom: 0px;*/
+    /*width: 100%;*/
+    /*font-size: 0;*/
+    /*background-color: yellow;*/
+/*}*/
+
+/*#test1-1 {*/
+    /*!*display: inline-block;*!*/
+    /*position: absolute;*/
+    /*font-size: 1rem;*/
+    /*width: 200px;*/
+    /*background-color: blue;*/
+/*}*/
+
+/*#test1-2 {*/
+    /*!*display: inline-block;*!*/
+    /*!*position: relative;*!*/
+    /*margin-left: 200px;*/
+    /*!*width: 100%;*!*/
+    /*font-size: 1rem;*/
+    /*!*width: 80%;*!*/
+    /*background-color: pink;*/
+/*}*/
+
+/*#test1-2-1 {*/
+    /*!*display: inline-block;*!*/
+    /*position: absolute;*/
+    /*!*position: relative;*!*/
+    /*width: 200px;*/
+    /*background-color: green;*/
+/*}*/
+
+/*#test1-2-2 {*/
+    /*!*display: inline-block;*!*/
+    /*margin-left: 200px;*/
+    /*!*width: 50%;*!*/
+    /*background-color: purple;*/
+/*}*/
+
+/*#test1-2-2-1 {*/
+    /*!*display: inline-block;*!*/
+    /*width: 50%;*/
+    /*background-color: grey;*/
+/*}*/

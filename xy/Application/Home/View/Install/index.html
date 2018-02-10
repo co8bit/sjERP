@@ -1,0 +1,16 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<form class="form-signin" method="post" action="{:U('User/login')}">
+  <label for="inputEmail" class="sr-only">测试数据库：管理员账户手机号登录</label>
+  <input type="text" id="inputEmail" name="username" value="{:C('ROOT_USER_MOBILE')}" class="form-control" required autofocus style='display:none'>
+  <input type="password" id="inputPassword" name="password" value='123456' class="form-control" placeholder="密码" required style='display:none'>
+  <input type="text" id="inputPassword" name="mode" value="2" class="form-control" required style='display:none'>
+  <input type="text" id="inputPassword" name="type" value="1" class="form-control" required style='display:none'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+</form>

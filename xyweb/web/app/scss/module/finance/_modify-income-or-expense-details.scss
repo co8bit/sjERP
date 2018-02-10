@@ -1,0 +1,123 @@
+.modify-income-or-expense-details {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 5%;
+  background: #eee;
+
+  .content {
+    margin: 3%;
+    height: 94%;
+    background: #fff;
+    padding: 0 36px 20px;
+    overflow: auto;
+
+    .more {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      cursor: pointer;
+    }
+
+    .top-buttons {
+      width: 100%;
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+
+      div {
+        cursor: pointer;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 25px;
+
+        button {
+          margin-top: 8px;
+          font-size: 13px;
+          border: none;
+          outline: none;
+          background: none;
+          color: #888;
+        }
+      }
+    }
+
+    .log {
+      display: flex;
+      justify-content: flex-end;
+      color: #6e6e6e;
+      font-size: 14px;
+    }
+
+    .info-container {
+      margin-top: 10px;
+      padding: 48px 70px;
+      box-shadow: 0 0 5px #aaa;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      width: 100%;
+      height:50%;
+
+      input {
+        outline: none;
+        background: #fff;
+      }
+
+      input:disabled {
+        border: none;
+        box-shadow: none;
+        background: #fdf3da;
+        border: none;
+      }
+
+      textarea {
+        background: #fff;
+        border: none;
+        resize: none;
+        height: 50%;
+        overflow: hidden;
+      }
+
+      textarea:disabled {
+        border: none;
+        box-shadow: none;
+        background: #fdf3da;
+      }
+
+      .left {
+        width: 30%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        background: #fdf3da;
+        padding: 22px 24px;
+      }
+
+      .middle {
+        width: 30%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        background: #fdf3da;
+        padding: 22px 24px;
+
+        .data {
+         margin-top: 10px;
+        }
+      }
+
+      .right {
+        width: 30%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        background: #fdf3da;
+        padding: 22px 24px;
+      }
+    }
+  }
+}

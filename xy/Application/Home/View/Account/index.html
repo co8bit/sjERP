@@ -1,0 +1,147 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+
+<form class="form-signin" method="post" action="{:U('Account/createAccount')}">
+    <h1>创建账户</h1>
+    <label for="account_creator" class="sr-only">开户人</label>
+    <input type="text" id="account_creator" name="account_creator" class="form-control" value='王二'>
+    <label></label>
+    <label for="account_number" class="sr-only">账号</label>
+    <input type="text" id="account_number" name="account_number" class="form-control" placeholder="账号" value='6228480323061564619'>
+    <label for="account_name" class="sr-only">账户名</label>
+    <input type="text" id="account_name" name="account_name" class="form-control" value='农行卡'>
+    <label></label>
+    <label for="account_source_type" class="sr-only">账户类型</label>
+    <input type="text" id="account_source_type" name="account_source_type" class="form-control" value = '1'>
+    <label></label>
+    <label for="account_source_name" class="sr-only">来源名</label>
+    <input type="text" id="account_source_name" name="account_source_name" class="form-control" value='中国农业银行'>
+    <label></label>
+    <label for="bank_name" class="sr-only">开户行</label>
+    <input type="text" id="bank_name" name="bank_name" class="form-control" value='中国农业银行杭州支行'>
+    <label></label>
+    <label for="qcode" class="sr-only">速查码</label>
+    <input type="text" id="qcode" name="qcode" class="form-control" value='nhk'>
+    <label></label>
+    <label for="province" class="sr-only">省</label>
+    <input type="text" id="province" name="province" class="form-control" value='浙江省'>
+    <label></label>
+    <label for="city" class="sr-only">市</label>
+    <input type="text" id="city" name="city" class="form-control" value='杭州市'>
+    <label></label>
+    <label for="account_prefix" class="sr-only">账户来源前缀</label>
+    <input type="text" id="account_prefix" name="account_prefix" class="form-control" value=''>
+    <label></label>
+    <label for="account_remark" class="sr-only">备注</label>
+    <input type="text" id="account_remark" name="account_remark" class="form-control" value=''>
+    <label></label>
+    <label for="account_balance" class="sr-only">账户初始余额</label>
+    <input type="text" id="account_balance" name="account_balance" class="form-control" value='1000.54'>
+    <label></label>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+    <label></label>
+</form>
+<form class="form-signin" method="post" action="{:U('Account/cash_Proposal')}">
+    <h1>提现测试</h1>
+    <label for="account_id" class="sr-only">账户ID</label>
+    <input type="text" id="account_id" name="account_id" class="form-control" value='1'>
+    <label></label>
+    <label for="query_balance" class="sr-only">查询到的余额</label>
+    <input type="text" id="query_balance" name="query_balance" class="form-control" placeholder="账号" value='1000.54'>
+    <label for="cost" class="sr-only">提现金额</label>
+    <input type="text" id="cost" name="cost" class="form-control" value='500'>
+    <label for="account_operation_remark" class="sr-only">提现备注</label>
+    <input type="text" id="account_operation_remark" name="account_operation_remark" class="form-control" value='ABCDEFG'>
+    <label></label>
+    <label for="cash_account_number" class="sr-only">账户号</label>
+    <input type="text" id="cash_account_number" name="account_number" class="form-control" value='6228480323061564619'>
+    <label></label>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提现</button>
+    <label></label>
+</form>
+<form class="form-signin" method="post" action="{:U('Account/transfer_Accounts')}">
+    <h1>转账测试</h1>
+    <label for="trans_account_id" class="sr-only">账户ID</label>
+    <input type="text" id="trans_account_id" name="account_id" class="form-control" value='1'>
+    <label></label>
+    <label for="trans_query_balance_self" class="sr-only">查询到本账户余额</label>
+    <input type="text" id="trans_query_balance_self" name="query_balance_self" class="form-control" placeholder="账号" value='1000.54'>
+    <label for="trans_query_balance_target" class="sr-only">查询目标账户余额</label>
+    <input type="text" id="trans_query_balance_target" name="query_balance_target" class="form-control" placeholder="账号" value='1000.54'>
+    <label for="trans_cost" class="sr-only">提现金额</label>
+    <input type="text" id="trans_cost" name="cost" class="form-control" value='500'>
+    <label for="trans_account_operation_remark" class="sr-only">提现备注</label>
+    <input type="text" id="trans_account_operation_remark" name="account_operation_remark" class="form-control" value='ABCDEFG'>
+    <label for="trans_account_number" class="sr-only">账户号</label>
+    <input type="text" id="trans_account_number" name="account_number" class="form-control" value='6228480323061564619'>
+    <label for="target_id" class="sr-only">对方账号ID</label>
+    <input type="text" id="target_id" name="target_id" class="form-control" value='2'>
+    <label></label>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提现</button>
+    <label></label>
+</form>
+<form class="form-signin" method="post" action="{:U('Account/edit_Account')}">
+    <h1>编辑账户</h1>
+    <label for="account_id" class="sr-only">账户ID</label>
+    <input type="text" id="account_id" name="account_id" class="form-control" value='1'>
+    <label></label>
+    <label for="account_source_name" class="sr-only">账户来源名</label>
+    <input type="text" id="account_source_name" name="account_source_name" class="form-control" placeholder="账户来源名" value='中国工商银行'>
+    <label for="bank_name" class="sr-only">开户行</label>
+    <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="账号" value='中国农业银行杭州分行'>
+    <label for="account_name" class="sr-only">账户名</label>
+    <input type="text" id="account_name" name="account_name" class="form-control" value='农行卡'>
+    <label for="account_number" class="sr-only">账号</label>
+    <input type="text" id="account_number" name="account_number" class="form-control" value='6228480323061564617'>
+    <label></label>
+    <label for="account_creator" class="sr-only">账户来源名</label>
+    <input type="text" id="account_creator" name="account_source_name" class="form-control" placeholder="开户人" value='李生'>
+    <label for="account_source_name" class="sr-only">账户来源名</label>
+    <input type="text" id="account_remark" name="account_remark" class="form-control" placeholder="备注" value='哈哈哈哈哈哈哈'>
+    <label for="account_source_name" class="sr-only">账户来源名</label>
+    <input type="text" id="qcode" name="account_source_name" class="form-control" placeholder="速查码" value='nhk'>
+    <label for="province" class="sr-only">省</label>
+    <input type="text" id="province" name="province" class="form-control" placeholder="省" value='浙江省'>
+    <label for="province" class="sr-only">市</label>
+    <input type="text" id="city" name="city" class="form-control" placeholder="市" value='嘉兴市'>
+    <label for="account_balance" class="sr-only">市</label>
+    <input type="text" id="account_balance" name="account_balance" class="form-control" placeholder="余额" value='66666'>
+    <label for="status" class="sr-only">市</label>
+    <input type="text" id="status" name="status" class="form-control" placeholder="状态" value='0'>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+    <label></label>
+</form>
+<form class="form-signin" method="post" action="{:U('Account/query_account')}">
+    <h1>查询账户接口</h1>
+    <label for="page" class="sr-only">page</label>
+    <input type="text" id="page" name="page" class="form-control" value='1'>
+    <label></label>
+    <label for="pline" class="sr-only">pline</label>
+    <input type="text" id="pline" name="pline" class="form-control" placeholder="账户来源名" value='5'>
+    <label for="account_source_type" class="sr-only">账户类型</label>
+    <input type="text" id="account_source_type" name="account_source_type" class="form-control" value='1'>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+    <label></label>
+</form>
+<form class="form-signin" method="post" action="{:U('Account/delete_Account')}">
+    <h1>删除账户接口</h1>
+    <label>账户ID</label>
+    <input type="text" id="account_id" name="account_id" class="form-control" value='99'>
+    <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+<script src="__PUBLIC__/jquery.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/jquery.md5.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function md5(){
+        alert($(".password").val());
+        $(".password").val($.md5("sjerp"+$(".password").val()));
+        console.log($(".password").val());
+    }
+
+</script>

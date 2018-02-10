@@ -1,0 +1,35 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+<form class="form-signin" method="post" action="{:U('Util/requestSMSSendVerifyCode')}">
+  <h1>requestSMSSendVerifyCode</h1>
+  <label>type:</label>
+  <input type="text" id="inputEmail" name="type" value='1'>
+  <label>mobile:</label>
+  <input type="text" id="inputEmail" name="mobile" value='57128121110'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('Util/checkVerifyCode')}">
+  <h1>checkVerifyCode @internal</h1>
+  <label>type:</label>
+  <input type="text" id="inputEmail" name="type" value='1'>
+  <label>verify_code:</label>
+  <input type="text" id="inputEmail" name="verify_code" value=''>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('Util/getJiyanToken')}">
+  <h1>getJiyanToken</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+<a href='{:U("Util/testjiyan")}'>测试极验</a>

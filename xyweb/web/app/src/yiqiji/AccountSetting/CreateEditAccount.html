@@ -1,0 +1,154 @@
+<div class="create-edit-account" ng-controller="CreateEditAccountController">
+    <div class="title-bar">
+        <span>新建/编辑账户</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+	<div class="content-wrap">
+		<div class="content" ng-if="!model.isCash">
+			<div class="info-block">
+				<div class="head" ng-show="!isEdit">
+					<span ng-class="{'active':!isBank}" ng-click="checkAddType(1);">添加银行账户</span>
+					<span ng-class="{'active':isBank}" ng-click="checkAddType(2);">添加网络账户</span>
+				</div>
+				<div class="middle" ng-show="!isBank">
+					<div class="block">
+						<div class="input-row-inline">
+							<label>开户人</label>
+							<input type="text" ng-model='accountInfo.account_creator'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>银行</label>
+							<select ng-model="accountInfo.account_source_name_1" ng-init="accountInfo.account_source_name_1=bankList[0]" ng-options="x for x in bankList"></select>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>开户行</label>
+							<div class="group">
+								<select id="provice" ng-model="provice" ng-change="change(provice)">
+									<!--<option ng-repeat="item in geoData track by $index" ng-value='$index'>{{item.name}}</option>-->
+								</select>
+								<select id="city" ng-model="accountInfo.city"></select>
+								<input type="text" ng-model='accountInfo.bank_name'/>
+							</div>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账号名称</label>
+							<input type="text" ng-model='accountInfo.account_name' ng-change="genQcode();"/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账号</label>
+							<input type="number" ng-if="!isBank" ng-model='accountInfo.account_number'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>速查码</label>
+							<input type="text" ng-model='accountInfo.qcode'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>期初余额</label>
+							<input type="number" ng-model='accountInfo.account_balance' ng-change="updataBalance();" />
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>备注</label>
+							<textarea  ng-model='accountInfo.account_remark'></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="middle" ng-show="isBank">
+					<div class="block">
+						<div class="input-row-inline">
+							<label>开户人</label>
+							<input type="text" ng-model='accountInfo.account_creator'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账户类型</label>
+							<select ng-model="accountInfo.account_source_name_2" ng-options="x for x in typeList" ng-init="accountInfo.account_source_name_2=typeList[0]"></select>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账号</label>
+							<input type="text" ng-model='accountInfo.account_number'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账号名称</label>
+							<input type="text" ng-model='accountInfo.account_name' ng-change="genQcode();"/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>期初余额</label>
+							<input type="number" ng-model='accountInfo.account_balance' ng-change="updataBalance();" />
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>速查码</label>
+							<input type="text" ng-model='accountInfo.qcode'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>备注</label>
+							<textarea ng-model='accountInfo.account_remark'></textarea>
+						</div>
+						<div class="input-row-inline"></div>
+					</div>
+				</div>
+				<div class="status-row" ng-click="checkStatus();">
+					<span>
+						启用
+						<i ng-show="accountInfo.status == 1" class="fa fa-check-square-o"></i>
+						<i ng-show="accountInfo.status == 0" class="fa fa-square-o"></i>
+					</span>
+				</div>
+				<div class="btn-row">
+					<button class="xy-btn xy-btn-orange" ng-click="save();">{{createOrSave}}</button>
+					<button class="xy-btn xy-btn-default right" ng-show="isEdit" ng-click="del();">删除</button>
+				</div>
+			</div>
+		</div>
+		<div class="content" ng-if="model.isCash">
+			<div class="info-block">
+				<div class="middle">
+					<div class="block">
+						<div class="input-row-inline">
+							<label>账户</label>
+							<input type="text" ng-model='cashInfo.account_source_name'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>账户简称</label>
+							<input type="text" ng-model='cashInfo.account_name'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>余额</label>
+							<input type="text" ng-model='cashInfo.account_balance'/>
+							<span class="required">*</span>
+						</div>
+						<div class="input-row-inline">
+							<label>备注</label>
+							<textarea ng-model='cashInfo.account_remark'></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="status-row" ng-click="checkStatus();">
+					<span>
+						启用
+						<i ng-show="cashInfo.status == 1" class="fa fa-check-square-o"></i>
+						<i ng-show="cashInfo.status == 0" class="fa fa-square-o"></i>
+					</span>
+				</div>
+				<div class="btn-row">
+					<button class="xy-btn xy-btn-orange" ng-click="saveCash();">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

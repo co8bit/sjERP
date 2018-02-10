@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Function Doc\doc_view | XY Server API alpha</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li>
+					<a href="namespace-Behavior.html">
+						Behavior					</a>
+
+						</li>
+				<li>
+					<a href="namespace-DatebaseSQL.html">
+						DatebaseSQL					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Doc.html">
+						Doc					</a>
+
+						</li>
+				<li>
+					<a href="namespace-ErrorCode.html">
+						ErrorCode					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Home.html">
+						Home<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Home.Controller.html">
+						Controller					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Home.Model.html">
+						Model					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-None.html">
+						None					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Think.html">
+						Think					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li class="active"><a href="function-Doc.doc_view.html">doc_view</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Doc.html" title="Summary of Doc"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Function</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+				<li>
+					<a href="annotation-group-api.html" title="List of elements with api annotation">
+						<span>Api</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-version.html" title="List of elements with version annotation">
+						<span>Version</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-since.html" title="List of elements with since annotation">
+						<span>Since</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="function">
+	<h1>Function doc_view</h1>
+
+
+	<div class="description">
+	<p>全局各种码一览.</p>
+
+<p>错误代码：<code><a href="class-ErrorCode.ErrorCode.html">ErrorCode\ErrorCode</a></code></p>
+
+<h1>单据相关</h1>
+
+<h2>class类别（在Order、Warehouse、Finance三个类里全局唯一）</h2>
+
+<h3>Order类：</h3>
+
+<ul>
+<li>1.销售单</li>
+<li>2.销售退货单</li>
+<li>3.采购单</li>
+<li>4.采购退货单</li>
+<li>5.应收款调整</li>
+<li>6.应付款调整</li>
+</ul>
+
+<h3>Warehouse类：</h3>
+
+<ul>
+<li>51.报溢单（未实现）</li>
+<li>52.报损单（未实现）</li>
+<li>53.盘点单</li>
+<li>54.调拨单</li>
+</ul>
+
+<h3>Finance类：</h3>
+
+<ul>
+<li>71.收款单</li>
+<li>72.付款单</li>
+<li>73.其他收入单</li>
+<li>74.费用单</li>
+</ul>
+
+<h3>一起记/银行账</h3>
+
+<ul>
+<li>81.财政收入单</li>
+<li>82.财政支出单</li>
+<li>83.财政提现单</li>
+<li>84.财政转账单</li>
+</ul>
+
+<h2>Status状态码</h2>
+
+<ul>
+<li>0.未知，该状态为错误状态</li>
+<li>1.已完成</li>
+<li>2.异常</li>
+<li>3.被删除单据</li>
+<li>4.立即处理</li>
+<li>5.暂缓发货</li>
+<li>6.正在通知库管</li>
+<li>7.已通知库管，库管未确认</li>
+<li>8.库管已打印单据，但未出库</li>
+<li>9.已出库但未送达</li>
+<li>10.库管已打印单据，但未入库</li>
+<li>11.待审核-暂缓发货 todo:</li>
+<li><p>12.待审核-立即处理 todo:</p></li>
+<li><p>81.财务单据待审核</p></li>
+<li>82.财务单据经财务审核通过</li>
+<li>83.财务单据经财务审核未通过</li>
+<li>84.财务单据经老板审核通过</li>
+<li>85.财务单据经老板审核未通过</li>
+<li><p>89.易企记草稿单</p></li>
+<li><p>90.未完成</p></li>
+<li>91.红冲单据——真正被删除的单据的逆向单据</li>
+<li><p>92.红冲附属单——因红冲而产生的附属单据，如class=5或class=6的财务单据，它们是可以参与正常运算的</p></li>
+<li><p>99.系统自动创建的期初应收、期初应付</p></li>
+<li><p>100.草稿单</p></li>
+</ul>
+
+<h3>不同的状态下订单可以编辑的东西不同：</h3>
+
+<ul>
+<li>//只能编辑备注：1、8、9、10</li>
+<li>//都可以编辑：2、4、5、6、7</li>
+</ul>
+
+<h2>exceptionNo状态码</h2>
+
+<ul>
+<li>0.未异常</li>
+<li>>0曾经异常：</li>
+<li>1.库房货不够</li>
+<li>2.客户装不下</li>
+<li>3.其他</li>
+</ul>
+
+<h2>约定名称</h2>
+
+<ul>
+<li>收款单 receipt</li>
+<li>付款单 payment</li>
+<li>其他收入 income</li>
+<li>费用单 expense</li>
+<li>统称 Finance</li>
+</ul>
+
+<h1>SN</h1>
+
+<ul>
+<li>'sku_sn' SKU sku_sn</li>
+<li>'parkaddress_sn' PAD 停车位置</li>
+<li>'company_sn' CSN 往来单位</li>
+<li>'o_xsck_sn' OXC 销售单</li>
+<li>'o_xsth_sn' OXT 销售退货单</li>
+<li>'o_cgrk_sn' OCR 采购单</li>
+<li>'o_cgth_sn' OCT 采购退货单</li>
+<li>'f_r_sn' FSK 收款单</li>
+<li>'f_p_sn' FFK 付款单</li>
+<li>'f_i_sn' FQS 其他收入</li>
+<li>'f_e_sn' FFY 费用单</li>
+<li>'w_st_sn' WPD 盘点单</li>
+<li>'draft_sn' DRA 草稿单</li>
+</ul>
+
+<p>因为getSn后尽量不要取消，所以不要在自动完成里做，手动在add()之前添加。</p>
+
+<h1>Util</h1>
+
+<ul>
+<li>短信的type：1|2|3|1001:1-注册，2-登录，3-重置密码,1001-免费赠送100天活动</li>
+</ul>
+
+<h1>User</h1>
+
+<ul>
+<li>rpg意思：1-创建者；2-销售；3-库管；4-股东；5-自己人；6-体验用户；7-管理员</li>
+</ul>
+
+<h1>Company</h1>
+
+<ul>
+<li>balance:结余（应付-应收），负数是别人欠店主，正数是店主欠别人</li>
+</ul>
+
+<h1>支付相关</h1>
+
+<ul>
+<li>bill_class、member_class:0-免费版，1-金卡，2-黑卡，3-钻石卡，4-短信充值</li>
+<li>支付前需要检查会员类型是否一致</li>
+<li>bill_status:单据状态,0-未处理，1-已完成,2-已处理，但该单据无效</li>
+</ul>
+
+<h1>没有权限的处理方法</h1>
+
+<ol>
+<li>在服务器根目录的Application/Home/Controller/IndexController.class.php里把_initialize函数里的try..catch语句块注释了，
+2.进入系统后台页面。
+3.重置数据库、生成数据。
+4.把第一步中注释掉的语句恢复，不然pull服务器代码比较麻烦。</li>
+</ol>
+
+<h1>注册相关</h1>
+
+<p>1.reg_what参数区分注册的模块
+reg_what = 1 代表 注册星云进销存 reg_what = 2 代表注册易企记</p>
+	</div>
+
+	<div class="info">
+		<b>Namespace:</b> <a href="namespace-Doc.html">Doc</a><br>
+		
+		<b>Located at</b>
+		<a href="source-function-Doc.doc_view.html#4-170" title="Go to source code">
+			
+		</a><br>
+	</div>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		XY Server API alpha API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?e1238c180c0ec4879c106550549125735c31011b"></script>
+<script src="elementlist.js?65b96360bff0d94f47f8799f2472e5eeb7655dd9"></script>
+</body>
+</html>

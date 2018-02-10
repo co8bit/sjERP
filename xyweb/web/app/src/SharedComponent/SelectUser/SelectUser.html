@@ -1,0 +1,18 @@
+<div class="functionPage">
+<h1>经手人选择</h1>
+    <label for="">搜索</label>
+    <input type="text" ng-model="searchChecher">
+    <br>
+    <table>
+        <tr>
+            <th>用户名</th>
+            <th>姓名</th>
+        </tr>
+        <tr ng-repeat="usr in userList" ng-click="" class="hover-and-click" ng-click="clickUser(usr)">
+            <td>{{usr.username}}</td>
+            <td>{{usr.name}}</td>
+        </tr>
+    </table>
+    <br>
+    <button ng-click="cancelSelecUser()">取消</button>
+</div>

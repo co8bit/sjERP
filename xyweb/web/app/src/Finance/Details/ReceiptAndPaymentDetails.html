@@ -1,0 +1,147 @@
+<div class="receipt-and-payment-details" ng-controller="ReceiptAndPaymentDetailsController">
+    <div class="title-bar-detail">
+        <div class="left">
+            <span>{{model.docInfo.class | _class}}详情</span>
+        </div>
+        <div class="middle">
+            <!--<span class="top" ng-show="model.docInfo.class == 71">财务/收款单详情</span>-->
+            <!--<span class="top" ng-show="model.docInfo.class == 72">财务/付款单详情</span>-->
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="infoandtable">
+            <!--上-->
+            <div class="floor1">
+               <!--开单日期等信息-->
+               <div class="msg">
+                   <div>
+                        <p>
+                            <span class="first">开单日期&nbsp;:</span>
+                            <span>{{model.docInfo.reg_time | time}}</span>
+                        </p>
+                        <p>
+                            <span class="first">订单号&nbsp;:</span>
+                            <span>{{model.docInfo.sn}}</span>
+                        </p>
+                        <p>
+                            <span class="first">经办人&nbsp;:</span>
+                            <span>{{model.docInfo.operator_name}}</span>
+                        </p>
+                        <p>
+                            <span class="first">{{cstmr}}&nbsp;:</span>
+                            <span>{{model.docInfo.cid_name}}</span>
+                        </p>
+                   </div>
+               </div>
+               <!--备注信息-->
+               <div class="remark">
+                <div>
+                    <b>备注信息</b>
+                    <textarea type="text" ng-model="model.docInfo.remark" style="overflow-y:scroll"
+                              ng-foucs="pageState.isEditing=true" ng-blur="clickModify()"/>
+                </div>
+
+                </div>
+               <!--查看日志-->
+               <div class="log" ng-click="clickHistory();">
+                    <div>
+                        <img src="web/app/img/misc/pic_log.png">
+                        <span>查看日志</span>
+                    </div>
+               </div>
+            </div>
+            <!--中-->
+            <div class="floor2">
+                <div class="info">
+                    <div>
+                        <span>现金支付&nbsp;:</span>
+                        <span ng-bind-html="model.docInfo.cash_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.cash" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span class="symbol">+</span>
+                    <div>
+                        <span>银行支付&nbsp;:</span>
+                        <span ng-bind-html="model.docInfo.bank_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.bank" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span class="symbol">+</span>
+                    <div>
+                        <span>网络支付&nbsp;:</span>
+                        <span ng-bind-html="model.docInfo.online_pay_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.online_pay" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span class="symbol">=</span>
+                    <span ng-show="model.docInfo.class == 71">实收金额&nbsp;:&nbsp;</span>
+                    <span ng-show="model.docInfo.class == 72">实付金额&nbsp;:&nbsp;</span>
+                    <div>
+                        <span class="actual" ng-bind-html="model.docInfo.income_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.income" disabled="true">-->
+                    </div>
+                </div>
+            </div>
+            <!--下-->
+            <div class="table">
+                <div class="head table-row">
+                    <span class="time">创建时间</span>
+                    <!--<span class="time">出入库时间</span>-->
+                    <!--<span class="sn">单号</span>-->
+                    <span>类别</span>
+                    <!--<span>经办人</span>-->
+                    <span>状态</span>
+                    <span ng-show = "rpg==1||rpg==7||model.docInfo.class == 71">货物价值</span>
+                    <!--<span>优惠</span>-->
+                    <!--<span ng-show="docInfo._class == 71">应收金额</span>-->
+                    <!--<span ng-show="docInfo._class == 72">应付金额</span>-->
+                    <span ng-show="docInfo._class == 71">本次待收金额</span>
+                    <span ng-show="docInfo._class == 72">本次待付金额</span>
+                    <span ng-show="docInfo._class == 71">本次收款金额</span>
+                    <span ng-show="docInfo._class == 72">本次付款金额</span>
+                    <span>操作</span>
+                </div>
+                <div class="table-row" ng-repeat="item in docInfo.orderList" ng-show="item.money_show!=0">
+                    <span class="time">{{item.reg_time_show}}</span>
+                    <!--<span class="time">{{item.leave_time_show}}</span>-->
+                    <!--<span class="sn">{{item.sn}}</span>-->
+                    <span>{{item.class_show}}  </span>
+                    <!--<span>{{item.operator_name}}  </span>-->
+                    <span>{{item.status_show}}  </span>
+                    <span ng-show = "rpg==1||rpg==7||model.docInfo.class == 71" ng-bind-html="item.value_show"></span>
+                    <!--<span ng-bind-html="item.off_show"></span>-->
+                    <!--<span ng-bind-html="item.receivable_show"></span>-->
+                    <span ng-show="docInfo._class == 71" ng-bind-html="item.remain_show"></span>
+                    <span ng-show="docInfo._class == 72"
+                          ng-bind-html="item.remain_opposite_show"></span>
+                    <span ng-bind-html="item.money_show"></span>
+                    <span><button
+                            ng-click="EventService.emit(EventService.ev.ORDER_VIEW_DETAILS,item.oid);">查看详情</button></span>
+                </div>
+                <div class="table-row">
+                    <span class="time">总计</span>
+                    <!--<span class="time">出入库时间</span>-->
+                    <!--<span class="sn">单号</span>-->
+                    <span></span>
+                    <!-- <span>经办人</span> -->
+                    <span></span>
+                    <span ng-show = "rpg==1||rpg==7||model.docInfo.class == 71">{{valueOfGoods | number:2}}</span>
+                    <!--<span ng-bind-html="item.off_show"></span>-->
+                    <!--<span ng-bind-html="item.receivable_show"></span>-->
+                    <span ng-show="docInfo._class == 71" ng-bind-html="item.remain_show"></span>
+                    <span ng-show="docInfo._class == 72">{{toPay | number:2}}</span>
+                    <span>
+                        {{model.docInfo.income_show}}
+                    </span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

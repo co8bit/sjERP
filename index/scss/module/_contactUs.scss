@@ -1,0 +1,86 @@
+.contact-us {
+    width: 1100px;
+    margin: 0 auto;
+    .first {
+        height: 850px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        .top-container {
+            margin-top: 100px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            .big-text {
+                font-size: 45px;
+                letter-spacing: 10px;
+                color: #000;
+            }
+            .small-text {
+                margin-top: 40px;
+                font-size: 26px;
+                letter-spacing: 14px;
+                color: #444;
+            }
+        }
+        .bottom-container {
+            margin-left: 40px;
+            z-index: 100;
+            .info {
+                width: 450px;
+                display: flex;
+                flex-flow: row;
+                margin-bottom: 40px;
+                div {
+                    display: flex;
+                    flex-flow: column;
+                    .small-text {
+                        font-size: 18px;
+                        letter-spacing: 4px;
+                    }
+                    .big-text {
+                        margin-top: 12px;
+                        font-size: 24px;
+                        letter-spacing: 4px;
+                    }
+                }
+                .img-container {
+                    width: 60px;
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: flex-start;
+                    img {
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+            .align-bottom {
+                align-items: flex-end;
+            }
+            .align-center {
+                align-items: center;
+                margin-bottom: 60px;
+            }
+        }
+    }
+    .second {
+        display: flex;
+        justify-content: center;
+        margin-top: -550px;
+        img {
+            width: 787.5px;
+            height: 750px;
+            z-index: -1;
+        }
+    }
+}
+
+.shared-footer {
+    .us {
+        background: rgba(#fff, 0.5);
+        margin-top: -200px;
+        z-index: 1;
+    }
+}

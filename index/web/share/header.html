@@ -1,0 +1,49 @@
+<div class="head">
+	<div class="logo">
+		<a href="../index.html?xyvs=2.0.1">
+			<img class="logo_img" src="../img/logo.png" />
+			<img src="../img/logo_title.png" alt="" />
+		</a>
+	</div>
+	<nav class="">
+		<ul id="nav">
+			<li id="home">
+				<a href="../index.html?xyvs=2.0.1">首页</a>
+			</li>
+			<li id="price">
+				<a href="price.html?xyvs=2.0.1">价格</a>
+			</li>
+			<li id="helpVideo">
+				<a href="helpVideo.html?xyvs=2.0.1">使用教程</a>
+			</li>
+			<li id="quesition">
+				<a href="quesition.html?xyvs=2.0.1">常见问题</a>
+			</li>
+			<li id="bookingDemo">
+				<a href="bookingDemo.html?xyvs=2.0.1">预约线上演示</a>
+			</li>
+			<li class="btn btn-red" onclick="experience()">立即体验</li>
+			<li class="login" onclick="login()"><img src="" alt="" />登录</li>
+			<li class="reg" onclick="register()"><img src="" alt="" />注册</li>
+		</ul>
+	</nav>
+	<script type="text/javascript">
+		var _url = window.location.href;
+		var actiivePage;
+		if(_url.search('price.html') > -1){
+			actiivePage = $('#price')
+		}
+		if(_url.search('helpVideo.html') > -1){
+			actiivePage = $('#helpVideo')
+		}
+		if(_url.search('quesition.html') > -1){
+			actiivePage = $('#quesition')
+		}
+		if(_url.search('bookingDemo.html') > -1){
+			actiivePage = $('#bookingDemo')
+		}
+		if(actiivePage){
+			actiivePage.addClass('active');
+		}
+	</script>
+</div>

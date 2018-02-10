@@ -1,0 +1,87 @@
+<div class="typical-left-right-narrow order-good-list-tab" ng-controller="OrderGoodListTabController">
+    <div class="t-left">
+        <div class="table-container">
+            <div class="table">
+                <div class="head table-row">
+                    <span class="ellipsis">商品名称</span>
+                    <span class="ellipsis">规格</span>
+                    <span>{{quantityType}}</span>
+                    <span>单价</span>
+                    <span>金额</span>
+                    <span>操作</span>
+                </div>
+                <div class="table-row" ng-repeat="item in cartAgent.cartItemList track by $index">
+                    <span class="ellipsis">{{item.spu_name}}</span>
+                    <span class="ellipsis">{{item.spec_name}}</span>
+                    <span>{{item.quantity | number:2}}</span>
+                    <span>{{item.unit_price | number:2}}</span>
+                    <span>{{item.pile_price | number:2}}</span>
+                    <span class="two-imgs"></span>
+                    <span>
+                        <span ng-click="setCartItem(item);"><img src="web/app/img/misc/pic_edit.png"></span>
+                        <span ng-click="cartAgent.deleteItem(item)"><img src="web/app/img/misc/pic_delete.png"></span>
+                    </span>
+
+                <!-- </span> -->
+                </div>
+                <div  class="table-row" ng-hide="arr>0">
+                    <!-- 添加空白项 -->
+                    <span class="ellipsis">{{blankOrderisHidden}}</span>
+                    <span class="ellipsis"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="two-imgs"></span>
+                    <span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div  class="table-row" ng-hide="arr>0">
+                    <!-- 添加空白项 -->
+                    <span class="ellipsis">{{blankOrderisHidden}}</span>
+                    <span class="ellipsis"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="two-imgs"></span>
+                    <span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div  class="table-row" ng-hide="arr>0">
+                    <!-- 添加空白项 -->
+                    <span class="ellipsis"></span>
+                    <span class="ellipsis"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="two-imgs"></span>
+                    <span>
+                       <span></span>
+                       <span></span>
+                    </span>
+                </div>
+
+            </div>
+            <!-- 按钮：添加商品 -->
+            <div class="div-add-btn">
+                <span>&nbsp&nbsp&nbsp&nbsp&nbsp</span><span>&nbsp</span><span>&nbsp</span><span>&nbsp</span><span>&nbsp</span>
+                <button class="btn-submit" ng-click="setPickGoodTab()">添加商品</button>
+            </div>
+            <div class="freight-div">
+            	<div class="row">
+            		<span>运送费用</span>
+            		<input type="number"  ng-focus="orderInfo.freight = '';" placeholder="(元)">
+            	</div>
+            	<div class="row">
+					<div class="check-box">
+						<input type="checkbox" name="freightBtn" id="freight" value="" />
+						<label for="freightBTn">运费分摊入成本</label>
+					</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>

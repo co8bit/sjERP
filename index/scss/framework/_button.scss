@@ -1,0 +1,74 @@
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    //红色按钮
+    &.btn-red {
+        background: #F24C3D;
+        color: white;
+        &:hover {
+            background-color: darken(#F24C3D, 5%);
+        }
+        &:active {
+            background-color: darken(#F24C3D, 15%);
+        }
+        &.btn-none {
+            &.green {
+                border-color: #F24C3D;
+                color: #000000;
+                margin: 0 auto;
+                &:hover {
+                    color: #333;
+                    background-color: #e6e6e6;
+                    border-color: #adadad;
+                }
+            }
+        }
+    }
+    &.btn-blue {
+        background: #32B3F1;
+        color: white;
+        &:hover {
+            background-color: darken(#F24C3D, 5%);
+        }
+        &:active {
+            background-color: darken(#F24C3D, 15%);
+        }
+        &.btn-none {
+            &.green {
+                border-color: #F24C3D;
+                color: #000000;
+                margin: 0 auto;
+                &:hover {
+                    color: #333;
+                    background-color: #e6e6e6;
+                    border-color: #adadad;
+                }
+            }
+        }
+    }
+}
+
+.btn-row {
+    @extend .flex;
+    &.center {
+        justify-content: center;
+    }
+}

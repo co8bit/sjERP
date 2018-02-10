@@ -1,0 +1,115 @@
+<!--管理商品页面-->
+<div class="manage-good-cat">
+    <div class="title">
+        <span ng-class="{ highlight: activeTabNum == 1}" ng-click="activeTabNum = 1;StockService.querySKU(1);StockService.queryCat(1);">商品信息管理
+        </span>
+        <span ng-class="{ highlight: activeTabNum == 2}" ng-click="activeTabNum = 2;StockService.queryCat(1);">商品类别管理
+        </span>
+    </div>
+    <!-- 商品管理 -->
+    <!-- 注意 -->
+    <!-- 使用了单独的controller -->
+    <div class="manage-good" ng-show="activeTabNum == 1" ng-controller="ManageGoodController">
+        <div class="search-bar">
+            <div>
+                <img src="web/app/img/misc/pic_search_grey.png">
+                <input type="text" placeholder="商品名/类别/速查码" ng-model="queryInfo.query">
+            </div>
+            <button ng-show="isCreateSPUShow" ng-click="createSPU()">新建商品</button>
+        </div>
+        <div class="filter-bar">
+            <span>类别</span>
+            <div>
+                <button ng-click="selectCat('*');checkCat()" ng-class="{highlight:filterInfo[1].value == '*', normal:filterInfo[1].value != '*'}">全部</button>
+                <button ng-class="{highlight: filterInfo[1].value == item.cat_id}" ng-repeat="item in catInfo" ng-click="selectCat(item.cat_id);checkCat(item.cat_name)" ng-show="item.status == '1'">{{item.cat_name}}
+                </button>
+            </div>
+        </div>
+        <div class="table">
+            <div class="head table-row">
+                <span>商品名</span>
+                <span>类别</span>
+                <!--<span>置顶</span>-->
+                <!--<span>启用</span>-->
+                <span>修改</span>
+            </div>
+            <div class="table-row" ng-repeat="item in spuList">
+                <span>{{item.spu_name}}</span>
+                <span>{{item.cat_name}}</span>
+                <!--<span>-->
+                        <!--<span ng-if="item.sku_index == 1">✔</span>-->
+                        <!--<span ng-if="item.sku_index != 1">✘</span>-->
+                <!--</span>-->
+                <!--<span>-->
+                        <!--<span ng-if="item.status == 1">✔</span>-->
+                        <!--<span ng-if="item.status == 0">✘</span>-->
+                <!--</span>-->
+                <span class="two-imgs">
+                        <span>
+                            <span ng-click="editSPU(item.spu_id)"><img src="web/app/img/misc/pic_edit.png"></span>
+                            <!--<span ng-click="confirmDeleteSKU(item.sku_id)"><img src="web/app/img/misc/pic_delete.png"></span>-->
+                        </span>
+                </span>
+            </div>
+        </div>
+        <div class="page-navi">
+            <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+        <!--         <div class="search-bar">
+            <div>
+                <img src="web/app/img/misc/pic_search_grey.png">
+                <input type="text" placeholder="快速搜索" ng-model="queryInfo.query">
+            </div>
+            <button ng-click="createSPU()">新建商品</button>
+        </div> -->
+    </div>
+    <!-- 类别管理 -->
+    <div class="manage-cat" ng-show="activeTabNum == 2" ng-controller="ManageCatController">
+        <!--         <div>
+                    <button ng-click="test();">test</button>
+                </div> -->
+        <div class="search-bar">
+            <div>
+                <img src="web/app/img/misc/pic_search_grey.png">
+                <input type="text" placeholder="类别" ng-model="queryInfo.query">
+            </div>
+            <button ng-show="isCreateEditCatShow" ng-click="clickCreateCat()">新建类别</button>
+        </div>
+        <div class="table">
+            <div class="table-row">
+                <span>类别</span>
+                <span>优先显示</span>
+                <span>启用</span>
+                <span>修改</span>
+            </div>
+            <div class="table-row" ng-repeat="item in catListShow">
+                <span>{{item.cat_name}}</span>
+                <span>
+                        <span ng-if="item.cat_index == 1">✔</span>
+                <span ng-if="item.cat_index == 2">✘</span>
+                </span>
+                <span>
+                        <span ng-if="item.status == 1">是</span>
+                <span ng-if="item.status == 0">否</span>
+                </span>
+                <span class="two-imgs">
+                        <span>
+                            <span ng-click="clickEditCat(item)"><img src="web/app/img/misc/pic_edit.png"></span>
+                            <!--<span ng-click="confirmDeleteCat(item)"><img src="web/app/img/misc/pic_delete.png"></span>-->
+                        </span>
+                </span>
+            </div>
+        </div>
+        <div class="page-navi">
+            <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- 测试按钮 -->
+    <!--     <div style="background-color: pink;">
+        <button ng-click="test()">test</button>
+    </div> -->
+</div>

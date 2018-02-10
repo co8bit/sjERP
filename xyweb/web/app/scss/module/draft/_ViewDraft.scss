@@ -1,0 +1,76 @@
+.view-draft {
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 36px;
+    background: #fff;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 36px;
+      background: #f9f9f9;
+      color: #a3a3a3;
+      border-right: 1px solid #eeeeee;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #fff;
+      font-weight: bold;
+    }
+
+    .highlight {
+      background: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .t0 {
+    div {
+      padding-left: 15px;
+
+      span {
+        width: 15%;
+      }
+
+      .two-buttons {
+        width: 19%;
+      }
+    }
+  }
+
+  .t1 {
+    div {
+      padding-left: 15px;
+
+      span {
+        width: 10%;
+      }
+
+      .two-buttons {
+        width: 25%;
+      }
+    }
+  }
+
+  .t2 {
+    div {
+      padding-left: 15px;
+
+      span {
+        width: 14%;
+      }
+      .two-buttons {
+        width: 25%;
+      }
+    }
+  }
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit" />
+		<title>星云进销存</title>
+		<link rel="stylesheet" type="text/css" href="../lib/reset/reset.css?xyvs=2.0.1" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css?xyvs=2.0.1" />
+		<link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.css" />
+		<script src="../lib/jquery/js/jquery-3.2.1.min.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/jquery/js/js.cookie.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src='//kefu.easemob.com/webim/easemob.js?tenantId=27074&hide=false&sat=false' async='async'></script>
+		<script src="../js/statistics.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/share.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="head-wrap" id="header"></header>
+		<div class="page-content">
+			<div class="select-dialog">
+				<div class="select-dialog-container">
+					<div class="select-title">
+						<a>请选择时长：</a>
+					</div>
+					<div class="month-container">
+						<div id="month-1" class="month" onclick="selectMonth(1)">
+							<a>1年</a>
+							<div>
+								<a id="original-price-0"></a>
+
+							</div>
+						</div>
+						<div id="month-2" class="month" onclick="selectMonth(2)">
+							<a>2年</a>
+							<div>
+								<a id="original-price-1"></a>
+							</div>
+						</div>
+						<div id="month-3" class="month" onclick="selectMonth(3)">
+							<a>3年</a>
+							<div>
+								<a id="original-price-2"></a>
+							</div>
+						</div>
+					</div>
+					<div class="btn-container">
+						<a onclick="setMemberInfoCount()">确定</a>
+						<a onclick="hideSelectDialog()">取消</a>
+					</div>
+				</div>
+			</div>
+			<div class="price">
+				<div class="block-wrap">
+					<div class="block first">
+						<div class="text-container">
+							<a class="big-text">更多时间，更低费用</a>
+							<a class="small-text">成为会员，尊享星云权益</a>
+						</div>
+						<div class="point-container">
+							<div class="point">
+								<img src="../img/price_point_1.png">
+								<div>
+									<a class="big-text">更多时间</a>
+									<div class="small-text-container">
+										<a class="small-text">时间就是金钱，将您从不应该花时间的、无意义的工作中解放出来，<span>使您能有更多的时间去思考自己的生意战略、能有更多的时间去陪伴自己的家人</span>。用更聪明的方法赚取更多的钱。</a>
+									</div>
+								</div>
+							</div>
+							<div class="point">
+								<img src="../img/price_point_2.png">
+								<div>
+									<a class="big-text">权限管理</a>
+									<a class="small-text">每名用户均<span>可单独订制权限</span>，只能查看自己权限内的数据，数据更安全。</a>
+								</div>
+							</div>
+						</div>
+						<div class="point-container">
+							<div class="point">
+								<img src="../img/price_point_3.png">
+								<div>
+									<a class="big-text">更低费用</a>
+									<a class="small-text">超低短信费率，与传统手机短信相比，每月节省的金额，<span>远远超过成为会员所需费用</span>，还能智能发送对账单和群发短信。星云，无所不能。</a>
+								</div>
+							</div>
+							<div class="point">
+								<img src="../img/price_point_4.png">
+								<div>
+									<a class="big-text">专属顾问</a>
+									<a class="small-text">专属个人顾问，结合您的使用场景与行业，<span>为您量身订制软件使用建议与解答问题</span>。</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-wrap">
+					<div class="block second">
+						<div class="top-container">
+
+							<a class="tag">功能对比</a>
+							<div class="price-container">
+								<div class="price-block left-block">
+									<div class="row content-row">
+										<div class="price-title">
+											公司用户数
+										</div>
+									</div>
+									<div class="row price-row">
+										<div class="price-title">
+											价格
+										</div>
+									</div>
+								</div>
+								<div class="price-block">
+									<div class="row content-row">
+										<div class="price-title">
+											<span>1用户</span><span>2用户</span>
+										</div>
+									</div>
+									<div class="row price-row">
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">360</span><span class="month">/年</span></p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(1)">立即开通</a>
+											</div>
+										</div>
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">888</span><span class="month">/年</span></p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(2)">立即开通</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="price-block">
+									<div class="row content-row">
+										<div class="price-title">
+											<span>3用户</span><span>4用户</span>
+										</div>
+									</div>
+									<div class="row price-row">
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">999</span><span class="month">/年</span></p>
+												<p><span class="active">1699</span><span class="month">/2年</span></p>
+												<p><span class="active">2199</span><span class="month">/3年</span></p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(3)" >立即开通</a>
+											</div>
+										</div>
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">1288</span><span class="month">/年</span></p>
+												<p><span class="active">2288</span><span class="month">/2年</span></p>
+												<p><span class="active">2888</span><span class="month">/3年</span><p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(4)" >立即开通</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="price-block">
+									<div class="row content-row">
+										<div class="price-title">
+											<span>5用户</span><span>6-10用户</span>
+										</div>
+									</div>
+									<div class="row price-row">
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">1666</span><span class="month">/年</span></p>
+												<p><span class="active">2888</span><span class="month">/2年</span></p>
+												<p><span class="active">3666</span><span class="month">/3年</span><p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(5)" >立即开通</a>
+											</div>
+										</div>
+										<div class="item">
+											<div class="price" >
+												<p><span class="active">2999</span><span class="month">/年</span></p>
+												<p><span class="active">4999</span><span class="month">/2年</span></p>
+												<p><span class="active">6999</span><span class="month">/3年</span><p>
+											</div>
+											<div class="btn-container">
+												<a onclick="setMemberInfoType(6)">立即开通</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="price-block">
+									<div class="row top-row">
+										<span>大客户</span>
+										<img src="../img/price_card_4.png">
+									</div>
+									<div class="row price-row">
+										<div class="item">
+											<div class="price" >
+												<span>299/用户/年</span>
+											</div>
+											<div class="big-btn-container">
+												<a href="http://wpa.qq.com/msgrd?v=3&uin=3462828062&site=qq&menu=yes">联系客服</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="custom-made">
+									<p>为满足更多应用场景我们提供了定制版本 <span>电话详情：15355494747</span> <a href="http://wpa.qq.com/msgrd?v=3&uin=3462828062&site=qq&menu=yes">联系客服QQ</a></p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer" id="footer"></footer>
+	</body>
+
+</html>

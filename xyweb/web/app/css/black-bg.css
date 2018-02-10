@@ -1,0 +1,35 @@
+.has-black-bg{
+    
+    position: absolute;
+	z-index: 100;
+
+    display: block;
+    content: " ";
+    
+    top:0vw;
+    left:0vh;
+
+    width: 100vw;    
+    height: 100vh;
+
+    background-color: #222;
+
+    opacity: 0.7;
+}
+
+.popup-window {
+
+	position: fixed;
+	z-index: 200;
+
+	display: block;
+
+	margin:auto;
+	left: 0;
+	right: 0;
+	top: 20px;
+	/*bottom: 0;*/
+
+	width: 70vw;
+	background-color: #fff;
+}

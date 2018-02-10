@@ -1,0 +1,26 @@
+$heightDialogRibbon: 40px; // 对话框选项卡标签高度
+
+.dialog {
+  position: fixed;
+  padding-top: 40px;
+  // margin: 0 auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // border: 1px solid green;
+  background-color: #eee;
+  // min-width: $minWidth;
+  // overflow:hidden;
+  opacity: 1;
+  z-index: 2;
+
+  .dialog-ribbon {
+    height: $heightDialogRibbon;
+    background-color: $themeColor;
+    padding:0px 8px 0px 8px;
+  }
+  .function-tab {
+    min-height: 100%;
+  }
+}

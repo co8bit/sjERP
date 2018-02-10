@@ -1,0 +1,120 @@
+.create-edit-account {
+    height: 100%;
+    padding-bottom: 40px;
+    .content-wrap {
+        width: 100%;
+        height: 100%;
+        min-width: 500px;
+        overflow-y: scroll;
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+            .info-block {
+                width: 90%;
+                background: white;
+                max-width: 1366px;
+                .head {
+                    background: #eee;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    span {
+                        display: flex;
+                        width: 150px;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100%;
+                        background: white;
+                        cursor: pointer;
+                        &.active {
+                            border-bottom: 2px solid #f63;
+                        }
+                    }
+                }
+                .middle {
+                    display: flex;
+                    justify-content: center;
+                    .block {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: center;
+                        width: 90%;
+                        max-width: 800px;
+                        .input-row-inline {
+                            width: 400px;
+                            margin-top: 50px;
+                            display: flex;
+                            align-items: center;
+                            label {
+                                cursor: auto;
+                                width: 100px;
+                                text-align-last: justify;
+                                -webkit-text-align-last: justify;
+                                -ms-text-align-last: justify;
+                                -moz-text-align-last: justify;
+                            }
+                            input, select, textarea, .group {
+                                width: 200px;
+                                margin-left: 20px;
+                            }
+                            textarea {
+                                height: 50px;
+                            }
+                            span {
+                                width: 20px;
+                            }
+                            .group {
+                                display: flex;
+                                justify-content: space-between;
+                                flex-flow: row wrap;
+                                margin-left: 20px;
+                                select {
+                                    width: 45%;
+                                    margin: 0;
+                                    font-size: 10px;
+                                    option {
+                                        font-size: 14px;
+                                        padding: 3px 0;
+                                    }
+                                }
+                                input {
+                                    width: 100%;
+                                    margin: 5px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                .status-row {
+                    width: 70px;
+                    font-size: 18px;
+                    margin: 0 auto;
+                    align-items: center;
+                    margin-top: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    i{
+                        color: #000;
+                    }
+                }
+                .btn-row {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 30px;
+                    button {
+                        width: 150px;
+                        height: 40px;
+                        margin: 50px 0;
+                    }
+                    .right {
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+-<div class="system-settings">
+    <div class="title">系 统 设 置</div>
+    <div class="above-container">
+        <div class="center" ng-if='!isYqjShow'>
+            <div>
+                <input type="checkbox" id="1" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.order_flow_mode">
+                <label for="1">开启单据流模式（如未设置库管建议不要开启）</label>
+            </div>
+            <div ng-show="shopConfig.order_flow_mode == '1'">
+                <input type="checkbox" id="2" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.ck_jump_warehouseConfirm">
+                <label for="2">不需要在销售单、采购退货单中库管确认收到单据（跳过“库管未确认”状态）</label>
+            </div>
+            <div ng-show="shopConfig.order_flow_mode == '1'">
+                <input type="checkbox" id="3" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.ck_jump_warehouOut">
+                <label for="3">不需要货物出库确认（跳过“已确认，未出库”状态）</label>
+            </div>
+            <div ng-show="shopConfig.order_flow_mode == '1'">
+                <input type="checkbox" id="4" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.ck_jump_deliver">
+                <label for="4">不需要货物送达确认（跳过“已出库，未送达”状态）</label>
+            </div>
+            <div ng-show="shopConfig.order_flow_mode == '1'">
+                <input type="checkbox" id="5" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.rk_jump_warehouseConfirm">
+                <label for="5">不需要在销售退货单、采购单中库管确认收到单据（跳过“库管未确认”状态）</label>
+            </div>
+            <div ng-show="shopConfig.order_flow_mode == '1'">
+                <input type="checkbox" id="6" ng-true-value="'1'" ng-false-value="'0'" ng-model="shopConfig.rk_jump_deliver">
+                <label for="6">不需要货物入库确认（跳过“ 已确认，未入库”状态）</label>
+            </div>
+
+            <div>
+                <label>导入往来单位（请在客服指导下使用）：</label>
+            </div>
+            <div>
+                <form>
+                    <input ng-model="forCompany" id="forCompany" type="file" class="inline" placeholder="导入company：" required />
+                    <input type="button" value="提交" ng-click="submitForm(1);">
+                </form>
+            </div>
+            <div>
+                <label>导入sku（请在客服指导下使用）：</label>
+            </div>
+            <div>
+                <form>
+                    <input ng-model="forSku" id="forSku" type="file" name="exceldata" class="inline" required/>
+                    <input type="button" value="提交" ng-click="submitForm(2);" >
+                </form>
+            </div>
+            <div class="xy-form">
+                <form action="" method="post" id="backup">
+                    <button type="submit" class="xy-btn xy-btn-default">备份下载</button>
+                </form>
+            </div>
+        </div>
+        <div class="center" ng-show="isYqjShow">
+            <div>
+                <!-- <input type="checkbox"  id="101" ng-true-value="'1'" ng-false-value="'0'" ng-model="finance_mode"> -->
+                <label>请选择开单模式：</label>
+            </div>
+            <div class="finance-mode">
+                <label><input type="radio" name="101" ng-value='0' ng-model="shopConfig.finance_mode">老板和财务为同一人模式</label>
+                <label><input type="radio" name="101" ng-value='1' ng-model="shopConfig.finance_mode">老板和财务不为同一人</label>
+            </div>
+        </div>
+    </div>
+    <div class="below-container">
+        <button ng-click="edit();">保存</button>
+    </div>
+    <div class="mask" ng-if="maskIsShow">
+        <div >
+            <!-- <img src="web/app/img/misc/wait.gif"> -->
+            文件上传中，请稍等...
+        </div>
+    </div>
+</div>

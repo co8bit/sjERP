@@ -1,0 +1,33 @@
+<div class="manage-park-address">
+    <div class="title">
+        <span>管理停车位置</span>
+    </div>
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="编号/停车位置" ng-model="queryInfo.query">
+        </div>
+        <button ng-click="clickNew();">新增停车位置</button>
+    </div>
+    <!-- 表 -->
+    <div class="table">
+        <div class="table-row">
+            <span>编号</span>
+            <span>停车位置</span>
+            <span>操作</span>
+        </div>
+        <div class="table-row" ng-repeat="item in parkList">
+            <span>{{item.sn}}</span>
+            <span class="ellipsis">{{item.park_address}}</span>
+            <span class="two-buttons">
+    		    <button ng-click="clickEdit(item);">编辑</button>
+    		    <button ng-click="confirmDelete(item);">删除</button>
+    	    </span>
+        </div>
+    </div>
+    <div class="page-navi">
+        <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+</div>

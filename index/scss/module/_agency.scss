@@ -1,0 +1,373 @@
+.agency {
+  width: 100%;
+  min-width: 1100px;
+  .section-one {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(#ff7f18, #f55d49);
+    margin-top: -20px;
+    .section-one-banner {
+      @extend .flex;
+      flex-flow: column;
+      justify-content: center;
+      margin: 0 auto;
+      width: 1100px;
+      height: 650px;
+      .introduce {
+        display: flex;
+        justify-content: center;
+        span {
+          font-size: 22px;
+          color: #fff;
+          margin-left: 15px;
+        }
+      }
+      .shiftChange {
+        width: 30%;
+        margin: 200px auto 0;
+        display: flex;
+        justify-content: space-around;
+        button {
+          width: 140px;
+          height: 45px;
+          background-color: #fff;
+          color: #f55d49;
+          text-align: center;
+          font-size: 20px;
+          border: none;
+          border-radius: 8px;
+          font-weight: 700;
+          cursor: pointer;
+          outline: none;
+          &:hover {
+            background-color: #fff;
+            color: #ff7f18;
+          }
+
+        }
+      }
+      .contactWay {
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        margin-top: 35px;
+        span {
+          display: inline-block;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+  .productIntroduce {
+    .section-two {
+      width: 100%;
+      height: 400px;
+      .section-two-banner {
+        margin: 0 auto;
+        text-align: center;
+        width: 1100px;
+        padding-top: 75px;
+        h5 {
+          font-size: 50px;
+          span {
+            height: 1px;
+            display: inline-block;
+            width: 150px;
+            border-bottom: 2px solid #888;
+            position: relative;
+            top: -12px;
+          }
+        }
+        div {
+          margin-top: 50px;
+          p {
+            margin-top: 25px;
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    .section-three {
+      background-color: #f5f5f5;
+      width: 100%;
+      height: 720px;
+      margin-top: -5px;
+      .section-three-banner {
+        margin: 0 auto;
+        width: 1100px;
+        padding: 100px 0;
+        text-align: center;
+        height: 520px;
+        .three-inr {
+          font-size: 24px;
+          margin-top: 60px;
+        }
+        .threeImg {
+          margin-top: 65px;
+        }
+        h5 {
+          font-size: 50px;
+          strong {
+            color: #f66044;
+          }
+          span {
+            height: 1px;
+            display: inline-block;
+            width: 150px;
+            border-bottom: 2px solid #888;
+            position: relative;
+            top: -12px;
+          }
+        }
+      }
+      .three-list {
+        width: 100%;
+        display: flex;
+        span {
+          flex: 1;
+          font-size: 22px;
+        }
+      }
+    }
+    .section-four {
+      width: 100%;
+      height: 650px;
+      .section-four-banner {
+        padding-top: 70px;
+        width: 1100px;
+        margin: 0 auto;
+        .four-content-one, .four-content-two {
+          border-bottom: 2px dashed #888;
+          height: 105px;
+          width: 100%;
+          display: flex;
+          .content-text-one, .content-text-two, .content-text-three {
+            text-align: left;
+            flex: 1;
+            p {
+              word-break: keep-all;
+              font-size: 18px;
+              color: #888888;
+              margin-top: 10px;
+            }
+            h5 {
+              font-size: 25px;
+              margin-top: 25px;
+            }
+          }
+          .content-two-two {
+            margin-left: 70px;
+          }
+          .content-text-one {
+            padding-left: 70px;
+            h5 {
+              color: #589cf8;
+            }
+          }
+          .content-text-two {
+            padding-left: 100px;
+            h5 {
+              color: #f34c3d;
+            }
+          }
+          .content-text-three {
+            padding-left: 160px;
+            h5 {
+              color: #27bf67;
+            }
+          }
+        }
+        .four-content-three {
+          white-space: nowrap;
+          padding-top: 20px;
+          width: 100%;
+          display: flex;
+          font-size: 16px;
+          color: #888;
+          div {
+            flex: 1;
+          }
+          .content-three-one {
+            padding-left: 70px;
+          }
+          .content-three-two {
+            padding-left: 135px;
+          }
+          .content-three-three {
+            padding-left: 160px;
+          }
+
+        }
+
+      }
+    }
+    .section-five {
+      width: 100%;
+      height: 720px;
+      margin-top: -5px;
+      background-color: #f5f5f5;
+      .section-five-banner {
+        margin: 0 auto;
+        width: 1100px;
+        padding-top: 90px;
+        h5 {
+          text-align: center;
+          font-size: 50px;
+          strong {
+            color: #f65f46;
+          }
+          span {
+            position: relative;
+            display: inline-block;
+            top: -15px;
+            width: 150px;
+            border-bottom: 1px solid #222;
+          }
+        }
+        img {
+          margin-top: 100px;
+        }
+      }
+    }
+    .section-six {
+      display: flex;
+      width: 100%;
+      .section-six-banner {
+        width: 1100px;
+        margin: 0 auto;
+        padding-top: 110px;
+        h5 {
+          text-align: center;
+          font-size: 50px;
+          strong {
+            color: #f55d48;
+          }
+        }
+        .success-hint {
+          display: none;
+          font-size: 50px;
+          text-align: center;
+          margin: 100px auto 300px;
+          width: 560px;
+        }
+        .six-form {
+          margin: 100px auto 0;
+          width: 560px;
+          label {
+            display: block;
+            font-size: 28px;
+            font-weight: 600;
+            color: #666;
+            margin-top: 55px;
+            input {
+              margin-left: 50px;
+              height: 50px;
+              border: 1px solid #888888;
+              border-radius: 15px;
+              padding: 5px 15px;
+            }
+            input:focus {
+              border-radius: 15px;
+              border: 1px solid #f5533d;
+              outline: none;
+            }
+          }
+          button {
+            text-align: center;
+            width: 190px;
+            height: 60px;
+            background-color: #f5533d;
+            font-size: 30px;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            margin: 40px 0 0 160px;;
+            cursor: pointer;
+            outline: none;
+            &:hover {
+              background-color: #F51E28;
+            }
+          }
+        }
+        .six-contact {
+          width: 98%;
+          height: 50px;
+          margin-top: 60px;
+          display: flex;
+          padding: 0 10px;
+          p {
+            flex: 1;
+            font-size: 22px;
+            height: 30px;
+            line-height: 30px;
+            i {
+              position: relative;
+              top: 5px;
+              left: -5px;
+              margin-right: 5px;
+              height: 30px;
+              display: inline-block;
+              background: url("../img/agencyico.png") no-repeat;
+            }
+          }
+          .linkman {
+            i {
+              width: 25px;
+              background-position: 0 0;
+            }
+          }
+          .phone {
+            margin-left: -20px;
+            i {
+              width: 70px;
+
+              background-position: 0 -36px;
+            }
+          }
+          .qq {
+            i {
+              width: 25px;
+
+              background-position: 0 -70px;
+            }
+          }
+          .email {
+            margin-left: -20px;
+            i {
+              width: 38px;;
+              background-position: 0 -108px;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+  .cooperationEarn {
+    display: none;
+    width: 100%;
+    .cooperationEarn-banner {
+      padding-top: 100px;
+      width: 1100px;
+      height: 600px;
+      margin: 0 auto;
+    }
+  }
+  .bottomImg {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .span-left {
+    margin-right: 50px;
+  }
+  .span-right {
+    margin-left: 50px;
+  }
+  .inputError {
+    font-size: 20px;
+    margin: 20px 0 0 170px;
+    color: #b92c28;
+  }
+
+}

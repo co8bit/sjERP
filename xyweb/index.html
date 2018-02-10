@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="XY">
+	<head>
+		<meta charset="UTF-8">
+		<!-- <meta http-equiv="cache-control" content="no-cache, no store" /> -->
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<!-- 默认极速模式 -->
+		<meta name="renderer" content="webkit" />
+		<script src="web/lib/load/js/load.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> -->
+		<title>星云进销存</title>
+		<!-- css -->
+		<link rel="stylesheet" href="web/lib/load/css/load.css?xyvs=2.0.1">
+		<!-- jq.css -->
+		<link rel="stylesheet" href="web/lib/jquery-ui-1.11.4.base/jquery-ui.min.css?xyvs=2.0.1">
+		<link rel="stylesheet" href="web/lib/DataTables/jquery.dataTables.min.css?xyvs=2.0.1">
+		<!-- bootstrap.css -->
+		<link rel="stylesheet" href="web/lib/bootstrap/css/bootstrap.css?xyvs=2.0.1" />
+		<link rel="shortcut icon" href="web/app/img/misc/favicon.ico?xyvs=2.0.1">
+		<!-- daterangpicker -->
+		<link rel="stylesheet" href="web/lib/daterangpicker/css/daterangepicker-bs3.css?xyvs=2.0.1">
+		<link rel="stylesheet" href="web/lib/daterangpicker/css/daterangepicker-1.3.7.css?xyvs=2.0.1">
+		<link rel="stylesheet" href="web/lib/daterangpicker/font/font-awesome.min.css?xyvs=2.0.1">
+		<!-- reset.css -->
+		<link rel="stylesheet" href="web/lib/HTML5-Reset/reset.css?xyvs=2.0.1">
+		<!-- global。css -->
+		<link rel="stylesheet" href="web/app/css/global.css?xyvs=2.0.1">
+		<!-- ........................           我是分割线     css请写上面     js请写下面     ............................................................ -->
+		<!-- js -->
+		<!-- 检查是否是IE内核浏览器 -->
+		<script src="web/app/src/Main/CheckSupport.js?xyvs=2.0.1"></script>
+		<!-- ECharts.js -->
+		<script src="web/lib/ECharts/echarts.min.js?xyvs=2.0.1"></script>
+		<!-- jq -->
+		<script src="web/lib/jquery/jquery.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/jquery/js.cookie.js?xyvs=2.0.1"></script>
+		<script src="web/lib/jquery-ui-1.11.4.base/jquery-ui.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/jquery-ui-1.11.4.base/jquery-ui-zh-CN.js?xyvs=2.0.1"></script>
+		<script src="web/lib/jquery.facedetection-master/dist/jquery.facedetection.min.js"></script>
+		<!-- <script src="web/lib/QRcode/qrcode.js"></script> -->
+		<script src="web/lib/jQuery-MD5/jquery.md5.js?xyvs=2.0.1"></script>
+		<!--<script src="web/lib/DataTables/jquery.dataTables.min.js"></script>-->
+		<!-- 二维码 -->
+		<script src="web/lib/QRcode/qrcode.js?xyvs=2.0.1"></script>
+		<!-- <script src="web/lib/QRcode/qrcode.min.js"></script> -->
+		<!-- Angular -->
+		<script src="web/lib/angular-1.4.9/angular.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/angular-1.4.9/angular-touch.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/angular-1.4.9/angular-sanitize.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/angular-1.4.9/angular-cookies.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/angular-1.4.9/angular-route.min.js?xyvs=2.0.1"></script>
+		<!--<script src="web/lib/angular-1.4.9/angular-animate.js"></script>-->
+		<!--<script src="web/lib/angular-1.4.9/angular-aria.js"></script>-->
+		<!--<script src="web/lib/angular-1.4.9/angular-messages.js"></script>-->
+		<!--smart-table.js-->
+		<script src="web/lib/Smart-Table-master/dist/smart-table.min.js?xyvs=2.0.1"></script>
+		<!--极验-->
+		<!--<script src="web/lib/geetest/gt.js?xyvs=2.0.1"></script>-->
+		<!--Lodop.js-->
+		<script src="web/lib/lodop/LodopFuncs.js?xyvs=2.0.1"></script>
+		<script src="web/lib/lodop/Print.js?xyvs=2.0.1"></script>
+		<!--ejs.js-->
+		<script src="web/lib/ejs/ejs.js?xyvs=2.0.1"></script>
+		<!-- bootstrap.js -->
+		<script src="web/lib/bootstrap/js/bootstrap.js?xyvs=2.0.1"></script>
+		<!-- daterangpicker.js -->
+		<script src="web/lib/daterangpicker/js/moment.min.js?xyvs=2.0.1"></script>
+		<script src="web/lib/daterangpicker/js/daterangepicker.zh-CN.js?xyvs=2.0.1"></script>
+		<script src="web/lib/daterangpicker/js/daterangepicker-1.3.7.js?xyvs=2.0.1"></script>
+		<!-- XY.JS -->
+		<script src="web/app/src/SharedService/XY.js?xyvs=2.0.1"></script>
+		<!-- statistics.js -->
+		<script src="web/app/src/Main/Statistics.js?xyvs=2.0.1"></script>
+	</head>
+	<body ng-cloak ng-controller="MainController as ctrl">
+		<div id="loader-wrapper">
+			<!--加载动画-->
+			<div id="loader"></div>
+			<div class="loader-section section-left"></div>
+			<div class="loader-section section-right"></div>
+			<div class="load_title">正在加载……</div>
+			<div class="tip-row" id="loadTips"></div>
+		</div>
+		<div id="mainContent" class="mainContent">
+			<!-- 新的无限量弹窗 靠ng-repeat实现 -->
+			<div ng-repeat=" item in PageService.dialogList" class="dialog" ng-class="item.dialogStyle" ng-include="item.url"></div>
+			<div class="shared-toast" ng-show="PageService.isSharedToastShow">
+			<!-- 公用的提示界面  延时关闭提示框-->
+				<div class="toast-content">
+					{{PageService.sharedToastContent}}
+				</div>
+			</div>
+			<div id="confirm-dialog" class="confirm-dialog-bg" ng-show="PageService.isConfirmDialogShow" tabindex="0">
+			<!--确认框-->
+				<div class="confirm-dialog" ng-class="{'wider':PageService.confirmDialog.isWider, 'bigger':PageService.confirmDialog.isBigger}">
+					<div class="close-btn" ng-show="PageService.confirmDialog.isShowCloseBtn"><i class="fa fa-times" ng-click="PageService.isConfirmDialogShow = false"></i></div>
+					<div class="content-container" ng-bind-html="PageService.confirmDialog.content"></div>
+					<div class="content-tips" ng-show="PageService.confirmDialog.isTipsShow">
+						<span>删除该往来单位会自动删除与该往来单位的所有历史单据！如果您只是不常用该往来单位或不再与其来往，建议您“不启用”该联系人而不是删除。</span>
+						<div class="red" ng-show="PageService.confirmDialog.isTipsShow">
+							<span>注意：删除会影响到历史账目（利润、销售额等）。往来单位删除不可恢复！！</span>
+						</div>
+					</div>
+					<div class="btn-container">
+						<button ng-repeat="item in PageService.confirmDialog.btns" ng-click="PageService.confirmDialog.click($index)">{{item}}</button>
+					</div>
+				</div>
+			</div>
+			<div id="history-dialog" class="history-dialog-bg" ng-show="PageService.isHistoryDialogShow">
+				<div class="history-dialog">
+	            	<div class="title">操作日志</div>
+		            <div  class="content">
+			            <div class="item" ng-repeat="item in PageService.historyDialog.history track by $index">
+			            	{{$index+1}}：{{item}}
+		            	</div>
+		            </div>
+		            <div class="btn-container">
+						<button  ng-click="PageService.historyDialog.click()">确认</button>
+					</div>
+		        </div>
+		    </div>
+			<div class="plus-menu" ng-class="{'timeMode':timeModeTipBtn}" ng-show="isPlusMenuShow">
+			<!-- 加号按钮单 -->
+				<div class="block order">
+					<div class="head-div" ng-class="{'timeMode':timeModeTipBtn}">你可以随心所欲,任性开单</div>
+					<div class="block-div" ng-class="{'timeMode2':timeModeTipBtn}" ng-show="isSalesOrderShow">
+						<span>交易</span>
+						<div ng-show="loginStatus.rpg!=3">
+							<a ng-click="EventService.emit(EventService.ev.START_CREATE_ORDER,1);">销售开单</a>
+							<a ng-click="EventService.emit(EventService.ev.START_CREATE_ORDER,2);">销售退货</a>
+							<a ng-show="isPurchaseOrderShow" ng-click="EventService.emit(EventService.ev.START_CREATE_ORDER,3);">采购开单</a>
+							<a ng-show="isPurchaseOrderShow" ng-click="EventService.emit(EventService.ev.START_CREATE_ORDER,4);">采购退货</a>
+						</div>
+					</div>
+					<div class="block-div" ng-show="IsYqjShow" ng-class="{'timeMode2':timeModeTipBtn}">
+						<span>内帐系统</span>
+						<div>
+							<a ng-show="ExpenditureStatistics" ng-click="EventService.emit(EventService.ev.START_CREATE_INCOME_OR_EXPENSE,81);">收入开单</a>
+							<a ng-show="IncomeStatistics" ng-click="EventService.emit(EventService.ev.START_CREATE_INCOME_OR_EXPENSE,82);">支出开单</a>
+							<a ng-show="Withdrawals" ng-click="EventService.emit(EventService.ev.START_CREATE_WITHDRAW);">内部银行提现</a>
+							<a ng-show="TransferAccounts" ng-click="EventService.emit(EventService.ev.START_CREATE_TRANSFER_ACCOUNTS);">内部银行转账</a>
+							<a ng-show="ReceiptFill" ng-click="EventService.emit(EventService.ev.START_RECEIPT_FILL);">发票填补单</a>
+						</div>
+					</div>
+					<div class="block-div" ng-class="{'timeMode2':timeModeTipBtn}" ng-show="isStockTakingShow">
+						<span>仓库</span>
+						<div>
+							<a ng-show="isStockTakingShow" ng-click="EventService.emit(EventService.ev.START_STOCK_TAKING)">盘点单</a>
+							<a ng-show="isRequisitionShow" ng-click="EventService.emit(EventService.ev.START_REQUISITION)">调拨单</a>
+						</div>
+					</div>
+					<div class="block-div" ng-class="{'timeMode2':timeModeTipBtn}" ng-show="isReceiptAndPaymentShow || isIncomeAndExpenseShow">
+						<span>财务</span>
+						<div>
+							<a ng-show="isReceiptAndPaymentShow" ng-click="EventService.emit(EventService.ev.START_CREATE_RECEIPT);">收款单</a>
+							<a ng-show="isReceiptAndPaymentShow" ng-click="EventService.emit(EventService.ev.START_CREATE_PAYMENT);">付款单</a>
+							<a ng-show="isIncomeAndExpenseShow" ng-click="EventService.emit(EventService.ev.START_CREATE_INCOME);">其他收入单</a>
+							<a ng-show="isIncomeAndExpenseShow" ng-click="EventService.emit(EventService.ev.START_CREATE_EXPENSE);">支出费用单</a>
+							<a ng-show="isIncomeAndExpenseShow" ng-click="EventService.emit(EventService.ev.START_MODIFY_INCOME);">应收款调整</a>
+							<a ng-show="isIncomeAndExpenseShow" ng-click="EventService.emit(EventService.ev.START_MODIFY_EXPENSE);">应付款调整</a>
+						</div>
+					</div>
+				</div>
+				<div class="block create">
+					<div class="head-div" ng-class="{'timeMode':timeModeTipBtn}"></div>
+					<div class="block-div" ng-class="{'timeMode2':timeModeTipBtn}" ng-show="isCreateSPUShow || isCreateCstmrShow || isCreateEditCatShow">
+						<span>基础信息</span>
+						<div>
+							<a ng-show="isCreateSPUShow" ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_SPU);">新建商品
+							</a>
+							<a ng-show="isCreateCstmrShow" ng-click="EventService.emit(EventService.ev.START_CREATE_COMPANY);">新建单位</a>
+							<a ng-show="isCreateEditCatShow" ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_CAT);">新建类别
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 首页右上角反馈框 -->
+			<div class="feedback-menu fb-m" id="feedback-menu" ng-show="isFeedBackMenuShow == true">
+				<div class="feedback-container fb-m">
+					<div class="content fb-m">
+						<textarea class="fb-m" placeholder="请输入您的反馈内容" name="" id="" cols="30" rows="10" ng-model="feedbackContent"></textarea>
+					</div>
+					<button class="xy-btn xy-btn-orange fb-m" ng-click="send();">反馈</button>
+				</div>
+			</div>
+
+			<!-- 首页右上角设置菜单 -->
+			<div class="setting-menu" id="setting-menu" ng-show="isSettingMenuShow">
+
+				<img ng-show="!IsYqjShow" class="img-semi-circle" src="web/app/img/misc/pic_semi_circle.png">
+				<div ng-show="isShopInfoShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_VIEW_SHOPINFO);">
+					<img src="web/app/img/misc/pic_shop_setting.png">
+					<button ng-show="loginStatus.rpg == 1">店铺设置</button>
+					<button ng-show="loginStatus.rpg != 1">店铺信息</button>
+				</div>
+				<img ng-show="IsYqjShow" class="img-semi-circle" src="web/app/img/misc/pic_semi_circle.png">
+				<div ng-show="IsYqjShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_VIEW_SHOPINFO,'YQJ');">
+					<img src="web/app/img/misc/pic_shop_setting.png">
+					<button ng-show="loginStatus.rpg == 8">公司设置</button>
+					<button ng-show="loginStatus.rpg != 8">公司信息</button>
+				</div>
+				<div ng-show="isManageUserShow && !IsYqjShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_MANAGE_USER);">
+					<img src="web/app/img/misc/pic_member_manage.png">
+					<button>成员管理</button>
+				</div>
+				<div ng-show="isManageParkAddressShow && !IsYqjShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_MANAGE_PARK_ADDRESS);">
+					<img src="web/app/img/misc/pic_parking_space.png">
+					<button>停车位置</button>
+				</div>
+				<div ng-show="isPrintSettingsShow && !IsYqjShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.PRINT_SETTINGS);">
+					<img src="web/app/img/misc/pic_print_space.png">
+					<button>打印设置</button>
+				</div>
+				<div ng-show="IsYqjShow && accountSeting" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_ACCOUNT);">
+					<img src="web/app/img/misc/pic_account.png">
+					<button>资金账户 </button>
+				</div>
+				<div ng-show="IsYqjShow && corporateSector" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_CORPORATE_SECTORY);">
+					<img src="web/app/img/misc/pic_CorporateSector.png">
+					<button>公司部门设置</button>
+				</div>
+				<div ng-show="IsYqjShow && isManageUserShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.START_MANAGE_USER,'YQJ');">
+					<img src="web/app/img/misc/pic_member_manage.png">
+					<button>用户管理设置</button>
+				</div>
+				<div ng-show="isSystemSettingsShow" class="btn-corner-menu" ng-click="isSettingMenuShow = flase;EventService.emit(EventService.ev.SYSTEM_SETTINGS);">
+					<img src="web/app/img/misc/pic_system_setting.png">
+					<button>系统设置</button>
+				</div>
+				<div class="btn-corner-menu" ng-click="isSettingMenuShow = flase;PageService.setNgViewPage('AboutUs')">
+					<img src="web/app/img/misc/pic_about.png">
+					<button>关于</button>
+				</div>
+			</div>
+			<!-- 首页右上角用户菜单 -->
+			<div class="user-menu" ng-show="isUserMenuShow == true">
+				<img class="img-semi-circle" src="web/app/img/misc/pic_semi_circle.png">
+				<div ng-show="isUserInfoShow" class="btn-corner-menu" ng-click="isUserMenuShow = false;PageService.setNgViewPage('UserInfo')">
+					<img src="web/app/img/misc/pic_user_setting.png">
+					<button>用户设置</button>
+				</div>
+				<div class="btn-corner-menu" ng-click="isUserMenuShow = false;UserService.logout()">
+					<img src="web/app/img/misc/pic_log_out.png">
+					<button>退出登录</button>
+				</div>
+			</div>
+			<!-- 登录之后才显示应用本体 -->
+			<div ng-if="loginStatus.status > 0&&(!isExperience||!isFree)">
+				<!-- 应用本体的边界 START-->
+				<div class="app">
+					<!--时光模式-->
+					<div class="timeModeTipBox" ng-show="timeModeTipBtn" ng-click="quitTimeMode()">
+						您在{{timeModeTime}}的时光模式下， 点击退出模式
+					</div>
+					<!-- 标题栏 -->
+					<div class="app-title">
+						<div class="icon-title" ng-click="gotoOfficialSite()">
+							<img src="web/app/img/misc/favicon.ico">
+							<span class="xingyun">星云</span>
+							<span class="jinxiaocun">{{xingYunTitle}}</span>
+						</div>
+						<div class="input-container">
+							<input type="text" placeholder=" 单号/客户名/商品名" ng-model="searchContent.content" ng-focus="searchInputFocus()" ng-blur="searchInputBlur()" ng-keydown="searchKeydown($event);">
+							<img src="web/app/img/misc/pic_search.png" ng-click="EventService.emit(EventService.ev.SEARCH_TITLE_BAR,searchContent.content);searchContent.content='';">
+						</div>
+						<div class="setting-container">
+							<div ng-show="isAccountPayShow && false" class="charge-menu-container" ng-click="showTimeBox();">
+								<img src="web/app/img/misc/time.png">
+								<button>时光模式</button>
+							</div>
+							<!-- <div class="added-service-menu-container">
+                            <img src="web/app/img/misc/value_added.png">
+                            <button><a href="https://item.taobao.com/item.htm?spm=a230r.1.14.110.ni6SRF&id=548613414613&ns=1&abbucket=8#detail" target="_blank">增值服务</a></button>
+                        </div> -->
+							<img src="web/app/img/misc/pic_divide.png" ng-show='!IsYqjShow'>
+							<div class="help-menu-container" ng-show='!IsYqjShow' >
+								<img src="web/app/img/misc/help.png">
+								<!-- <img src="web/app/img/misc/"> -->
+								<button><a href="http://www.xingyunbooks.com/manual_foreground/" target="_blank">帮助</a></button>
+							</div>
+							<img src="web/app/img/misc/pic_divide.png" ng-show="isAccountPayShow">
+							<div ng-show="isAccountPayShow" class="charge-menu-container" ng-click="EventService.emit(EventService.ev.START_EXPENSE_CENTER);">
+								<img src="web/app/img/misc/pic_charge.png">
+								<button>费用中心</button>
+							</div>
+
+							<img src="web/app/img/misc/pic_divide.png">
+							<div class="feedback-menu-container feedback-menu-btn" ng-click="clickFeedBackButton()">
+								<img src="web/app/img/misc/pic_feedback.png" class="feedback-menu-btn">
+								<button class="feedback-menu-btn">反馈</button>
+							</div>
+
+							<img src="web/app/img/misc/pic_divide.png">
+							<div class="setting-menu-container setting-menu-btn" ng-class="{top:novice_boot && stepIndex == 0}" ng-click="clickSettingBurron()">
+								<img src="web/app/img/misc/pic_settings.png" class="setting-menu-btn">
+								<button class="setting-menu-btn">设置</button>
+							</div>
+							<img src="web/app/img/misc/pic_divide.png">
+							<div class="user-menu-container user-menu-btn" id="user-menu" ng-click="clickUserButton()">
+								<button class="user-menu-btn">{{loginStatus.rpg | rpg}}：{{ userInfo.name }}</button>
+								<img src="web/app/img/misc/pic_down_arrow.png" class="user-menu-btn">
+							</div>
+						</div>
+					</div>
+					<div class="sidenav-and-function-body">
+						<!-- 侧边栏 -->
+						<div class="sidenav" ng-cloak>
+							<!-- 侧边栏和主体 -->
+							<div class="scroll_wrap"></div>
+							<div class="plus-btn-area plus-button" ng-class="{'timeMode':timeModeTipBtn}" ng-click="clickPlusButton()">
+								<img src="web/app/img/misc/pic_add.png" class="plus-button noDropBtn">
+								<button class="plus-button">前往开单</button>
+							</div>
+							<!-- <div class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_DASHBOARD);"> -->
+							<div ng-show="isDashboardShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_DASHBOARD);" ng-class="{highlight:PageService.activeNgViewPageName == 'Dashboard'}">
+								<img src="web/app/img/misc/pic_home.png" class="noDropBtn">
+								<button>主页</button>
+							</div>
+							<div ng-show="isViewDraftShow && !IsYqjShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_DRAFT,1);"
+								 ng-class="{highlight:PageService.activeNgViewPageName == 'ViewDraft'}">
+								<img src="web/app/img/misc/pic_draft.png" class="noDropBtn">
+								<button id="draftView">待办事项</button>
+							</div>
+							<div ng-show="isViewDraftShow && IsYqjShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_YIQIJI_DRAFT,1);"
+								 ng-class="{highlight:PageService.activeNgViewPageName == 'Draft'}">
+								<img src="web/app/img/misc/pic_draft.png" class="noDropBtn">
+								<button>待办事项</button>
+								<!-- 易企记的待办事项 -->
+							</div>
+							<!--<div ng-show="isDashboardShow" class="function-area" ng-click="EventService.emit(EventService.ev.OPEN_FACE_RECOGNITION)" ng-class="{highlight:PageService.activeNgViewPageName == 'FaceRecognition'}">-->
+								<!--<img src="web/app/img/misc/pic_home.png" class="noDropBtn">-->
+								<!--<button>人脸识别</button>-->
+							<!--</div>-->
+							<div ng-show="isViewOrderShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_TODAY_ORDER);areaIsShow('order');">
+								<img ng-show="OrderIsShow" class="dropImg" src="web/app/img/misc/dropDown.png">
+								<img ng-show="!OrderIsShow" class="dropImg" src="web/app/img/misc/dropRight.png">
+								<img src="web/app/img/misc/pic_order.png">
+								<button>单据</button>
+							</div>
+							<div ng-show="isViewOrderShow && OrderIsShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_TODAY_ORDER);" ng-class="{highlight:ViewOrderModel.pageState.page == 1 && PageService.activeNgViewPageName == 'ViewOrder'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>查看今日单据</button>
+							</div>
+							<div ng-show="isViewOrderShow && OrderIsShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_ALL_ORDER);" ng-class="{highlight:ViewOrderModel.pageState.page == 2 && PageService.activeNgViewPageName == 'ViewOrder'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>查看所有单据</button>
+							</div>
+							<div ng-show="isViewDraftShow && IsYqjShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_INCOME_EXPENSE_TYPE);"
+								 ng-class="{highlight:PageService.activeNgViewPageName == 'incomeAndExpenseType'}">
+								<img src="web/app/img/misc/pic_draft.png" class="noDropBtn">
+								<button>收支类别管理</button>
+							</div>
+							<div ng-show="isManageCstmrShow" class="function-area" ng-click="EventService.emit(EventService.ev.MANAGE_COMPANY);" ng-class="{highlight:PageService.activeNgViewPageName == 'ManageCstmr'}">
+								<img src="web/app/img/misc/pic_company.png" class="noDropBtn">
+								<button>往来单位</button>
+								<!--ng-class="{highlight:PageService.activeNgViewPageName == 'ManageCstmr'}"-->
+							</div>
+							<div ng-show="isViewStockShow || isManageGoodAndCatShow" class="function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_STOCK);areaIsShow('stock');">
+								<img ng-show="StockIsShow" class="dropImg" src="web/app/img/misc/dropDown.png">
+								<img ng-show="!StockIsShow" class="dropImg" src="web/app/img/misc/dropRight.png">
+								<img src="web/app/img/misc/pic_goods.png">
+								<button>商品</button>
+							</div>
+							<div ng-show="isViewStockShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_STOCK);" ng-class="{highlight:PageService.activeNgViewPageName == 'ViewStock'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>查看库存</button>
+								<!--ng-class="{highlight:PageService.activeNgViewPageName == 'ViewStock'}"-->
+							</div>
+							<div ng-show="isViewStockShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_OPEN_WAREHOUSE);" ng-class="{highlight:PageService.activeNgViewPageName == 'Warehouse'}">>
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>仓库管理</button>
+							</div>
+							<div ng-show="isManageGoodAndCatShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_MANAGE_SKU);" ng-class="{highlight:PageService.activeNgViewPageName == 'ManageGoodAndCat'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>管理商品</button>
+								<!--ng-class="{highlight:PageService.activeNgViewPageName == 'ManageGoodAndCat'}"-->
+							</div>
+							<div ng-show="isTodaySummarySheetShow || isEverydaySummarySheetShow || isSalesSummarySheetShow || IncomeAndExpenseSummarySheet" class="function-area" ng-click="clickSummarySheet();">
+								<img ng-show="SheetIsShow" class="dropImg" src="web/app/img/misc/dropDown.png">
+								<img ng-show="!SheetIsShow" class="dropImg" src="web/app/img/misc/dropRight.png">
+								<img src="web/app/img/misc/pic_report.png">
+								<button>报表与分析</button>
+							</div>
+							<div ng-show="isTodaySummarySheetShow " class="sub-function-area" ng-click="PageService.setNgViewPage('TodaySummarySheet')" ng-class="{highlight:PageService.activeNgViewPageName == 'TodaySummarySheet' && SummarySheetModel.isToday}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button ng-click="EventService.emit(EventService.ev.START_VIEW_TODAY_SUMMARY_SHEET)">今日实时数据</button>
+							</div>
+							<div ng-show="isEverydaySummarySheetShow" class="sub-function-area" ng-click="PageService.setNgViewPage('EverydaySummarySheet')" ng-class="{highlight:PageService.activeNgViewPageName == 'EverydaySummarySheet' || (PageService.activeNgViewPageName == 'TodaySummarySheet' && SummarySheetModel.isToday == false)}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>每日汇总表</button>
+							</div>
+							<div ng-show="isSalesSummarySheetShow " class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_SALES_SUMMARY_SHEET)" ng-class="{highlight:PageService.activeNgViewPageName == 'SalesSummarySheet'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>销售汇总表</button>
+							</div>
+							<!--添加采购汇总表-->
+							<div ng-show="isPurchaseSummarySheetShow" class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_PURCHASE_SUMMARY_SHEET)" ng-class="{highlight:PageService.activeNgViewPageName == 'PurchaseSummarySheet'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>采购汇总表</button>
+							</div>
+							<div ng-show="IncomeAndExpenseSummarySheet " class="sub-function-area" ng-click="EventService.emit(EventService.ev.START_VIEW_EXPENSE_AND_INCOME_SUMMARY_SHEET)" ng-class="{highlight:PageService.activeNgViewPageName == 'ExpenseAndIncomeSummarySheet'}">
+								<img class="point" src="web/app/img/misc/pic_green_point.png">
+								<button>收支出统计</button>
+							</div>
+							<!--<div class="sub-function-area" ng-click="">-->
+								<!--<img class="point" src="web/app/img/misc/pic_green_point.png">-->
+								<!--<button ng-click="EventService.emit(EventService.ev.START_CAMERA)">功能开启</button>-->
+							<!--</div>-->
+						</div>
+						<!-- 功能主体 -->
+						<div class="function-body" ng-view>
+						</div>
+					</div>
+				</div>
+				<!-- 应用本体的边界 END-->
+			</div>
+			<div class="checkTimeModeBox" ng-show="checkTimeModeBoxIsShow">
+				<div class="timeBox">
+					<div class="title">
+						<img class="quit" src="web/app/img/misc/page_close.png" ng-click="closeTimeBox()" />
+					</div>
+					<div class="middle xy-input-row">
+						<label>开单时间：</label>
+						<input type="text" id="datepicker" ng-model="timeModeTime" readonly="" />
+					</div>
+					<div class="tip">
+						注：选择开单日期进入时光模式，时光模式 下开的所有单据日期都默认为您所选择 的开单日期
+					</div>
+					<div class="btn-row">
+						<button type="button" class="xy-btn xy-btn-orange" ng-click="startTimeMode()">开启模式</button>
+					</div>
+				</div>
+			</div>
+			<!-- 首页新手引导 -->
+			<div class="novice_boot" id="novice_boot" ng-show="novice_boot">
+				<div class="step-1" id="step-1" ng-show="stepIndex == 1"></div>
+				<div class="step-2" id="step-2" ng-show="stepIndex == 2"></div>
+				<div class="step-3" id="step-3" ng-show="stepIndex == 3"></div>
+				<div class="step-4" id="step-4" ng-show="stepIndex == 4"></div>
+				<div class="step-5" id="step-5" ng-show="stepIndex == 5"></div>
+				<div class="step-6" id="step-6" ng-show="stepIndex == 6"></div>
+				<img class="img0" src="web/app/img/misc/novice_boot_arrow_up.png" ng-show="stepIndex == 0" />
+				<img class="img1" src="web/app/img/misc/novice_boot_arrow_right.png" ng-show="stepIndex == 1" />
+				<img class="img2" src="web/app/img/misc/novice_boot_arrow_left.png" ng-show="stepIndex == 2" />
+				<img class="img3" src="web/app/img/misc/novice_boot_arrow_left.png" ng-show="stepIndex == 3" />
+				<img class="img4" src="web/app/img/misc/novice_boot_arrow_left.png" ng-show="stepIndex == 4" />
+				<img class="img5" src="web/app/img/misc/novice_boot_arrow_left.png" ng-show="stepIndex == 5" />
+				<img class="img6" src="web/app/img/misc/novice_boot_arrow_left.png" ng-show="stepIndex == 6" />
+				<div class="welcome">
+					<div ng-show="stepIndex == 0">
+						<h3 class="title">欢迎来到来到星云进销存</h3>
+						<p class="title">点击设置可以打开设置选项</p>
+						<p class="content">成员的增删、是否开启打印按钮、单据流都在这里操作.</p>
+					</div>
+					<div ng-show="stepIndex == 1">
+						<h3 class="title">系统设置</h3>
+						<p class="title">店铺设置</p>
+						<p class="content">在这里设置店铺信息</p>
+						<p class="title">成员管理</p>
+						<p class="content">在成员管理中可以增加管理员、销售、库管和股东，也可以停用成员。（注：要开启单据流模式建议先设置库管）</p>
+						<p class="title">打印设置</p>
+						<p class="content">在这里可以自定义打印格式(请在客服指导下进行)</p>
+						<p class="title">系统设置</p>
+						<p class="content">在这里可以设置单据流模式，导入往来单位和SKU商品信息</p>
+					</div>
+					<div ng-show="stepIndex == 2">
+						<h3 class="title">前往开单</h3>
+						<p class="title">在这里可以开任何单据</p>
+						<p class="content">销售开单 （卖出去货物要填写的单据)</p>
+						<p class="content">销售退货单 (卖出去的货物退货了要填写的单据)</p>
+						<p class="content">采购开单 (买进来的货物要填写的单据)</p>
+						<p class="content">采购退货单 (买进来的货物退货要填写的单据)</p>
+						<p class="content">收付款单(收款和付款要填写的单据)</p>
+						<p class="content">盘点单(库存盘点后要填写的单据)</p>
+						<p class="content">收款单、付款单，新建商品、单位、类别等</p>
+					</div>
+					<div ng-show="stepIndex == 3">
+						<h3 class="title">待办事项</h3>
+						<p class="title">草稿单据、异常单据、暂不通知库管单据在这里查询。</p>
+						<p class="contact">
+						</p>
+					</div>
+					<div ng-show="stepIndex == 4">
+						<h3 class="title">查看单据</h3>
+						<p class="title">查看今日单据</p>
+						<p>可以查看今日生成的所有单据。</p>
+						<p class="title">查看所有单据</p>
+						<p>查看所有单据，也可以通过时间筛选要查看特定日期的单据</p>
+					</div>
+					<div ng-show="stepIndex == 5">
+						<h3 class="title">查看库存</h3>
+						<p class="title">管理商品库存</p>
+						<p class="content">在这里可以查看任何商品的库存情况，同时也能新建库存</p>
+					</div>
+					<div ng-show="stepIndex == 6">
+						<h3 class="title">查看今日实时数据</h3>
+						<p class="title">数据的总结和分析</p>
+						<p class="content">可以在这里查看今日数据的总结与分析，让贵店更进一楼！</p>
+
+					</div>
+					<div class="next">
+						<button ng-click="preNext()" ng-show="stepIndex >=0" ng-disabled="stepIndex == 0">上一步</button>
+						<a ng-click="finish()">跳过引导</a>
+						<button ng-click="stepNext()" ng-show="stepIndex != finishIndex">下一步</button>
+						<button ng-click="finish()" ng-show="stepIndex == finishIndex">完成</button>
+					</div>
+				</div>
+
+			</div>
+			<div class="upDate-tip-wrap" ng-show="upDateTipIsShow">
+				<div class="upDate-tip-box">
+					<div class="tip-img-row">
+						<img ng-src='{{stepImgUrl[nowStepTip]}}' alt="图片加载中……" />
+					</div>
+					<div class="tip-step-row">
+						<button class="xy-btn xy-btn-default" ng-click="tipStepNext(-1)">跳过介绍</button>
+						<ul>
+							<li ng-repeat="item in stepImgUrl" ng-class="{'active':$index == nowStepTip}" ng-click="changeTipStep($index)"></li>
+						</ul>
+						<button class="xy-btn xy-btn-orange" ng-show="nowStepTip != stepImgUrl.length - 1" ng-click="tipStepNext()">下一步</button>
+						<button class="xy-btn xy-btn-orange" ng-show="nowStepTip == stepImgUrl.length - 1" ng-click="tipStepNext(-1)">朕已阅</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 下面是调试 -->
+		<!--     <div>
+        <span>从这儿开始是调试</span>
+        <br>
+        <input type="text" ng-model="testDialogName">
+        <br>
+        <button ng-click="ctrl.testButton()">MainController上的testButton</button>
+        <button ng-click="PageService.closeDialog();">2</button>
+    </div> -->
+		<!--     <div st-table="a1" st-safe-src="displayedCollection" style="position:absolute; z-index: 100; top:0px; background-color: white; ">
+
+        <input type="text" ng-model="predicate.allMatch.firstName" placeholder="firstName" ng-change="predicateChanged()">
+        <input type="text" ng-model="predicate.allMatch.lastName" placeholder="lastName" ng-change="predicateChanged()">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>birth date</th>
+                    <th>balance</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in a1">
+                    <td>{{row.firstName}}</td>
+                    <td>{{row.lastName}}</td>
+                    <td>{{row.birthDate}}</td>
+                    <td>{{row.balance}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div> -->
+		<!--     <div id="ccc">
+        <div id="test1-1">
+            <span>1-1 1-1 1-1</span>
+        </div>
+        <div id="test1-2">
+            <div id="test1-2-1">
+                <span>1-2-1 1-2-1 1-2-1</span>
+            </div>
+            <div id="test1-2-2">
+                <div id="test1-2-2-1">
+                    <span>1-2-2-1</span>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+		<!--     <div my-test style="position:absolute; z-index: 100; top:0px; background-color: white; ">
+
+        <label for="">指令实验</label>
+        <span>{{str1}}</span>
+
+    </div>
+ -->
+		<!-- script -->
+		<!-- 类Class -->
+		<script src="web/app/src/Class/PageStateInfoClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/OrderInfoClassService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/NumPadClassService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/FilterClassService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/SPUClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/STOClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/FinancialDocumentClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/CartClassService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/CstmrClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/CheckboxWidgetClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/QueryClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Class/LocalTableClass.js?xyvs=2.0.1"></script>
+		<!-- Shard Services -->
+		<script src="web/app/src/SharedService/ClassService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/BootStrapService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/ConfigService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/UserService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/PageService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/NetworkService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/PrintService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/StockService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/CstmrService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/OrderService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/EventService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/FinanceService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/GenService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/Filter.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/MiscService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/QueryService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/PYService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/LockService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/AuthGroupService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/PayService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/IncomeOrExpenseClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/WithdrawClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/QueryCatClass.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedService/AllFilter.js?xyvs=2.0.1"></script>
+		<!-- controller -->
+		<script src="web/app/src/Stock/ViewStockController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/ViewStockModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Profile/ProfileController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Settings/SettingsController.js?xyvs=2.0.1"></script>
+		<!-- 人脸识别 -->
+        <script src="web/app/src/FaceRecognition/FaceRecognitionModel.js"></script>
+		<script src="web/app/src/FaceRecognition/FaceRecognitionController.js"></script>
+		<script src="web/app/src/FaceRecognition/FaceDetail/FaceDetailModel.js"></script>
+		<script src="web/app/src/FaceRecognition/FaceDetail/FaceDetailController.js"></script>
+		<script src="web/app/src/FaceRecognition/Camera/CameraController.js"></script>
+		<script src="web/app/src/FaceRecognition/Camera/CameraModel.js"></script>
+		<!-- 报表 -->
+		<script src="web/app/src/SummarySheet/SummarySheetService.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SummarySheet/SummarySheetModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SummarySheet/TodaySummarySheetController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SummarySheet/EverydaySummarySheetController.js?xyvs=2.0.1"></script>
+
+		<!-- 销售汇总表 -->
+		<script src="web/app/src/SalesSummarySheet/SalesSummarySheetController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SalesSummarySheet/SalesSummarySheetModel.js?xyvs=2.0.1"></script>
+
+		<!-- 仪表盘 -->
+		<script src="web/app/src/Dashboard/DashboardController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Dashboard/DashboardModel.js?xyvs=2.0.1"></script>
+		<!-- 查看草稿 -->
+		<script src="web/app/src/Draft/ViewDraftModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Draft/ViewDraftController.js?xyvs=2.0.1"></script>
+		<!-- 今日单据所有单据 -->
+		<script src="web/app/src/ViewOrder/ViewOrderModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/ViewOrder/ViewOrderController.js?xyvs=2.0.1"></script>
+		<!-- 往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr往来单位客户Cstmr -->
+		<script src="web/app/src/Cstmr/ManageCstmrController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Cstmr/ManageCstmrModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Cstmr/CreateCstmrController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Cstmr/CstmrDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Cstmr/CstmrModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Cstmr/CstmrDetailsModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Query/QueryMenuController.js?xyvs=2.0.1"></script>
+		<!-- 功能模块 -->
+		<!-- 登录 -->
+		<!--<script src="web/app/src/Login/LoginModel.js?xyvs=2.0.1"></script>-->
+		<!--<script src="web/app/src/Login/SelectLoginModeController.js?xyvs=2.0.1"></script>-->
+		<!--<script src="web/app/src/Login/AdminLoginController.js?xyvs=2.0.1"></script>-->
+		<!--<script src="web/app/src/Login/StaffLoginController.js?xyvs=2.0.1"></script>-->
+		<!--<script src="web/app/src/Login/RegisterStep1Controller.js?xyvs=2.0.1"></script>-->
+		<!--<script src="web/app/src/Login/RegisterStep2Controller.js?xyvs=2.0.1"></script>-->
+		<!--体验账户使用登记-->
+		<script src="web/app/src/Login/ExperienceRegisterController.js?xyvs=2.0.1"></script>
+		<!-- 搜索 -->
+		<script src="web/app/src/Search/SearchModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Search/SearchController.js?xyvs=2.0.1"></script>
+		<!-- 订单 SalesOrder -->
+		<script src="web/app/src/Order/SalesOrder/SalesOrderModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/SalesOrder/SalesOrderController.js?xyvs=2.0.1"></script>
+
+		<script src="web/app/src/Order/NewSalesOrder/NewSalesOrderModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/NewSalesOrder/NewSalesOrderController.js?xyvs=2.0.1"></script>
+
+		<script src="web/app/src/Order/Shared/Tab/SubmitTab/SubmitTabController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/Shared/Tab/CstmrInfoTab/CstmrInfoTabController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/OrderDetails/OrderDetailsModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/OrderDetails/OrderDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Order/OrderDetails/OrderDetailsExceptionPromptController.js?xyvs=2.0.1"></script>
+		<!-- 库存流水 -->
+		<script src="web/app/src/Query/StockHistoryController.js?xyvs=2.0.1"></script>
+		<!-- 报溢报损 -->
+		<!--     <script src="web/app/src/OverflowOrLoss/CreateOverflowOrLossController.js?xyvs=2.0.1"></script>
+    <script src="web/app/src/OverflowOrLoss/CreateOverflowOrLossModel.js?xyvs=2.0.1"></script> -->
+		<!-- 管理商品 -->
+		<script src="web/app/src/SPUSKU/ManageGoodAndCatController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/ManageGoodController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/ManageGoodModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/ManageCatModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/ManageCatController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/CreateEditCatController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SPUSKU/CreateEditCatModel.js?xyvs=2.0.1"></script>
+		<!-- 盘点单 -->
+		<script src="web/app/src/Stock/StockTaking/StockTakingController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/StockTaking/StockTakingPriceInputController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/StockTaking/StockTakingGoodListController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/StockTaking/StockTakingSubmitController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/StockTaking/StockTakingDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Stock/StockTaking/StockTakingModel.js?xyvs=2.0.1"></script>
+		<!-- 调拨单 -->
+		<script src="web/app/src/Requisition/RequisitionController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Requisition/RequisitionModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Requisition/RequisitionGoodListController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Requisition/RequisitionPriceInputController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Requisition/RequisitionSubmitController.js?xyvs=2.0.1"></script>
+		<!-- 仓库详情 -->
+		<script src="web/app/src/StockDetail/StockDetailController.js"></script>
+		<script src="web/app/src/StockDetail/StockDetailModel.js"></script>
+		<!-- 创建修改SPU -->
+		<script src="web/app/src/SPUSKU/CreateEditSPUModel.js?xyvs=2.0.1"></script>
+		<!-- <script src="web/app/src/SPUSKU/EditSPUController.js?xyvs=2.0.1"></script> -->
+		<script src="web/app/src/SPUSKU/CreateSPUController.js?xyvs=2.0.1"></script>
+		<!-- 公共组件 SharedComponent -->
+		<!-- 已选货物列表选项卡 -->
+		<script src="web/app/src/Order/Shared/Tab/OrderGoodListTab/OrderGoodListTabController.js?xyvs=2.0.1"></script>
+		<!-- 货物列表 -->
+		<script src="web/app/src/SharedComponent/GoodList/GoodListController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SharedComponent/GoodList/GoodListFilter.js?xyvs=2.0.1"></script>
+		<!-- 选规格输入价格 AddANewCartItemDialog -->
+		<script src="web/app/src/SharedComponent/GoodSpecPriceInput/GoodSpecPriceInputController.js?xyvs=2.0.1"></script>
+		<!-- 小键盘 -->
+		<script src="web/app/src/SharedComponent/NumPad/NumPadController.js?xyvs=2.0.1"></script>
+		<!-- 购物车 -->
+		<script src="web/app/src/SharedComponent/Cart/CartController.js?xyvs=2.0.1"></script>
+		<!-- 选择用户 -->
+		<script src="web/app/src/SharedComponent/SelectUser/SelectUserController.js?xyvs=2.0.1"></script>
+		<!-- 财务单 -->
+		<script src="web/app/src/Finance/IncomeAndExpense/IncomeAndExpenseModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/IncomeAndExpense/IncomeAndExpenseController.js?xyvs=2.0.1"></script>
+
+		<!-- 应收应付调整单 -->
+		<script src="web/app/src/Finance/ModifyIncomeOrExpense/ModifyIncomeOrExpenseModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/ModifyIncomeOrExpense/ModifyIncomeOrExpenseController.js?xyvs=2.0.1"></script>
+
+		<script src="web/app/src/Finance/ReceiptAndPayment/ReceiptAndPaymentController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/ReceiptAndPayment/ReceiptAndPaymentModel.js?xyvs=2.0.1"></script>
+		<!-- 财务单详情 -->
+		<script src="web/app/src/Finance/Details/IncomeAndExpenseDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/Details/ModifyIncomeOrExpenseDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/Details/ReceiptAndPaymentDetailsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Finance/Details/FinancialDocumentDetailsModel.js?xyvs=2.0.1"></script>
+		<!-- 管理 -->
+		<script src="web/app/src/Management/ManagementModel.js?xyvs=2.0.1"></script>
+		<!-- 管理用户 -->
+		<script src="web/app/src/Management/ManageUser/ManageUserController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/ManageUser/CreateEditUserController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/ManageUser/ManageUserModel.js?xyvs=2.0.1"></script>
+		<!-- 用户信息 -->
+		<script src="web/app/src/Management/UserInfo/UserInfoController.js?xyvs=2.0.1"></script>
+		<!-- 店铺设置 -->
+		<script src="web/app/src/Management/ShopInfo/ShopInfoController.js?xyvs=2.0.1"></script>
+		<!-- 管理停车位置 -->
+		<script src="web/app/src/Management/ParkAddress/ManageParkAddressController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/ParkAddress/ManageParkAddressModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/ParkAddress/CreateEditParkAddressController.js?xyvs=2.0.1"></script>
+		<!-- 打印设置 -->
+		<script src="web/app/src/Management/PrintSettings/PrintSettingsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/PrintSettings/PrintSettingsModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Management/PrintSettings/PrintSettingsPrivateController.js?xyvs=2.0.1"></script>
+		<!-- 系统设置 -->
+		<script src="web/app/src/Management/SystemSettings/SystemSettingsController.js?xyvs=2.0.1"></script>
+		<!-- 关于我们 -->
+		<script src="web/app/src/Management/AboutUs/AboutUsController.js?xyvs=2.0.1"></script>
+		<!-- 反馈 -->
+		<!-- <script src="web/app/src/Management/FeedBack/FeedBackController.js?xyvs=2.0.1"></script>-->
+		<!-- 费用中心 -->
+		<script src="web/app/src/ExpenseCenter/ExpenseCenterController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/ExpenseCenter/ExpenseCenterModel.js?xyvs=2.0.1"></script>
+		<!-- 对账单 -->
+		<script src="web/app/src/Statement/StatementController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Statement/CheckReceiverController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Statement/StatementModel.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Statement/StatementWechatController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Statement/StatementWechatModel.js?xyvs=2.0.1"></script>
+		<!-- 支付 -->
+		<script src="web/app/src/AccountPay/AccountPayController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/AccountPay/AccountPayModel.js?xyvs=2.0.1"></script>
+
+		<!-- 临时 Temp -->
+		<script src="web/app/src/Temp/TempController.js?xyvs=2.0.1"></script>
+		<!-- 确定对话框 -->
+		<script src="web/app/src/Dialog/ConfirmDialogController.js?xyvs=2.0.1"></script>
+		<!-- SkuDetail -->
+		<script src="web/app/src/SkuDetail/SkuDetailController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/SkuDetail/SkuDetailModel.js?xyvs=2.0.1"></script>
+		<!-- 仓库 -->
+		<script src="web/app/src/Warehouse/WarehouseController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Warehouse/WarehouseModel.js?xyvs=2.0.1"></script>
+		<!-- 创建/编辑 仓库 -->
+		<script src="web/app/src/Warehouse/CreateEditWarehosue/CreateEditWarehosueController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/Warehouse/CreateEditWarehosue/CreateEditWarehosueModel.js?xyvs=2.0.1"></script>
+		<!-- 忘记密码model -->
+		<!--<script src="web/app/src/Login/ForgetModel.js?xyvs=2.0.1"></script>-->
+
+		<!-- 易企记  写下面 -->
+		<!-- 账户管理 -->
+		<script src="web/app/src/yiqiji/AccountSetting/AccountSettingController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/AccountSetting/AccountSettingModel.js?xyvs=2.0.1"></script>
+		<!-- 新建、编辑账户 -->
+		<script src="web/app/src/yiqiji/AccountSetting/CreateEditAccountController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/AccountSetting/CreateEditAccountModel.js?xyvs=2.0.1"></script>
+		<!-- 公司部门设置 -->
+		<script src="web/app/src/yiqiji/CorporateSector/CorporateSectorController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/CorporateSector/CorporateSectorModel.js?xyvs=2.0.1"></script>
+		<!-- 支出收入单 -->
+		<script src="web/app/src/yiqiji/Finance/IncomeOrExpense/IncomeOrExpenseController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Finance/IncomeOrExpense/IncomeOrExpenseModel.js?xyvs=2.0.1"></script>
+		<!-- 内部转账 -->
+		<script src="web/app/src/yiqiji/Finance/TransferAccounts/TransferAccountsController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Finance/TransferAccounts/TransferAccountsModel.js?xyvs=2.0.1"></script>
+		<!-- 提现开单 -->
+		<script src="web/app/src/yiqiji/Finance/Withdraw/WithdrawController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Finance/Withdraw/WithdrawModel.js?xyvs=2.0.1"></script>
+		<!-- 发票填补开单 -->
+		<script src="web/app/src/yiqiji/Finance/ReceiptFill/ReceiptFillcontroller.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Finance/ReceiptFill/ReceiptFillModel.js?xyvs=2.0.1"></script>
+		<!-- 收支出详情 -->
+		<script src="web/app/src/yiqiji/Detail/IncomeAndExpendDetail/IncomeAndExpendDetailController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Detail/IncomeAndExpendDetail/IncomeAndExpendDetailModel.js?xyvs=2.0.1"></script>
+		<!-- 转账/提现详情 -->
+		<script src="web/app/src/yiqiji/Detail/TransferAndWithdrawDetail/TransferAndWithdrawDetailController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Detail/TransferAndWithdrawDetail/TransferAndWithdrawDetailModel.js?xyvs=2.0.1"></script>
+		<!-- 收支出类别管理 -->
+		<script src="web/app/src/yiqiji/incomeAndExpenseType/incomeAndExpenseTypeController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/incomeAndExpenseType/incomeAndExpenseTypeModel.js?xyvs=2.0.1"></script>
+		<!-- 查看草稿单 -->
+		<script src="web/app/src/yiqiji/Draft/DraftController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/Draft/DraftModel.js?xyvs=2.0.1"></script>
+		<!-- 收支出汇总表 -->
+		<script src="web/app/src/yiqiji/SummarySheet/ExpenseAndIncomeSummarySheetController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/SummarySheet/ExpenseAndIncomeSummarySheetModel.js?xyvs=2.0.1"></script>
+		<!-- 新建类别 -->
+		<script src="web/app/src/yiqiji/CreateOrEditCat/CreateOrEditCatController.js?xyvs=2.0.1"></script>
+		<script src="web/app/src/yiqiji/CreateOrEditCat/CreateOrEditCatModel.js?xyvs=2.0.1"></script>
+
+		<!-- Maincontroller -->
+		<script src="web/app/src/Main/MainController.js?xyvs=2.0.1"></script>
+		<!-- 复制到SpecRunner END-->
+
+		<!--ionic-->
+		<!-- <script src="web/lib/ionic/js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script> -->
+	</body>
+
+</html>

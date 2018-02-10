@@ -1,0 +1,115 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>create</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Contact/createContact")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>cid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>contact_name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="contact_name" type="text" autofocus="" value='wbxaa'>
+                                </div>
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"phonenum":[{"mobile":"15023658955"},{"mobile":"57128121110"}],"car_license":[{"car_license":"浙AA5202"},{"car_license":"car_license"}]}'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>edit_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Contact/edit_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>contact_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="contact_id" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>cid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" autofocus="" value='1'>
+                                </div>
+                                
+                               <label><font color=black>contact_name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="contact_name" type="text" autofocus="" value='wmm'>
+                                </div>
+
+                                <label><font color=black>contact</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="contact" type="text"  value='{"phonenum":[{"phonenum_id":1,"mobile":"15023658955"},{"new":1,"phonenum_id":0,"mobile":"57128121110"},{"delete":1,"phonenum_id":1}],"car_license":[{"carlicense_id":1,"car_license":"浙AA5202"},{"new":1,"carlicense_id":0,"car_license":"car_license"},{"delete":1,"carlicense_id":2}]}'>
+                                </div>
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>delete</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Contact/deleteContact")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>contact_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="contact_id" type="text" autofocus="" value='1'>
+                                </div>
+                                
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+  <form id="form" method="post" action="{:U("Contact/queryList")}">
+      <h1>queryList</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='1'>
+        </div>
+        <input value="查询" type="submit">
+  </form>
+    
+</body>
+</html>

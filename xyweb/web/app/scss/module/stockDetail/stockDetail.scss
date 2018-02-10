@@ -1,0 +1,93 @@
+.StockDetail{
+  width: 100%;
+  .top{
+    display: flex;
+    width: 95%;
+    margin:20px auto 0;
+    justify-content: space-between;
+    .section-one,.section-two,.section-three{
+      background-color: white;
+      height: 200px;
+
+    }
+    .section-one{
+      box-shadow: #ccc 2px 2px 10px;
+      flex: 1.2;
+      display: flex;
+      justify-content: center;
+      margin-right: 10px;
+      div{
+        width: 250px;
+        align-self: center;
+        p{
+          margin-top: 5px;
+          span{
+            width: 38%;
+            display: inline-block;
+            text-align: right;
+          }
+        }
+      }
+    }
+    .section-two{
+      margin-right: 10px;
+      flex: 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p{
+        align-self: center;
+        height: 30px;
+        width: 12%;
+        margin-right: 10px;
+      }
+      .section-two-remark{
+        resize:none;
+        background-color: #eeeeee;
+        overflow-y: scroll;
+        width:70%;
+        height: 80%;
+      }
+    }
+    .section-three{
+      display: flex;
+      flex: 1;
+      flex-flow: column;
+      justify-content: space-around;
+      align-items: center;
+      cursor: pointer;
+      img{
+        display: inline-block;
+        margin: 0 auto;
+      }
+      p{
+        margin-top: 10px;
+      }
+    }
+  }
+  .section-four{
+    width: 95%;
+    height: 70px;
+    background-color: white;
+    margin: 20px auto 0;
+    padding:  0 5%;
+    .section-four-container{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      div{
+        width: 25%;
+        font-size: 18px;
+        span{
+          color:rgb(240, 127, 103);
+        }
+      }
+    }
+  }
+  .section-five{
+    width: 95%;
+    margin: 20px auto 0;
+  }
+}

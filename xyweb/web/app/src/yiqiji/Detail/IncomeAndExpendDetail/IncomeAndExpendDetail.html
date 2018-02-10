@@ -1,0 +1,213 @@
+<div class="order-details-page" id="order-details-page" ng-controller="IncomeAndExpendDetailController">
+	<!-- （header）xx单据详情，客户名字，退出按钮 -->
+    <div class="title-bar-detail">
+        <!-- xx单据详情 -->
+        <div class="left">
+            <span>{{orderInfo.class | _class}}详情</span>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <!--单据内容-->
+	<div class="order-detail">
+		<div class="order-detail-header">
+			<div class="status-now">
+				<span>开单日期:{{orderInfo.reg_time | time}}</span>
+				<span>订单号:{{orderInfo.sn}}</span>
+				<span class="active">{{orderInfo.status | status}}</span>
+				<span>经办人:{{orderInfo.operator_name}}</span>
+			</div>
+			<div class="status-info">
+				<div class="status">
+	                <div class="step">
+	                    <img src="web/app/img/misc/pic_inactive.png"
+	                         ng-show="orderInfo.status != 81"></img>
+	                    <img src="web/app/img/misc/pic_active.png"
+	                         ng-show="orderInfo.status == 81"></img>
+	                    <span>财务待审核</span>
+	                </div>
+	                <div class="between-line"></div>
+	                <div class="step">
+	                    <img src="web/app/img/misc/pic_inactive.png" ng-show="orderInfo.status != 82 && orderInfo.status != 83"></img>
+                        <img src="web/app/img/misc/pic_active.png" ng-show="orderInfo.status == 82 || orderInfo.status == 83"></img>
+	                    <span ng-show="orderInfo.status != 82 && orderInfo.status != 83">财务已通过/驳回</span>
+	                    <span ng-show="orderInfo.status == 82">财务已通过</span>
+	                    <span ng-show="orderInfo.status == 83">财务已驳回</span>
+	                </div>
+	                <div class="between-line"></div>
+	                <div class="step">
+	                	<img src="web/app/img/misc/pic_inactive.png" ng-show="orderInfo.status != 82"></img>
+                        <img src="web/app/img/misc/pic_active.png" ng-show="orderInfo.status == 82"></img>
+	                    <span>老板待审阅</span>
+	                </div>
+	                <div class="between-line"></div>
+	                <div class="step">
+	                	<img src="web/app/img/misc/pic_inactive.png" ng-show="orderInfo.status != 84 && orderInfo.status != 85"></img>
+                        <img src="web/app/img/misc/pic_active.png" ng-show="orderInfo.status == 84 || orderInfo.status == 85"></img>
+	                    <span ng-show="orderInfo.status != 84 && orderInfo.status != 85">老板已通过/驳回</span>
+	                    <span ng-show="orderInfo.status == 84">老板已通过</span>
+	                    <span ng-show="orderInfo.status == 85">老板已驳回</span>
+	                </div>
+	                <div class="step" ng-show='orderInfo.status == 3'>
+	                	<img src="web/app/img/misc/pic_delete_order.png" ng-show="orderInfo.status == 3"></img>
+	                </div>
+            	</div>
+				<div class="buttons">
+	                <div ng-click="clickHistory();">
+	                    <img src="web/app/img/misc/pic_log.png">
+	                    <button>操作日志</button>
+	                </div>
+	                <div ng-show="orderInfo.status != 3 && isDelete && orderInfo.status == 81" ng-click="clickDelete();">
+	                    <img src="web/app/img/misc/DELETE.png">
+	                    <button>作废</button>
+	                </div>
+                </div>
+			</div>
+		</div>
+		<!--收支出表-->
+		<div class="table finance-detail-table">
+			<div class="table-row head">
+				<span>序号</span>
+                <span ng-show="orderInfo.class == 82">支出项目</span><span ng-show="orderInfo.class == 81">收入项目</span>
+                <span ng-show="orderInfo.class == 82">支出分类</span><span ng-show="orderInfo.class == 81">收入分类</span>
+                <span>金额</span>
+                <span ng-show="orderInfo.class == 82">是否有发票</span>
+                <span>备注</span>
+            </div>
+            <div class="table-row" ng-repeat="item in orderInfo.cart.data track by $index">
+                <span>{{$index + 1}}</span>
+                <span>{{item.item_name}}</span>
+                <span>{{item.spec_name}}</span>
+                <span>{{item.total_price}}</span>
+                <span ng-show="orderInfo.class == 82">{{item.is_invoice == '1' ? '是' : '否'}}</span>
+                <span>{{item.cost_remark}}</span>
+            </div>
+            <div class="table-row" ng-show="orderInfo.cart.data.length <3"></div>
+            <div class="table-row" ng-show="orderInfo.cart.data.length <2"></div>
+            <div class="table-row" ng-show="orderInfo.cart.data.length <1"></div>
+            <div class="table-row">
+            	<span>总计</span>
+            	<span></span>
+            	<span></span>
+            	<span>{{orderInfo.income}}</span>
+            	<span></span>
+            	<span></span>
+            </div>
+            <div class="table-row big" ng-if="isFinance">
+            	<span></span>
+            	<span></span>
+            	<span class="expense" ng-show="orderInfo.class == 82">
+            		支出金额:
+            		<span ng-show='orderInfo.status != 81'>{{income}}</span>
+            		<input type="number" ng-show='orderInfo.status == 81' ng-model="income" readonly="readonly" ng-click="ShowCardBox()" />
+            	</span>
+            	<span class="expense" ng-show="orderInfo.class == 81">收入金额:&nbsp;&nbsp;{{orderInfo.income}}</span>
+            	<span></span>
+            </div>
+		</div>
+		<!--收支出账户表-->
+		<div class="table account-detail-table">
+			<div class="table-row head">
+				<span>序号</span>
+				<span ng-show="orderInfo.class == 82">支出方式</span><span ng-show="orderInfo.class == 81">收入方式</span>
+                <span>账户名称</span>
+                <span class="max">账号</span>
+                <span>开户银行</span>
+                <span>支出金额</span>
+            </div>
+            <div class="table-row" ng-repeat="item in expenseList">
+            	<span>{{$index + 1}}</span>
+                <span>{{item.account_source_type | accountType}}</span>
+                <span>{{item.account_name}}</span>
+                <span class="max">{{item.account_number}}</span>
+                <span>{{item.account_source_name}}</span>
+                <span>{{item.cost}}</span>
+            </div>
+            <div class="table-row" ng-show="expenseList.length <3"></div>
+            <div class="table-row" ng-show="expenseList.length <2"></div>
+            <div class="table-row" ng-show="expenseList.length <1"></div>
+		</div>
+	</div>
+	<div class="through-block">
+		<div class="block remark" ng-class="{'col2':isFinance,'col3':isBoss || isView}">
+			<div class="title">备注</div>
+			<textarea ng-model="orderInfo.remark" ng-readonly="!remarkEdit" ng-blur="saveRemark();"></textarea>
+		</div>
+		<div class="block suggest1" ng-class="{'col2':isFinance,'col3':isBoss || isView}">
+			<div class="title">财务审核意见</div>
+			<textarea name="suggest" ng-model="orderInfo.finance_advice" ng-readonly="isView || isBoss" ng-blur="saveRemark();"></textarea>
+		</div>
+		<div class="block suggest2" ng-class="{'col3':isBoss || isView}" ng-show="isView || isBoss">
+			<div class="title">boss审核意见</div>
+			<textarea name="suggest" ng-model='orderInfo.boss_advice' ng-readonly="isView || !isBoss" ng-blur="saveRemark();"></textarea>
+		</div>
+	</div>
+
+	<div class="card-box-wrap" ng-show="cardBoxIsShow">
+		<div class="card-box">
+			<div class="title-bar-green">
+				<span class="title">添加支出金额</span>
+				<span class="quit-i" ng-click="closeCardBox();"><i class="fa fa-times"></i></span>
+			</div>
+			<div class="card-content">
+				<div class="search-row">
+					<div class="search-box">
+						<input type="text" ng-model="queryAccount" placeholder="账户简称/速查码/账号" />
+						<img src="web/app/img/misc/pic_search.png"/>
+					</div>
+					<button class="xy-btn xy-btn-green" ng-click="addAccount()">新增账户</button>
+				</div>
+				<div class="table">
+					<div class="table-row head">
+						<span class="small">序号</span>
+						<span>账户简称</span>
+						<span>账户类型</span>
+						<span>开户人</span>
+						<span class="max">账号</span>
+						<span>账户余额</span>
+						<span>金额</span>
+					</div>
+					<div class="table-body">
+						<div class="table-row" ng-repeat="item in accountList | filter : queryAccount">
+							<span class="small">{{$index + 1}}</span>
+							<span>{{item.account_name}}</span>
+							<span>{{item.account_source_type_show}}</span>
+							<span>{{item.account_creator}}</span>
+							<span class="max">{{item.account_number}}</span>
+							<span>{{item.account_balance}}</span>
+							<span><input type="number" ng-model='item.cost' ng-change="updataIncome()" /></span>
+						</div>
+					</div>
+					<div class="table-row">
+						<span>合计</span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span>{{income}}</span>
+					</div>
+				</div>
+				<div class="button-row">
+					<button class="xy-btn xy-btn-green" ng-click="closeCardBox();">取消</button>
+					<button class="xy-btn xy-btn-green" ng-click="closeCardBox();">确认</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer" ng-show="!isView && (orderInfo.status != 81 && isFinance) || (orderInfo.status != 82 && isBoss)">
+		<!--不是查看模式下  切财务通过或老板通过的情况下显示-->
+		<button class="xy-btn xy-btn-orange" ng-click="changeOrder(-1)">上一条</button>
+		<button class="xy-btn xy-btn-default" ng-click="changeOrder(1)">下一条</button>
+	</div>
+	<div class="footer" ng-show="!isView && (orderInfo.status == 81 && isFinance) || (orderInfo.status == 82 && isBoss)">
+		<!--不是查看模式下  且财务待审核或老板待审核的情况下显示-->
+		<span class="skip" ng-click="changeOrder(1);">跳过</span>
+		<button class="xy-btn xy-btn-default" ng-click="rebut();">驳回</button>
+		<button class="xy-btn xy-btn-orange" ng-click="passOrder();">通过</button>
+	</div>
+</div>

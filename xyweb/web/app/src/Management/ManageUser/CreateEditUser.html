@@ -1,0 +1,99 @@
+<div class="create-edit-user" ng-controller="CreateEditUserController">
+    <div class="title-bar">
+        <span>新建/编辑成员</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+    <div class="content-bg">
+        <div class="content">
+            <div class="role-bg" ng-if="!IsYqjShow && selectRoleIsShow">
+                <div>
+                    <span class="role">角色</span>
+                    <div ng-show="rpg == 1">
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'7'" id="admin"><label
+                            for="admin">管理员</label>
+                    </div>
+                    <div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'2'" id="salesman"><label for="salesman">销售</label>
+                    </div>
+                    <div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'3'" id="warehouseman"><label
+                            for="warehouseman">库管</label>
+                    </div>
+                    <div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'4'" id="shareholder"><label
+                            for="shareholder">股东</label>
+                    </div>
+                </div>
+            </div>
+            <div class="role-bg" ng-if="IsYqjShow && selectRoleIsShow ">
+            	<div>
+					<span class="role">角色</span>
+                    <!--<div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'9'" id="admin"><label for="admin">老板</label>
+                    </div>-->
+                    <div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'10'" id="finance"><label for="finance">财务</label>
+                    </div>
+                    <div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'11'" id="staff"><label for="staff">员工</label>
+                    </div>
+                    <!--<div>
+                        <input type="radio" ng-model="userInfo.rpg" ng-value="'12'" id="admin" ng-hide="true"><label for="admin">管理员</label>
+                    </div>-->
+            	</div>
+            </div>
+            <div ng-show="isEdit">编号：{{userInfo.sn}}</div>
+            <div>
+                <div>
+                    <span>用户名</span>
+                    <input type="text" ng-model="userInfo.username" ng-disabled="isAdmin">
+                    <span class="required" ng-show="isEdit"></span>
+                    <span class="required" ng-show="!isEdit">*</span>
+                </div>
+                <div>
+                    <span>密码</span>
+                    <input type="password" ng-model="userInfo.password">
+                    <span class="required">*</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>电话</span>
+                    <input type="text" ng-model="userInfo.mobile" ng-disabled="isAdmin" ng-keyup="onlyNumber(userInfo, 'mobile')" required>
+                    <span class="required">*</span>
+                </div>
+                <div>
+                    <span>真实姓名</span>
+                    <input type="text" ng-model="userInfo.name">
+                    <span class="required">*</span>
+                </div>
+            </div>
+            <div>
+                <div ng-show="!IsYqjShow">
+                    <span>QQ</span>
+                    <input type="text" ng-model="userInfo.qq" ng-keyup="onlyNumber(userInfo, 'qq')" required>
+                    <span class="required"></span>
+                </div>
+                <div class="" ng-show="IsYqjShow">
+                	<span>部门</span>
+                	<select ng-model="department" ng-options="item.depart_name for item in departmentList"></select>
+                	<span class="required">*</span>
+                </div>
+                <div>
+                    <span>邮箱</span>
+                    <input type="email" ng-model="userInfo.email" required>
+                    <span class="required"></span>
+                </div>
+            </div>
+            <div class="status">
+                <span>启用</span>
+                <input type="checkbox" ng-model="userInfo.status" ng-true-value="'1'" ng-false-value="'0'">
+                <span class="required"></span>
+            </div>
+            <button ng-show="userInfo.uid > 0" ng-click="saveChange();">保 存</button>
+            <button ng-show="!(userInfo.uid > 0)" ng-click="createUser();">新 建</button>
+        </div>
+    </div>
+</div>

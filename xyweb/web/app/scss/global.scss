@@ -1,0 +1,46 @@
+
+@import 'styleframeworkglobal';
+
+@import 'module/index/index';
+@import 'module/order/order';
+@import 'module/finance/finance';
+@import 'module/stock/stock';
+@import 'module/spusku/spusku';
+@import 'module/cstmr/cstmr';
+@import "module/management/Print-settings";
+@import 'module/management/management';
+@import "module/draft/draft";
+@import "module/dashboard/dashboard";
+@import "module/ViewOrder/ViewOrder";
+@import "module/search/search";
+@import "module/summarysheet/summarysheet";
+@import "module/AccountPay/AccountPay";
+@import "module/ExpenseCenter/ExpenseCenter";
+@import "module/statement/statement";			//短信对单账
+@import "module/statement/Statement-Wechat";	//微信对账单
+@import "module/statement/check_receiver";		//发送短信对账单时的选择联系人
+@import "module/SkuDetail/SkuDetail";			//库存详情
+@import "module/warehouse/Warehouse";			//仓库
+@import "module/warehouse/Create-Edit-warehouse";//新建、编辑仓库
+@import "module/Requisition/Requisition";
+@import "module/login/_loginAndRegister";       //登录和注册通用
+@import "module/FaceRecognition/FaceRecognition"; //人脸识别
+@import "module/stockDetail/stockDetail"; //仓库详情
+
+
+//易企记
+@import "module/yiqiji/AccountSetting/AccountSetting";//账号设置
+@import "module/yiqiji/AccountSetting/CreateEditAccount";//创建账户
+@import "module/yiqiji/CorporateSector/CorporateSector";//账号设置
+@import "module/yiqiji/finance/incomeOrExpense";//支出和收入单
+@import "module/yiqiji/TransferAccounts/transferAccounts";//转账单
+@import "module/yiqiji/Withdraw/Withdraw";//提现单
+@import "module/yiqiji/ReceiptFill/ReceiptFill";//提现单
+@import "module/yiqiji/incomeAndExpenseType/incomeAndExpenseType";//收支出类别管理
+@import "module/yiqiji/Draft/Draft";//草稿单
+@import "module/yiqiji/CreateOrEditCart/CreateOrEditCart";//新建类别
+@import "module/yiqiji/Detail/IncomeAndExpendDetail";//收入支出详情
+@import "module/yiqiji/Detail/TransferAndWithdrawDetail";//转账提现详情
+@import "module/yiqiji/SummarySheet/SummarySheet";//收支出看板
+
+

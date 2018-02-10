@@ -1,0 +1,101 @@
+<div class="value-floating-panel" ng-class="{'shadow':PickGoodTabIsShow==true}" ng-controller="CstmrInfoTabController">
+	<div class="money-number">
+        <!-- <div class="img-div">
+            <img src="web/app/img/misc/money_number.png">
+        </div> -->
+
+		<div class="good-value">
+			<span class="bigger-span">{{orderInfo.cartAgent.totPrice | number:2}}</span>
+			<span>货物价值</span>
+		</div>
+	</div>
+	<div class="money-line line1">
+
+		<div class="money-line-div">
+			<span for="">-&nbsp&nbsp优惠金额</span>
+			<input class="" type="number" ng-model="orderInfo.off" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(0); orderInfo.off='';" placeholder="元">
+		</div>
+		<div class="money-line-div" ng-show="orderInfo.isSeller">
+			<span for="">=&nbsp&nbsp应收金额</span>
+			<input class="" type="text" ng-value="orderInfo.receivableThisTime | number:2" disabled="true" placeholder="元">
+		</div>
+		<div class="money-line-div" ng-show="!orderInfo.isSeller">
+			<span for="">=&nbsp&nbsp应付金额</span>
+			<input class="" type="text" ng-value="orderInfo.payableThisTime | number:2" disabled="true">
+		</div>
+	</div>
+	<div class="money-line line-btn">
+		<div class="money-line-div">
+			<button ng-click="orderInfo.cash = orderInfo.receivableThisTime || orderInfo.payableThisTime; orderInfo.bank = 0; orderInfo.online_pay = 0;">现金全款</button>
+			<button ng-click="orderInfo.bank = orderInfo.receivableThisTime || orderInfo.payableThisTime; orderInfo.cash = 0; orderInfo.online_pay = 0;">银行全款</button>
+			<button ng-click="orderInfo.online_pay = orderInfo.receivableThisTime || orderInfo.payableThisTime;orderInfo.cash = 0; orderInfo.bank = 0;">网络全款</button>
+		</div>
+	</div>
+	<div class="money-line line2">
+		<div class="money-line-div">
+			<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">&nbsp&nbsp&nbsp&nbsp现金支付</span>
+			<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">&nbsp&nbsp&nbsp&nbsp现金收款</span>
+			<input class="input-s-s" type="number" ng-model="orderInfo.cash" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(2); orderInfo.cash = '';">
+		</div>
+		<div class="money-line-div">
+			<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">+&nbsp&nbsp银行支付</span>
+			<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">+&nbsp&nbsp银行收款</span>
+			<input class="input-s-s" type="number" ng-model="orderInfo.bank" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(3); orderInfo.bank = '';">
+		</div>
+
+		<div class="money-line-div">
+			<span for="" ng-show="orderInfo._class != 1 && orderInfo._class != 4">+&nbsp&nbsp网络支付</span>
+			<span for="" ng-show="orderInfo._class == 1 || orderInfo._class == 4">+&nbsp&nbsp网络收款</span>
+			<input class="input-s-s" type="number" ng-model="orderInfo.online_pay" ng-change="updatePaymentInfo();" ng-focus="numPad.setState(1); orderInfo.online_pay = '';">
+
+		</div>
+		<div class="money-line-div" ng-show="orderInfo.isSeller">
+			<span for="">=&nbsp&nbsp实收金额</span>
+			<input class="" type="text" ng-value="orderInfo.actualReceipt | number:2" disabled="true">
+
+		</div>
+		<div class="money-line-div" ng-show="!orderInfo.isSeller">
+			<span for="">=&nbsp&nbsp实付金额</span>
+			<input type="text" ng-value="orderInfo.actualPayment | number:2" disabled="true">
+
+		</div>
+	</div>
+	<div class="money-line line3">
+
+		<div class="money-line-div">
+			<span for="">&nbsp&nbsp&nbsp&nbsp本次结余</span>
+			<input class="" type="text" ng-value="orderInfo.balanceThisTime | number:2" disabled="true">
+		</div>
+		<div class="money-line-div">
+			<span for="">+&nbsp&nbsp此前结余</span>
+			<input class="" type="text" ng-value="orderInfo.company.balance == undefined ? 0 : orderInfo.company.balance | number:2" disabled="true">
+
+		</div>
+		<div class="money-line-div">
+			<span for="">=&nbsp&nbsp总结余&nbsp&nbsp&nbsp</span>
+			<input type="text" ng-value="orderInfo.balanceAfterPaying | number:2" disabled="true">
+		</div>
+	</div>
+	<div class="notes">
+		<span>注：结余为负代表</span>
+		<span class="red">他欠您</span>
+		<span>，为正代表</span>
+		<span class="red">您欠他</span>
+	</div>
+	<div class="submit-btn" ng-controller="SubmitTabController">
+        <div class="btn-submit" ng-click="createOrder(isPrint)">
+        	{{createOrderItem}}
+		</div>
+		<div class="dropUp-btn" ng-click="CheckBoxIsShow()">
+			^
+		</div>
+		<div class="floatCheckBox" ng-if="createOrderCheckBoxIsShow">
+			<div ng-click="createOrderCheck(true);" ng-show="!isPrint">
+				开单并打印
+			</div>
+			<div ng-click="createOrderCheck();" ng-show="isPrint">
+				开单
+			</div>
+		</div>
+	</div>
+</div>

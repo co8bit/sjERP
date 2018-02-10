@@ -1,0 +1,49 @@
+<div class="everyday-summary-sheet">
+    <!-- 日期选择器 -->
+    <div class="time-container">
+        <span class="time">时间</span>
+      <!--   <div> 
+            <input id="datepicker1" type="text" ng-model="timeFilter.reg_st_time" readonly="readonly" ng-click="timeFilter.reg_st_time=undefined;query.request();">
+            <span>至</span>
+            <input id="datepicker2" type="text" ng-model="timeFilter.reg_end_time" readonly="readonly" ng-click="timeFilter.reg_end_time=undefined;query.request();">
+        </div>  -->
+        <div id="reportrange" class="pull-left dateRange">
+            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+            <span id="searchDateRange"></span>
+            <b class="caret"></b>
+        </div>
+    </div>
+    <!-- 表 -->
+    <div class="table">
+        <div class="head table-row">
+            <span class="time">日期</span>
+            <span class="price_title">销售金额</span>
+            <span class="price_title" ng-show="isShow">应收款</span>
+            <span class="price_title" ng-show="isShow">实收款</span>
+            <span class="price_title" ng-show="isShow">应付款</span>
+            <span class="price_title" ng-show="isShow">实付款</span>
+            <span class="price_title">费用</span>
+            <span class="price_title">其他收入</span>
+            <span class="price_title">毛利润</span>
+            <span>操作</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data">
+            <span class="time">{{item.reg_time_show}}</span>
+			<span class="price" ng-bind-html="item.sale_show"></span>
+			<span class="price" ng-show="isShow" ng-bind-html="item.receivable_show"></span>
+			<span class="price" ng-show="isShow" ng-bind-html="item.actually_income_show"></span>
+			<span class="price" ng-show="isShow" ng-bind-html="item.payable_show"></span>
+			<span class="price" ng-show="isShow" ng-bind-html="item.actually_paid_show"></span>
+			<span class="price" ng-bind-html="item.expense_show"></span>
+			<span class="price" ng-bind-html="item.other_income_show"></span>
+			<span class="price" ng-bind-html="item.gross_profit_show"></span>
+			<span><button ng-click="model.viewSomedaySheet(item.reg_time)">详情</button></span>
+        </div>
+    </div>
+
+    <div class="page-navi">
+        <div ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in paginator.pageList" ng-click="paginator.clickButton(item);">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+</div>

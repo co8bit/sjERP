@@ -1,0 +1,92 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>querySkuSto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("SkuStorage/querySkuSto")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>type*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="type" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="sto_id" type="text" value=''>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>skuStoSummary</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("SkuStorage/skuStoSummary")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>type*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="type" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>stoData</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="stoData" type="text" value='{"sto_id":[2,3]}'>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>get_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("SkuStorage/get_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>sku_id</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sku_id" type="text" autofocus="" value='4'>
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="sto_id" type="text" value=''>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

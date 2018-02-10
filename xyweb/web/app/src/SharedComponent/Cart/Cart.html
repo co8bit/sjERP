@@ -1,0 +1,31 @@
+<div>
+    <table class="shoppingCart" border="1">
+        <tr>
+            <th>品名</th>
+            <th>规格</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>总价</th>
+        </tr>
+        <!-- <tr class="cart_item" ng-repeat="item in cart.itemList" ng-click="showEditCartItemDialog($event,item)"> -->
+        <tr class="cart_item" ng-repeat="item in cartItemList">
+            <td>{{item.spu_name}}</td>
+            <td>
+                {{item.selected_sku.spec_name}}
+            </td>
+            <td>
+                <span>{{item.unit_price}}</span>
+            </td>
+            <td>
+                <span>{{item.quantity}}</span>
+            </td>
+            <td>{{item.pile_price}}</td>
+            <td>
+                <button ng-click="clickOnCartItem($event,item)">修改</button>
+            </td>
+            <td>
+                <button ng-click="deleteFromCart(item)">删除</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"/>
+    <title>星云进销存</title>
+    <link rel="stylesheet" type="text/css" href="lib/reset/reset.css?xyvs=2.0.1"/>
+    <link rel="stylesheet" type="text/css" href="css/global.css?xyvs=2.0.1"/>
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome-4.7.0/css/font-awesome.css?xyvs=2.0.1"/>
+    <script src="lib/jquery/js/jquery-3.2.1.min.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/jquery/js/js.cookie.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+    <script src='//kefu.easemob.com/webim/easemob.js?tenantId=27074&hide=false&sat=false' async='async'></script>
+    <script src="js/statistics.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+    <script src="js/share.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<header class="head-wrap">
+    <div class="head">
+        <div class="logo">
+            <a href="index.html">
+                <img class="logo_img" src="img/logo.png"/>
+                <img src="img/logo_title.png" alt=""/>
+            </a>
+        </div>
+        <nav id="title-bar">
+            <ul id="nav">
+                <li class="active" id="home">
+                    <a href="index.html?xyvs=2.0.1">首页</a>
+                </li>
+                <li id="price">
+                    <a href="web/price.html?xyvs=2.0.1">价格</a>
+                </li>
+                <li id="helpVideo">
+                    <a href="web/helpVideo.html?xyvs=2.0.1">使用教程</a>
+                </li>
+                <li id="quesition">
+                    <a href="web/quesition.html?xyvs=2.0.1">常见问题</a>
+                </li>
+                <li id="bookingDemo">
+                    <a href="web/bookingDemo.html?xyvs=2.0.1">预约线上演示</a>
+                </li>
+                <li class="btn btn-red" onclick="experience()">立即体验</li>
+                <li class="login "><a href="web/login.html?xyadv=2.0">登录</a></li>
+                <li class="reg " ><a href="web/register.html?xyadv=2.0">注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--主体内容 动态加载-->
+<div class="page-content">
+    <div class="home">
+        <div class="top-wrap" id="home_top_wrap">
+            <div class="top">
+                <div class="left">
+                    <div id="main-bg" class="title" onmouseover="changeBg(0)">
+                        进销存,在星云
+                    </div>
+                    <ul id="companyTpye">
+                        <li id="minor_enterprises" onmouseover="changeBg(1)"><a href="web/minor_enterprises.html?xyvs=2.0.1"><i
+                                class="fa fa-building-o"></i>易企记</a></li>
+                        <li id="common" onmouseenter="changeBg(2)"><a href="web/common.html?xyvs=2.0.1"><i
+                                class="fa fa-adjust"></i>通用版进销存</a></li>
+                        <li id="freeze" onmouseenter="changeBg(3)"><a href="web/freeze.html?xyvs=2.0.1"><i
+                                class="fa fa-snowflake-o"></i>冻品进销存</a></li>
+                        <li id="metals" onmouseenter="changeBg(4)"><a href="web/metals.html?xyvs=2.0.1"><i
+                                class="fa fa-wrench"></i>五金进销存</a></li>
+                        <li id="client" onmouseenter="changeBg(5)"><a href="web/clientCase.html?xyvs=2.0.1"><i
+                                class="fa fa-user"></i>客户案例</a></li>
+                        <li id="agency" onmouseenter="changeBg(6)"><a href="web/agency.html?xyvs=2.0.1"><i
+                                class="fa fa-globe" aria-hidden="true"></i>招商加盟</a></li>
+                    </ul>
+                </div>
+                <a href="" class="content" id="home_top_text">
+                    <div class="title" id="home_top_text_title">从此,进销存不再复杂</div>
+                    <div id="home_top_text_node">店铺销售、采购、库存、账目新一代管理软件</div>
+                </a>
+                <img class="cloud" onclick="register()" src="img/cloud.png" alt=""/>
+                <img class="sun" src="img/sun.png" alt=""/>
+            </div>
+        </div>
+        <div class="t-row">
+            <div class="nowCount">
+                <span class="red">20</span>万用户正在享受星云带来的高效变革
+                <p>全新的方式 让生意更简单 </p>
+            </div>
+            <div class="title">
+                精准的库存数据
+            </div>
+            <div class="content">
+                实时掌控货物<span class="orange">实际库存</span>情况全面的图形化<span class="orange">销售统计</span><br/> 经营数据一目了然
+            </div>
+        </div>
+        <div class="t-row t1">
+            <img src="img/home_t1.gif"/>
+        </div>
+        <div class="t-row t2">
+            <div class="text-row">
+                <div class="text-node col-2">
+                    <div class="title">清晰的往来账目</div>
+                    <div class="content">可通过微信和短信一键发送对账单<br/>随时与每一位客户快速准确对账<br/>1分钟内解决平时4-5小时的工作量</div>
+                    <img src="img/home_t2_1.jpg"/>
+                </div>
+                <div class="text-node col-2">
+                    <div class="title">真正的店仓分离</div>
+                    <div class="content">仓库无需安放电脑<br/>仓库管理员手机即<br/>可收到发货通知</div>
+                    <img src="img/home_t2_2.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="t-row t3">
+            <div class="text-row">
+                <div class="text-node col-3">
+                    <div class="title">随时随地管理店铺</div>
+                    <div class="content">可用手机、平板、电脑随时<br/>查看您的经营情况，一边打<br/>麻将一边管理店铺，照样赚钱</div>
+                    <img src="img/home_t3_1.jpg"/>
+                </div>
+                <div class="text-node col-3">
+                    <div class="title">多账户登录</div>
+                    <div class="content">可同时多人操作，<br/>共享同个库存、角色区分权限，<br/>员工不能查看成本与利润</div>
+                    <img src="img/home_t3_2.jpg"/>
+                </div>
+                <div class="text-node col-3">
+                    <div class="title">简单高效的操作方式</div>
+                    <div class="content">深入一线，<br/>上千次交互设计与测试，<br/>会用微信就会用我们的软件</div>
+                    <img src="img/home_t3_3.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="t-row-wrap">
+            <div class="t-row">
+                <img class="pointer" onclick="register()" src="img/home_t4.jpg"/>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="content">
+            <ul>
+                <li class="title">上线产品</li>
+                <li class="divide"></li>
+                <li onclick="login()">前台-WEB端</li>
+                <li onclick="login()">前台-安卓平板端</li>
+                <li><a target="_blank" href="http://sj.qq.com/myapp/detail.htm?apkName=com.xingyunbooks">库管-安卓端</a></li>
+                <!--<li>更新日志</li>-->
+                <li>&nbsp;</li>
+            </ul>
+            <ul>
+                <li class="title">即将上线</li>
+                <li class="divide"></li>
+                <li>前台-iPad端</li>
+                <li>库管-iOS端</li>
+                <li>老板-安卓端</li>
+                <li>老板-iOS端</li>
+            </ul>
+            <ul>
+                <li class="title">帮助与支持</li>
+                <li class="divide"></li>
+                <li onclick="goto('quesition')">常见问题</li>
+                <li onclick="goto('price')">价格</li>
+                <li>
+                    <a target="_blank" href="manual_foreground">帮助中心-前台端</a>
+                </li>
+                <li>
+                    <a target="_blank" href="manual_warehouse">帮助中心-库管端</a>
+                </li>
+            </ul>
+            <ul class="contact">
+                <li class="title">公司</li>
+                <li class="divide"></li>
+                <li><a href="web/about_us.html">关于</a></li>
+                <li><a href="web/contact_us.html">联系我们</a></li>
+                <div class="join">
+                    <div>
+                        <img class="icon" src="img/wechat.png">
+                        <img class="qrcode" src="img/qrcode_wechat.png">
+                    </div>
+                    <div>
+                        <img class="icon" src="img/qq.png">
+                        <img class="qrcode" src="img/qrcode_qqqun.png">
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="copyright">
+            <div class="top">
+                <a class="left">© 跃迁科技 2016 | Terms, Conditions and Privacy Policy |&nbsp;</a>
+                <a href="http://www.miitbeian.gov.cn/">浙ICP备16002276号-3</a>
+            </div>
+            <div class="bottom">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002507">
+                    <img src="img/beian.png"/>
+                    <span>浙公网安备 33010602002507号 </span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

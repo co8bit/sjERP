@@ -1,0 +1,1738 @@
+@charset "UTF-8";
+/* line 1, ../scss/framework/_example.scss */
+.example-class-1 {
+  color: red;
+}
+
+/* line 5, ../scss/framework/_example.scss */
+.example-class-2 {
+  color: green;
+}
+
+/* line 9, ../scss/framework/_example.scss */
+.example-class-3 {
+  color: blue;
+}
+
+/* line 17, ../scss/framework/_base.scss */
+html {
+  overflow: hidden;
+}
+
+/* line 21, ../scss/framework/_base.scss */
+body {
+  font-family: "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft YaHei", "微软雅黑", sans-serif;
+  color: #000000;
+}
+
+/* line 38, ../scss/framework/_base.scss */
+.bgc-l1 {
+  background-color: #eeeeee;
+}
+
+/* line 43, ../scss/framework/_base.scss */
+.bgc-d1 {
+  background-color: #9c9c9c;
+}
+
+/* line 47, ../scss/framework/_base.scss */
+input,
+textarea {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+/* line 53, ../scss/framework/_base.scss */
+input,
+textarea,
+select {
+  font-size: 1em;
+  display: inline-block;
+  padding: 4px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  margin: 3px 0;
+}
+
+/* 获得焦点时的输入框高光效果 */
+/* line 70, ../scss/framework/_base.scss */
+input:focus,
+textarea:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* line 79, ../scss/framework/_base.scss */
+input:disabled,
+textarea:disabled {
+  border: none;
+  box-shadow: none;
+}
+
+/* 避免对其他元素的不良影响(主要表现在IE浏览器中) */
+/* line 88, ../scss/framework/_base.scss */
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+/* line 98, ../scss/framework/_base.scss */
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  margin: 3px 0;
+  *margin-top: 0;
+  /* IE7 */
+  line-height: normal;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0 \9;
+  /* IE9- */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 避免对按钮样式的不良影响 */
+/* line 117, ../scss/framework/_base.scss */
+input[type="button"],
+input[type="submit"],
+.btn {
+  display: inline-block;
+  *display: inline;
+  padding: 4px 10px;
+  font-size: 1em;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-bottom-color: #b3b3b3;
+  border-radius: 4px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  *zoom: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* line 145, ../scss/framework/_base.scss */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* line 149, ../scss/framework/_base.scss */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* line 155, ../scss/framework/_base.scss */
+select:disabled {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+/* line 162, ../scss/framework/_base.scss */
+a {
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* line 167, ../scss/framework/_base.scss */
+.required {
+  color: red;
+  width: 40px !important;
+  display: flex;
+  justify-content: center !important;
+  align-content: center !important;
+}
+
+/* line 175, ../scss/framework/_base.scss */
+.active-input {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* line 1, ../scss/framework/layout/_display.scss */
+.flex {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+}
+
+/* line 3, ../scss/framework/_dialog.scss */
+.dialog {
+  position: fixed;
+  padding-top: 40px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #eee;
+  opacity: 1;
+  z-index: 2;
+}
+/* line 18, ../scss/framework/_dialog.scss */
+.dialog .dialog-ribbon {
+  height: 40px;
+  background-color: #ee7258;
+  padding: 0px 8px 0px 8px;
+}
+/* line 23, ../scss/framework/_dialog.scss */
+.dialog .function-tab {
+  min-height: 100%;
+}
+
+/* line 3, ../scss/framework/_button.scss */
+button {
+  outline: none;
+}
+
+/* line 8, ../scss/framework/_button.scss */
+.btn-alt {
+  padding: 2px 2px 2px 2px;
+  height: 22px;
+  width: 70px;
+  font-size: 14px;
+  border: 1px solid #aaaaaa;
+  color: #777777;
+  background-color: #ffffff;
+}
+/* line 16, ../scss/framework/_button.scss */
+.btn-alt:hover {
+  background-color: #f5f5f5;
+}
+/* line 19, ../scss/framework/_button.scss */
+.btn-alt:active {
+  background-color: #dddddd;
+}
+
+/* line 25, ../scss/framework/_button.scss */
+.btn-submit-s {
+  height: 25px;
+  width: 130px;
+  padding-bottom: 2px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  background-color: #e67354;
+}
+/* line 33, ../scss/framework/_button.scss */
+.btn-submit-s:hover {
+  background-color: #e3613e;
+}
+/* line 36, ../scss/framework/_button.scss */
+.btn-submit-s:active {
+  background-color: #cf441e;
+}
+
+/* line 42, ../scss/framework/_button.scss */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  /*width: 159px;*/
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-bottom: 2px;
+  border: none;
+  font-size: 15px;
+  color: white;
+  background-color: #e67354;
+  cursor: pointer;
+  margin-right: 10px;
+}
+/* line 57, ../scss/framework/_button.scss */
+.btn-submit:hover {
+  background-color: #e3613e;
+}
+/* line 60, ../scss/framework/_button.scss */
+.btn-submit:active {
+  background-color: #cf441e;
+}
+/* line 63, ../scss/framework/_button.scss */
+.btn-submit img {
+  margin-right: 10px;
+}
+
+/* line 68, ../scss/framework/_button.scss */
+.btn-back {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #36bc9b;
+  height: 50px;
+  padding: 0 24px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+/* line 77, ../scss/framework/_button.scss */
+.btn-back:hover {
+  background: #30a88b;
+}
+
+/* line 85, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-orange {
+  background: #e67354;
+  color: white;
+}
+/* line 88, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-orange:hover {
+  background-color: #e3613e;
+}
+/* line 91, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-orange:active {
+  background-color: #cf441e;
+}
+/* line 95, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-green {
+  background: #36bc9b;
+  color: white;
+}
+/* line 98, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-green:hover {
+  background-color: #30a88b;
+}
+/* line 101, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-green:active {
+  background-color: #25816a;
+}
+/* line 106, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-default.green {
+  border-color: #36bc9b;
+  color: #000000;
+}
+/* line 109, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-default.green:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+/* line 115, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-default.orange {
+  border-color: #e67354;
+  color: #000000;
+}
+/* line 118, ../scss/framework/_button.scss */
+.xy-btn.xy-btn-default.orange:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+/* line 126, ../scss/framework/_button.scss */
+.notAllowed {
+  cursor: not-allowed;
+}
+
+/* line 42, ../scss/framework/_input.scss */
+.input-dropdown {
+  width: 100%;
+  height: 30px;
+  position: relative;
+}
+/* line 46, ../scss/framework/_input.scss */
+.input-dropdown input {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+/* line 51, ../scss/framework/_input.scss */
+.input-dropdown input.left {
+  padding-right: 20px;
+}
+/* line 54, ../scss/framework/_input.scss */
+.input-dropdown input.right {
+  padding-left: 20px;
+}
+/* line 58, ../scss/framework/_input.scss */
+.input-dropdown i {
+  position: absolute;
+  border: none;
+  height: 30px;
+  background: transparent;
+  line-height: 30px;
+  right: 0;
+  width: 20px;
+}
+/* line 66, ../scss/framework/_input.scss */
+.input-dropdown i.left {
+  left: 0;
+}
+/* line 69, ../scss/framework/_input.scss */
+.input-dropdown i.right {
+  right: 0;
+}
+/* line 73, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list {
+  position: absolute;
+  width: 100%;
+  min-width: 200px;
+  height: 150px;
+  top: 35px;
+  left: 0;
+  border: 1px solid #cccccc;
+  z-index: 2;
+  background: white;
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  border-radius: 5px;
+  outline: thin dotted \9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  overflow-y: scroll;
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* line 92, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list.no-scroll {
+  overflow: initial;
+}
+/* line 95, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list .item {
+  width: 100%;
+  padding: 3px 5px;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+}
+/* line 100, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list .item:nth-last-child {
+  border: none;
+}
+/* line 103, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list .item.hover:hover {
+  background: #eeeeee;
+}
+/* line 106, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list .item.title {
+  background: rgba(82, 168, 236, 0.8);
+}
+/* line 108, ../scss/framework/_input.scss */
+.input-dropdown .dropdown-list .item.title:hover {
+  background: rgba(59, 156, 233, 0.8);
+}
+
+/* line 1, ../scss/framework/_numpad.scss */
+.numpad {
+  width: 275px;
+  height: 300px;
+  background: #fff;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+/* line 12, ../scss/framework/_numpad.scss */
+.numpad span {
+  cursor: pointer;
+  width: 75px;
+  height: 75px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+/* line 26, ../scss/framework/_numpad.scss */
+.numpad span:hover {
+  background-color: #ee7258;
+  color: #fff;
+}
+/* line 30, ../scss/framework/_numpad.scss */
+.numpad span:active {
+  background-color: #e94b2a;
+  color: #fff;
+}
+/* line 35, ../scss/framework/_numpad.scss */
+.numpad .left {
+  width: 228px;
+  display: flex;
+  flex-flow: column;
+}
+/* line 39, ../scss/framework/_numpad.scss */
+.numpad .left div {
+  flex-grow: 1;
+  display: flex;
+}
+/* line 42, ../scss/framework/_numpad.scss */
+.numpad .left div .wide {
+  width: 150px;
+}
+/* line 51, ../scss/framework/_numpad.scss */
+.numpad .right {
+  width: 50px;
+  margin-left: -3px;
+}
+/* line 54, ../scss/framework/_numpad.scss */
+.numpad .right span {
+  width: 50px;
+  height: 100px;
+}
+/* line 58, ../scss/framework/_numpad.scss */
+.numpad .right span:hover {
+  color: #fff;
+}
+/* line 61, ../scss/framework/_numpad.scss */
+.numpad .right span:active {
+  color: #fff;
+}
+/* line 65, ../scss/framework/_numpad.scss */
+.numpad .right .clear {
+  color: #ee7258;
+}
+/* line 68, ../scss/framework/_numpad.scss */
+.numpad .right .finish {
+  display: flex;
+  letter-spacing: 10px;
+  font-size: 20px;
+  padding-left: 15px;
+  color: #36bc9b;
+}
+/* line 75, ../scss/framework/_numpad.scss */
+.numpad .right .finish:hover {
+  background-color: #36bc9b;
+  color: #fff;
+}
+/* line 79, ../scss/framework/_numpad.scss */
+.numpad .right .finish:active {
+  background-color: #2b947a;
+  color: #fff;
+}
+/* line 84, ../scss/framework/_numpad.scss */
+.numpad .right .backspace {
+  color: #ee7258;
+}
+
+/* line 1, ../scss/framework/_text.scss */
+span.pointer {
+  cursor: pointer;
+}
+
+/* line 4, ../scss/framework/_text.scss */
+.red {
+  color: red;
+}
+
+/* line 7, ../scss/framework/_text.scss */
+.blue {
+  color: blue;
+}
+
+/* line 10, ../scss/framework/_text.scss */
+.green {
+  color: green;
+}
+
+/* line 13, ../scss/framework/_text.scss */
+.orange {
+  color: #ee7258;
+}
+
+/* line 17, ../scss/framework/_text.scss */
+div.title-name-row span.title-name {
+  display: block;
+  width: 100px;
+  border-top: 5px solid #dbb5a8;
+  border-radius: 5px;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: center;
+}
+
+/* line 29, ../scss/framework/_text.scss */
+div.input-row {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+/* line 33, ../scss/framework/_text.scss */
+div.input-row input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  border-left: 5px solid #dbb5a8;
+}
+/* line 41, ../scss/framework/_text.scss */
+div.input-row span.required {
+  display: flex;
+  align-items: center;
+  color: red;
+  font-weight: bold;
+}
+
+/* line 1, ../scss/framework/_search-bar.scss */
+.search-bar, .search-bar-red {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  height: 60px;
+  padding: 4px 35px 0 24px;
+}
+/* line 9, ../scss/framework/_search-bar.scss */
+.search-bar div, .search-bar-red div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+}
+/* line 15, ../scss/framework/_search-bar.scss */
+.search-bar div img, .search-bar-red div img {
+  margin-left: 11px;
+  z-index: 0;
+}
+/* line 20, ../scss/framework/_search-bar.scss */
+.search-bar div input, .search-bar-red div input {
+  height: 30px;
+  width: 100%;
+  background: #eeeeee;
+  border: none;
+  border-left: 3px solid #36bc9b;
+  margin-left: -25px;
+  padding-left: 30px;
+}
+/* line 31, ../scss/framework/_search-bar.scss */
+.search-bar button, .search-bar-red button {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #36bc9b;
+  height: 30px;
+  padding: 0 24px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+/* line 42, ../scss/framework/_search-bar.scss */
+.search-bar button:hover, .search-bar-red button:hover {
+  background: #30a88b;
+}
+
+/* line 51, ../scss/framework/_search-bar.scss */
+.search-bar-red div input {
+  border-left: 3px solid #ee7258;
+}
+/* line 56, ../scss/framework/_search-bar.scss */
+.search-bar-red button {
+  background: #ee7258;
+}
+/* line 60, ../scss/framework/_search-bar.scss */
+.search-bar-red button:hover {
+  background: #ec5e41;
+}
+
+/* line 1, ../scss/framework/_filter-bar.scss */
+.filter-bar, .filter-bar-red {
+  background: #fff;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  flex-flow: row;
+}
+/* line 9, ../scss/framework/_filter-bar.scss */
+.filter-bar span, .filter-bar-red span {
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+/* line 14, ../scss/framework/_filter-bar.scss */
+.filter-bar div, .filter-bar-red div {
+  margin: 10px 0;
+}
+/* line 17, ../scss/framework/_filter-bar.scss */
+.filter-bar div button, .filter-bar-red div button {
+  border: none;
+  outline: none;
+  color: #000000;
+  margin: 3px 18px 3px 0px;
+  padding: 4px 7px;
+  font-size: 13px;
+  background: #eeeeee;
+}
+/* line 27, ../scss/framework/_filter-bar.scss */
+.filter-bar div button:hover, .filter-bar-red div button:hover {
+  background: #36bc9b;
+  color: #fff;
+}
+/* line 32, ../scss/framework/_filter-bar.scss */
+.filter-bar div .highlight, .filter-bar-red div .highlight {
+  background: #36bc9b;
+  color: #fff;
+}
+
+/* line 39, ../scss/framework/_filter-bar.scss */
+.filter-bar-red {
+  margin: 0;
+  padding-right: 150px;
+}
+/* line 45, ../scss/framework/_filter-bar.scss */
+.filter-bar-red div button:hover {
+  background: #ee7258;
+}
+/* line 49, ../scss/framework/_filter-bar.scss */
+.filter-bar-red div .highlight {
+  background: #ee7258;
+}
+
+/* line 4, ../scss/framework/_page-navi-smart.scss */
+.page-navi-smart nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 11, ../scss/framework/_page-navi-smart.scss */
+.page-navi-smart nav li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  width: 25px;
+}
+/* line 18, ../scss/framework/_page-navi-smart.scss */
+.page-navi-smart nav li a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+  color: #a3a3a3;
+}
+/* line 26, ../scss/framework/_page-navi-smart.scss */
+.page-navi-smart nav li a:hover {
+  background: #36bc9b;
+  color: #fff;
+}
+
+/* line 35, ../scss/framework/_page-navi-smart.scss */
+.apppage-navi-smart nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 42, ../scss/framework/_page-navi-smart.scss */
+.apppage-navi-smart nav li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  width: 25px;
+}
+/* line 49, ../scss/framework/_page-navi-smart.scss */
+.apppage-navi-smart nav li a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+  color: #a3a3a3;
+}
+
+/* line 1, ../scss/framework/_page-navi.scss */
+.page-navi {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+}
+/* line 9, ../scss/framework/_page-navi.scss */
+.page-navi div {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+/* line 19, ../scss/framework/_page-navi.scss */
+.page-navi .bthover:hover {
+  background: #36bc9b;
+  color: #fff;
+}
+/* line 23, ../scss/framework/_page-navi.scss */
+.page-navi .cb {
+  background: #36bc9b;
+  color: #fff;
+}
+
+/* line 28, ../scss/framework/_page-navi.scss */
+.apppage-navi {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+}
+/* line 36, ../scss/framework/_page-navi.scss */
+.apppage-navi div {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+/* line 46, ../scss/framework/_page-navi.scss */
+.apppage-navi .cb {
+  background: #36bc9b;
+  color: #fff;
+}
+
+/* line 2, ../scss/framework/_table.scss */
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 11, ../scss/framework/_table.scss */
+.table {
+  background: #fff;
+  width: 100%;
+  overflow: visible;
+}
+/* line 15, ../scss/framework/_table.scss */
+.table .table-row {
+  height: 36px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+/* line 24, ../scss/framework/_table.scss */
+.table .table-row span {
+  width: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+/* line 30, ../scss/framework/_table.scss */
+.table .table-row span button {
+  background: none;
+  border: 1px solid #a2a2a2;
+  padding: 5px 12px;
+  outline: none;
+}
+/* line 36, ../scss/framework/_table.scss */
+.table .table-row span button:hover {
+  border: none;
+  border: 1px solid #36bc9b;
+  background: #36bc9b;
+  color: #fff;
+}
+/* line 42, ../scss/framework/_table.scss */
+.table .table-row span input[type="text"], .table .table-row span input[type="number"] {
+  width: 100%;
+  text-align: center;
+}
+/* line 46, ../scss/framework/_table.scss */
+.table .table-row span input[type="button"] {
+  width: 54px;
+}
+/* line 50, ../scss/framework/_table.scss */
+.table .table-row .two-imgs {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+/* line 54, ../scss/framework/_table.scss */
+.table .table-row .two-imgs i {
+  color: #999;
+}
+/* line 57, ../scss/framework/_table.scss */
+.table .table-row .two-imgs span {
+  height: 100%;
+  width: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+/* line 62, ../scss/framework/_table.scss */
+.table .table-row .two-imgs span span {
+  width: 50%;
+  cursor: pointer;
+}
+/* line 66, ../scss/framework/_table.scss */
+.table .table-row .two-imgs span span:hover {
+  background: #eee;
+}
+/* line 71, ../scss/framework/_table.scss */
+.table .table-row .two-buttons {
+  display: flex;
+}
+/* line 73, ../scss/framework/_table.scss */
+.table .table-row .two-buttons button {
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+/* line 78, ../scss/framework/_table.scss */
+.table .table-row .ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+}
+/* line 85, ../scss/framework/_table.scss */
+.table .table-row .ellipsis.rtl {
+  cursor: auto;
+  direction: rtl;
+}
+/* line 89, ../scss/framework/_table.scss */
+.table .table-row .ellipsis:hover {
+  background: #eee;
+  z-index: 100;
+  height: auto;
+  white-space: normal;
+  word-break: break-all;
+  padding: 5px;
+}
+/* line 98, ../scss/framework/_table.scss */
+.table .head {
+  border-top: none;
+}
+/* line 100, ../scss/framework/_table.scss */
+.table .head span {
+  color: #999;
+  font-weight: bold;
+}
+/* line 104, ../scss/framework/_table.scss */
+.table .head .sort {
+  color: orangered;
+}
+/* line 110, ../scss/framework/_table.scss */
+.table .total span {
+  font-weight: bold;
+}
+
+/* line 116, ../scss/framework/_table.scss */
+.foot {
+  background: #fff;
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+}
+/* line 122, ../scss/framework/_table.scss */
+.foot div {
+  height: 35px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+/* line 131, ../scss/framework/_table.scss */
+.foot div span {
+  width: 13%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+/* line 2, ../scss/framework/_title-bar.scss */
+.title-bar {
+  height: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding-left: 18px;
+  background: #ee7258;
+}
+/* line 14, ../scss/framework/_title-bar.scss */
+.title-bar span {
+  color: #fff;
+}
+/* line 17, ../scss/framework/_title-bar.scss */
+.title-bar .function-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+/* line 23, ../scss/framework/_title-bar.scss */
+.title-bar .quit {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-left: 1px solid #ddd;
+  height: 100%;
+}
+/* line 32, ../scss/framework/_title-bar.scss */
+.title-bar .quit:hover {
+  background: #e94b2a;
+}
+/* line 37, ../scss/framework/_title-bar.scss */
+.title-bar .quit-i i {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+/* line 44, ../scss/framework/_title-bar.scss */
+.title-bar div button {
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+/* line 52, ../scss/framework/_title-bar.scss */
+.title-bar div .exit {
+  color: #fff;
+}
+/* line 57, ../scss/framework/_title-bar.scss */
+.title-bar div .save-exit {
+  border: 1px solid;
+  border-image: linear-gradient(to right, #ef826b, #f8b49d) 1 1;
+  padding: 2px 16px;
+  color: #e67656;
+  background: -webkit-linear-gradient(left, #ef826b, #fbdad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* line 69, ../scss/framework/_title-bar.scss */
+.title-bar-green {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: #36bc9b;
+}
+/* line 77, ../scss/framework/_title-bar.scss */
+.title-bar-green .title {
+  color: white;
+}
+/* line 80, ../scss/framework/_title-bar.scss */
+.title-bar-green .quit {
+  color: white;
+  height: 70%;
+  cursor: pointer;
+}
+/* line 86, ../scss/framework/_title-bar.scss */
+.title-bar-green .quit-i i {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* line 1, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  background: #ee7258;
+  position: fixed;
+  top: 0;
+}
+/* line 14, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail div {
+  width: 33.33%;
+}
+/* line 19, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .left span {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+/* line 27, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .middle {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+/* line 33, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .middle .top {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+/* line 39, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .middle .bottom {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 100%;
+}
+/* line 45, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .middle .bottom span {
+  margin: 0 10px;
+  font-size: 11px;
+  margin-top: 3px;
+  color: #fff;
+  flex-shrink: 0;
+}
+/* line 55, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .right {
+  display: flex;
+  justify-content: flex-end;
+}
+/* line 59, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .right .quit {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-left: 1px solid #ddd;
+}
+/* line 68, ../scss/framework/_title-bar-detail.scss */
+.title-bar-detail .right .quit:hover {
+  background: #e94b2a;
+}
+
+/* line 1, ../scss/framework/_bottom-bar.scss */
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0px 11px 0px 11px;
+  height: 50px;
+  background: #ec5e41;
+  z-index: 1000;
+}
+/* line 14, ../scss/framework/_bottom-bar.scss */
+.bottom-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d1644d;
+  color: #ebbeb8;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+/* line 27, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .last-step button {
+  width: 81px;
+  height: 27px;
+}
+/* line 31, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .last-step button:hover {
+  background: #fff;
+  color: #ee7258;
+}
+/* line 39, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .next-step button {
+  width: 81px;
+  height: 27px;
+  background: #fff;
+  color: #ee7258;
+}
+/* line 45, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .next-step button:hover {
+  background: #e6e6e6;
+}
+/* line 51, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .invisible {
+  visibility: hidden;
+}
+/* line 56, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 27px;
+  color: white;
+  background: #d1644d;
+  border-radius: 20px;
+}
+/* line 66, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group div {
+  display: flex;
+  align-items: center;
+}
+/* line 69, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group div button {
+  height: 18px;
+  line-height: 10px;
+}
+/* line 73, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group div .btn-tab-num-circle {
+  width: 18px;
+  border-radius: 20px;
+  background: #e9b9af;
+  color: #d1644d;
+}
+/* line 84, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group div:hover .btn-tab-num-circle, .bottom-bar .btn-tab-group .highlight .btn-tab-num-circle {
+  background: #fff;
+  color: #ee7258;
+}
+/* line 88, ../scss/framework/_bottom-bar.scss */
+.bottom-bar .btn-tab-group div:hover .tab, .bottom-bar .btn-tab-group .highlight .tab {
+  color: #fff;
+}
+
+/*! 
+ * angular-hotkeys v1.7.0
+ * https://chieffancypants.github.io/angular-hotkeys
+ * Copyright (c) 2016 Wes Cruver
+ * License: MIT
+ */
+/* line 7, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-container {
+  display: table !important;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #333;
+  font-size: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* line 19, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-container.fade {
+  z-index: -1024;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+/* line 29, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-container.fade.in {
+  z-index: 10002;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* line 35, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+/* line 41, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 48, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys table {
+  margin: auto;
+  color: #333;
+}
+
+/* line 53, ../scss/framework/_hotkeys.scss */
+.cfp-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 58, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-keys {
+  padding: 5px;
+  text-align: right;
+}
+
+/* line 63, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-key {
+  display: inline-block;
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-align: center;
+  margin-right: 5px;
+  box-shadow: inset 0 1px 0 #666, 0 1px 0 #bbb;
+  padding: 5px 9px;
+  font-size: 1em;
+}
+
+/* line 76, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-text {
+  padding-left: 10px;
+  font-size: 1em;
+}
+
+/* line 81, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: 45px;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* line 95, ../scss/framework/_hotkeys.scss */
+.cfp-hotkeys-close:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+@media all and (max-width: 500px) {
+  /* line 101, ../scss/framework/_hotkeys.scss */
+  .cfp-hotkeys {
+    font-size: 0.8em;
+  }
+}
+@media all and (min-width: 750px) {
+  /* line 107, ../scss/framework/_hotkeys.scss */
+  .cfp-hotkeys {
+    font-size: 1.2em;
+  }
+}
+/* line 1, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(163, 163, 163, 0.6);
+  z-index: 1000000;
+}
+/* line 13, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad {
+  width: 650px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  background: #fff;
+  box-shadow: 0 0 5px #aaa;
+  padding: 20px 0;
+}
+/* line 23, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container {
+  padding: 0 15px;
+  margin: 0 2px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+/* line 32, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .selected .spu {
+  border-radius: 0;
+  border-left: 3px solid #f5b93f;
+  background: #e6e6e6;
+  width: 270px;
+}
+/* line 38, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .selected .spec {
+  border-radius: 0;
+  border-left: 3px solid #34add8;
+  background: #e6e6e6;
+  width: 270px;
+}
+/* line 45, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .mt-s {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 50, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .mt-s .left {
+  width: 80px;
+}
+/* line 53, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .mt-s input {
+  width: 160px;
+  background: #fff;
+}
+/* line 57, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .mt-s textarea {
+  width: 160px;
+  resize: none;
+}
+/* line 61, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .mt-s .replace-unit {
+  width: 1em;
+}
+/* line 66, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .former-price {
+  width: 100%;
+  padding: 0px;
+  margin-bottom: 8px;
+}
+/* line 70, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .former-price button {
+  padding: 2px;
+  height: 22px;
+  width: 90%;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #36bc9b;
+  color: #777777;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+/* line 81, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .former-price button:hover {
+  background-color: #f5f5f5;
+}
+/* line 84, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .spec-container .former-price button:active {
+  background-color: #dddddd;
+}
+/* line 92, ../scss/framework/_spec-and-numpad.scss */
+.spec-bg .spec-and-numpad .numpad-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 1, ../scss/framework/_time-container.scss */
+.time-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 22px;
+}
+/* line 8, ../scss/framework/_time-container.scss */
+.time-container .time {
+  margin-right: 14px;
+}
+/* line 12, ../scss/framework/_time-container.scss */
+.time-container div {
+  display: flex;
+  align-items: center;
+}
+/* line 16, ../scss/framework/_time-container.scss */
+.time-container div span {
+  margin: 0 5px;
+}
+/* line 20, ../scss/framework/_time-container.scss */
+.time-container div input {
+  outline: none;
+  padding: 0 4px;
+  width: 105px;
+  border: none;
+  border-bottom: 1px solid #888;
+  box-shadow: none;
+}
+
+/* line 30, ../scss/framework/_time-container.scss */
+.time-row {
+  cursor: pointer;
+  margin-top: 50px;
+  display: flex;
+}
+/* line 34, ../scss/framework/_time-container.scss */
+.time-row.pull-right {
+  justify-content: flex-end;
+}
+/* line 37, ../scss/framework/_time-container.scss */
+.time-row.pull-center {
+  justify-content: center;
+}
+/* line 40, ../scss/framework/_time-container.scss */
+.time-row input {
+  margin-left: 20px;
+  border: none;
+  border-bottom: 1px solid #0C0C0C;
+}
+
+/* line 1, ../scss/framework/_footer-bar.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  box-shadow: 0 0 8px #555;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+}
+/* line 12, ../scss/framework/_footer-bar.scss */
+.footer .time-row {
+  width: 300px;
+  border: none;
+  margin: 0;
+}
+/* line 17, ../scss/framework/_footer-bar.scss */
+.footer button {
+  margin: 0;
+}
+
+/* line 1, ../scss/framework/_card-box.scss */
+.card-box-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+/* line 11, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box {
+  width: 700px;
+  height: 500px;
+  background: white;
+  box-shadow: 0 0 30px #555;
+}
+/* line 16, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content {
+  padding: 20px;
+}
+/* line 18, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .search-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 23, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .search-row .search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 27, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .search-row .search-box img {
+  width: 15px;
+  margin-left: 10px;
+}
+/* line 32, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .search-row button {
+  margin: 0;
+}
+/* line 36, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table {
+  margin-top: 20px;
+}
+/* line 38, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-row {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 41, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-row span {
+  text-align: center;
+  width: 100px;
+}
+/* line 44, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-row span.small {
+  width: 50px;
+}
+/* line 47, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-row span.max {
+  width: 200px;
+}
+/* line 50, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-row span input {
+  width: 100%;
+}
+/* line 55, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .head {
+  border-top-width: 3px;
+  padding-right: 30px;
+}
+/* line 59, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .table .table-body {
+  height: 215px;
+  border-top: 3px solid #f1f1f1;
+  border-bottom: 3px solid #f1f1f1;
+  overflow-y: scroll;
+}
+/* line 66, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 71, ../scss/framework/_card-box.scss */
+.card-box-wrap .card-box .card-content .button-row button {
+  margin: 0;
+  width: 100px;
+  height: 30px;
+  line-height: 18px;
+}
+
+/* line 1, ../scss/framework/_add-box.scss */
+.add-box-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+/* line 10, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box {
+  margin-top: 200px;
+  width: 400px;
+  background: white;
+  box-shadow: 0 0 15px #000000;
+  border-radius: 5px;
+}
+/* line 16, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .title-row {
+  border-radius: 5px 5px 0 0;
+  height: 40px;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  background: #ee7258;
+}
+/* line 27, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .title-row .title-name {
+  color: white;
+}
+/* line 30, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .title-row .quit {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+/* line 37, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .title-row .quit i {
+  font-size: 22px;
+  color: white;
+}
+/* line 40, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .title-row .quit i:hover {
+  color: whitesmoke;
+}
+/* line 46, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle {
+  width: 300px;
+  margin: 20px auto;
+}
+/* line 49, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle .row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+/* line 55, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle .row span {
+  width: 100px;
+  text-align: right;
+}
+/* line 59, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle .row input, .add-box-wrap .add-box .middle .row select {
+  margin-left: 20px;
+  width: 200px;
+  height: 30px;
+}
+/* line 65, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle .btn-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* line 70, ../scss/framework/_add-box.scss */
+.add-box-wrap .add-box .middle .btn-row button {
+  width: 80px;
+  margin-left: 15px;
+}

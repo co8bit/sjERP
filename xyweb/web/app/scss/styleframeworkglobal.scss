@@ -1,0 +1,25 @@
+@import 'framework/example'; // 样例
+@import 'framework/base'; // 基础设定
+@import 'framework/layout/layout'; // 布局
+@import 'framework/layout/display'; // 布局
+@import 'framework/dialog'; // 对话框
+@import 'framework/button'; // 按钮
+
+@import 'framework/input'; // 输入框样式
+@import 'framework/numpad'; // 小键盘
+@import 'framework/text'; // 文本
+@import 'framework/search-bar'; // 搜索栏
+@import 'framework/filter-bar'; // 筛选栏
+@import 'framework/page-navi-smart'; // smart-table的分页
+@import 'framework/page-navi'; // 新的分页
+@import 'framework/table'; // 表格
+@import 'framework/title-bar'; // 标题栏
+@import 'framework/title-bar-detail'; // 详情页标题栏
+@import 'framework/bottom-bar'; // 底部栏
+@import 'framework/hotkeys'; // 快捷键
+@import 'framework/spec-and-numpad'; // 开单弹出的商品和计算器面板
+@import 'framework/time-container'; // 时间选择器面板
+@import 'framework/footer-bar'; //底部栏
+//一下是易企记的scss
+@import 'framework/card-box'; //选着金额框
+@import 'framework/add-box'; //添加弹出盒子

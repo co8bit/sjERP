@@ -1,0 +1,270 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+  <form id="form" method="post" action="{:U("Good/createCat")}">
+  <h1>createCat</h1>
+    <label><font color=black>新建类别*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_name" type="text" autofocus="" value='新建类别'>
+    </div>
+    <label><font color=black>cat_index*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_index" type="text" autofocus="" value='1'>
+    </div>
+    <label><font color=black>status</font></label>
+    <div class="input-control text" data-role="input-control">
+        <input name="status" type="number" value=1>
+    </div>
+    <input value="新建" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Good/editCat")}">
+  <h1>editCat</h1>
+  <label><font color=black>cat_id*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_id" type="text" value="1">
+    </div>
+    <label><font color=black>cat_name*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_name" type="text" value="asd">
+    </div>
+    <label><font color=black>cat_index*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_index" type="text" value="1">
+    </div>
+    <label><font color=black>status</font></label>
+    <div class="input-control text" data-role="input-control">
+        <input name="status" type="number" value=1>
+    </div>
+    <input value="editCat" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Good/deleteCat")}">
+  <h1>deleteCat</h1>
+  <label><font color=black>cat_id*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="cat_id" type="text" autofocus="">
+    </div>
+    <input value="删除" type="submit">
+  </form>
+
+    <div class="container">
+        <h1>
+              updateSKU。创建新商品也可以用该方法(会附带一条规格)
+        </h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Good/updateSKU")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>商品名称*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="spu_name" type="text" autofocus="" value="沐浴露">
+                                </div>
+
+                                <label><font color=black>速查编码*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="qcode" type="text" autofocus=""  value='myl'>
+                                </div>
+
+                                <label><font color=black>所属类别id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cat_id" type="text" value='2'>
+                                </div>
+
+                             <!--    <label><font color=black>spu_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="spu_id" type="text" autofocus="" value="3">
+                                </div> -->
+                                
+                                <label><font color=black>spu_index<small class="on-right">一个正整数，数字越小，显示越靠前</small></font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="spu_index" type="number" value='2'>
+                                </div>
+
+                                <label><font color=black>spu_status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="spu_status" type="number" value='1'>
+                                </div>
+                                
+                                <label><font color=black>skuStoData</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="skuStoData" type="text" value='{"data":[{"sto_id":"1","skuStoData":[{"sku_id":0,"spec_name":"200ml","stock":200,"unit_price":200,"sku_sto_index":2,"status":1,"sku_storage_id":0}]},{"sto_id":"2","skuStoData":[{"sku_id":0,"spec_name":"300ml","stock":300,"unit_price":300,"sku_sto_index":2,"status":1,"sku_storage_id":0}]},{"sto_id":"3","skuStoData":[{"sku_id":0,"spec_name":"400ml","stock":400,"unit_price":400,"sku_sto_index":2,"status":1,"sku_storage_id":0},{"sku_id":0,"spec_name":"200ml","stock":200,"unit_price":200,"sku_sto_index":2,"status":1,"sku_storage_id":0}]}]}'>
+                                </div>
+
+
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="status" type="number" value=1>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>editSKU</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Good/editSKU")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>spu_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="spu_id" type="text" autofocus="">
+                                </div>
+
+                                <label><font color=black>商品名称*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="spu_name" type="text" autofocus="" value='aaa'>
+                                </div>
+
+                                <label><font color=black>速查编码*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="qcode" type="text" autofocus=""  value='scbm'>
+                                </div>
+                                
+                                <label><font color=black>cat_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="cat_id" type="text" autofocus="" value='1'>
+                                </div>
+
+
+                                <label><font color=black>skuData</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="skuData" type="text" value='{"data":[{"sto_id":1,"skuStoData":[{"sku_storage_id":43,"sku_id":"15","spec_name":"29只装","stock":3220,"unit_price":641.5,"sku_index":1,"status":1},{"sku_storage_id":0,"sku_id":0,"spec_name":"46只装","stock":3230,"unit_price":645,"sku_index":2,"status":1},{"delete":true,"sku_storage_id":44,"sku_id":"16","spec_name":"93只装","stock":3320,"unit_price":645,"sku_index":2,"status":1}]},{"sto_id":2,"skuStoData":[{"sku_storage_id":46,"sku_id":"16","spec_name":"93只装","stock":3220,"unit_price":641.5,"sku_index":1,"status":1},{"sku_storage_id":0,"sku_id":0,"spec_name":"46只装","stock":3230,"unit_price":645,"sku_index":2,"status":0},{"sku_storage_id":0,"sku_id":0,"spec_name":"48只装","stock":3230,"unit_price":645,"sku_index":2,"status":1},{"delete":true,"sku_storage_id":45,"sku_id":"15","spec_name":"29只装","stock":3320,"unit_price":645,"sku_index":2,"status":1}]}]}'>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <form id="form" method="post" action="{:U("Good/deleteSKU")}">
+  <h1>deleteSKU</h1>
+  <label><font color=black>sku_id*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="sku_id" type="text" autofocus="">
+    </div>
+    <input value="删除" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Good/get_")}">
+  <h1>get_</h1>
+  <label><font color=black>sku_id*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="sku_id" type="text" autofocus="">
+    </div>
+    <input value="查询" type="submit">
+  </form>
+
+    <div class="container">
+        <h1>editSPU</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Good/editSPU")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>spu_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="spu_id" type="text" autofocus="">
+                                </div>
+
+                                <label><font color=black>spu_name*</font></label>
+                                <div class="input-control text" data-role="input-control" value="默认">
+                                   <input name="spu_name" type="text">
+                                </div>
+
+                                <label><font color=black>速查编码*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="qcode" type="text" autofocus="">
+                                </div>
+
+                                <label><font color=black>spu_index<small class="on-right">一个正整数，数字越小，显示越靠前</small></font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="spu_index" type="number" value='1'>
+                                </div>
+
+
+                                <label><font color=black>cat_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="cat_id" type="number" value='1'>
+                                </div>
+
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="status" type="number" value=1>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+  <form id="form" method="post" action="{:U("Good/deleteSPU")}">
+  <h1>deleteSPU</h1>
+  <label><font color=black>spu_id*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="spu_id" type="text" autofocus="">
+    </div>
+    <input value="删除" type="submit">
+  </form>
+
+<form id="form" method="post" action="{:U("Good/queryCat")}">
+  <h1>queryCat</h1>
+  <label><font color=black>type*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="type" type="text" autofocus="">
+    </div>
+    <input value="查询" type="submit">
+  </form>
+  <form id="form" method="post" action="{:U("Good/querySPU")}">
+  <h1>querySPU</h1>
+  <label><font color=black>type*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="type" type="text" autofocus="">
+    </div>
+    <input value="查询" type="submit">
+  </form>
+  <form id="form" method="post" action="{:U("Good/querySKU")}">
+  <h1>querySKU</h1>
+  <label><font color=black>type*</font></label>
+   <div class="input-control text" data-role="input-control">
+       <input name="type" type="text" autofocus="">
+    </div>
+    <label><font color=black>sto_data*</font></label>
+   <!--  <div class="input-control text" data-role="input-control">
+       <input name="sto_data" type="text" autofocus="" value='{"sto_id":[1,2]}'>
+    </div> -->
+    <input value="查询" type="submit">
+  </form>
+
+
+
+  <form id="form" method="post" action="{:U("Good/editSPUSKU")}">
+  <h1>editSPUSKU</h1>
+  <label><font color=black>spu_id*</font></label>
+    <input value="go" type="submit">
+  </form>
+</body>
+</html>

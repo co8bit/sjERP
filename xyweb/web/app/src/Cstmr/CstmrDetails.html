@@ -1,0 +1,173 @@
+<div class="cstmr-details">
+    <!-- 返回按钮 -->
+    <div class="btn-container">
+        <button ng-click="goBack();">返回</button>
+    </div>
+    <div class="middle">
+        <!-- 筛选从这儿开始 -->
+        <div class="filter-container">
+            <div>筛选条件</div>
+            <div class="time-container">
+                <span class="time">时间</span>
+                <!-- <div>
+                    <input id="datepicker1" readonly="readonly" type="text" ng-model="timeFilter.reg_st_time" ng-click="timeFilter.reg_st_time=undefined;query.request();initSendData();">
+                    <span>至</span>
+                    <input id="datepicker2" readonly="readonly" type="text" ng-model="timeFilter.reg_end_time" ng-click="timeFilter.reg_end_time=undefined;query.request();initSendData();">
+                </div> -->
+                <div id="reportrange" class="pull-left dateRange">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                    <span id="searchDateRange"></span>
+                    <b class="caret"></b>
+                </div>
+            </div>
+            <!-- 过滤器 -->
+            <div class="below">
+                <span>类别</span>
+                <div>
+                    <button class="select-all" ng-class="{cb:classCheckbox.flag_none}"
+                            ng-click="classCheckbox.selectAll(1);initSendData();">全部
+                    </button>
+                    <div>
+                        <div ng-repeat="item in classCheckbox.option">
+                            <button ng-class="{'cb':item.flag_chosen,'bthover':isMobile==false}"
+                                    ng-click="classCheckbox.select(item);initSendData();">
+                                {{item.optionName}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 过滤器 -->
+            <div class="below">
+                <span>状态</span>
+                <div>
+                    <button class="select-all" ng-class="{cb:statusCheckbox.flag_none}"
+                            ng-click="statusCheckbox.selectAll();initSendData();">全部
+                    </button>
+                    <div>
+                        <div ng-repeat="item in statusCheckbox.option">
+                            <button ng-class="{'cb':item.flag_chosen,'bthover':isMobile==false}"
+                                    ng-click="statusCheckbox.select(item);initSendData();">
+                                {{item.optionName}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 过滤器 -->
+            <div class="below">
+                <span>全局</span>
+                <div>
+                    <button class="select-all" ng-class="{cb:remainTypeCheckbox.flag_none}"
+                            ng-click="remainTypeCheckbox.selectAll();initSendData();">全部
+                    </button>
+                    <div>
+                        <div ng-repeat="item in remainTypeCheckbox.option">
+                            <button ng-class="{'cb':item.flag_chosen,'bthover':isMobile==false}"
+                                    ng-click="remainTypeCheckbox.select(item);initSendData();">{{item.optionName}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 往来单位自己的信息 -->
+        <div class="rb">
+            <div class="balance-container">
+                <span class="balance-text">总结余</span>
+                <span class="owe" ng-show="cstmrInfo.balance != 0">{{ cstmrInfo.balance > 0 ? '我欠他' : '他欠我' }}</span>
+                <span class="balance-number">{{cstmrInfo.balance > 0 ? cstmrInfo.balance : -cstmrInfo.balance}}</span>
+            </div>
+           <!--  <div class="send-mode">
+                <span>发送对账单：</span>
+                <span ng-click="isCheckBoxShow = true;smsIsShow = true;wechatIsShow = false;"><img src="web/app/img/misc/sms.png"></span>
+                <span ng-click="isCheckBoxShow = true;wechatIsShow = true;smsIsShow = false;"><img src="web/app/img/misc/wechat.png"></span>
+            </div> -->
+            <div><span class="text">编号</span><span class="info">{{cstmrInfo.sn}}</span></div>
+            <div><span class="text">名称</span><span class="info">{{cstmrInfo.name}}</span></div>
+            <div><span class="text">地址</span><span class="info">{{cstmrInfo.address}}</span></div>
+            <div><span class="text">备注</span><span class="info">{{cstmrInfo.remark}}</span></div>
+            <div class="btn-container">
+                <button class="bthover" ng-click="checkCstmrInfo()">
+                    查看往来单位
+                </button>
+                <button class="bthover"  ng-click="deleteCompany()">删除往来单位</button>
+            </div>
+        </div>
+    </div>
+    <div class="statement-btn-row">
+        <!-- <span>发送对账单：</span>
+        <span><i class="fa fa-qq"></i></span>
+        <span><i class="fa fa-weixin"></i></span> -->
+        <select id="sendType">
+            <option value="0" id="oneItem" selected="selected" ng-show="false">请选择发送对账单方式</option>
+            <option value="1">发送短信对账单</option>
+            <option value="2">发送微信对账单</option>
+        </select>
+        <input class="xy-btn xy-btn-orange send" ng-click="startStatement(sendType)" value="发送">
+    </div>
+    <!-- 表 -->
+    <div class="table" >
+        <div class="head table-row">
+            <span ng-show="isCheckBoxShow" >
+                <input type="checkbox" ng-model="isAllChecked" ng-change="AllCheck();">
+            </span>
+            <span>创建时间</span>
+            <!--<span>出/入库时间</span>-->
+            <!--<span>单号</span>-->
+            <span>类别</span>
+            <span>经办人</span>
+            <span>状态</span>
+            <span>总金额</span>
+            <span>待收</span>
+            <span>待付</span>
+            <!-- <span>结余</span> -->
+            <span>详情</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data" ng-init="updateSatus()" ng-class='{statusRed:(item.status==91||item.status==92),statusBlue:item.status==3}'>
+            <span ng-show="isCheckBoxShow">
+                <input type="checkbox" ng-model="item.isChecked" ng-change="saveCheckStatus(item);">
+            </span>
+            <span>{{item.reg_time_show}}</span>
+            <!--<span>{{item.leave_time_show}}</span>-->
+            <!-- 单号 -->
+            <!--<span>{{item.sn}}</span>-->
+            <!-- 类别 -->
+            <span>{{item.class_show}}</span>
+            <!-- 经办人 -->
+            <span>{{item.operator_name}}</span>
+            <!-- 状态 -->
+            <!-- <span class="cb">{{item.status}}</span> -->
+            <span>{{item.status_show}}</span>
+            <!-- 总金额 -->
+            <span>
+                <span ng-show="item.class != 5 && item.class != 6 && item.class != 71 && item.class != 72 && item.class != 73 && item.class != 74"
+                      ng-bind-html="item.value_show"></span>
+                <span ng-show="item.class != 1 && item.class != 2 && item.class != 3 && item.class != 4 && item.class != 53"
+                      ng-bind-html="item.income_show"></span>
+            </span>
+            <!-- 待收 -->
+            <span>
+                <span ng-show="(!(item.remain > 0)) || (item.status==91) || (item.status==3)">-</span>
+                <span ng-show="(item.remain > 0) && (item.status!=91) && (item.status!=3)" >{{item.remain}}</span>
+            </span>
+            <!-- 待付 -->
+            <span>
+                <span ng-show="(item.remain >= 0) || (item.status==91) || (item.status==3)"">-</span>
+                <span ng-show="!(item.remain >= 0) && (item.status!=91) && (item.status!=3)" >{{item.remain_opposite}}</span>
+            </span>
+            <!-- 结余 -->
+            <!-- <span></span> -->
+            <!-- 查看详情 -->
+            <span><button ng-click="clickViewDetails(item)">详情</button></span>
+        </div>
+    </div>
+    <!-- 分页 -->
+    <div class="page-navi">
+        <div ng-repeat="item in paginator.pageList" ng-click="paginator.clickButton(item);initCheck();" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+
+    <div ng-if="statementIsShow" ng-include="'web/app/src/Statement/StatementWechat.html?xyvs=2.0.1'" ng-controller="StatementWechatController"></div>
+</div>

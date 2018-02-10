@@ -1,0 +1,331 @@
+<div class="order-details-page" id="order-details-page" ng-controller="OrderDetailsController">
+    <!-- （header）xx单据详情，客户名字，退出按钮 -->
+    <div class="title-bar-detail">
+        <!-- xx单据详情 -->
+        <div class="left">
+            <span>{{orderInfo.class | _class}}详情</span>
+        </div>
+        <!-- 客户和单号 -->
+        <div class="middle" ng-show="class > 4">
+            <span class="top"
+                  ng-show="orderInfo.class == 1 || orderInfo.class == 2">客户：{{orderInfo.company_name}}</span>
+            <span class="top"
+                  ng-show="orderInfo.class == 3 || orderInfo.class == 4">供货商：{{orderInfo.company_name}}</span>
+            <div class="bottom">
+                <span>单号:{{orderInfo.sn}}</span>
+                <span>经办人:{{orderInfo.operator_name}}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <!--单据内容-->
+    <div class="order-detail">
+        <div class="order-detail-header">
+            <div class="status-now">
+                <span>开单日期:{{orderInfo.reg_time | time}}</span>
+                <span ng-show="orderInfo.class == 1 || orderInfo.class == 2">出库仓库：{{orderInfo.sto_name}}</span>
+                <span ng-show="orderInfo.class == 3 || orderInfo.class == 4">出库仓库：{{orderInfo.sto_name}}</span>
+                <span>订单号:{{orderInfo.sn}}</span>
+                <span class="active">{{orderInfo.status | status}}</span>
+                <span>经办人:{{orderInfo.operator_name}}</span>
+
+            </div>
+            <div class="status-info">
+                <div class="status">
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 5"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 5"></img>
+                        <span>暂不通知库管</span>
+                    </div>
+                    <div class="between-line"></div>
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 6"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 6"></img>
+                        <span>正在通知库管</span>
+                    </div>
+                    <div class="between-line"></div>
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 7"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 7"></img>
+                        <span>库管未确认</span>
+                    </div>
+                    <div class="between-line">打印</div>
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 8"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 8"></img>
+                        <span>已确认，未出库</span>
+                    </div>
+                    <div class="between-line"></div>
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 9"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 9"></img>
+                        <span>已出库，未送达</span>
+                    </div>
+                    <div class="between-line"></div>
+                    <div class="step">
+                        <img src="web/app/img/misc/pic_inactive.png"
+                             ng-show="orderInfo.status != 1 && orderInfo.status != 2 && orderInfo.status != 99"></img>
+                        <img src="web/app/img/misc/pic_active.png"
+                             ng-show="orderInfo.status == 1 || orderInfo.status == 2 || orderInfo.status == 99"></img>
+                        <span ng-show="orderInfo.status != 2">完成</span>
+                        <span ng-show="orderInfo.status == 2">异常</span>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div ng-show="isRequisitionShow&&orderInfo.status == 5 ||orderInfo.status == 6 ||orderInfo.status == 7"
+                         ng-disabled="pageState.isEditing" ng-click="clickNotify();">
+                        <img src="web/app/img/misc/pic_notify.png">
+                        <button>通知库管</button>
+                    </div>
+                    <div ng-show="isRequisitionShow&&orderInfo.status != 1 && orderInfo.status != 99  && orderInfo.status != 91 && orderInfo.status != 3"
+                         ng-disabled="pageState.isEditing" ng-click="clickFinish();">
+                        <img src="web/app/img/misc/pic_complete.png">
+                        <button>标记为已完成</button>
+                    </div>
+                    <div ng-show="isRequisitionShow&&orderInfo.status != 1 && orderInfo.status != 99  && orderInfo.status != 91 && orderInfo.status != 3"
+                         ng-click="clickMarkException();"
+                         ng-disabled="pageState.isEditing">
+                        <img src="web/app/img/misc/pic_singularity.png">
+                        <button ng-show="orderInfo.status != 2  && orderInfo.status != 91 && orderInfo.status != 3">
+                            标记为异常
+                        </button>
+                        <button ng-show="orderInfo.status == 2  && orderInfo.status != 91 && orderInfo.status != 3">
+                            修改异常原因
+                        </button>
+                    </div>
+                    <div  ng-show="isRequisitionShow" ng-click="clickHistory();">
+                        <img src="web/app/img/misc/pic_log.png">
+                        <button>操作日志</button>
+                    </div>
+                    <div ng-show="true" ng-click="print();">
+                        <img src="web/app/img/misc/pic_print.png">
+                        <button>57mm打印</button>
+                    </div>
+                    <div ng-show="true" ng-click="print('A4');">
+                        <img src="web/app/img/misc/pic_print.png">
+                        <button>241*93打印</button>
+                    </div>
+                    <div ng-show="isRequisitionShow&&orderInfo.status != 91 && orderInfo.status != 3" ng-click="clickDelete();">
+                        <img src="web/app/img/misc/DELETE.png">
+                        <button>作废</button>
+                    </div>
+                    <div ng-show="isRequisitionShow&&orderInfo.status <= 90 && orderInfo.status >= 4" ng-click="reopen(true);">
+                        <img src="web/app/img/misc/reopen.png">
+                        <button>重开</button>
+                    </div>
+                    <div ng-show="isRequisitionShow&&orderInfo.status == 1" ng-click="reopen(false);">
+                        <img src="web/app/img/misc/reopen.png">
+                        <button>复制</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-detail-middle">
+            <div class="cstmr-info">
+                <div class="info-table">
+                    <div class="title">客户信息</div>
+                    <div class="table">
+                        <div class="info-row">
+                            <div class="left">客户名称:</div>
+                            <div class="right">{{orderInfo.company_name}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="left">联系人:</div>
+                            <div class="right">{{orderInfo.contact_name}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="left">联系电话:</div>
+                            <div class="right">{{orderInfo.mobile}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="left">车牌号:</div>
+                            <div class="right">{{orderInfo.car_license}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="left">停车位:</div>
+                            <div class="right">{{orderInfo.park_address}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="left">备注:</div>
+                            <div class="right warehouse-remark">{{orderInfo.warehouse_remark}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-remark">
+                    <div class="title">备注信息</div>
+                    <!--<textarea class="remark" ng-class="{'active':pageState.isEditing}"  ng-model="orderInfo.remark" ng-disabled="!pageState.isEditing" />
+                    <textarea class="remark" ng-class="{'active':pageState.isEditing}"  ng-model="orderInfo.remark" ng-disabled="!pageState.isEditing" ng-click="pageState.isEditing = true;"/>-->
+                    <textarea class="remark" ng-class="{'active':pageState.isEditing}"
+                              ng-focus="pageState.isEditing = true" ng-model="orderInfo.remark"
+                              ng-blur="clickModify();"/>
+                </div>
+            </div>
+            <div class="order-info-table" ng-show="rpg!=3">
+                <div class="order-info-left">
+                    <div class="title">期初收款信息</div>
+                    <div class="table">
+                        <div class="left-table">
+                            <div class="info-row">
+                                <div class="left">货物价值</div>
+                                <div class="right" ng-show="orderInfo.is_calculated">{{orderInfo.value -
+                                    orderInfo.freight | number : 2}}
+                                </div>
+                                <div class="right" ng-show="!orderInfo.is_calculated">{{orderInfo.value | number : 2}}
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="left">优惠金额</div>
+                                <div class="right">{{orderInfo.off | number : 2}}</div>
+                            </div>
+                            <div class="info-row" ng-show="orderInfo._class == 2 || orderInfo._class == 3">
+                                <div class="left">运费金额</div>
+                                <div class="right">{{orderInfo.freight | number : 2}}</div>
+                            </div>
+                            <div class="info-row" ng-show="orderInfo.isSeller">
+                                <div class="left">应收金额</div>
+                                <div class="right">{{orderInfo.receivableThisTime | number : 2}}</div>
+                            </div>
+                            <div class="info-row" ng-show="!orderInfo.isSeller">
+                                <div class="left">应付金额</div>
+                                <div class="right">{{orderInfo.payableThisTime | number : 2}}</div>
+                            </div>
+                            <div class="info-row" ng-show="orderInfo.isSeller">
+                                <div class="left">实收金额</div>
+                                <div class="right">{{orderInfo.actualReceipt | number : 2}}</div>
+                            </div>
+                            <div class="info-row" ng-show="!orderInfo.isSeller">
+                                <div class="left">实付金额</div>
+                                <div class="right">{{orderInfo.actualPayment | number : 2}}</div>
+                            </div>
+                        </div>
+                        <div class="right-table">
+                            <div class="info-row">
+                                <div class="left" ng-show="orderInfo.class != 1 && orderInfo.class != 4">网络支付</div>
+                                <div class="left" ng-show="orderInfo.class == 1 || orderInfo.class == 4">网络收款</div>
+                                <div class="right">{{orderInfo.online_pay | number : 2}}</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="left" ng-show="orderInfo.class != 1 && orderInfo.class != 4">银行支付</div>
+                                <div class="left" ng-show="orderInfo.class == 1 || orderInfo.class == 4">银行收款</div>
+                                <div class="right">{{orderInfo.bank | number : 2}}</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="left" ng-show="orderInfo.class != 1 && orderInfo.class != 4">现金支付</div>
+                                <div class="left" ng-show="orderInfo.class == 1 || orderInfo.class == 4">现金收款</div>
+                                <div class="right">{{orderInfo.cash | number : 2}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="balance-block">
+                        <div class="balance">
+                            <span>订单结余: <span>{{orderInfo.balanceThisTime}}</span></span>
+                            <span> + 此前结余: <span>{{orderInfo.history_balance}}</span></span>
+                            <span> = 总结余:<span class="active">{{orderInfo.total_balance}}</span></span>
+                        </div>
+                        <div class="tip">
+                            注: 结余为负代表 <span class="active">他欠您</span> ，为正代表 <span class="active">您欠他</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-info-right">
+                    <div class="title">实时收款信息</div>
+                    <div class="show-block">
+                        <div class="income" ng-show="orderInfo.class == 1 || orderInfo.class == 4">
+                            <span>订单已收:</span><span>{{orderInfo.receivableThisTime - orderInfo.remain | number: 2}}</span>
+                        </div>
+                        <div class="income" ng-show="orderInfo.class != 1 && orderInfo.class != 4">
+                            <span>订单已付:</span><span>{{orderInfo.payableThisTime -(0 - orderInfo.remain) | number: 2}}</span>
+                        </div>
+                        <div class="no-income" ng-show="orderInfo.class == 1 || orderInfo.class == 4"><span>订单未收:</span><span>{{orderInfo.remain | number: 2}}</span>
+                        </div>
+                        <div class="no-income" ng-show="orderInfo.class != 1 && orderInfo.class != 4"><span>订单未付:</span><span>{{0 - orderInfo.remain | number: 2}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table order-detail-table">
+            <div class="table-row head">
+                <span>商品编号</span>
+                <span>名称</span>
+                <span>规格</span>
+                <!-- 单价 -->
+
+                  <span class="right" ng-show="(rpg==1||rpg==7)&&isRequisitionShow">单价</span>
+                  <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 1&&isRequisitionShow">单价</span>
+                  <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 2&&isRequisitionShow">单价</span>
+
+                <!-- 数量 -->
+                <span class="right" ng-show="orderInfo.class == 1 ">销售数量</span>
+                <span class="right" ng-show="orderInfo.class == 3 ">采购数量</span>
+                <span class="right" ng-show="orderInfo.class == 2 || orderInfo.class == 4">退货数量</span>
+                <!-- 金额 -->
+
+                  <span class="right" ng-show="(rpg==1||rpg==7)&&isRequisitionShow">金额</span>
+                  <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 1&&isRequisitionShow">金额</span>
+                  <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 2&&isRequisitionShow">金额</span>
+
+                <!-- 分摊金额 -->
+                <span class="right" ng-show="(orderInfo.class == 3 || orderInfo.class == 3 )&& rpg!=3">分摊金额</span>
+                <!-- 备注 -->
+                <span class="max-span">备注</span>
+            </div>
+            <div class="table-row" ng-repeat="item in orderInfo.cartAgent.cartItemList">
+                <span>{{item.sn}}</span>
+                <span class="ellipsis pointer" ng-click="skuDetail(item)">{{item.spu_name}}</span>
+                <span class="ellipsis">{{item.spec_name}}</span>
+                <!-- 单价 -->
+
+                <span class="right" ng-show="(rpg==1||rpg==7)&&isRequisitionShow" ng-bind-html="item.unit_price_show"></span>
+                <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 1&&isRequisitionShow"
+                      ng-bind-html="item.unit_price_show"></span>
+                <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 2&&isRequisitionShow"
+                      ng-bind-html="item.unit_price_show"></span>
+                <!-- 数量 -->
+                <span class="right">{{item.quantity}}</span>
+                <!-- 金额 -->
+                   <span class="right" ng-show="(rpg==1||rpg==7)&&isRequisitionShow" ng-bind-html="item.pile_price_show"></span>
+                   <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 1&&isRequisitionShow"
+                         ng-bind-html="item.pile_price_show"></span>
+                   <span class="right" ng-show="rpg!=1&&rpg!=7&& orderInfo.class == 2&&isRequisitionShow"
+                         ng-bind-html="item.pile_price_show"></span>
+                <!--  -->
+                <span class="right" ng-show="(orderInfo.class == 3 || orderInfo.class == 3 )&& rpg !=3">{{item.freightCost | number:2}}</span>
+                <!-- 备注 -->
+                <span class="ellipsis max-span">{{item.comment}}</span>
+            </div>
+            <div class="table-row">
+                <span ng-show="rpg==1||rpg==7">总计</span>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+                <span></span>
+                <span class="right" ng-show="(orderInfo._class != 3 && orderInfo._class != 2) && rpg!=3">{{orderInfo.value | number: 2}}</span>
+                <span class="right" ng-show="(orderInfo._class == 3 || orderInfo._class == 2) && rpg!=3">{{orderInfo.value - orderInfo.freight | number: 2}}</span>
+                <span class="right" ng-show="!orderInfo.is_calculated && orderInfo._class == 3 && rpg!=3">0</span>
+                <span class="right" ng-show="orderInfo.is_calculated && ( orderInfo._class == 3 || orderInfo._class == 2)">{{orderInfo.freight | number: 2}}</span>
+                <span  class="max-span">&nbsp;</span>
+            </div>
+            <div class="hongchong" ng-show="orderInfo.status == 91 || orderInfo.status == 3">
+                <img src="web/app/img/misc/pic_hongchong.png"
+                     ng-show="orderInfo.status == 91"></img>
+                <img src="web/app/img/misc/pic_delete_order.png"
+                     ng-show="orderInfo.status == 3"></img>
+            </div>
+        </div>
+    </div>
+</div>

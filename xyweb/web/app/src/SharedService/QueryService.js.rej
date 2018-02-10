@@ -1,0 +1,13 @@
+diff a/web/app/src/SharedService/QueryService.js b/web/app/src/SharedService/QueryService.js	(rejected hunks)
+@@ -130,9 +130,10 @@
+         }
+         //åº“å­˜è¯¦æƒ…ä½¿ç”¨æŸ¥è¯¢
+         QueryService.query.skuSummary = function (data, callback) {
++            $log.error(1,data);
+             var dataToSend = data;
+             NetworkService.request('query_skuSummary', dataToSend, function(data) {
+-                console.log(data);
++                $log.log(2,data);
+                 var tmp = [];
+                 angular.copy(data.data, tmp);
+                 MiscService.formatTime(tmp.data, 0);

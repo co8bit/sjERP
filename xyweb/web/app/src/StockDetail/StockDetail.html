@@ -1,0 +1,83 @@
+<div class="StockDetail" ng-controller="StockDetailController">
+    <div class="title-bar">
+        <span  ng-show="details.class ==  54">调拨单详情</span>
+        <span  ng-show="details.class == 53">盘点单详情</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png">
+        </div>
+    </div>
+    <div class="top">
+        <div class="section-one">
+        <div>
+            <p><span>开单日期 : </span> {{details.time}}</p>
+            <p><span>订单号 : </span> {{details.sn}}</p>
+            <p><span>经办人 : </span> {{details.check_name}}</p>
+            <p><span>执行人 : </span>   {{details.operator_name}}</p>
+        </div>
+        </div>
+        <div class="section-two">
+            <p>备注信息:</p>
+            <textarea resize="none" ng-blur="changeRemark()" ng-model="details.remark" class="section-two-remark">
+
+            </textarea>
+        </div>
+        <div class="section-three" ng-click="showLog()">
+            <div>
+                <img src="web/app/img/misc/pic_log.png" alt="">
+                <p>查看日志</p>
+            </div>
+        </div>
+    </div>
+    <div class="section-four">
+        <div  ng-show="details.class == 54" class="section-four-container">
+            <div ng-show="isRequisitionShow">调拨总金额: <span>{{details.value}}</span></div>
+            <div>调拨总件数: <span>{{details.num}}</span></div>
+            <div>调出仓库: <span>{{details.sto_name}}</span></div>
+            <div>调入仓库: <span>{{details.new_sto_name}}</span></div>
+        </div>
+        <div ng-show="details.class == 53"  class="section-four-container">
+            <div ng-show="isRequisitionShow">盈亏总金额：<span>{{details.value}}</span></div>
+            <div>盈亏总数量：<span>{{details.num}}</span></div>
+            <div>盘点仓库：<span>{{details.sto_name}}</span></div>
+        </div>
+    </div>
+    <div class="section-five table">
+        <div class="table-row head">
+            <span>名称</span>
+            <span>规格</span>
+            <span>类别</span>
+            <span  ng-show="details.class == 54">调拨数量</span>
+            <span  ng-show="rpg!=3">单价</span>
+            <span  ng-show="details.class == 54&&isRequisitionShow">调拨金额</span>
+            <span  ng-show="details.class == 54"> 调出仓库当前数量</span>
+            <span  ng-show="details.class == 54">调入仓库当前数量</span>
+            <span ng-show="details.class == 53">盘点前库存</span>
+            <span  ng-show="details.class == 53">盘点后库存</span>
+        </div>
+        <div class="table-row" ng-repeat="item in details.cart">
+            <span class="ellipsis">{{item.spu_name}}</span>
+            <span class="ellipsis">{{item.spec_name}}</span>
+            <span class="ellipsis">{{item.cat_name}}</span>
+            <span ng-show="details.class == 54">{{item.quantity}}</span>
+            <span ng-show="isRequisitionShow">{{item.unit_price}}</span>
+            <span ng-show="details.class == 54&&isRequisitionShow">{{item.pilePrice}}</span>
+            <span ng-show="details.class == 54">{{item.cu_stock_af}}</span>
+            <span ng-show="details.class == 54">{{item.new_stock_af}}</span>
+            <span ng-show="details.class == 53&&item.stock">{{item.stock}}</span>
+            <span ng-show="details.class == 53&&item.stock">{{item.quantity}}</span>
+            <span ng-show="details.class == 53&&item.cu_stock_bef">{{item.cu_stock_bef}}</span>
+            <span ng-show="details.class == 53&&item.cu_stock_af">{{item.cu_stock_af}}</span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+    </div>
+</div>

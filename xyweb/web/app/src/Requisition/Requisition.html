@@ -1,0 +1,121 @@
+<div class="Requisition" ng-controller="RequisitionController">
+	<div class="scroll_wrap"></div>
+	<div class="title-bar" ng-show="!PickGoodTabIsShow">
+		<span class="function-name">调拨单</span>
+		<div class="quit" ng-click="quit()">
+			<img src="web/app/img/misc/pic_close.png"></img>
+		</div>
+	</div>
+	<!-- 选择仓库 -->
+	<div class="warehouse_info">
+		<div class="warehouse">
+			<span class="warehouse_name">调出仓库</span>
+			 <input type="text" class="selectStoOut" ng-model='orderInfo.stoOutNameInput' ng-focus="clickStoOutInput()" ng-blur="" placeholder="请选择出库仓库"> <label class="red">*</label>
+ 			<div class="sto-list" ng-show="isOutStoShow">
+                <div ng-repeat="item in stoList | filter:stoOutNameInput">
+                    <button ng-click="clickOutSto(item)">{{item.sto_name}}</button>
+                </div>
+           </div>
+        </div>
+		<div class="warehouse">
+			<span class="warehouse_name">调入仓库</span>
+			 <input type="text" class="selectStoIn" ng-model='orderInfo.stoInNameInput' ng-focus="clickStoInInput()" placeholder="请选择入库仓库"><label class="red">*</label>
+ 			<div class="sto-list" ng-show="isInStoShow">
+                <div class="" ng-repeat="item in stoList | filter:stoInNameInput">
+                    <button ng-click="clickInSto(item)">{{item.sto_name}}</button>
+                </div>
+           </div>
+		</div>
+	</div>
+
+
+	<div class="goodList_info">
+		<div>
+			<span class="goodList_name">
+				商品信息
+			</span>
+		</div>
+		<div class="goodList">
+			<div class="table">
+				<div class="head table-row">
+					<span class="">编号</span>
+					<span class="">商品名称</span>
+					<span class="">规格</span>
+					<!--<span class="">图片</span>-->
+					<span class="">类别</span>
+					<span class="">单价</span>
+					<span class="">调拨数量</span>
+					<span class="">调拨金额</span>
+				</div>
+				<div class="table-row" ng-repeat="item in orderInfo.cartAgent.cartItemList">
+					<span class="">{{$index + 1}}</span>
+					<span class="ellipsis">{{item.spu_name}}</span>
+					<span class="ellipsis">{{item.spec_name}}</span>
+					<!--<span class=""></span>-->
+					<span class="ellipsis">{{item.cat_name}}</span>
+					<span class="">{{item.unit_price | number:2}}</span>
+					<span class="">{{item.quantity | number:2}}</span>
+					<span class="">{{item.unit_price*item.quantity | number:2}}</span>
+				</div>
+				<div class="table-row" ng-show="orderInfo.cartAgent.cartItemListLength<2">
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<!--<span class=""></span>-->
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+				</div>
+				<div class="table-row" ng-show="orderInfo.cartAgent.cartItemListLength<3">
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<!--<span class=""></span>-->
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+				</div>
+				<div class="table-row">
+					<span class="">总计</span>
+					<span class=""></span>
+					<span class=""></span>
+					<!--<span class=""></span>-->
+					<span class=""></span>
+					<span class=""></span>
+					<span class="">{{orderInfo.cartAgent.addCount | number:2}}</span>
+					<span class="">{{orderInfo.cartAgent.addPrice | number:2}}</span>
+				</div>
+			</div>
+			<div class="goodList_add_btn">
+				<button class="xy-btn xy-btn-orange" ng-click="addPickGoodTab()">添加商品</button>
+			</div>
+		</div>
+	</div>
+	<div class="remark">
+		<div>
+			<span class="remark_name">备注信息</span>
+		</div>
+		<div>
+			<textarea name="" rows="" cols="" ng-model="oderInfo.remark"></textarea>
+		</div>
+
+	</div>
+	<div class="footer">
+		<div class="transactor">
+			<span>调拨人</span>
+			<select ng-model="userName"  ng-init="userName = userList[0]" ng-options="item.name for item in userList" ng-change="changeUser()"></select>
+		</div>
+		<div class="time">
+			<label>开单日期</label>
+			<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+			<div class="submit-btn">
+				<button class="submit-btn" ng-click="createReqOrder()">创建调拨单</button>
+			</div>
+		</div>
+	</div>
+	<!-- 货物列表 -->
+        <!-- <div id = "goodList" ng-show="PickGoodTabIsShow" class="GoodListDialog" ng-include="'web/app/src/SharedComponent/GoodList/GoodList.html'" ng-controller="GoodListController"></div> -->
+	<div id="goodList"  class="GoodListDialog" ng-show="PickGoodTabIsShow" ng-controller="RequisitionGoodListController"  ng-include="'web/app/src/Requisition/RequisitionGoodList.html'"></div>
+</div>

@@ -1,0 +1,55 @@
+.summary-sheet {
+    width: 100%;
+    min-height: 100%;
+    .small-chart {
+        width: 100%;
+        height: 100%;
+        padding: 1%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        background: #FFFFFF;
+        .chart-block {
+            margin-top: 50px;
+            width: 49%;
+            height: 400px;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+    }
+    .big-chart {
+        width: 100%;
+        min-height: 600px;
+        height: 100%;
+        background: #FFFFFF;
+        .back-row {
+            background: #eee;
+            padding-bottom: 10px;
+            button {
+                width: 150px;
+                height: 40px;
+            }
+        }
+        .center{
+            width: 100%;
+            height: 100%;
+            .time-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+           .chart{
+                height: 60%;
+                min-height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #eee;
+                .show-chart {
+                    width: 100%;
+                    height: 700px;
+                }
+            }
+        }
+    }
+}

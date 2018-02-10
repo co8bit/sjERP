@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit" />
+		<title>星云进销存</title>
+		<link rel="stylesheet" type="text/css" href="../lib/reset/reset.css?xyvs=2.0.1" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css?xyvs=2.0.1" />
+		<link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.css" />
+		<script src="../lib/jquery/js/jquery-3.2.1.min.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/jquery/js/js.cookie.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src='//kefu.easemob.com/webim/easemob.js?tenantId=27074&hide=false&sat=false' async='async'></script>
+		<script src="../js/statistics.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/video.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/share.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="head-wrap" id="header"></header>
+		<div class="page-content">
+			<div class="mainPage" id="mainPage">
+				<div class="video-list">
+					<div class="container">
+						<div class="content">
+							<!--视频教程-->
+							<div class="row">
+								<h3 class="module-title">视频教程</h3>
+							</div>
+							<div class="row">
+
+								<div class="video-div" onclick="openVideo('0')">
+									<img src="../img/video0.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">登录与注册</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('1')">
+									<img src="../img/video1.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">单据流设置</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('2')">
+									<img src="../img/video2.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">新建商品类别</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('3')">
+									<img src="../img/video3.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">新建商品</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('4')">
+									<img src="../img/video4.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">新建往来单位</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('5')">
+									<img src="../img/video5.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">销售开单</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('6')">
+									<img src="../img/video6.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">开收款单</a>
+                     	</span>
+								</div>
+								<div class="video-div" onclick="openVideo('7')">
+									<img src="../img/video7.png" width="90%">
+									<span class="video-link">
+                        	<a class="video-intro-text">查询往来单位与报表</a>
+                     	</span>
+								</div>
+							</div>
+							<!--文字教程-->
+							<div class="row">
+								<h3 class="module-title">文档教程</h3>
+							</div>
+							<div class="row">
+								<div class="text-div">
+									<a href="../manual_foreground" target="../manual_foreground">前端教程文档</a>
+								</div>
+								<div class="text-div">
+									<a href="../manual_warehouse" target="../manual_warehouse">库管教程文档</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 底部栏 -->
+			<div id="shared-footer" class="shared-footer"></div>
+			<div id="video-player-wrap" class="video-player-wrap hide">
+
+				<div class="helpVideo">
+					<div class="video-doading">视频加载中……</div>
+					<video id="example_video_1" class="video-js vjs-default-skin player" controls="controls" autoplay="autoplay" preload="none">
+						<source id="source1" src="" type='video/mp4' />
+						<!--<source src="http://视频地址格式2.webm" type='video/webm' />
+			<source src="http://视频地址格式3.ogv" type='video/ogg' />-->
+						<!--Tracks need an ending tag thanks to IE9-->
+						<!--<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>-->
+						<!-- Tracks need an ending tag thanks to IE9 -->
+						<!--<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>-->
+					</video>
+					<div class="close" onclick="closeVideo()"><img src="../img/close_orange.png" />
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<footer class="footer" id="footer"></footer>
+	</body>
+
+</html>

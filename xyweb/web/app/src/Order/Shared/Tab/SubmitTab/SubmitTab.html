@@ -1,0 +1,29 @@
+<div class="submit-tab" ng-controller="SubmitTabController">
+    <!--<div class="prompt" ng-show="isCreating">-->
+        <!--<div>开单中……</div>-->
+    <!--</div>-->
+    <div class="submit-tab-sub">
+        <div>
+            <!-- <label>备注</label> -->
+        </div>
+        <div class="orderremark">
+            <!-- <input type="text" ng-model="orderInfo.remark"> -->
+            <textarea type="text" ng-model="orderInfo.remark"></textarea>
+        </div>
+
+        <div>
+            <label>开单日期</label>
+            <input class="date-input" id="datepicker1" type="text"  ng-model="reg_time" readonly="readonly">
+        </div>
+
+        <!-- 开单按钮 -->
+        <div class="chose-action" ng-show="orderInfo.isSeller">
+            <div ng-click="orderInfo.status == 5">
+                <label for="pause"><input type="radio" ng-value="5" ng-checked="orderInfo.status == 5" ng-model="orderInfo.status" id="pause">暂不通知库管处理</label>
+            </div>
+            <div class="mt-s" ng-click="orderInfo.status == 4">
+                <label for="notify"><input type="radio" ng-value="4" ng-checked="orderInfo.status == 4" ng-model="orderInfo.status" id="notify">立即通知库管处理</label>{{orderInfo.status == 5}}
+            </div>
+        </div>
+    </div>
+</div>

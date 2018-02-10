@@ -1,0 +1,74 @@
+{
+  "name": "angular-material",
+  "version": "1.0.4",
+  "main": "index",
+  "format": "cjs",
+  "registry": "github",
+  "peerDependencies": {
+    "angular": "^1.4.7",
+    "angular-animate": "^1.4.7",
+    "angular-aria": "^1.4.7"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.4.7",
+      "angular-animate": "github:angular/bower-angular-animate@^1.4.7",
+      "angular-aria": "github:angular/bower-angular-aria@^1.4.7",
+      "css": "systemjs/plugin-css@^0.1.9"
+    },
+    "shim": {
+      "angular-material": {
+        "deps": []
+      }
+    },
+    "peerDependencies": {}
+  },
+  "homepage": "https://material.angularjs.org",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular/material.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/angular/material/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "angular",
+    "material",
+    "browser",
+    "client-side"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular/material/issues"
+  },
+  "gitHead": "f09190c8a945a7ceacc70ca5db0b31f2578e98bb",
+  "description": "This repo is for distribution on `npm` and `bower`. The source for this module is in the [main Angular Material repo](https://github.com/angular/material). Please file issues and pull requests against that repo.",
+  "_id": "angular-material@1.0.4",
+  "scripts": {},
+  "_shasum": "dd5469541b19cb047738db9987ead19e136c9493",
+  "_from": "angular-material@latest",
+  "_npmVersion": "2.14.3",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "dist": {
+    "shasum": "dd5469541b19cb047738db9987ead19e136c9493",
+    "size": 1359281,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/angular-material/download/angular-material-1.0.4.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "directories": {},
+  "publish_time": 1454023939610,
+  "_cnpm_publish_time": 1454023939610,
+  "_resolved": "https://registry.npm.taobao.org/angular-material/download/angular-material-1.0.4.tgz"
+}

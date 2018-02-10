@@ -1,0 +1,2 @@
+rm -rf /Users/co8bit/Documents/work/CodeDoc/API/alpha;
+php apigen.phar generate --config=.api_apigen_mac.yaml

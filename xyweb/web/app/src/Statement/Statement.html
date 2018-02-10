@@ -1,0 +1,56 @@
+<div class="xy-statement" ng-controller="StatementController">
+    <div class="xy-statement-wrapper">
+        <div class="xy-input-container">
+            <span>收件人：</span>
+            <input type="text" ng-readonly="readonly"  ng-model="phone">
+            <!-- <div style="cursor:pointer;text-align: center;width: 2em;font-size: 30px;margin-bottom: 5px" ng-click="checkReceiver()">+</div> -->
+        </div>
+        <!-- <div class="xy-phone-type">
+            <span ng-class="{true: 'xy-active'}[isHas]" ng-click="isHas = true;">已有联系人</span>
+            <span ng-class="{false: 'xy-active'}[isHas]" ng-click="isHas = false;">自填联系人</span>
+        </div> -->
+        <h3 class="xy-tip" >*如需手动输入请用英文&nbsp;  逗号：','  &nbsp;分隔联系电话！！！</h3>
+        <div class="xy-check-box">
+            <div class="xy-left">
+                <div class="xy-contactList-label">
+                    <span> 联系人:</span>
+                </div>
+                <div class="xy-phoneList-label">
+                    <span>电话号码:</span>
+                </div>
+            </div>
+            <div class="xy-right">
+                <div class="xy-contactList">
+                    <span ng-click="checkContact(contact)" class="ellipsis" ng-repeat="contact in contactList">
+                        {{contact.contact_name}}
+                    </span>
+                </div>
+                <div class="xy-phoneList">
+                    <span ng-click="checkMobile(value)" ng-repeat="value in checkedContact.phonenum">
+                        {{value.mobile}}
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="xy-contact-list" >
+                <div class="xy-label">联系人:</div>
+                <div ng-click="checkContact(contact)" class="contact-item item {{contact['checked-contact']}}" ng-repeat="contact in contactList" >
+                    {{ contact.contact_name }}
+                </div>
+            </div>
+            <div class="xy-phone-list">
+                <div class="xy-label">号码：</div>
+                <div ng-click="checkPhone(value.mobile)" class="contact-phone item" ng-repeat="value in checkedContact.phonenum" >
+                    {{ value.mobile }}
+                </div>
+            </div> -->
+        </div>
+        <div class="xy-content-container">
+            <span>发送内容：</span>
+            <div>{{data.sms_text_last}}</div>
+        </div>
+        <div class="xy-btn-container">
+            <a ng-click="sendStatementWithSMS()">确定</a>
+            <a ng-click="quit()">取消</a>
+        </div>
+    </div>
+</div>

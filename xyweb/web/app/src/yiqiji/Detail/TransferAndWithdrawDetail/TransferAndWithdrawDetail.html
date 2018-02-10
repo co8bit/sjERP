@@ -1,0 +1,88 @@
+<div class="order-details-page" id="order-details-page" ng-controller="WithdrawDetailController">
+	<!-- （header）xx单据详情，客户名字，退出按钮 -->
+    <div class="title-bar-detail">
+        <!-- xx单据详情 -->
+        <div class="left">
+            <span>{{orderInfo.class | _class}}详情</span>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <div class="main-body">
+    	<div class="order-detail-header">
+			<div class="status-now">
+				<span>开单日期:{{orderInfo.reg_time | time}}</span>
+				<span>订单号:{{orderInfo.sn}}</span>
+				<span class="active">{{orderInfo.status | status}}</span>
+				<span>经办人:{{orderInfo.operator_name}}</span>
+			</div>
+			<div class="remark-info">
+                <div >
+                	备注信息
+                </div>
+            	<textarea ng-model="orderInfo.remark" ng-blur="saveRemark()"></textarea>
+			</div>
+			<div class="history">
+				<img class="pointer" ng-click="clickHistory()" src="web/app/img/misc/pic_log.png">
+                <span class="pointer" ng-click="clickHistory();">查看日志</span>
+            </div>
+		</div>
+		<!--转账 table-->
+		<div class="table transfer" ng-if="isTransfer">
+			<div class="table-row head">
+				<span></span>
+				<span>账户简称</span>
+				<span>账户类型</span>
+				<span class="number">账号</span>
+				<span>转出金额</span>
+				<span>转入金额</span>
+				<span>转账前余额</span>
+				<span>转账后余额</span>
+			</div>
+			<div class="table-row">
+				<span>转出账户</span>
+				<span>{{data.account_name}}</span>
+				<span>{{data.account_source_type | accountType}}</span>
+				<span class="number">{{data.account_number}}</span>
+				<span>{{data.account_operate.cost}}</span>
+				<span>/</span>
+				<span>{{data.account_balance}}</span>
+				<span>{{data.account_balance - data.account_operate.cost}}</span>
+			</div>
+			<div class="table-row">
+				<span>转入账户</span>
+				<span>{{data.target_name}}</span>
+				<span>{{data.target_source_type | accountType}}</span>
+				<span class="number">{{data.target_number}}</span>
+				<span>/</span>
+				<span>{{data.account_operate.cost}}</span>
+				<span>{{data.target_balance}}</span>
+				<span>{{data.target_balance + data.account_operate.cost}}</span>
+			</div>
+		</div>
+		<!--提现-->
+		<div class="table withdraw" ng-if="!isTransfer">
+			<div class="table-row head">
+				<span>序号</span>
+				<span>账户简称</span>
+				<span>账户类型</span>
+				<span class="number">账号</span>
+				<span>转账金额</span>
+				<span>提现前余额</span>
+				<span>提现后余额</span>
+			</div>
+			<div class="table-row" ng-repeat="item in orderInfo.cart.data">
+				<span>{{$index + 1}}</span>
+				<span>{{item.account_name}}</span>
+				<span>{{item.account_source_type | accountType}}</span>
+				<span class="number">{{item.account_operate.account_number}}</span>
+				<span>{{item.account_operate.cost}}</span>
+				<span>{{item.account_balance}}</span>
+				<span>{{item.account_balance - item.account_operate.cost}}</span>
+			</div>
+		</div>
+    </div>
+</div>

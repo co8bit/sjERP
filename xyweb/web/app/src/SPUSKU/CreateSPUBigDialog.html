@@ -1,0 +1,11 @@
+<div class="create-spu-big-dialog" ng-controller="CreateSPUController">
+
+    <div class="title-bar">
+        <span>添加 / 新建商品</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+
+    <div ng-include=" ConfigService.srcLocation + 'SPUSKU/CreateSPU.html' "></div>
+</div>

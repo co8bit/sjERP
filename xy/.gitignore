@@ -1,0 +1,12 @@
+Runtime/
+Public/Uploads/*
+xy.sublime-workspace
+config/key.php
+.idea
+config/localconfig.php
+log_file/
+api_gendoc.bat
+/.api_apigen.yaml
+.git/hooks/pre-commit
+17_06_29.log
+.api_apigen_mac.yaml

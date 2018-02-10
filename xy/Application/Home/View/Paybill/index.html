@@ -1,0 +1,62 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+<!-- <form class="form-signin" method="post" action="{:U('Util/requestSMSSendVerifyCode')}">
+  <h1>requestSMSSendVerifyCode</h1>
+  <label>type:</label>
+  <input type="text" id="inputEmail" name="type" value='1'>
+  <label>mobile:</label>
+  <input type="text" id="inputEmail" name="mobile" value='57128121110'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('Util/checkVerifyCode')}">
+  <h1>checkVerifyCode @internal</h1>
+  <label>type:</label>
+  <input type="text" id="inputEmail" name="type" value='1'>
+  <label>verify_code:</label>
+  <input type="text" id="inputEmail" name="verify_code" value=''>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('Util/getJiyanToken')}">
+  <h1>getJiyanToken</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+
+<a href='{:U("Util/testjiyan")}'>测试极验</a>
+</form> -->
+
+
+<form class="form-signin" method="post" action="{:U('Paybill/getPayBillParam')}">
+  <h1>getPayBillParam</h1>
+  <label>bill_class:</label>
+  <input type="text" id="inputEmail" name="bill_class" value='1'>
+  <label>member_count:</label>
+  <input type="text" id="inputEmail" name="member_count" value='3'>
+  <label>bill_money:</label>
+  <input type="text" id="inputEmail" name="bill_money" value='100'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('PaymentDetails/getPaybillAndSmsDetail')}">
+  <h1>getPaybillAndSmsDetail</h1>
+  <label>当前页</label>
+  <input type="text" id="inputEmail" name="page" value='1'>
+  <label>总页数</label>
+    <input type="text" id="inputEmail" name="pline" value='4'>
+    <label>请求的类型:[1]充值详情 [2]短信详情</label>
+      <input type="text" id="inputEmail" name="type" value='1'>
+  <label>reg_st_time</label>
+  <input type="text" id="reg_st_time" name="reg_st_time" value='1400000000'>
+  <label>reg_end_time</label>
+  <input type="text" id="reg_end_time" name="reg_end_time" value='1497947197'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>

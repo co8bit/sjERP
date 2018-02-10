@@ -1,0 +1,160 @@
+.xy-statement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -17px;
+    bottom: 0;
+    background: rgba(163, 163, 163, 0.6);
+    z-index: 1000;
+    .xy-statement-wrapper {
+        color: #444;
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        &>div {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            span {
+                flex-shrink: 0;
+                width: 90px;
+            }
+            input {
+                flex-grow: 1;
+            }
+        }
+        .xy-phone-type {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            padding-left: 100px;
+            span {
+                display: block;
+                width: 150px;
+                height: 40px;
+                color: #000;
+                border: 1px solid #cbcbcb;
+                line-height: 40px;
+                text-align: center;
+                border-radius: 10px;
+                margin-right: 15px;
+                cursor: pointer;
+                &:hover {
+                    color: #fff;
+                    background: #36bc9b;
+                }                
+                &.xy-active{
+                    color: #fff;
+                    background: #36bc9b;
+                }
+            }
+        }
+        .xy-tip{
+            color: red;
+            margin-left: 100px;
+        }
+        .xy-check-box {
+            width: 100%;
+            display: flex;
+            .xy-left {
+
+                .xy-contactList-label {
+                    align-items: center;    
+                    height: 50px;
+                    width: 100px;
+                }
+                .xy-phoneList-label {
+                    
+                }
+
+            }
+            .xy-right {
+                .xy-contactList {
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    span{
+                        width: 80px;
+                        height: 30px;
+                        line-height: 30px;
+                        border: 1px solid #cbcbcb;
+                        border-radius: 10px;
+                        text-align: center;
+                        margin-right: 5px;
+                        cursor: pointer;
+                        &:hover {
+                            height: auto;
+                            white-space: normal;
+                            word-break: break-all;
+                            padding: 1px;
+                            color: #fff;
+                            background: #36bc9b;
+                        }                
+                        &.xy-active{
+                            color: #fff;
+                            background: #36bc9b;
+                        }
+                    }
+                }
+                .xy-phoneList {
+                    display: flex;
+                    align-items: center;
+                    min-height: 50px;
+                    span{
+                        width: 115px;
+                        height: 30px;
+                        line-height: 30px;
+                        border: 1px solid #cbcbcb;
+                        border-radius: 10px;
+                        text-align: center;
+                        margin-right: 5px;
+                        cursor: pointer;
+                        &:hover {
+                            color: #fff;
+                            background: #36bc9b;
+                        }                
+                        &.xy-active{
+                            color: #fff;
+                            background: #36bc9b;
+                        }
+                    }
+                }
+            }
+        }
+        .xy-input-container {
+            
+        }
+        .xy-content-container {
+            div {
+                flex-grow: 1;
+                height: 280px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin: 0;
+                padding: 10px;
+                border: 1px solid #cbcbcb;
+            }
+        }
+        .xy-btn-container {
+            align-self: center;
+            align-content: flex-end;
+            a {
+                cursor: pointer;
+                padding: 5px 20px;
+                margin: 0 10px;
+                color: #fff;
+                background: $subthemeColor;
+                &:hover {
+                    background: darken($subthemeColor, 5%);
+                }
+            }
+        }
+    }
+
+}

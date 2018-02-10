@@ -1,0 +1,35 @@
+<div>
+
+<div>
+    <span>什么鬼</span>
+</div>
+    <!-- 已选定商品 -->
+    <label for="">商品名</label>
+    <span>{{cart_item.spu_name}}</span>
+    <br>
+    <!-- 规格选择 -->
+    <label for="spec"> 规格</label>
+    <ul class="goodList">
+
+        <li ng-repeat="sku in editingCartItem.alter_skus" class="spu" ng-click="selectSKU(sku,$event)">
+            {{sku.spec_name}}
+        </li>
+    </ul>
+    <br>
+    <div style="clear:both;">
+        <!-- 单价 -->
+        <label for="">单价</label>
+        <input type="text" ng-model="editingCartItem.unit_price" />
+        <br>
+        <!-- 数量 -->
+        <label for="">数量</label>
+        <input type="text" ng-model="editingCartItem.quantity" />
+        <br>
+        <!-- 总价 -->
+        <label for="">总价</label>
+        <span>{{editingCartItem.pile_price}}</span>
+        <br>
+    </div>
+    <button ng-click="confirm()">确认</button>
+    <button ng-click="cancel()">取消</button>
+</div>

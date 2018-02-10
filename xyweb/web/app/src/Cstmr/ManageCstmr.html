@@ -1,0 +1,40 @@
+<!--往来单位页面-->
+<div class="manage-cstmr">
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="单位名称/速查码" ng-model="queryInfo.query">
+        </div>
+        <button ng-show="isManageCstmrShow" ng-click="EventService.emit(EventService.ev.START_CREATE_COMPANY);">新建往来单位</button>
+    </div>
+    <div>
+        <!-- <button ng-click="test();">test</button> -->
+    </div>
+    <!-- 表 -->
+    <div class="table">
+        <div class="head table-row">
+            <span>单位名称</span>
+            <span>速查码</span>
+            <span class="price">结余</span>
+            <span>备注信息</span>
+            <span>启用</span>
+            <span>操作</span>
+        </div>
+        <div class="table-row"  ng-repeat="item in companyList">
+            <span class="ellipsis cid-name" ng-click="checkRecord(item.cid)">{{item.name}}</span>
+            <span >{{item.qcode}}</span>
+            <span class="number_algin_item1">{{item.balance | number:2}}</span>
+            <span class="ellipsis">{{item.remark}}</span>
+            <span ng-show="item.status == 1">✔</span>
+            <span ng-show="item.status != 1">✘</span>
+            <span>
+                <button ng-click="checkRecord(item.cid)">查看所有往来记录</button>
+            </span>
+        </div>
+    </div>
+    <div class="page-navi">
+        <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+</div>

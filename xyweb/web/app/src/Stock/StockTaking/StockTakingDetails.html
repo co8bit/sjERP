@@ -1,0 +1,84 @@
+<div class="stock-taking-details" ng-controller="StockTakingDetailsController">
+    <div class="title-bar-detail">
+        <div class="left">
+            <span>盘点单详情</span>
+        </div>
+        <div class="middle">
+            <span class="top"></span>
+            <div class="bottom">
+                <span>单号:{{orderInfo.sn}}</span>
+                <span>执行人:{{orderInfo.operator_name}}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="more" ng-click="isShowMore = !isShowMore">
+            <img src="web/app/img/misc/pic_more.png"></img>
+        </div>
+        <div class="top-buttons" ng-show="isShowMore">
+            <div ng-show="!isEditing" ng-click="isEditing = true">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>修改</button>
+            </div>
+            <div ng-show="isEditing" ng-click="isEditing = false; clickFinishEditing();">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>完成修改</button>
+            </div>
+            <div ng-click="isHistoryShow = !isHistoryShow">
+                <img src="web/app/img/misc/pic_log.png">
+                <button>查看日志</button>
+            </div>
+        </div>
+        <div class="rb log" ng-show="isHistoryShow">
+            <span>{{orderInfo.history}}</span>
+        </div>
+        <div class="infoandtable">
+            <div class="info">
+                <div class="left">
+                    <!--<span>盈亏总金额:{{cartAgent.totProfitAndLossValue}}</span>-->
+                    <span ng-show = "rpg==1||rpg==7">盈亏总金额:{{ orderInfo.value | number:2}}</span>
+                    <!--<span>盈亏总件数:{{cartAgent.totProfitAndLossQuantity}}</span>-->
+                    <span>盈亏总件数:{{ orderInfo.num }}</span>
+                    <div>
+                        <span>盘点人:</span>
+                        <input type="text" ng-model="orderInfo.check_name"
+                               disabled="true">
+                    </div>
+                    <div>
+                        <span>执行人:</span>
+                        <input type="text" ng-model="orderInfo.operator_name"
+                               disabled="true">
+                    </div>
+
+                </div>
+                <textarea type="text" placeholder="备注" ng-model="orderInfo.remark"
+                          ng-disabled="!isEditing"></textarea>
+            </div>
+            <div class="table">
+                <div class="head table-row">
+                    <span>名称</span>
+                    <span>所属仓库</span>
+                    <span>类别</span>
+                    <span>规格</span>
+                    <span ng-show = "rpg==1||rpg==7">单价</span>
+                    <span>盘点前库存</span>
+                    <span>盘点后库存</span>
+                </div>
+                <div class="table-row" ng-repeat="item in cartAgent.cartItemList">
+                    <span>{{item.spu_name}}</span>
+                    <span>{{item.sto_name}}</span>
+                    <span>{{item.cat_name }}</span>
+                    <span>{{item.spec_name }}</span>
+                    <span ng-show = "rpg==1||rpg==7" ng-bind-html="item.unit_price_show"></span>
+                    <span>{{item.stock}}</span>
+                    <span>{{item.quantity }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

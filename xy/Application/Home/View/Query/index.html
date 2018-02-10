@@ -1,0 +1,522 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>query_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/query_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>page*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="page" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>pline*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="pline" type="text" autofocus="" value='5'>
+                                </div>
+
+                                <label><font color=black>filter*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="filter" type="text" autofocus="" value='{"class":[1,2],"status":[90],"remainType":[1]}'>
+                                </div>
+
+                                <label><font color=black>reg_st_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_st_time" type="text" value='1000000000'>
+                                </div>
+
+
+                                <label><font color=black>reg_end_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_end_time" type="text" value='1900000000'>
+                                </div>
+
+                                <label><font color=black>isInitialOrderShow</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="isInitialOrderShow" type="text" value='false'>
+                                </div>
+
+
+                               <!--  <label><font color=black>oid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="oid" type="text" value='1'>
+                                </div>
+
+                                <label><font color=black>wid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="wid" type="text" value='1'>
+                                </div>
+
+                                <label><font color=black>fid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="fid" type="text" value='1'>
+                                </div>
+
+                                <label><font color=black>operator_uid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="operator_uid" type="text" value='1'>
+                                </div>
+
+                                <label><font color=black>cid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" value='1'>
+                                </div> -->
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>backUpEveryDay</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Query/backUpEveryDay")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>page*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="page" type="text" autofocus="" value='1'>
+                        </div>
+
+                        <label><font color=black>pline*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="pline" type="text" autofocus="" value='5'>
+                        </div>
+
+                        <label><font color=black>filter*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="filter" type="text" autofocus="" value='{"class":[1,71,73],"status":[90],"remainType":[1]}'>
+                        </div>
+
+                        <label><font color=black>reg_st_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_st_time" type="text" value='1000000000'>
+                        </div>
+
+
+                        <label><font color=black>reg_end_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_end_time" type="text" value='1900000000'>
+                        </div>
+
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>queryDraft</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/queryDraft")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>page*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="page" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>pline*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="pline" type="text" autofocus="" value='5'>
+                                </div>
+
+                                 <label><font color=black>filter</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="filter" type="text" autofocus="" value='{"class":[53],"status":[],"remainType":[],"bigClass":[],"financeType":[]}'>
+                                </div>
+                                <label><font color=black>status</font></label>
+                                 <div class="input-control text" data-role="input-control">
+                                    <input name="status" type="text" autofocus="" value='89'>
+                                 </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+  <div class="container">
+        <h1>search</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/search")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>page*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="page" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>pline*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="pline" type="text" autofocus="" value='5'>
+                                </div>
+
+                                <label><font color=black>type*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="type" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>search</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="search" type="text" value='黄'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container">
+  <h1>dashboard</h1>
+    <form id="form" method="post" action="{:U("Query/dashboard")}">
+      <input value="查询" type="submit">
+    </form>
+</div>
+
+
+    <div class="container">
+        <h1>saleSummary</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/saleSummary")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>reg_st_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_st_time" type="text" value='1000000000'>
+                                </div>
+
+
+                                <label><font color=black>reg_end_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_end_time" type="text" value='1900000000'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>purchaseSummary</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/purchaseSummary")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>reg_st_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_st_time" type="text" value='1000000000'>
+                                </div>
+
+
+                                <label><font color=black>reg_end_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_end_time" type="text" value='1900000000'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container">
+        <h1>skuSummary</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/skuSummary")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                               <label><font color=black>page*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="page" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>pline*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="pline" type="text" autofocus="" value='5'>
+                                </div>
+
+                                <label><font color=black>sku_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sku_id" type="text" autofocus="" value='62'>
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" value='1'>
+                                </div>
+
+                                <label><font color=black>filter*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="filter" type="text" autofocus="" value='{"class":[1,2,3,4],"status":[]}'>
+                                </div>
+
+
+                                <label><font color=black>reg_st_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_st_time" type="text" value='1000000000'>
+                                </div>
+
+
+                                <label><font color=black>reg_end_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_end_time" type="text" value='1900000000'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container">
+        <h1>skuChart</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Query/skuChart")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                 <label><font color=black>sku_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sku_id" type="text" autofocus="" value='62'>
+                                </div>
+
+                                <label><font color=black>reg_st_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_st_time" type="text" value='1000000000'>
+                                </div>
+
+
+                                <label><font color=black>reg_end_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_end_time" type="text" value='1900000000'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>operatorChart</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Query/operatorChart")}">
+                <div class="tile-group three">
+                    <div class="row">
+
+                        <label><font color=black>operator_uid*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="operator_uid" type="text" autofocus="" value='2'>
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>operatorSummary</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Query/operatorSummary")}">
+                <div class="tile-group three">
+                    <div class="row">
+
+                        <label><font color=black>page*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="page" type="text" autofocus="" value='1'>
+                        </div>
+
+                        <label><font color=black>pline*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="pline" type="text" autofocus="" value='5'>
+                        </div>
+
+                        <label><font color=black>operator_uid*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="operator_uid" type="text" autofocus="" value='2'>
+                        </div>
+
+                        <label><font color=black>filter*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="filter" type="text" autofocus="" value='{"class":[1,2],"status":[90]}'>
+                        </div>
+
+
+                        <label><font color=black>reg_st_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_st_time" type="text" value='1000000000'>
+                        </div>
+
+
+                        <label><font color=black>reg_end_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_end_time" type="text" value='1900000000'>
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>queryOrder</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Query/queryOrder")}">
+                <div class="tile-group three">
+                    <div class="row">
+
+                        <label><font color=black>page*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="page" type="text" autofocus="" value='1'>
+                        </div>
+
+                        <label><font color=black>pline*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="pline" type="text" autofocus="" value='5'>
+                        </div>
+
+                        <label><font color=black>operator*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="operator_uid" type="text" autofocus="" value='2'>
+                        </div>
+
+                        <label><font color=black>filter*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="filter" type="text" autofocus="" value='{"class":[1,4],"status":[90]}'>
+                        </div>
+
+                        <label><font color=black>field*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="field" type="text" autofocus="" value='reg_time,class,cart'>
+                        </div>
+
+                        <label><font color=black>reg_st_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_st_time" type="text" value='1000000000'>
+                        </div>
+
+
+                        <label><font color=black>reg_end_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_end_time" type="text" value='1900000000'>
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>getOperatorInfo</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Query/getOperatorInfo")}">
+                <div class="tile-group three">
+                    <div class="row">
+
+                        <label><font color=black>operator_uid*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="operator_uid" type="text" autofocus="" value='2'>
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

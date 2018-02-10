@@ -1,0 +1,31 @@
+<div class="loginAndRegisterMode">
+    <div class="content">
+        <div class="head" ng-click="gotoOfficialSite()">星云进销存</div>
+        <div class="middle">
+            <div class="title">创 建 者 登 录</div>
+            <div class="input-row">
+                <input placeholder="手机号" ng-model="model.adminLogin.username" ng-keydown="keydown($event);">
+                <span class="required">*</span>
+            </div>
+            <div class="input-row">
+                <input id="password" type="password" placeholder="密码" ng-model="model.adminLogin.password" ng-keydown="keydown($event);">
+                <span class="required">*</span>
+            </div>
+            <div class="btn-row">
+                <button class="xy-btn xy-btn-green" id="popup-submit" ng-click="login();" ng-keydown="keydown($event);">登录</button>
+            </div>
+            <div class="change-login-row" ng-click="LoginModel.status = 3">
+                以员工账号登录
+            </div>
+            <div class="xy-btn-group">
+                <button type="button" class="xy-btn xy-btn-default"  ng-click="LoginModel.status = 4">注册创建者账号</button>
+                <button type="button" class="xy-btn xy-btn-default" ng-click="gotoForget()">忘记密码</button>
+            </div>
+            <!-- 验证码 -->
+            <div id="popup-captcha"></div>
+        </div>
+        <div class="back-btn-row">
+            <button type="button" class="xy-btn xy-btn-lg xy-btn-orange" ng-click="LoginModel.status = 1">返回</button>
+        </div>
+    </div>
+</div>

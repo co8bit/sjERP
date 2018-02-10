@@ -1,0 +1,1085 @@
+$规格容器padding: 20px;
+
+/*.sales-order.shadow{background: green;}*/
+
+.sales-order {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(163, 163, 163);
+    /*.shadow{background: rgba(163, 163, 163, 0.6);}
+  .normal{background: white;}*/
+    .body-class.shadow {
+        overflow: hidden;
+    }
+    .body-class {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: white;
+        .title-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        /*background: rgba(163, 163, 163, 0.6);*/
+        /*第二步：客户信息*/
+        .cstmr-info-tab.typical-left-right-narrow {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            input {
+                font-size: 12px;
+            }
+            .t-left {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                overflow-x: hidden;
+                overflow-y: auto;
+                .left-container {
+                    height: 100%;
+                    overflow: auto;
+                    width: 100%;
+                    background: white;
+                    padding: 40px;
+                   .cstmr-container {
+                        /*margin-left: 35px;*/
+                        display: flex;
+                        flex-flow: column;
+                        margin: 25px 0;
+                        .title-name-row{
+                            .title-name {
+                                width: 105px;
+                                text-align: center;
+                            }
+                        }
+                        .input-row{
+                            input {
+                                height: 40px;
+                                width: 70%;
+                                border: none;
+                                border-radius: 5px;
+                                background-color: #eeeeee;
+                                border-left: 5px solid #dbb5a8;
+                            }
+                        }
+                       .cstmr-list {
+                            display: flex;
+                            align-content: flex-start;
+                            flex-wrap: wrap;
+                            width: 88%;
+                            background-color: white;
+                            .auto-complete-content {
+                                width: 200px;
+                                margin-top: 10px;
+                                margin-right: 10px;
+                                border-radius: 5px;
+                                button {
+                                    width: 200px;
+                                    height: 30px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    &:hover {
+                                        color: white;
+                                        background-color: grey;
+                                    }
+                                }
+                                button.active{
+                                    background: #36bc9b;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                    .xy-checkbox {
+                        position: inherit;
+                        input {
+                            position: inherit;
+                        }
+                    }
+                    // 往来单位信息组
+                    .cstmr-info-group {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: stretch;
+                        justify-content: center;
+                        margin-top: 10px;
+                        border: 1px dashed #b2b2b2;
+                        padding: 15px;
+                        width: 80%;
+                        .zuijinshiyongdelianxiren {
+                            font-size: 0.9em;
+                            span {
+                                width: 200px;
+                            }
+                        }
+                        .recent-cstmr-container {
+                            margin-top: 5px;
+                            margin-bottom: 10px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            align-items: center;
+                            button {
+                                margin-right: 10px;
+                                border: 1px solid grey;
+                                height: 22px;
+                                background-color: white;
+                                &:hover {
+                                    // color:white;
+                                    background-color: #eeeeee;
+                                }
+                            }
+                            .add-contact {
+                                border: none;
+                                background: $subthemeColor;
+                                color: #fff;
+                                &:hover {
+                                    background: darken($subthemeColor, 5%);
+                                }
+                            }
+                        }
+                        .cstmr-info {
+                            div {
+                                display: flex;
+                                flex-flow: row;
+                                align-items: center;
+                                span {
+                                    width: 100px;
+                                }
+                                input {
+                                    flex-grow: 5;
+                                    //width: 500px;
+                                }
+                                textarea {
+                                    flex-grow: 5;
+                                    //width: 500px;
+                                }
+                            }
+                            .cstmr-list {
+                                display: flex;
+                                flex-flow: row wrap;
+                                align-items: center;
+                                button {
+                                    border: none;
+                                    outline: none;
+                                    flex-shrink: 0;
+                                    margin-top: 1px;
+                                    margin-right: 1px;
+                                    width: 200px;
+                                    height: 25px;
+                                    &:hover {
+                                        color: white;
+                                        background-color: grey;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .protect {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 20px 0;
+                        div {
+                            width: 50%;
+                            height: 2px;
+                            background: #f9d388;
+                        }
+                        .left {
+                            margin-right: 15px;
+                        }
+                        .right {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+            // t-left
+            .t-right {
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0;
+                margin-left: 10px;
+                width: 280px;
+                .car-license {
+                    background-color: white;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    input {
+                        margin-top: 10px;
+                        height: 30px;
+                    }
+                    .recent-license {
+                        margin-top: 10px;
+                        align-self: flex-start;
+                        font-size: 0.9em;
+                        font-family: simhei;
+                    }
+                    .recent-license-button-container {
+                        margin-top: 5px;
+                        display: flex;
+                        align-self: flex-start;
+                        flex-wrap: wrap;
+                        button {
+                            margin-right: 2px;
+                            border: 1px solid grey;
+                            height: 22px;
+                            background-color: white;
+                            &:hover {
+                                background-color: #eeeeee;
+                            }
+                        }
+                    }
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .good-pick-and-list-tab {
+            //position: absolute;
+            //top: 60px;
+            //left: 20px;
+            //right: 20px;
+            //bottom: 70px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            .button-div {
+                width: 100%;
+                background-color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .g-left {
+                width: 100%;
+                margin-right: 5px;
+            }
+            .g-right {
+                //position: absolute;
+                //top: 60px;
+                //right: 20px;
+                //bottom: 70px;
+                width: 100%;
+                background: #fff;
+            }
+        }
+        .order-good-list-tab.typical-left-right-narrow {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            overflow: hidden;
+            padding: 40px;
+            .t-left {
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+                .table-container {
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    padding-right: 17px;
+                    margin-right: -17px;
+                    .sto-container {
+                        /*margin-left: 35px;*/
+                        display: flex;
+                        flex-flow: column;
+                        margin: 0 0 40px 0;
+                        .small-title{
+                            border-radius: 3px;
+                            display: inline-block;
+                            width: 80px;
+                            margin-left: 5px;
+                            text-indent: 8px;
+                            font-size: 14px;
+                            padding: 5px;
+                            border-top: 3px rgb(219, 181, 168) solid;
+                        }
+                        .title-name-row{
+                            .title-name {
+                                width: 105px;
+                                text-align: center;
+                            }
+                        }
+                        .input-row{
+                            input {
+                                height: 40px;
+                                width: 70%;
+                                border: none;
+                                border-radius: 5px;
+                                background-color: #eeeeee;
+                                border-left: 5px solid #dbb5a8;
+                            }
+                        }
+                        .sto-list {
+                            display: flex;
+                            align-content: flex-start;
+                            flex-wrap: wrap;
+                            width: 88%;
+                            background-color: white;
+                            .auto-complete-content {
+                                width: 200px;
+                                margin-top: 10px;
+                                margin-right: 10px;
+                                border-radius: 5px;
+                                button {
+                                    width: 200px;
+                                    height: 30px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    &:hover {
+                                        color: white;
+                                        background-color: grey;
+                                    }
+                                }
+                                button.active{
+                                    background: #36bc9b;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                    .table {
+                        border-top: 5px solid #eee;
+                        width: 80%;
+                        div {
+                            span {
+                                width: 14%;
+                            }
+                            input{
+                                box-sizing: border-box;
+                                width: 14%;
+                                text-align: center;
+                            }
+                            .two-imgs {
+                                display: flex;
+                                height: 100%;
+                                width: 14%;
+                                justify-content: space-around;
+                                span {
+                                    width: 50%;
+                                    cursor: pointer;
+                                }
+                                span:hover {
+                                    background: #eee;
+                                }
+                            }
+                        }
+                    }
+                    /*添加按钮*/
+                    .div-add-btn {
+                        margin-top: 15px;
+                        display: flex;
+                        .xy-btn{
+                            margin: 0;
+                        }
+                        /*baseline-shift: 12px;*/
+                    }
+                    .freight-div {
+                        padding: 30px 0;
+                        .input-row {
+                            display: inline-block;
+                            width: 80%;
+                            span {
+                                width: 80px;
+                            }
+                            input{
+                                width: 200px;
+                            }
+                        }
+                        .xy-checkbox {
+                            display: flex;
+                            align-items: center;
+                            .tip {
+                                color: red;
+                                font-size: 12px;
+                                line-height: 30px;
+                                padding-left: 2em;
+                            }
+                        }
+                        .xy-checkbox-inline{
+                            margin-left: 20px;
+                        }
+                        .check-box {
+                            margin-top: 20px;
+                        }
+                        .btn-inline {
+                            display: inline-block;
+                            margin-left: 30px;
+                        }
+                    }
+                }
+                .total-price-container {
+                    width: 100%;
+                    height: 110px;
+                    display: flex;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    span {
+                        padding: 0 2px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 50px;
+                    }
+                }
+            }
+            .t-right {
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0;
+                margin-left: 10px;
+                width: 280px;
+                .tot-price-block {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 30px;
+                    background-color: white;
+                    .dingdanzonge {
+                        font-family: SimHei;
+                        font-size: 23px;
+                    }
+                    .check {
+                        margin-top: 10px;
+                        font-size: 0.9em;
+                    }
+                    .tot-price {
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                        font-family: SimHei;
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+        .GoodListDialog {
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background: rgb(163, 163, 163);
+            .goodListTotal {
+                display: flex;
+                flex-direction: column;
+                /*align-items: center;*/
+                /*justify-content: center;*/
+                /*margin-top: 5%;*/
+                overflow: hidden;
+                width: 80%;
+                height: 100%;
+                .search-and-cat {
+                    width: 100%;
+                    display: flex;
+                    flex-shrink: 0;
+                    flex-direction: column;
+                    justify-content: center;
+                    /*background-color: white;*/
+                }
+                .search-bar-red {
+                    background: transparent;
+                    /*padding: 0px 32px 0px 0px;*/
+                    padding: 4px 35px 0 24px;
+                    height: 60px;
+                    margin-left: -24px;
+                    /*margin-right: -44px;*/
+                    box-shadow: 1px 1px 3px #2b2b2b;
+                }
+                .filter-bar-red {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    box-shadow: 1px 1px 3px #2b2b2b;
+                    padding: 0 24px;
+                    .create-spu-btn {
+                        margin: 0;
+                    }
+                }
+                .quit {
+                    position: fixed;
+                    bottom: 50px;
+                    right: 30px;
+                    text-align: center;
+                    /*padding: 5px;*/
+                    button {
+                        box-shadow: 1px 1px 3px #2b2b2b;
+                    }
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: -10px;
+                    }
+                }
+                .btnquit {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    margin-top: 10px;
+                    margin-right: -45px;
+                    button {
+                        background: none;
+                    }
+                    /*padding: 5px;*/
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: -10px;
+                    }
+                }
+                .good-list {
+                    /*width: 100%;*/
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-content: flex-start;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    margin-top: 5px;
+                    margin-right: -18px;
+                    /*box-shadow: 10px 10px 5px #888888;*/
+                    .good-unit {
+                        position: relative;
+                        margin-top: 2px;
+                        margin-right: 2px;
+                        background-color: white;
+                        flex-shrink: 0;
+                        width: 101.6px;
+                        height: 101.6px;
+                        cursor: pointer;
+                        .item-info {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 5px;
+                            .spec-name {
+                                text-align: end;
+                                font-size: 0.9em;
+                            }
+                            &:hover {
+                                background-color: #ee7258;
+                                color: white;
+                                .spu-name {
+                                    white-space: normal;
+                                }
+                            }
+                            &:active {
+                                background-color: darken(#ee7258, 5%);
+                            }
+                        }
+                        .already-add {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #ee7258;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            color: white;
+                            opacity: 0.8;
+                            z-index: 100;
+                            .click-to-modify {
+                                margin-top: 5px;
+                                font-size: 0.9em;
+                            }
+                        }
+                        .editing {
+                            background-color: #E76646;
+                            opacity: 0.9;
+                        }
+                    }
+                }
+            }
+        }
+        /*提交页面的布局*/
+        .submit-tab {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            flex-grow: 1;
+            overflow: hidden;
+            .date-input {
+                border: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                border-bottom: 1px solid black;
+                text-align: center;
+            }
+            .prompt {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(163, 163, 163, 0.6);
+                div {
+                    width: 354px;
+                    height: 286px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #fff;
+                    color: #000;
+                    font-size: 20px;
+                }
+            }
+            $content-and-pay-bgc: #fdf3da;
+            // overflow:scroll;
+            .submit-tab-sub {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                padding: 40px;
+                padding-top: 0px;
+                overflow: auto;
+                margin-right: -17px;
+                margin-bottom: 50px;
+                .freight {
+                    margin-bottom: 20px;
+                    span {
+                        input {
+                            margin-left: 10px;
+                            width: 80px;
+                        }
+                    }
+                }
+                .table {
+                    flex-shrink: 0;
+                }
+                .class-and-cstmr-name {
+                    flex-shrink: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .class {
+                        font-size: 1.2em;
+                        font-family: SimHei;
+                    }
+                }
+                .contact-and-pay {
+                    flex-shrink: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-top: 10px;
+                    input {
+                        border: none;
+                        background-color: $content-and-pay-bgc;
+                    }
+                    .contact-and-remark {
+                        display: flex;
+                        // align-items: flex-start;
+                        .contact {
+                            .lianxirenxinxi {
+                                font-family: SimHei;
+                            }
+                            display: flex;
+                            flex-direction: column;
+                            padding: 15px;
+                            background-color: $content-and-pay-bgc;
+                            input {
+                                margin-top: 5px;
+                            }
+                            div {
+                                display: flex;
+                                flex-flow: row;
+                                align-items: center;
+                                span {
+                                    width: 80px;
+                                    flex-shrink: 0;
+                                }
+                                textarea {
+                                    resize: none;
+                                }
+                            }
+                        }
+                        .remark {
+                            .beizhuxinxi {
+                                font-family: simhei;
+                            }
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 10px;
+                            background-color: $content-and-pay-bgc;
+                            padding: 15px;
+                        }
+                        textarea {
+                            border: none;
+                            background-color: $content-and-pay-bgc;
+                            resize: vertical;
+                            resize: none;
+                        }
+                    }
+                    .pay {
+                        height: 198.54px;
+                        flex-grow: 1;
+                        display: flex;
+                        justify-content: center;
+                        margin-left: 40px;
+                        padding: 15px;
+                        background-color: $content-and-pay-bgc;
+                        .pay-left,
+                        .pay-right {
+                            width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            &>div {
+                                display: flex;
+                                margin-top: 5px;
+                                align-items: center;
+                                span {
+                                    padding: 2px;
+                                    width: 80px;
+                                    text-align: center;
+                                }
+                                input {
+                                    margin-left: 5px;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                        .pay-left {
+                            border-right: 1px solid #999;
+                            .zhifuxinxi {
+                                font-family: SimHei;
+                            }
+                        }
+                        .pay-right {
+                            padding-left: 20px;
+                            .pay-right-first {
+                                height: 22px;
+                            }
+                        }
+                    }
+                }
+                .orderremark {
+                    display: flex;
+                    width: 100%;
+                    height: 50%;
+                    textarea {
+                        width: 70%;
+                        height: 135px;
+                    }
+                }
+                .chose-action {
+                    margin-top: 10px;
+                    div {
+                        margin-top: 5px;
+                        label {
+                            input {
+                                &:checked {
+                                    background: red;
+                                }
+                            }
+                        }
+                    }
+                }
+                .submit-button {
+                    display: flex;
+                    flex-flow: row;
+                    margin-top: 10px;
+                    padding-bottom: 40px;
+                }
+            }
+            .good-info-block {
+                // flex-grow:1;
+                // flex-shrink:0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-top: 10px;
+                overflow: hidden;
+                .title {
+                    flex-shrink: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    span {
+                        flex-shrink: 0;
+                        flex-grow: 1;
+                        width: 10px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+                .content-container {
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content:space-between;
+                    // align-items:stretch;
+                    // flex-grow:1;
+                    flex-shrink: 1;
+                    // border: 1px solid red;
+                    .content-line {
+                        flex-shrink: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 5px;
+                        span {
+                            flex-shrink: 0;
+                            flex-grow: 1;
+                            width: 10px;
+                            display: flex;
+                            justify-content: center;
+                        }
+                        .highlight {
+                            background-color: $content-and-pay-bgc;
+                        }
+                    }
+                    // border:1px solid red;
+                    overflow-y: auto;
+                    //margin-right:-18px;
+                    padding-right: 18px;
+                }
+            }
+        }
+    }
+    //右侧面板
+    .value-floating-panel.shadow {
+        z-index: -2;
+    }
+    .value-floating-panel {
+        position: absolute;
+        top: 41px;
+        right: 40px;
+        width: 18%;
+        height: 80%;
+        min-height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        background: white;
+        z-index: 1000;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #d1644d;
+        border-radius: 5px;
+        overflow: hidden;
+        .notes {
+            /*margin-top: 15px;
+      margin-bottom: 15px;*/
+            padding: 15px;
+            span {
+                font-size: 0.7em;
+                font-weight: bold;
+            }
+            .red {
+                color: #f00;
+            }
+        }
+        .money-number {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: $themeColor;
+            height: 20%;
+            border-radius: 5px;
+            //    background:url('web/app/img/misc/money_number.png') no-repeat;
+            /*margin-top: -10px;*/
+            .img-div {
+                position: absolute;
+                /*left: 13%;*/
+                justify-content: center;
+                align-items: center;
+                width: 40%;
+                height: 80%;
+                image {
+                    width: 40%;
+                    height: 80%;
+                }
+            }
+            .good-value {
+                position: relative;
+                width: 50%;
+                min-width: 150px;
+                height: 90%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                background: url(../img/misc/money_number.png) no-repeat;
+                background-size: 100% 100%;
+                span {
+                    font-size: 12px;
+                }
+                .bigger-span {
+                    font-size: 20px;
+                }
+            }
+        }
+        .money-line {
+            .line1 {
+                height: 20%;
+            }
+            .line2 {
+                height: 50%;
+            }
+            .line3 {
+                height: 30%;
+            }
+            .line-btn {
+                height: 50px;
+            }
+            margin-top:0;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            /*flex-wrap: wrap;*/
+            border-bottom: 2px solid #eeeeee;
+            .money-line-div {
+                /*margin-top: 5px;*/
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 170px;
+                /*min-height: 45px;*/
+                span {
+                    font-size: 0.9em;
+                }
+                input {
+                    margin-left: 2px;
+                    width: 50%;
+                }
+                input:disabled {
+                    border: none;
+                    box-shadow: none;
+                }
+                button {
+                    height: 42px;
+                    // width: 30%;
+                    width: 42px;
+                    padding: 0;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    /*padding-bottom: 2px;*/
+                    /*letter-spacing: 0px;*/
+                    line-height: 18px;
+                    border: none;
+                    font-size: 16px;
+                    color: white;
+                    background-color: $subthemeColor;
+                    border-radius: 5px;
+                    &:hover {
+                        background-color: darken($subthemeColor, 5%);
+                    }
+                    &:active {
+                        background-color: darken($subthemeColor, 15%);
+                    }
+                }
+                .jieyu {
+                    width: 57px;
+                }
+                .yuan {
+                    margin-left: 2px;
+                }
+            }
+        }
+        .submit-btn {
+            width: 95%;
+            height: 40px;
+            margin: 0 auto;
+            margin-bottom: 5px;
+            position: relative;
+            .dropUp-btn {
+                position: absolute;
+                top: 0;
+                left: 80%;
+                width: 20%;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                border-radius: 0 5px 5px 0;
+                border: none;
+                outline: none;
+                background: darken($btnSubmitColor, 5%);
+                color: white;
+                cursor: pointer;
+            }
+            .dropUp-btn:hover {
+                background-color: darken($btnSubmitColor, 15%);
+            }
+            .floatCheckBox {
+                position: absolute;
+                background: white;
+                border: 1px solid #adadad;
+                box-shadow: 2px 2px 2px #8a6d3b;
+                top: -35px;
+                height: 35px;
+                width: 100%;
+                div {
+                    height: 35px;
+                    text-indent: 1em;
+                    line-height: 35px;
+                    cursor: pointer;
+                }
+                div:hover {
+                    background: #eee;
+                }
+            }
+            .btn-submit {
+                width: 100%;
+                border-radius: 5px;
+            }
+            .btn-submit-local {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 35px;
+                width: 40%;
+                padding-bottom: 2px;
+                border: none;
+                font-size: 15px;
+                color: white;
+                background-color: $btnSubmitColor;
+                cursor: pointer;
+                margin-right: -5px;
+                border-radius: 5px;
+                &:hover {
+                    background-color: darken($btnSubmitColor, 5%);
+                }
+                &:active {
+                    background-color: darken($btnSubmitColor, 15%);
+                }
+            }
+        }
+    }
+}

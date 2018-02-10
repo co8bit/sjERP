@@ -1,0 +1,88 @@
+.numpad {
+    width: 275px;
+    height: 300px;
+    background: #fff;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+
+    span {
+        cursor: pointer;
+        width: 75px;
+        height: 75px;
+        font-size:30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+
+        &:hover {
+            background-color: $themeColor;
+            color: #fff;
+        }
+        &:active {
+            background-color: darken($themeColor, 10%);
+            color: #fff;
+        }
+    }
+    .left {
+        width: 228px;
+        display: flex;
+        flex-flow: column;
+        div {
+            flex-grow: 1;
+            display: flex;
+            .wide {
+                width: 150px;
+                //border-bottom: none;
+            }
+            .point {
+                //border-bottom: none;
+            }
+        }
+    }
+    .right {
+        width: 50px;
+        margin-left: -3px;
+        span {
+            width: 50px;
+            height: 100px;
+            //border-right: none;
+            &:hover {
+                color: #fff;
+            }
+            &:active {
+                color: #fff;
+            }
+        }
+        .clear {
+            color: $themeColor;
+        }
+        .finish {
+            display: flex;
+            letter-spacing: 10px;
+            font-size: 20px;
+            padding-left: 15px;
+            //border-bottom: none;
+            color: $subthemeColor;
+            &:hover {
+                background-color: $subthemeColor;
+                color: #fff;
+            }
+            &:active {
+                background-color: darken($subthemeColor, 10%);
+                color: #fff;
+            }
+        }
+        .backspace {
+            color: $themeColor;
+        }
+    }
+}

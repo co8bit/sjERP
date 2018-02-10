@@ -1,0 +1,9 @@
+diff a/Application/Home/Conf/error_code.php b/Application/Home/Conf/error_code.php	(rejected hunks)
+@@ -217,6 +217,7 @@
+ 	'-5013' => 'Sku的type不合法',
+ 	'-5014' => 'Sku的规格名称重名',
+ 	'-5015' => 'Spu的type不合法',
++	'-5016' => 'spec_name不能为空',
+ 
+ 	'-5050' => 'spu_id不合法',
+ 	'-5051' => 'spu_name长度不合法',

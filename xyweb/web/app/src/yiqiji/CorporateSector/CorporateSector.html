@@ -1,0 +1,60 @@
+<div class="CorporateSector">
+    <div class="search-bar">
+        <div class="search-row">
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="部门名称" ng-model="query">
+        </div>
+        <div class="btn-row">
+		    <button ng-click="showBox();">新增</button>
+		    <!-- <button>导出</button>
+		    <button>导入</button> -->
+        </div>
+    </div>
+    <div class="table">
+        <div class="table-row head">
+            <span class="name">名称</span>
+            <span class="remark">备注</span>
+            <span class="time">创建日期</span>
+            <span class="tow-btn">操作</span>
+        </div>
+        <div class="table-row" ng-repeat="item in departmentList | filter: query">
+            <span class="name">{{item.depart_name}}</span>
+            <span class="remark">{{item.remark}}</span>
+            <span class="time">{{item.reg_time}}</span>
+            <span class="tow-btn">
+                <i class="fa fa-edit" ng-click="showBox(item)"></i>
+                <i class="fa fa-trash-o" ng-click="deleteDepartment(item.depart_id)"></i>
+            </span>
+        </div>
+    </div>
+    <div class="add-box-wrap" ng-show="addSectorIsShow">
+	    <div class="add-box">
+	    	<div class="title-row">
+	    		<span class="title-name">新增部门</span>
+	    		<span class="quit" ng-click="close()">
+	    			<i class="fa fa-times-circle"></i>
+	    		</span>
+	    	</div>
+	    	<div class="middle">
+	    		<!-- <div class="row">
+	    			<span class="name">上级部门 : </span>
+	    			<select name="">
+	    				<option value="-1" selected="">-- 请选择 --</option>
+	    			</select>
+	    		</div> -->
+	    		<div class="row">
+	    			<span class="name">部门名称 : </span>
+	    			<input type="text" ng-model="depart_name" />
+	    		</div>
+	    		<div class="row">
+	    			<span class="name">备注 : </span>
+	    			<input type="text" ng-model="remark" />
+	    		</div>
+	    		<div class="btn-row">
+	    			<button class="xy-btn xy-btn-default" ng-click="close();">取消</button>
+	    			<button class="xy-btn xy-btn-orange" ng-click="createDepartment();">确认</button>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+</div>

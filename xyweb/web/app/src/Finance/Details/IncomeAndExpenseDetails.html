@@ -1,0 +1,91 @@
+<div class="income-and-expense-details" ng-controller="IncomeAndExpenseDetailsController">
+    <div class="title-bar-detail">
+        <div class="left">
+            <span>{{model.docInfo.class | _class}}详情</span>
+        </div>
+        <div class="middle">
+            <!--<span class="top" ng-show="model.docInfo.class == 73">财务/其他收入单详情</span>-->
+            <!--<span class="top" ng-show="model.docInfo.class == 74">财务/其他支出单详情</span>-->
+            <span class="top">客户：无</span>
+            <div class="bottom">
+                <span>单号:{{model.docInfo.sn}}</span>
+                <span>经办人:{{model.docInfo.operator_name}}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="more" ng-click="isShowMore = !isShowMore">
+            <img src="web/app/img/misc/pic_more.png"></img>
+        </div>
+        <div class="top-buttons" ng-show="isShowMore">
+            <div ng-show="!isEditing" ng-click="isEditing = true">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>修改</button>
+            </div>
+            <div ng-show="isEditing" ng-click="isEditing = false; clickFinishEditing();">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>完成修改</button>
+            </div>
+            <div ng-click="isHistoryShow = !isHistoryShow">
+                <img src="web/app/img/misc/pic_log.png">
+                <button>查看日志</button>
+            </div>
+        </div>
+        <div class="log" ng-show="isHistoryShow">
+            <span>{{model.docInfo.history}}</span>
+        </div>
+        <div class="info-container">
+            <div class="left">
+                <div>
+                    <span ng-show="model.docInfo.class == 73">收入来源</span>
+                    <span ng-show="model.docInfo.class == 74">付款对象</span>
+                </div>
+                <div>
+                    <input type="text" ng-model="model.docInfo.name" disabled="true">
+                </div>
+            </div>
+            <div class="middle">
+                <div>
+                    <span ng-show="model.docInfo.class == 73">收款金额</span>
+                    <span ng-show="model.docInfo.class == 74">付款金额</span>
+                </div>
+                <div class="data">
+                    <span>现金支付</span>
+                    <div>
+                        <span ng-bind-html="model.docInfo.cash_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.cash_show" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span>银行支付</span>
+                    <div>
+                        <span ng-bind-html="model.docInfo.bank_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.bank_show" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span>网络支付</span>
+                    <div>
+                        <span ng-bind-html="model.docInfo.online_pay_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.online_pay_show" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                    <span ng-show="model.docInfo.class == 73">实收</span>
+                    <span ng-show="model.docInfo.class == 74">实付</span>
+                    <div>
+                        <span ng-bind-html="model.docInfo.income_show"></span>
+                        <!--<input type="text" ng-model="model.docInfo.income_show" disabled="true">-->
+                        <span>元</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                    <textarea type="text" placeholder="填写备注信息" ng-model="model.docInfo.remark"
+                              ng-disabled="!isEditing">
+            </div>
+        </div>
+    </div>
+</div>

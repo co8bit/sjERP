@@ -1,0 +1,65 @@
+<div class="manage-user">
+    <div class="title">成 员 管 理</div>
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="编号/用户名/真实姓名" ng-model="query">
+        </div>
+        <!-- <button ng-show="isYQJ" ng-show="isYqjShow" ng-click="addSectorIsShow = true">一键邀请</button> -->
+        <button ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_USER);">新建成员</button>
+    </div>
+    <div class="table" st-table="stUserInfo" st-safe-src="displayedOrderInfo">
+        <div class="table-row">
+            <span>编号</span>
+            <span>用户名</span>
+            <span>真实姓名</span>
+            <span>用户角色</span>
+            <span>状态</span>
+            <span>详情</span>
+        </div>
+        <div class="table-row" ng-repeat="item in stUserInfo">
+            <span>{{item.sn}}</span>
+            <span class="ellipsis">{{item.username}}</span>
+            <span class="ellipsis">{{item.name}}</span>
+            <span>{{item.rpg | rpg}}</span>
+            <span>{{item.status == 1 ? '正常' : '停用'}}</span>
+            <span>
+                <button ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_USER,item.uid);">
+                        查看详情
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="add-box-wrap" ng-show="addSectorIsShow">
+	    <div class="add-box">
+	    	<div class="title-row">
+	    		<span class="title-name">一键邀请</span>
+	    		<span class="quit" ng-click="quit()">
+	    			<i class="fa fa-times"></i>
+	    		</span>
+	    	</div>
+	        <div class="middle">
+	            <div class="row">
+	                <span class="name">邀请人邮箱 : </span>
+	                <input type="email" name="email" />
+	            </div>
+	            <div class="row">
+	                <span class="name">邀请人姓名 : </span>
+	                <input type="text" />
+	            </div>
+	            <div class="row">
+	                <span class="name">邀请人部门 : </span>
+	                <input type="text" />
+	            </div>
+	            <div class="row">
+	                <span class="name">邀请人职位 : </span>
+	                <input type="text" />
+	            </div>
+	            <div class="btn-row">
+	    			<button class="xy-btn xy-btn-default">取消</button>
+	    			<button class="xy-btn xy-btn-orange">确认</button>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+</div>

@@ -1,0 +1,393 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+
+
+    <div class="container">
+        <h1>createStockTaking</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/createStockTakingOrRequisition")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>class</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" value="53">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="muyou">
+                                </div>
+
+                                <label><font color=black>check_uid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="check_uid" type="text" value="1">
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" value="9">
+                                </div>
+
+                                <label><font color=black>sto_name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" value="利比里亚">
+                                </div>
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496217558">
+                                </div>
+
+                                <label><font color=black>lockShopToken</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="lockShopToken" type="text" value="1{(mhytg{as-fg-as}59534df9cf3295.70012978sdb.a0)}1{(vcg3.zl;D77F07F0-F1F3-48A6-B2FB-F6733D6D0BDB22980">
+                                </div>
+
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"data":[{"sku_id":"28","quantity":3230}]}'>
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>createRequisition</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/createStockTakingOrRequisition")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>class</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" value="54">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="muyou">
+                                </div>
+
+                                <label><font color=black>check_uid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="check_uid" type="text" value="1">
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" value="3">
+                                </div>
+
+                                <label><font color=black>sto_name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_name" type="text" value="利比里亚">
+                                </div>
+
+                                <label><font color=black>new_sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="new_sto_id" type="text" value="4">
+                                </div>
+
+                                <label><font color=black>new_sto_name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="new_sto_name" type="text" value="约旦">
+                                </div>
+
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496217558">
+                                </div>
+
+                                <label><font color=black>lockShopToken</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="lockShopToken" type="text" value="1{(mhytg{as-fg-as}59534f18a495b6.81812623sdb.a0)}1{(vcg3.zl;9FC0F2AF-79B8-41B7-9670-62BFF72732CD61734">
+                                </div>
+
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"data":[{"sku_id":39,"quantity":10,"unit_price":500.08,"isedit":true}]}'>
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>createStockTakingOrRequisitionDraft</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/createStockTakingOrRequisitionDraft")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="muyou">
+                                </div>
+
+                                <label><font color=black>class</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" value="53">
+                                </div>
+
+                                <label><font color=black>check_uid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="check_uid" type="text" value="1">
+                                </div>
+
+                                <label><font color=black>sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" value="3">
+                                </div>
+
+                                <label><font color=black>sto_name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="sto_name" type="text" value="利比里亚">
+                                </div>
+
+                                <label><font color=black>new_sto_id</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="new_sto_id" type="text" value="4">
+                                </div>
+
+                                <label><font color=black>new_sto_name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="new_sto_name" type="text" value="约旦">
+                                </div>
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"data":[{"sku_id":1,"quantity":1},{"sku_id":2,"quantity":2}]}'>
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>get_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/get_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>wid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="wid" type="text" autofocus="" value=''>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <h1>edit_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/edit_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>wid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="wid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>remark*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" autofocus="" value='这里是备注'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+<form method="post" action="{:U('Warehouse/deleteDraft')}">
+  <h1>deleteDraft</h1>
+  <input type="text" name="wid" value='1'>
+  <label></label>
+  <button type="submit">deleteDraft</button>
+</form>
+
+
+
+
+    <!-- <div class="container">
+        <h1>createOverflowOrLoss</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/createOverflowOrLoss")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>class*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" autofocus="">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="">
+                                </div>
+
+                                <label><font color=black>check_uid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="check_uid" type="text" value="1">
+                                </div>
+                                
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="cart" type="text" value='{"data":[{"sku_id":1,"spu_name":"三黄鸡","spec_name":"10只","quantity":1,"unitPrice":123},{"sku_id":2,"spu_name":"三黄鸡","spec_name":"15只","quantity":2,"unitPrice":223}]}'>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+
+
+<!--     <div class="container">
+        <h1>queryOverflowOrLoss</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/queryOverflowOrLoss")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>class1*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class1" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>class2*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class2" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>startTime</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="startTime" type="text" value="1">
+                                </div>
+
+
+                                <label><font color=black>endTime</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="endTime" type="text" value="14536176981232314234">
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+
+
+<!--     <div class="container">
+        <h1>queryOneOrder</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/queryOneOverflowOrLoss")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>wid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="wid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>editOverflowOrLoss</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Warehouse/editOverflowOrLoss")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>wid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="wid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>remark*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" autofocus="" value='这里是备注'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+</body>
+</html>

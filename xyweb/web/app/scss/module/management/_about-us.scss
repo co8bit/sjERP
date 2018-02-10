@@ -1,0 +1,71 @@
+.about-us {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+
+  .about-us-container {
+    width: 80%;
+    height: 400px;
+    background: #fff;
+
+    div {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .top-container {
+      height: 175px;
+
+      .top-span {
+        color: #888;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 9px;
+      }
+
+      .mid-span {
+        font-size: 15px;
+        margin-bottom: 9px;
+      }
+
+      .bottom-span {
+        font-size: 15px;
+      }
+    }
+
+    .bottom-container {
+      height: 165px;
+      background: $themeColor;
+
+      span {
+        color: #fff;
+        font-size: 15px;
+        margin-bottom: 36px;
+        a {
+          color: #fff;
+          font-size: 15px;
+          &:hover {
+            color: #ddd;
+          }
+        }
+      }
+
+      .qq {
+        background: #fff;
+        color: $themeColor;
+        font-size: 13px;
+        padding: 8px 18px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      a:hover {
+        background: darken(#fff, 10%);
+        color: darken($themeColor, 5%);
+      }
+    }
+
+  }
+}

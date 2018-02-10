@@ -1,0 +1,175 @@
+<!--管理商品页面-->
+<div class="manage-good-cat">
+    <!-- <div class="title">
+        <span>销售汇总表</span>
+    </div> -->
+
+    <div class="row">
+        <div class="total">
+            <div class="item">
+                <div>销售笔数</div>
+                <div  class="red">{{model.data.data.order_amount | number : 2}}</div>
+            </div>
+            <div class="item">
+                <div>销售数量</div>
+                <span class="blue" ng-if="model.data.data.sale_account < 0">{{model.data.data.sale_account | number : 2}}</span>
+                <div  class="red" ng-if="model.data.data.sale_account >= 0">{{model.data.data.sale_account | number : 2}}</div>
+            </div>
+            <div class="item">
+                <div>销售额</div>
+                <!-- <div>{{model.data.data.sale_amount}}</div> -->
+                <span class="blue" ng-if="model.data.data.sale_amount < 0">{{model.data.data.sale_amount | number : 2}}</span>
+                <span class="red" ng-if="model.data.data.sale_amount >= 0">{{model.data.data.sale_amount | number : 2}}</span>
+            </div>
+            <div class="item">
+                <div>销售成本</div>
+                <div  class="red">{{model.data.data.cost_amount | number : 2}}</div>
+            </div>
+            <div class="item">
+                <div>销售毛利</div>
+                <div class="blue" ng-if="model.data.data.gross_profit < 0">{{model.data.data.gross_profit | number : 2}}</div>
+                <div class="red" ng-if="model.data.data.gross_profit >= 0">{{model.data.data.gross_profit | number : 2}}</div>
+            </div>
+            <div class="item">
+                <div>毛利率</div>
+                <div class="blue" ng-if="model.data.data.gross_profit_rate < 0">{{model.data.data.gross_profit_rate*100 | number : 2}}%</div>
+                <div class="red" ng-if="model.data.data.gross_profit_rate >= 0">{{model.data.data.gross_profit_rate*100 | number : 2}}%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="manage-good">
+        <div class="search-bar">
+            <div>
+                <img src="web/app/img/misc/pic_search_grey.png">
+                <input type="text" placeholder="商品名/客户名/销售员" ng-model="queryInfo.query">
+            </div>
+        </div>
+        <div class="time-container">
+            <span class="time">时间</span>
+            <!-- <div>
+                <input id="datepicker1" type="text" ng-click="setTimeNull(1);">
+                <span>至</span>
+                <input id="datepicker2" type="text" ng-click="setTimeNull(2);">
+            </div> -->
+            <div id="reportrange" class="pull-left dateRange">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                <span id="searchDateRange"></span>
+                <b class="caret"></b>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <span>类别</span>
+            <div>
+                <!-- <button ng-click="selectCat('*')" ng-class="{highlight:filterInfo[1].value == '*', normal:filterInfo[1].value != '*'}">全部</button> -->
+                <button ng-repeat="item in option" ng-click="selectCat(item.option_name)" ng-class="{highlight:item.flag_chosen}">{{item.option_name}}
+                </button>
+            </div>
+        </div>
+        <div class="table" ng-show="selectedItemID == 1">
+            <div class="head table-row">
+                <span>序号</span>
+                <span>商品名称</span>
+                <span>规格</span>
+                <span>仓库</span>
+                <span class="price_title tip pointer" ng-click="sortBy('sale_amount',1, $event)">
+                    <i class="xy-glyphicon xy-glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="销售汇总表中，计算统计了销售单与销售退货单"></i>
+                    销售额<i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <span class="price_title pointer" ng-click="sortBy('quantity',1, $event)">销售数量<i class="fa fa-sort" aria-hidden="true"></i></span>
+                <span class="price_title">销售均价</span>
+                <span class="price_title pointer" ng-click="sortBy('order_amount',1, $event)">销售开单量<i class="fa fa-sort" aria-hidden="true"></i></span>
+                <span class="price_title">平均成本</span>
+                <span class="price_title pointer" ng-click="sortBy('gross_profit',1, $event)">毛利<i class="fa fa-sort" aria-hidden="true"></i></span>
+                <!-- <span>操作</span> -->
+            </div>
+            <div class="table-row" ng-repeat="item in model.statisticsList">
+                <span>{{item.no}}</span>
+                <span class="ellipsis pointer"  ng-click="skuDetail(item)" style="padding: 0 3px">{{item.spu_name}}</span>
+                <span class="ellipsis" style="padding: 0 3px">{{item.spec_name}}</span>
+                <span class="ellipsis">{{item.sto_name}}</span>
+                <span class="price">{{item.sale_amount}}</span>
+                <span class="price">{{item.quantity}}</span>
+                <span class="price">{{item.sale_avg_price}}</span>
+                <span class="price">{{item.order_amount}}</span>
+                <span class="price">{{item.sale_avg_cost}}</span>
+                <span class="price">{{item.gross_profit}}</span>
+                <!-- <span>详情</span> -->
+            </div>
+        </div>
+
+        <div class="table" ng-show="selectedItemID == 2">
+            <div class="head table-row">
+                <span>序号</span>
+                <span class="ellipsis">客户名称</span>
+                <span class="price_title tip pointer" ng-click="sortBy('sale_amount',2, $event)">
+                    <i class="xy-glyphicon xy-glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="销售汇总表中，计算统计了销售单与销售退货单"></i>
+                    销售额
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <span class="price_title pointer" ng-click="sortBy('order_amount',2, $event)">
+                    销售笔数
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <span class="price_title">
+                    平均每单销售额
+                </span>
+                <span class="price_title pointer" ng-click="sortBy('gross_profit',2, $event)">
+                    毛利
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <!-- <span>操作</span> -->
+            </div>
+            <div class="table-row" ng-repeat="item in model.statisticsList">
+                <span>{{item.no}}</span>
+                <span class="ellipsis pointer" ng-click="customerDetail(item)">{{item.cid_name}}</span>
+                <span class="price">{{item.sale_amount}}</span>
+                <span>{{item.order_amount}}</span>
+                <span class="price">{{item.order_avg_price}}</span>
+                <span class="price">{{item.gross_profit}}</span>
+                <!-- <span>详情</span> -->
+
+            </div>
+        </div>
+
+        <div class="table" ng-show="selectedItemID == 3">
+            <div class="head table-row">
+                 <span>序号</span>
+                <span>销售员</span>
+                <span class="price_title tip pointer" ng-click="sortBy('sale_amount',3, $event)">
+                    <i class="xy-glyphicon xy-glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="销售汇总表中，计算统计了销售单与销售退货单"></i>
+                    销售额
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <span class="price_title pointer" ng-click="sortBy('order_amount',3, $event)">
+                    销售笔数
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <span class="price_title">
+                    平均每单销售额
+                </span>
+                <span class="price_title pointer" ng-click="sortBy('gross_profit',3, $event)">
+                    毛利
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </span>
+                <!-- <span>操作</span> -->
+            </div>
+            <div class="table-row" ng-repeat="item in model.statisticsList">
+                <span>{{item.no}}</span>
+                <span>{{item.operator_name}}</span>
+                <span class="price">{{item.sale_amount}}</span>
+                <span>{{item.order_amount}}</span>
+                <span class="price">{{item.order_avg_price}}</span>
+                <span class="price">{{item.gross_profit}}</span>
+                <!-- <span>详情</span> -->
+            </div>
+        </div>
+        <div class="page-navi">
+            <div ng-click="selectPage(item)" ng-repeat="item in model.localTable.getPageList()" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}">
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>

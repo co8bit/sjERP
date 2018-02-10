@@ -1,0 +1,106 @@
+<div class="transfer-accounts" ng-controller="TransferAccountsController">
+	<div class="title-bar">
+		<span class="function-name">内部银行转账</span>
+		<div class="quit" ng-click="quit()">
+			<img src="web/app/img/misc/pic_close.png"></img>
+		</div>
+	</div>
+	<div class="main-body">
+		<div class="title-name-row">
+			<span class="title-name">转账</span>
+		</div>
+		<div class="table">
+			<div class="table-row head">
+				<span></span>
+				<span>账户类型</span>
+				<span>账户简称</span>
+				<span>账号</span>
+				<span>转账金额</span>
+				<span>转账前余额</span>
+				<span>转账后余额</span>
+				<span class="clear-row"></span>
+			</div>
+			<div class="table-row">
+				<span>转出账户</span>
+				<span>
+					<div class="input-dropdown">
+						<input type="text" class="left dropdown-input pointer" ng-model="accountCart.accountType" readonly="readonly" ng-focus="checkInput(0,0);" />
+						<i class="fa fa-angle-down"></i>
+						<div class="dropdown-list" ng-show="showList[0][0]">
+							<div class="item hover" ng-click="setItemAccountType(item);" ng-repeat="item in accountTypeList track by $index">{{item}}</div>
+						</div>
+					</div>
+				</span>
+				<span>
+					<div class="input-dropdown">
+						<input type="text" class="left dropdown-input" ng-change="changeName(1);" ng-model="accountCart.account_name" ng-focus="checkInput(0,1);" />
+						<i class="fa fa-angle-down"></i>
+						<div class="dropdown-list" ng-show="showList[0][1]">
+							<div class="item hover" ng-click="setItemAccountName(item);" ng-repeat="item in accountList|filter:accountCart.account_name track by $index ">{{item.account_name}}</div>
+						</div>
+					</div>
+				</span>
+				<span>
+					<input type="text" class="left" readonly="readonly" ng-model="accountCart.account_number"/>
+				</span>
+				<span>
+					<input type="number" ng-model="orderInfo.cart.data.account_operate.cost" ng-change="updataBalance();" />
+				</span>
+				<span>
+					<span>{{accountCart.account_balance}}</span>
+					<!--<input type="text" readonly="readonly" disabled="disabled" ng-model="accountCart.balance" ng-focus="checkInput(0,-1);"  />-->
+				</span>
+				<span>
+					<span>{{accountCart.remain}}</span>
+					<!--<input type="text" readonly="readonly" disabled="disabled" ng-model="accountCart.remain" ng-focus="checkInput(0,-1);"  />-->
+				</span>
+				<span class="clear-row pointer" ng-click="clearCartItem(1)"><i class="fa fa-times"></i></span>
+			</div>
+			<div class="table-row">
+				<span>转入账户</span>
+				<span>
+					<div class="input-dropdown">
+						<input type="text" class="left dropdown-input pointer" ng-model="targetCart.targetType" ng-focus="checkInput(1,0);" />
+						<i class="fa fa-angle-down"></i>
+						<div class="dropdown-list" ng-show="showList[1][0]">
+							<div class="item hover" ng-click="setItemTargetType(item);"  ng-repeat="item in accountTypeList track by $index">{{item}}</div>
+						</div>
+					</div>
+				</span>
+				<span>
+					<div class="input-dropdown">
+						<input type="text" class="left dropdown-input" ng-model='targetCart.target_name' ng-focus="checkInput(1,1);" />
+						<i class="fa fa-angle-down"></i>
+						<div class="dropdown-list" ng-show="showList[1][1]">
+							<div class="item hover" ng-click="setItemTargetName(item);"  ng-repeat="item in targetList  track by $index">{{item.account_name}}</div>
+						</div>
+					</div>
+				</span>
+				<span>
+					<input type="text" class="left" readonly="readonly" ng-model="targetCart.target_number"/>
+				</span>
+				<span>
+					<span>/</span>
+				</span>
+				<span>
+					<span>{{targetCart.target_balance}}</span>
+				</span>
+				<span>
+					<span>{{targetCart.remain}}</span>
+				</span>
+				<span class="clear-row pointer" ng-click="clearCartItem(2)"><i class="fa fa-times"></i></span>
+			</div>
+		</div>
+		<div class="title-name-row remark">
+			<span class="title-name">备注</span>
+		</div>
+		<textarea ng-model="orderInfo.remark"></textarea>
+	</div>
+	<div class="footer">
+		<div class="time-row">
+			<label>开单日期</label>
+			<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+		</div>
+		<button class="xy-btn xy-btn-orange" ng-click="createOrder()">创建转账单</button>
+	</div>
+</div>

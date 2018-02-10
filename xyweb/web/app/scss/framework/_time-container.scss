@@ -1,0 +1,45 @@
+.time-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 22px;
+
+    .time {
+      margin-right: 14px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin: 0 5px;
+      }
+
+    input {
+      outline: none;
+      padding: 0 4px;
+      width: 105px;
+      border: none;
+      border-bottom: 1px solid #888;
+      box-shadow: none;
+    }
+  }
+}
+.time-row {
+    cursor: pointer;
+    margin-top: 50px;
+    display: flex;
+    &.pull-right {
+        justify-content: flex-end;
+    }
+    &.pull-center {
+        justify-content: center;
+    }
+    input {
+        margin-left: 20px;
+        border: none;
+        border-bottom: 1px solid #0C0C0C;
+    }
+}

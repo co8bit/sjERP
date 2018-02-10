@@ -1,0 +1,163 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>createSto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Storage/updateSto")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>sto_name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_name" type="text" autofocus="" value='测试仓库'>
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" autofocus="" value='remark'>
+                                </div>
+
+                                <label><font color=black>sto_index</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_index" type="text" autofocus="" value='2'>
+                                </div>
+
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="status" type="text" value='1'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>editSto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Storage/updateSto")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                               <label><font color=black>sto_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" autofocus="" value='48'>
+                                </div>
+
+                               <label><font color=black>sto_name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_name" type="text" autofocus="" value='测试仓库2'>
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" autofocus="" value='remark'>
+                                </div>
+
+                                <label><font color=black>sto_index</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_index" type="text" autofocus="" value='2'>
+                                </div>
+
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="status" type="text" value='1'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>deleteSto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Storage/deleteSto")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                               <label><font color=black>sto_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" autofocus="" value='47'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   <div class="container">
+        <h1>querySto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Storage/querySto")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                               <label><font color=black>type*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="type" type="text" autofocus="" value='1'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>get_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Storage/get_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                               <label><font color=black>sto_id*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="sto_id" type="text" autofocus="" value='1'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     
+
+</body>
+</html>

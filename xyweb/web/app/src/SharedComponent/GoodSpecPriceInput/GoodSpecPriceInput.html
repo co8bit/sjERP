@@ -1,0 +1,67 @@
+
+<!-- 订单数量单价弹窗 -->
+<div class="spec-bg">
+    <div class="spec-and-numpad">
+        <div class="spec-container">
+            <div class="mt-0">
+                <span>当前选择的货品为</span>
+            </div>
+            <div class="selected">
+                <input class="spu" type="text" ng-model="cartAgent.editingCartItem.spu_name" placeholder="选择商品" disabled="true">
+            </div>
+            <div class="selected">
+                <input class="spec" type="text" ng-model="cartAgent.editingCartItem.spec_name" placeholder="规格" disabled="true">
+            </div>
+            <div class="mt-s">
+                <span class="left">库存&nbsp;&nbsp;</span>
+                <input class="stock"  type="number" ng-model="cartAgent.editingCartItem.stock" ng-click="numPad.setState(0); cartAgent.editingCartItem.stock = ''; " ng-disabled="true" />
+                <span class="replace-unit"></span>
+            </div>
+            <div class="mt-s">
+                <span class="left" ng-show="orderInfo._class == 1">销售数量</span>
+                <span class="left" ng-show="orderInfo._class == 3">采购数量</span>
+                <span class="left" ng-show="orderInfo._class == 2 || orderInfo._class == 4">退货数量</span>
+                    <input id="first-input"  ng-show="!isMobile" ng-class="{ 'active-input' : numPad.state == 0 }" type="text" ng-model="cartAgent.editingCartItem.quantity" ng-click="numPad.setState(0);" ng-focus="numPad.setState(0);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+                    <input id="first-inputs" ng-show="isMobile" readonly="readonly" ng-class="{ 'active-input' : numPad.state == 0 }" type="text" ng-model="cartAgent.editingCartItem.quantity" ng-focus="numPad.setState(0);" ng-focus="numPad.setState(0);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+
+                <span class="replace-unit"></span>
+            </div>
+            <div class="mt-s">
+                <span class="left" ng-show="orderInfo._class == 1">销售单价</span>
+                <span class="left" ng-show="orderInfo._class == 3">采购单价</span>
+                <span class="left" ng-show="orderInfo._class == 2 || orderInfo._class == 4">退货单价</span>
+                <input id="second-input" ng-show="!isMobile" ng-class="{ 'active-input' : numPad.state == 1 }" type="text"  ng-model="cartAgent.editingCartItem.unit_price" ng-click="numPad.setState(1);" ng-focus="numPad.setState(1);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+                <input id="second-inputs" ng-show="isMobile" readonly="readonly" ng-class="{ 'active-input' : numPad.state == 1 }" type="text"  ng-model="cartAgent.editingCartItem.unit_price" ng-click="numPad.setState(1);" ng-focus="numPad.setState(1);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+                <span>元</span>
+            </div>
+            <div class="mt-s">
+                <span class="left" ng-show="orderInfo._class == 1">销售金额</span>
+                <span class="left" ng-show="orderInfo._class == 3">采购金额</span>
+                <span class="left" ng-show="orderInfo._class == 2 || orderInfo._class == 4">退货金额</span>
+                <input ng-value="cartAgent.editingCartItem.pile_price | number:2" disabled="true"></input>
+                <span>元</span>
+            </div>
+            <div class="mt-s">
+                <span class="left">备注：</span>
+                <textarea type="text" ng-model="cartAgent.editingCartItem.comment"></textarea>
+                <span class="replace-unit"></span>
+            </div>
+            
+            <div class="former-price" ng-if="priceIsShow">
+                <button ng-click="selectCompanySkuLastPrice()">该客户上次售价:{{thisCompanySkuLastPrice}}</button><br>
+                <button ng-click="selectSkuRecentPrice()">最近售价:{{cartAgent.editingCartItem.last_selling_price|number:2}}</button>
+            </div>
+
+            <div class="submit">
+                <button class="btn-submit-s" ng-show="1" ng-click="finishEditing()" ng-disabled="cartAgent.editingCartItem.sku_id <= 0">添加</button>
+                <button class="btn-submit-s" ng-click="cancelInput()">取消</button>
+            </div>
+        </div>
+        <div class="numpad-container" ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'" ng-show="cartAgent.editingCartItem.sku_id > 0"></div>
+    </div>
+</div>
+<!-- 测试按钮 -->
+<!-- <button ng-click="test()">test</button> -->
+<!-- <button ng-show="0" ng-click="cartAgent.addToCart(cartAgent.editingCartItem)" ng-disabled="cartAgent.editingCartItem.sku_id <= 0">添加到货物列表</button> -->
+<!-- 小键盘 -->
+

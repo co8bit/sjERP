@@ -1,0 +1,39 @@
+.transfer-accounts {
+    background: white;
+    height: 100%;
+    .main-body {
+        padding: 50px 50px;
+        padding-bottom: 0;
+        min-height: 100%;
+        overflow-y: scroll;
+        height: 100%;
+        .table {
+            width: 100%;
+            margin-top: 30px;
+            overflow: visible;
+            .table-row{
+                height: 50px;
+                span {
+                    height: 100%;
+                    width: 12%;
+                    input {
+                        width: 100%;
+                    }
+                    &.clear-row {
+                        width: 30px;
+                    }
+                }
+            }
+        }
+        .remark {
+            margin-top: 50px;
+        }
+        textarea {
+            margin-top: 50px;
+            margin-bottom: 100px;
+            width: 80%;
+            height: 200px;
+        }
+    }
+
+}

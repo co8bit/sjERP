@@ -1,0 +1,115 @@
+<div class="dashboard" ng-show="isShow">
+
+    <!-- 左边折线图和三个列表 -->
+    <div class="chartandtables">
+        <!-- 折线图容器 这个大小可以改但是不能没有大小-->
+		<div class="statistics" ng-show="IsYqjShow">
+			<div class="block b1">
+				<span>本月支出总额：</span>
+				<span>{{model.exp}}</span>
+			</div>
+			<div class="block b2">
+				<span>本月收入总额：</span>
+				<span>{{model.inc}}</span>
+			</div>
+            <div class="block b3">
+                <span>待填补发票总额：</span>
+                <span>{{model.money_pit}}</span>
+            </div>
+            <div class="block b4">
+                <span>本月填补发票总额：</span>
+                <span>{{model.invoice}}</span>
+            </div>
+		</div>
+        <div class="chart">
+            <div id="sales-chart"></div>
+            <span>最近30天{{IsYqjShow ? '支出' : '销售'}}额趋势</span>
+        </div>
+        <div class="chart">
+            <div id="gross-profit-chart"></div>
+            <span>最近30天{{IsYqjShow ? '收入' : '毛利润'}}趋势</span>
+        </div>
+        <!-- 下边的三个列表和选项卡 -->
+        <div class="optionsandtables" ng-if="!IsYqjShow" >
+            <!-- 选项卡 -->
+            <div class="options">
+                <span class="first-span" ng-class="{'highlight':pageState.activeTab == 1}" ng-click="pageState.activeTab = 1;">七日热卖排行</span>
+                <span ng-class="{'highlight':pageState.activeTab == 2}" ng-click="pageState.activeTab = 2;">库存预警</span>
+                <span ng-class="{'highlight':pageState.activeTab == 3}" ng-click="pageState.activeTab = 3;">待收款</span>
+            </div>
+            <!-- 热卖排行 -->
+            <div class="table first-table" ng-show="pageState.activeTab == 1">
+                <div class="head table-row">
+                    <span>名称</span>
+                    <span>规格</span>
+                    <span>类别</span>
+                    <span>数量</span>
+                    <span>销售金额</span>
+                </div>
+                <div class="table-row" ng-repeat="item in model.data.skuSaleTop">
+                    <span class="ellipsis">{{item.spu_name}}</span>
+                    <span class="ellipsis">{{item.spec_name}}</span>
+                    <span>{{item.cat_name}}</span>
+                    <span>{{item.quantity}}</span>
+                    <span>{{item.pilePrice | number:2}}</span>
+                </div>
+            </div>
+            <!-- 库存预警 -->
+            <div class="table second-table" ng-show="pageState.activeTab == 2">
+                <div class="head table-row">
+                    <span>名称</span>
+                    <span>规格</span>
+                    <span>类别</span>
+                    <span>所属仓库</span>
+                    <span>数量</span>
+                    <span>操作</span>
+                </div>
+                <div class="table-row" ng-repeat="item in model.data.skuStockTop">
+                    <span class="ellipsis" >{{item.spu_name}}</span>
+                    <span class="ellipsis">{{item.spec_name}}</span>
+                    <span>{{item.cat_name}}</span>
+                    <span>{{item.sto_name}}</span>
+                    <span>{{item.stock}}</span>
+                    <span ng-click="createBuyOrder(item)"><input type="button" class="xy-btn xy-btn-orange" value="采购"></button></span>
+                </div>
+            </div>
+            <!-- 欠账 -->
+            <div class="table third-table" ng-show="pageState.activeTab == 3">
+                <div class="head table-row">
+                    <span>往来单位</span>
+                    <span>编号</span>
+                    <span>金额</span>
+                    <span>操作</span>
+                </div>
+                <div class="table-row" ng-repeat="item in model.data.companyTop">
+                	<span class="ellipsis pointer" ng-click="checkRecord(item.cid)">{{ item.name }}</span>
+                    <span>{{ item.sn }}</span>
+                	<span>{{0 - item.balance}}</span>
+                    <span ng-click="goReceipt(item)"><input type="button" class="xy-btn xy-btn-orange" value="收款">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!--
+    <div class="confirm-dialog-bg " ng-show="isSettlementDialogShow==true">
+        <div class=''>
+            <p ng-click=""><img src="web/app/img/misc/good_list_close.png"></p>
+            <div >
+                <span>他欠我</span>
+                <span>我欠他</span>
+            </div>
+            <div>
+                <span>{{item.balance}}</span>
+                <span>{{item.balance}}</span>
+            </div>
+            <div>
+                <input type="button" name="" value="去收款" ng-click="goReceipt(item)">
+                <input type="button" name="" value="去付款" ng-click="goPayment(item)">
+            </div>
+        </div>
+    </div>
+-->
+
+</div>

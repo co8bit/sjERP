@@ -1,0 +1,142 @@
+<div class="SkuDetail">
+    <!-- 返回按钮 -->
+    <div class="btn-container">
+        <button class="xy-btn xy-btn-green" ng-click="backToStock();">返回</button>
+    </div>
+
+    <div class="middle" id="middle">
+        <!-- 图表 -->
+        <div class="chart-detail" id="chart-deatil">
+            <div class="sales-chart" id="sales-chart">
+                <div class="" id=""></div>
+                <div class="" id=""></div>
+                <div class="" id=""></div>
+                <div id="">
+
+                </div>
+                <div id="">
+
+                </div>
+            </div>
+            <div class="sales-table">
+                <table class="xy-table xy-table-bordered xy-table-hover">
+                    <tr class="active">
+                        <th></th>
+                        <th ng-repeat="item in chartData.time track by $index">{{item}}</th>
+                    </tr>
+                    <tr>
+                        <td>销售数量</td>
+                        <td ng-repeat="item in chartData.saleCount track by $index">{{item}}</td>
+                    </tr>
+                    <tr>
+                        <td>采购数量</td>
+                        <td ng-repeat="item in chartData.buyCount track by $index">{{item}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="balance-container"></div>
+        <!-- 往来单位自己的信息 -->
+        <div class="rb">
+            <div class="balance-container" ng-show="rpg==3">
+                <span class="balance-text">商品信息</span>
+            </div>
+            <div class="balance-container" ng-show="rpg!=3">
+
+                <span class="balance-number">{{itemDetail.stock*itemDetail.unit_price | number : 2}} <span
+                        class="balance-unit">元</span></span>
+            </div>
+            <div><span class="text">编号</span><span class="info">{{item.sn}}</span></div>
+            <div><span class="text">名称</span><span class="info">{{itemDetail.spu_name}}</span></div>
+            <div><span class="text">仓库</span><span class="info">{{itemDetail.sto_name}}</span></div>
+            <div><span class="text">规格</span><span class="info">{{itemDetail.spec_name}}</span></div>
+            <div><span class="text">类别</span><span class="info">{{itemDetail.cat_name}}</span></div>
+            <div><span class="text">库存</span><span class="info">{{itemDetail.stock}}</span></div>
+            <div ng-show="rpg!=3"><span class="text">单价</span><span
+                    class="info">{{itemDetail.unit_price | number : 2}}元</span></div>
+            <div class="btn-container" ng-show="rpg!=3&&rpg!=2">
+                <button class="xy-btn xy-btn-green" ng-click="editSPU(itemDetail.spu_id)">修改商品</button>
+            </div>
+        </div>
+    </div>
+    <!-- order -->
+    <div class="order">
+        <!-- 订单类型过滤器 -->
+        <div class="filter">
+            <span ng-class="{cb:classCheckbox.flag_none}" ng-click="classCheckbox.selectAll();">全部</span>
+            <div ng-repeat="item in classCheckbox.option">
+                <span ng-class="{cb:item.flag_chosen}"
+                      ng-click="classCheckbox.selectSingle(item);">{{item.optionName}}</span>
+            </div>
+        </div>
+
+        <!-- 日期选择器 -->
+        <div class="time-container"> <!--ng-show="pageState.page == 2"-->
+            <span class="time">时间</span>
+            <div id="reportrange" class="pull-left dateRange">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                <span id="searchDateRange"></span>
+                <b class="caret"></b>
+            </div>
+        </div>
+        <!-- 订单状态过滤器 -->
+        <div class="status-container"
+             ng-show="classCheckbox.selectedId != 53 && classCheckbox.selectedId != 54 &&classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74">
+            <span>状态</span>
+            <div>
+                <button class="select-all" ng-class="{cb:statusCheckbox.flag_none}"
+                        ng-click="statusCheckbox.selectAll();">全部
+                </button>
+                <div>
+                    <div ng-repeat="item in statusCheckbox.option">
+                        <button ng-class="{cb:item.flag_chosen}" ng-click="statusCheckbox.select(item)">
+                            {{item.optionName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 表 -->
+        <div class="table" st-table="stOrderInfo" st-safe-src="displayedOrderInfo">
+            <div class="head table-row">
+                <span>创建时间</span>
+                <span>类别</span>
+                <span ng-show="classCheckbox.selectedId != 53">经办人</span>
+                <span ng-show="classCheckbox.selectedId == 53">执行人</span>
+                <span ng-show="classCheckbox.selectedId == 53">盘点人</span>
+                <span ng-show="classCheckbox.selectedId != 53">状态</span>
+                <span ng-show="rpg!=3">单价</span>
+                <span ng-show="classCheckbox.selectedId != 53">数量</span>
+                <span ng-show="classCheckbox.selectedId == 53">变动数量</span>
+                <span ng-show="classCheckbox.selectedId != 53 && rpg!=3">总金额</span>
+                <span ng-show="classCheckbox.selectedId == 53 && rpg!=3">变动金额</span>
+                <span>操作</span>
+            </div>
+            <div class="table-row" ng-repeat="item in data"
+                 ng-class='{statusRed:(item.status==91||item.status==92),statusBlue:item.status==3}'>
+                <span>{{item.reg_time_show}}</span>
+                <span>{{item.class_show}}</span>
+                <span ng-show="classCheckbox.selectedId != 53">{{item.operator_name}}</span>
+                <span ng-show="classCheckbox.selectedId == 53">{{item.operator_name}}</span>
+                <span ng-show="classCheckbox.selectedId == 53">{{item.check_name}}</span>
+                <span ng-show="classCheckbox.selectedId != 53">{{item.status_show}}</span>
+                <span ng-show="rpg!=3&&item.cart[0].unitPrice">{{item.cart[0].unitPrice | number : 2}}</span>
+                <span ng-show="rpg!=3&&item.cart[0].unit_price">{{item.cart[0].unit_price| number : 2}}</span>
+                <span ng-show="item.class!=53">{{item.cart[0].quantity |number : 0}}</span>
+                <span ng-show="item.class==53">{{item.cart[0].num |number : 0}}</span>
+                <span ng-show="rpg!=3">{{item.cart[0].pilePrice | number : 2}}</span>
+                <span><button ng-click="viewDetails(item)">详情</button></span>
+            </div>
+            <div class="table-row" ng-show='data.length < 3'></div>
+            <div class="table-row" ng-show='data.length < 2'></div>
+            <div class="table-row" ng-show='data.length < 1'></div>
+        </div>
+        <div class="page-navi">
+            <div ng-click="paginator.clickButton(item);"
+                 ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}"
+                 ng-repeat="item in paginator.pageList">
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+@mixin or-division($marginTop,$fontColor) {
+  display: block;
+  margin-top: $marginTop;
+  font-size: 16px;
+  text-align: center;
+  color: $fontColor;
+  i {
+    display: inline-block;
+    width: 100px;
+    border-bottom: 1px solid $fontColor;
+    position: relative;
+    top: -6px;
+  }
+  .iLf {
+    margin-right: 10px;
+  }
+  .iRg {
+    margin-left: 10px;
+  }
+}
+@mixin clearNum{
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

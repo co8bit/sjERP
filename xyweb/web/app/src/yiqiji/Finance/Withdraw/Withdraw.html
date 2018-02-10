@@ -1,0 +1,81 @@
+<div class="withdraw" ng-controller="WithdrawController">
+	<div class="title-bar">
+		<span class="function-name">提现开单</span>
+		<div class="quit" ng-click="quit()">
+			<img src="web/app/img/misc/pic_close.png">
+		</div>
+	</div>
+	<div class="info-box">
+		<div class="order-list-table">
+			<div class="title-name-row">
+				<span class="title-name">提现账户</span>
+			</div>
+			<div class="table">
+				<div class="head table-row">
+					<span class="small">序号</span>
+					<span>账户类型</span>
+					<span>账户简称</span>
+					<span>开户人</span>
+					<span class="number">账号</span>
+					<span>金额</span>
+					<span class="small">操作</span>
+				</div>
+				<div class="table-row" ng-repeat="item in cartAgent.cartItemList track by $index">
+					<span class="small">{{$index + 1}}</span>
+					<span>
+						<div class="input-dropdown">
+							<input type="text" class="left dropdown-input" readonly="readonly" ng-model="item.account_type" ng-focus="checkInput(item,1);" />
+							<i class="fa fa-angle-down"></i>
+							<div class="dropdown-list no-scroll" ng-show="item.account_name_show">
+								<div class="item hover" ng-repeat="x in accountTypeList" ng-click="setItemType(item,x);">{{x}}</div>
+							</div>
+						</div>
+					</span>
+					<span>
+						<div class="input-dropdown">
+							<input type="text" class="left dropdown-input" ng-model="item.account_name" ng-change="itemChange(item);" ng-focus="checkInput(item,2);" />
+							<i class="fa fa-angle-down"></i>
+							<div class="dropdown-list" ng-show="item.account_source_type_show">
+								<div class="item hover" ng-repeat="x in item.accountList | filter : item.account_name" ng-click="setItemAccount(item,x);">{{x.account_name}}</div>
+							</div>
+						</div>
+					</span>
+					<span>{{item.account_creator}}</span>
+					<span class="number">{{item.account_operate.account_number}}</span>
+					<span><input type="number" ng-model="item.account_operate.cost" ng-change="updataCost(item);" /></span>
+					<span class="two-imgs small">
+						<span class="pointer" ng-click="deleteCartItem($index)"><img src="web/app/img/misc/pic_delete.png"></span>
+						<!--是最后一个才显示添加按钮-->
+						<span class="pointer" ng-click="addCartItem()" ng-show="item == cartAgent.cartItemList[cartAgent.cartItemList.length-1]"><img src="web/app/img/misc/pic_add_gray.png"></span>
+					</span>
+				</div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 4"></div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 3"></div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 2"></div>
+				<div class="table-row foot">
+					<span class="small">总计</span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span>{{orderInfo.income | number : 2}}</span>
+					<span class="small"></span>
+				</div>
+			</div>
+			<div class="remark-row">
+				<div class="title-name-row">
+					<span class="title-name">备注</span>
+				</div>
+				<textarea ng-model="orderInfo.remark"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="time-row">
+			<label>开单日期</label>
+			<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+		</div>
+		<button class="xy-btn xy-btn-orange" ng-click="createOrder();">创建提现单</button>
+	</div>
+</div>

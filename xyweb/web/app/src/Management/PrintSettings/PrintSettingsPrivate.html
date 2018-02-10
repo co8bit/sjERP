@@ -1,0 +1,60 @@
+<!-- 此页面使用bootstart -->
+<div class="print_settings">
+	<h2 class="xy-page-header xy-text-center">
+		打印设置
+	</h2>
+	<div class="xy-panel xy-panel-default">
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="template">
+				ADM_UID：
+			</div>
+            <input type="text" ng-model='adminUID' id="adminUID"/>
+            <button class="xy-btn xy-btn-design " ng-click="getUID_template();">获取打印模板</button>
+        </div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="template">
+				打印模板：
+			</div>
+            <input type="text" ng-model='printTemplateContent' id="printTemplateContent"/>
+            <button class="xy-btn xy-btn-design " ng-click="desing();">打印模板设计</button>
+            <button class="xy-btn xy-btn-design " ng-click="recover();">恢复默认模板</button>
+        </div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="xy-panel-body-left">
+				选择打印列名 ：
+			</div>
+			<div class="xy-checkbox">
+				<label class="checkAll" ><input type="checkbox" ng-model="isCheckAll" ng-change="checkAll();">全选</label>
+				<label ng-repeat="item in data"><input type="checkbox" value="item.id" ng-model="item.isChecked" ng-click="checkbox(item.isChecked);">{{item.name}}</label>
+			</div>
+		</div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="check_font_size">
+				选择打印字体大小 ：
+			</div>
+			<div class="dropdown ">
+			    <select ng-model="font_size_checked" ng-options="x for x in font_size">
+				</select>
+				<span>{{font_size_checked}}</span>
+			</div>
+		</div>
+		<div class="xy-panel-body xy-panel-body-row">
+			<div class="check_font_size">
+				是否打印网格线 ：
+			</div>
+			<div class="check_gridLine">
+				<label><input type="radio" name="gridLine"  ng-value=true ng-model="gridLine" />是</label>
+				<label><input type="radio" name="gridLine"  ng-value=false ng-model="gridLine" />否</label>
+			</div>
+		</div>
+		<!--<div class="panel-body">-->
+			<!--<script type="text/javascript" language="javascript" src="web/lib/Lodop/LodopFuncs.js"></script>-->
+			<!--<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+			    <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="../Lodop/install_lodop.exe"></embed>
+			</object>
+		</div>-->
+			<div class="xy-text-center">
+				<button class="xy-btn xy-btn-lg btn-subject " ng-click="submit_template()" ng-disabled="">保存模板</button>
+			</div>
+	</div>
+</div>

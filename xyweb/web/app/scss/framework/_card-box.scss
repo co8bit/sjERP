@@ -1,0 +1,80 @@
+.card-box-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    .card-box {
+        width: 700px;
+        height: 500px;
+        background: white;
+        box-shadow: 0 0 30px #555;
+        .card-content {
+            padding: 20px;
+            .search-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .search-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    img {
+                        width: 15px;
+                        margin-left: 10px;
+                    }
+                }
+                button {
+                    margin: 0;
+                }
+            }
+            .table {
+                margin-top: 20px;
+                .table-row {
+                    display: flex;
+                    justify-content: space-between;
+                    span {
+                        text-align: center;
+                        width: 100px;
+                        &.small {
+                            width: 50px;
+                        }
+                        &.max {
+                            width: 200px;
+                        }
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+                .head {
+                    border-top-width: 3px;
+                    padding-right: 30px;
+                }
+                .table-body {
+                    height: 215px;
+                    border-top: 3px solid #f1f1f1;
+                    border-bottom: 3px solid #f1f1f1;
+                    overflow-y: scroll;
+                }
+            }
+            .button-row {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                button {
+                    margin: 0;
+                    width: 100px;
+                    height: 30px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+}

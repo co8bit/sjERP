@@ -1,0 +1,26 @@
+<div class="loginAndRegisterMode">
+    <div class="content">
+        <div class="head" ng-click="gotoOfficialSite()">星云进销存</div>
+        <div class="middle">
+            <div class="title" ng-show="!recovery">欢 迎 注 册</div>
+            <div class="title" ng-show="recovery">密码重置</div>
+            <div class="input-row">
+                <input type="number" placeholder="请输入手机号" ng-model="LoginModel.phoneNum" ng-keydown="keydown($event);">
+                <span class="required">*</span>
+            </div>
+            <div class="btn-row">
+                <button class="xy-btn xy-btn-green get-code" id="popup-submit" type="submit" value="提交" ng-keydown="keydown($event);">获取短信验证码</button>
+            </div>
+            <div class="clause">
+               查看<a href="" ng-click="gotoOfficialSite()">服务条款</a>
+            </div>
+            <div id="popup-captcha" ng-show="!recovery"></div>
+            <div class="xy-btn-group" ng-show="!recovery">
+                <button class="xy-btn xy-btn-default" ng-click="LoginModel.status = 1">有账号？点此登录</button>
+            </div>
+        </div>
+        <div class="back-btn-row">
+            <button type="button" class="xy-btn xy-btn-lg xy-btn-orange" ng-click="LoginModel.status = 1">返回</button>
+        </div>
+    </div>
+</div>

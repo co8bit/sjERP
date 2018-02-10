@@ -1,0 +1,752 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>createReceiptOrPayment</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/createReceiptOrPayment")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>class*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" autofocus="" value="71">
+                                </div>
+
+                                <label><font color=black>cid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" value="2">
+                                </div>
+
+                                <label><font color=black>cash</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cash" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>bank</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="bank" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>online_pay</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="online_pay" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="muyou">
+                                </div>
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496159940">
+                                </div>
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"data":[{"oid":"29","money":0.02},{"oid":"30","money":0.02},{"oid":"31","money":0.02}]}'>
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <h1>createIncomeOrExpense</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/createIncomeOrExpense")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>class*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" autofocus="" value='73'>
+                                </div>
+
+                                <label><font color=black>name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="name" type="text" value="意外所得">
+                                </div>
+
+                                <label><font color=black>cash</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cash" type="text" value="200">
+                                </div>
+
+                                <label><font color=black>bank</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="bank" type="text" value="200">
+                                </div>
+
+                                <label><font color=black>online_pay</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="online_pay" type="text" value="200">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="this is remark">
+                                </div>
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496159940">
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>创建支出单</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/create_FinanceOrder")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>class*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="class" type="text" autofocus="" value='82'>
+                        </div>
+                        <label><font color=black>cart</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="cart" type="text" autofocus="" value='{"data":[{"sku_id":69,"spec_name":"交通类","is_invoice":0,"item_name":"坐车","total_price":20},{"sku_id":68,"spec_name":"团建类","is_invoice":0,"item_name":"旅游","total_price":20}]}'>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value="this is remark">
+                        </div>
+                        <label><font color=black>income</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="income" type="text" value="40">
+                        </div>
+                        <label><font color=black>reg_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_time" type="text" value="1496159940">
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>创建转账单</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/create_FinanceOrder")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>class*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="class" type="text" autofocus="" value='82'>
+                        </div>
+                        <label><font color=black>cart</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="cart" type="text" autofocus="" value='{"data": {"account_name": "hahahah","target_name": "hahahah","account_source_name": "中国银行","target_source_name": "中国银行","account_source_type": "银行账户","target_source_type": "银行账户","account_number": 6228480323061564619,"target_number": 6228480323061564618,"account_balance": 1000.54,"target_balance": 1000.54,"account_operate": {"account_id": 1,"target_id": 2,"cost": 10}}}'>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value="this is remark">
+                        </div>
+                        <label><font color=black>income</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="income" type="text" value="40">
+                        </div>
+                        <label><font color=black>reg_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_time" type="text" value="1496159940">
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>创建提现单</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/create_FinanceOrder")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>class*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="class" type="text" autofocus="" value='83'>
+                        </div>
+                        <label><font color=black>cart</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="cart" type="text" autofocus="" value='{"data":[{"account_name":"hahahah","account_source_type":"银行账户","account_source_name":"中国农业银行","account_balance":1000.54,"account_operate":{"account_id":1,"account_number":"6228480323061564619","cost":10}},{"account_name":"hahahah","account_source_type":"银行账户","account_source_name":"中国农业银行","account_balance":1000.54,"account_operate":{"account_id":2,"account_number":"6228480323061564619","cost":10}}]}'>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value="this is remark">
+                        </div>
+                        <label><font color=black>income</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="income" type="text" value="20">
+                        </div>
+                        <label><font color=black>reg_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_time" type="text" value="1496159940">
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>create_FinanceOrderDraft</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/create_FinanceOrderDraft")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>class*</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="class" type="text" autofocus="" value='82'>
+                        </div>
+                        <label><font color=black>cart</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="cart" type="text" autofocus="" value=''>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value="this is remark">
+                        </div>
+                        <label><font color=black>income</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="income" type="text" value="40">
+                        </div>
+                        <label><font color=black>reg_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_time" type="text" value="1496159940">
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>queryDocumentList</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/queryDocumentList")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>class1*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class1" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>class2*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class2" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>class3*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class3" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>class4*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class4" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>startTime</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="startTime" type="text" value="1">
+                                </div>
+
+
+                                <label><font color=black>endTime</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="endTime" type="text" value="14536176981232314234">
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div class="container">
+        <h1>queryOneDocument</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/queryOneDocument")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>fid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="fid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <h1>editDocument</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/editDocument")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>fid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="fid" type="text" autofocus="" value='1'>
+                                </div>
+
+                                <label><font color=black>remark*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" autofocus="" value='这里是备注'>
+                                </div>
+
+                                <div class="row">
+                              <input value="提交" type="submit">
+                            </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <h1>createReceiptOrPaymentDraft</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/createReceiptOrPaymentDraft")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>class*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" autofocus="" value="71">
+                                </div>
+
+                                <label><font color=black>cid</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" value="2">
+                                </div>
+
+                                <label><font color=black>cash</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cash" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>bank</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="bank" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>online_pay</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="online_pay" type="text" value="0.02">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="muyou">
+                                </div>
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496159940">
+                                </div>
+
+                                <label><font color=black>cart</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cart" type="text" value='{"data":[{"oid":"29","money":0.02},{"oid":"30","money":0.02},{"oid":"31","money":0.02}]}'>
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>createIncomeOrExpenseDraft</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Finance/createIncomeOrExpenseDraft")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>class*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="class" type="text" autofocus="" value='73'>
+                                </div>
+
+                                <label><font color=black>name</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="name" type="text" value="hahahaha">
+                                </div>
+
+                                <label><font color=black>cash</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="cash" type="text" value="10">
+                                </div>
+
+                                <label><font color=black>bank</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="bank" type="text" value="10">
+                                </div>
+
+                                <label><font color=black>online_pay</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="online_pay" type="text" value="0">
+                                </div>
+
+                                <label><font color=black>reg_time</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="reg_time" type="text" value="1496159940">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value="this is remark">
+                                </div>
+                                
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<form method="post" action="{:U('Finance/deleteDraft')}">
+  <h1>deleteDraft</h1>
+  <input type="text" name="fid" value='1'>
+  <label></label>
+  <button type="submit">deleteDraft</button>
+</form>
+
+    <form method="post" action="{:U('Finance/FinanceOrderStatusChange')}">
+        <h1>审核单据</h1>
+        <label>fid</label>
+        <input type="text" name="fid" value='19'>
+        <label>想要改变的状态</label>
+        <input type="text" name="status" value='84'>
+        <label>财务意见</label>
+        <input type="text" name='finance_advice' value='财务审核通过'>
+        <label>BOSS意见</label>
+        <input type="text" name='boss_advice' value='老板审核通过'>
+        <label>cart</label>
+        <input type="text" name="cart" value='{"data":[{"sku_id":69,"spec_name":"交通类","is_invoice":0,"item_name":"坐车","total_price":20},{"sku_id":68,"spec_name":"团建类","is_invoice":0,"item_name":"旅游","total_price":20}],"account_operate":[{"account_id":1,"account_name":"哈哈哈","account_source_type":"银行账户","account_source_name":"中国银行","account_number":"6228480323061564619","account_balance":"1000.54","cost":"20"},{"account_id":1,"account_name":"哈哈哈","account_source_type":"银行账户","account_source_name":"中国银行","account_balance":"1000.54","account_number":"6228480323061564619","cost":"20"}]}'>
+        <button type="submit">审核单据</button>
+    </form>
+
+
+    <div class="container">
+        <h1>createFinanceCart</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/createFinanceCart")}">
+                <div class="tile-group three">
+                    <div class="row">
+
+
+                        <label><font color=black>spec_name</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="spec_name" type="text" value="吃饭">
+                        </div>
+
+                        <label><font color=black>sku_index</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="$sku_index" type="text" value="1">
+                        </div>
+                        <label><font color=black>status</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="status" type="text" value="1">
+                        </div>
+
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>删除财务类别</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/deleteFinanceCart")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>sku_id</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="sku_id" type="text" value= 43>
+                        </div>
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>统计发票填补</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/invoicePoolSummary")}">
+                <div class="tile-group three">
+                        <div class="row">
+                            <input value="提交" type="submit">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>通过时间统计数据</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/getExpenditureStatistics")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>reg_st_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_st_time" type="text" value=1499788800>
+                        </div>
+                        <label><font color=black>reg_end_time</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="reg_end_time" type="text" value=1529788800>
+                        </div>
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>部门查询</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Department/getDepartment")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>部门创建</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Department/createDepartment")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>depart_name</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="depart_name" type="text" value="技术部">
+                        </div>
+                        <label><font color=black>status</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="status" type="text" value = '1'>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value = 'ahhahahahahhahah'>
+                        </div>
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>部门编辑</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Department/editDepartment")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>depart_id</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="depart_id" type="text" value = '1'>
+                        </div>
+                        <label><font color=black>depart_name</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="depart_name" type="text" value="公关部">
+                        </div>
+                        <label><font color=black>status</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="status" type="text" value = '1'>
+                        </div>
+                        <label><font color=black>remark</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="remark" type="text" value = 'hahahahhahahha'>
+                        </div>
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>部门ID</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Department/deleteDepartment")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>depart_id</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="depart_id" type="text" value = '1'>
+                        </div>
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <h1>groupStatusChange</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/groupStatusChange")}">
+                <div class="tile-group three">
+                    <div class="row">
+                        <label><font color=black>fid</font></label>
+                        <div class="input-control text" data-role="input-control">
+                            <input name="fid" type="text" value = '[,]'>
+                        </div>
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>首页收支看板接口</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/financeDashboard")}">
+                <div class="tile-group three">
+                        <input value="提交" type="submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <h1>修改订单</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+                <form id="form" method="post" action="{:U("Finance/edit_FinanceOrder")}">
+                <label><font color=black>fid</font></label>
+                <div class="input-control text" data-role="input-control">
+                    <input name="fid" type="text" value = 14>
+                </div>
+                <label><font color=black>boss_advice</font></label>
+                <div class="input-control text" data-role="input-control">
+                    <input name="boss_advice" type="text" value = 老板建议测试>
+                </div>
+                <label><font color=black>finance_advice</font></label>
+                <div class="input-control text" data-role="input-control">
+                    <input name="finance_advice" type="text" value = 财务建议测试>
+                </div>
+                <div class="tile-group three">
+                    <input value="提交" type="submit">
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

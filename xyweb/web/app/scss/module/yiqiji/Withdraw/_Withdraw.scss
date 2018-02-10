@@ -1,0 +1,134 @@
+.withdraw {
+    background: white;
+    height: 100%;
+    .info-box {
+        width: 100%;
+        min-height: 100%;
+        max-width: 1920px;
+        min-width: 1024px;
+        margin: 0 auto;
+        padding: 50px;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        height: 100%;
+        .order-list-table {
+            .table {
+                width: 100%;
+                min-height: 250px;
+                margin-top: 30px;
+                .table-row {
+                    height: 50px;
+                    span {
+                        width: 13%;
+                        height: 100%;
+                        input{
+                            width: 100%;
+                        }
+                        .dropdown-list {
+                            position: absolute;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            min-width: 100%;
+                            width: 200px;
+                        }
+                    }
+                    .number {
+                        min-width: 150px;
+                    }
+                    .two-imgs {
+                        justify-content: space-around;
+                        img {
+                           max-width: none;
+                        }
+                    }
+                    .small {
+                        width: 70px;
+                    }
+                }
+            }
+        }
+        .remark-row {
+            margin: 100px 0;
+            textarea {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+    .card-box-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.2);
+        .card-box {
+            width: 700px;
+            height: 500px;
+            background: white;
+            .card-content {
+                padding: 20px;
+                .search-row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .search-box {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        img {
+                            width: 15px;
+                            margin-left: 10px;
+                        }
+                    }
+                    button {
+                        margin: 0;
+                    }
+                }
+                .table {
+                    margin-top: 20px;
+                    .table-row {
+                        display: flex;
+                        justify-content: space-between;
+                        span {
+                            width: 14%;
+                            input {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .head {
+                        border-top-width: 3px;
+                    }
+                    .table-body {
+                        height: 215px;
+                        border-top: 3px solid #f1f1f1;
+                        border-bottom: 3px solid #f1f1f1;
+                        overflow-y: scroll;
+                    }
+                }
+                .button-row {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    button{
+                        margin: 0;
+                        width: 100px;
+                        height: 30px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+    }
+    .footer{
+        button {
+            margin: 0;
+        }
+    }
+}

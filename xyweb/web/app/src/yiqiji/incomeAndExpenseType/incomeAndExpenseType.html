@@ -1,0 +1,38 @@
+<div class="incomeAndExpenseType">
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="类别" ng-model="queryText">
+        </div>
+        <button ng-click="createCat()">新建类别</button>
+    </div>
+    <div class="table">
+        <div class="head table-row">
+            <span>类别</span>
+            <span>优先显示</span>
+            <span>启用</span>
+            <span>修改</span>
+        </div>
+        <div class="table-row" ng-repeat="item in catList | filter: queryText">
+            <span>{{item.spec_name}}</span>
+            <span>
+            	<i ng-show="item.sku_index == '1'" class="fa fa-check"></i>
+            	<i ng-show="item.sku_index == '0'" class="fa fa-times"></i>
+            </span>
+            <span>
+            	{{item.status == '1' ? '是' : '否'}}
+            </span>
+            <span class="two-imgs">
+                <span>
+                    <span ng-click="editCat(item)"><img src="web/app/img/misc/pic_edit.png"></span>
+                    <span ng-click="deleteCat(item.sku_id)"><i class="fa fa-times"></i></span>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="page-navi">
+        <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+·</div>

@@ -1,0 +1,85 @@
+.user-info {
+  width: 100%;
+  height: 100%;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #888;
+    }
+  }
+
+  .content {
+    background: #fff;
+    padding: 40px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    input,select {
+      height: 45px;
+      background: #f9f9f9;
+      border: none;
+    }
+
+    input:disabled,select:disabled {
+      background: #fff;
+      border: none;
+      box-shadow: none;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        margin-bottom: 0;
+
+        span {
+          display: flex;
+          justify-content: center;
+          width: 100px;
+        }
+
+        input,select {
+          width: 70%;
+        }
+      }
+    }
+
+    .status {
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+    button {
+      width: 130px;
+      height: 35px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: $themeColor;
+      border: none;
+      outline: none;
+    }
+
+    button:hover {
+      background: darken($themeColor, 5%);
+    }
+  }
+}

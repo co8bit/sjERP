@@ -1,0 +1,10 @@
+
+<md-dialog>
+    <h2>点击以选择单位</h2>
+    <br>
+    <label for="">搜索</label>
+    <input type="text" ng-model="query" />
+    <ul>
+        <li ng-repeat="cstmr in cstmr_info | filter:query" class="cstmr" ng-click="selectCstmr(cstmr)">{{cstmr.name}}</li>
+    </ul>
+</md-dialog>>

@@ -1,0 +1,44 @@
+<div class="receipt-fill" ng-controller="ReceiptFillController">
+	<div class="title-bar">
+		<span>发票填补单</span>
+		<div class="quit" ng-click="quit()">
+			<img src="web/app/img/misc/pic_close.png"></img>
+		</div>
+	</div>
+	<div class="content-wrap">
+		<div class="content">
+			<div class="title-name-row">
+				<span class="title-name">填补金额</span>
+			</div>
+			<div class="info-box">
+				<div class="row">
+					<!--<label class="fu">   </label>-->
+					<label>总待填补发票金额:</label>
+					<input type="number" disabled="disabled" ng-model="model.money_pit" />
+				</div>
+				<div class="row">
+					<label class="fu">-</label>
+					<label>本次填补发票金额:</label>
+					<input type="number" ng-model="orderInfo.income" ng-change="changeCost()" />
+				</div>
+				<div class="row">
+					<label class="fu">=</label>
+					<label>待填补发票金额:</label>
+					<input type="number" disabled="disable" ng-model="balance" />
+				</div>
+			</div>
+			<div class="remark">
+				<div class="title-name-row">
+					<span class="title-name">备注</span>
+				</div>
+
+				<textarea ng-model="orderInfo.remark" placeholder="请填写备注"></textarea>
+			</div>
+			<!-- <div class="time-row">
+				<label>开单日期 : </label>
+				<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+			</div> -->
+		</div>
+		<button class="xy-btn xy-btn-orange" ng-click="createOrder()">创建发票填补单</button>
+	</div>
+</div>

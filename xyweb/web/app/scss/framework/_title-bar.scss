@@ -1,0 +1,92 @@
+// 标题栏
+.title-bar {
+    height: 40px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding-left: 18px;
+    background: #ee7258;
+    span {
+        color: #fff;
+    }
+    .function-name {
+        font-size: 16px;
+        font-weight: bold;
+        //color: #b1b1b1;
+        color: #fff;
+    }
+    .quit {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-left: 1px solid #ddd;
+        height: 100%;
+        &:hover {
+            background: darken(#ee7258, 10%);
+        }
+    }
+    .quit-i {
+        i {
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+    div {
+        button {
+            font-size: 13px;
+            font-weight: bold;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+        // 直接退出
+        .exit {
+            //color: #b1b1b1;
+            color: #fff;
+        }
+        // 保存并退出 #f8b49d #fbdad1  linear-gradient(to right, #ef826b , #fbdad1);
+        .save-exit {
+            border: 1px solid;
+            border-image: linear-gradient(to right, #ef826b, #f8b49d) 1 1;
+            padding: 2px 16px;
+            color: $btnTopRightEmpColor;
+            background: -webkit-linear-gradient(left, #ef826b, #fbdad1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+.title-bar-green {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(54, 188, 155, 1);
+    .title {
+        color: white;
+    }
+    .quit {
+        color: white;
+        height: 70%;
+        cursor: pointer;
+    }
+    .quit-i {
+        i {
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+}

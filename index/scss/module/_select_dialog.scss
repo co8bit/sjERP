@@ -1,0 +1,115 @@
+.select-dialog {
+  visibility: hidden;
+  @extend .flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(163, 163, 163, 0.6);
+  z-index: 1000000;
+  .select-dialog-container {
+    width: 700px;
+    height: 250px;
+    @extend .flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background: #fff;
+    box-shadow: 0 0 5px #aaa;
+    a {
+      height: 30px;
+      padding: 0 24px;
+      font-size: 14px;
+      flex-shrink: 0;
+      @extend .flex;
+      justify-content: center;
+      color: #444;
+    }
+    .select-title {
+      width: 600px;
+      @extend .flex;
+      justify-content: flex-start;
+      a {
+        cursor: auto;
+        font-size: 17px;
+        padding: 0;
+      }
+    }
+    .month-container {
+      width: 610px;
+      @extend .flex;
+      justify-content: center;
+      &>div {
+        width: 140px;
+        border-right: 1px solid #fff;
+        height: 80px;
+        @extend .flex;
+        flex-flow: column;
+        justify-content: center;
+        a {
+          font-size: 18px;
+          padding: 0;
+        }
+      }
+      .month {
+        border: 1px solid #ccc;
+        margin: 5px;
+        cursor: pointer;
+        @extend .flex;
+        flex-flow: column;
+        &>a {
+          width: 100%;
+        }
+        div {
+          @extend .flex;
+          flex-flow: row;
+          justify-content: center;
+          a {
+            font-size: 22px;
+            color: #db2b1e;
+          }
+          sup {
+            color: #aaa;
+            font-size: 14px;
+            text-decoration: line-through;
+          }
+        }
+        &:hover {
+          border: 1px solid #cb3b3b;
+        }
+      }
+      .selected {
+        border: 1px solid #cb3b3b;
+      }
+      .left {
+        border: none;
+        cursor: auto;
+        a {
+          cursor: auto;
+        }
+        &:hover {
+          border: none;
+        }
+      }
+    }
+    .btn-container {
+      margin-top: 30px;
+      width: 80%;
+      @extend .flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        color: #fff;
+        background: #cb3b3b;
+        margin: 0 20px;
+        align-items: center;
+      }
+      a:hover {
+        background: darken(#cb3b3b, 5%);
+      }
+    }
+  }
+}

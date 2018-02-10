@@ -1,0 +1,32 @@
+<div class="account-setting">
+    <div class="title">账 户 管 理</div>
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="编号/用户名/真实姓名" ng-model="query">
+        </div>
+        <button ng-click="createAccount();">新建账户</button>
+    </div>
+    <div class="table">
+        <div class="table-row head">
+            <span>编号</span>
+            <span>账户简称</span>
+            <span>账户类型</span>
+            <span>账号</span>
+            <span>账户余额</span>
+            <span>状态</span>
+            <span>操作</span>
+        </div>
+        <div class="table-row" ng-repeat="item in accountList">
+            <span>{{item.sn}}</span>
+            <span>{{item.account_name}}</span>
+            <span>{{item.account_source_type | accountType}}</span>
+            <span>{{item.account_number}}</span>
+            <span>{{item.account_balance}}</span>
+            <span>{{item.status == 1 ? '正常' : '关闭'}}</span>
+            <span>
+                <button ng-click="editAccount(item)">查看详情</button>
+            </span>
+        </div>
+    </div>
+</div>

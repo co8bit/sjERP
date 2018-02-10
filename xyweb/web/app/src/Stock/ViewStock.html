@@ -1,0 +1,148 @@
+<!-- 查看库存 -->
+<div class="view-stock">
+    <span ng-if="backBtnIsShow"><button class="btn-back green" ng-click="backToStock();">返回</button></span>
+    <div class="row">
+        <div class="total">
+            <div class="item" ng-show="!isShowPrice">
+                <div>库存金额</div>
+                <div class="red">{{totalInfo.totalValue| number:2}}</div>
+            </div>
+            <div class="item">
+                <div>库存数量</div>
+                <span class="red">{{totalInfo.totalStock | number:2}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="商品编号/商品名/规格/类别" ng-model="queryInfo.query">
+        </div>
+        <button ng-show="isCreateSPUShow" ng-click="createSPU();">新建商品</button>
+    </div>
+
+<!--     <div class="filter-bar before" ng-if="backBtnIsShow">
+        <span>仓库名称</span>
+        <div>
+            <button ng-click="selectCat('*')" ng-class="{highlight:filterInfo[1].value == '*', normal:filterInfo[1].value != '*'}">全部</button>
+            <button ng-repeat="item in warehouseInfo " ng-click="selectCat(item.cat_id)" ng-class="{highlight:filterInfo[1].value == item.warehouse_id, normal:filterInfo[1].value != item.warehouse_id}" ng-show="item.status == '1'">
+                {{item.cat_name}}
+            </button>
+        </div>
+    </div> -->
+    <div class="filter-bar">
+    <div class="sto-section">
+        <div>
+            <span class="name">仓库名称</span>
+            <button ng-click="selectSto('');" ng-class="{highlight:presentSto=='',normal:presentSto!=''}">全部</button>
+        </div>
+        <div class="filter-item">
+            <button ng-repeat="item in stoList "  ng-class="{highlight:presentSto ==item.sto_id,normal:presentSto!=item.sto_id}" ng-click="selectSto(item.sto_id)" ng-show="item.status == '1'">
+                {{item.sto_name}}
+            </button>
+        </div>
+    </div>
+    <div class="class-section">
+        <div>
+           <span class="name">类别</span>
+           <button ng-click="selectCat('*');checkCat()" ng-class="{highlight:filterInfo[1].value == '*', normal:filterInfo[1].value != '*'}">全部</button>
+        </div>
+            <div class="filter-item">
+                <button ng-repeat="item in catInfo " ng-click="selectCat(item.cat_id);checkCat(item.cat_name)" ng-class="{highlight:filterInfo[1].value == item.cat_id, normal:filterInfo[1].value != item.cat_id}" ng-show="item.status == '1'">
+                    {{item.cat_name}}
+                </button>
+            </div>
+    </div>
+    </div>
+
+    <!-- 类别选择 -->
+    <!-- 数据内容 -->
+    <div class="viewStock table">
+        <span class="setting" ng-click="openSettingPage()"><img src="web/app/img/misc/colSetting.png" alt=""></span>
+        <div class="table-row head" ng-class="{'replace':isreplace}">
+            <span class="{{colList[0].colCssTitle}}" ng-show="colList[0].colShow && colList[0].isShow" >{{colList[0].DIYName}}</span>
+            <span class="{{colList[1].colCssTitle}}" ng-show="colList[1].colShow && colList[1].isShow" >{{colList[1].DIYName}}</span>
+            <span class="{{colList[2].colCssTitle}}" ng-show="colList[2].colShow && colList[2].isShow" >{{colList[2].DIYName}}</span>
+            <span class="{{colList[3].colCssTitle}}" ng-show="colList[3].colShow && colList[3].isShow" >
+            {{colList[3].DIYName}}</span>
+
+            <span class="{{colList[4].colCssTitle}}" ng-show="colList[4].colShow && colList[4].isShow" >{{colList[4].DIYName}}</span>
+            <span class="{{colList[5].colCssTitle}}" ng-show="colList[5].colShow && colList[5].isShow" >{{colList[5].DIYName}}</span>
+            <span class="{{colList[6].colCssTitle}}" ng-show="colList[6].colShow && colList[6].isShow" >{{colList[6].DIYName}}</span>
+            <span class="{{colList[7].colCssTitle}}" ng-show="colList[7].colShow && colList[7].isShow" >{{colList[7].DIYName}}</span>
+        <!--
+            <span class="{{colList[8].colCssTitle}}" ng-show="colList[8].colShow && colList[8].isShow" >{{colList[8].DIYName}}</span>-->
+
+            <span>启用</span>
+            <!-- 功能未完善 -->
+             <span>操作</span>
+        </div>
+        <div class="table-row" ng-class="{'replace':isreplace}" ng-repeat="item in skuList">
+            <span class="{{colList[0].colCss}}" ng-show="colList[0].colShow && colList[0].isShow" ng-click="{{colList[0].colClick}}">{{item.sn}}</span>
+            <span class="{{colList[1].colCss}}" ng-show="colList[1].colShow && colList[1].isShow" ng-click="{{colList[1].colClick}}">{{item.spu_name}}</span>
+            <span class="{{colList[2].colCss}}" ng-show="colList[2].colShow && colList[2].isShow" ng-click="{{colList[2].colClick}}">{{item.qcode}}</span>
+            <span class="{{colList[3].colCss}}" ng-show="colList[3].colShow && colList[3].isShow" ng-click="{{colList[3].colClick}}">{{item.spec_name}}</span>
+
+    <!--        <span class="{{colList[4].colCss}}" ng-show="colList[4].colShow && colList[4].isShow" ng-click="{{colList[4].colClick}}">{{item.picture}}</span>-->
+
+            <span class="{{colList[4].colCss}}" ng-show="colList[4].colShow && colList[4].isShow" ng-click="{{colList[4].colClick}}">{{item.cat_name}}</span>
+
+            <span class="{{colList[5].colCss}}" ng-show="colList[5].colShow && colList[5].isShow" ng-click="{{colList[5].colClick}}">{{item.stock}}</span>
+
+        <!--    <span class="{{colList[6].colCss}}" ng-show="colList[6].colShow && colList[6].isShow && !isAll" ng-click="{{colList[6].colClick}}">{{item.unit_price | number: 2}}</span>-->
+            <span class="{{colList[6].colCss}}" ng-show="colList[6].colShow && colList[6].isShow" ng-click="{{colList[6].colClick}}">{{item.selling_price| number: 2}}</span>
+            <span class="{{colList[7].colCss}}" ng-show="colList[7].colShow && colList[7].isShow" ng-click="{{colList[7].colClick}}">{{item.total_price| number: 2}}</span>
+            <span>
+                <!--<img ng-show="item.status==1" src="web/app/img/misc/pic_switch_on.png">-->
+                <!--<img ng-show="item.status==0" src="web/app/img/misc/pic_switch_off.png">-->
+             <div ng-show="!item.sku_sto_status">
+                    <span ng-show="item.status==1">✔</span>
+                <span ng-show="item.status==0">✘</span>
+             </div>
+               <div ng-show="item.sku_sto_status">
+                    <span ng-show="item.sku_sto_status==1">✔</span>
+                <span ng-show="item.sku_sto_status==0">✘</span>
+               </div>
+            </span>
+
+                 <!--功能未完善-->
+             <span><button ng-click="skuDetail(item)">详情</button></span>
+        </div>
+    </div>
+    <div class="page-navi">
+        <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+    <div class="colSetting-wrap" ng-show="colSettingIsShow">
+        <div class="setBox" ng-class="{'inPad':isPad}">
+            <div class="header">
+                <span class="word">表格列配置</span>
+                <span class="close" ng-click="quit()"><img src="web/app/img/misc/24856-200.png"></span>
+            </div>
+            <table class="table" id="sort">
+                <thead>
+                	<tr class="head table-row">
+		                <th>序号</th>
+		                <th>列名</th>
+		                <th>显示名称</th>
+		                <th>是否显示</th>
+	                </tr>
+                </thead>
+                <tbody>
+	                <tr class="table-row" ng-repeat="item in data">
+	                	<td class="index">{{$index + 1}}</td>
+	                    <td class="hide">{{$index}}</td>
+	                    <td>{{item.colName}}</td>
+	                    <td><input type="text" ng-model="item.DIYName" ng-focus="item.DIYName = ''" ng-change="listChange()"></td>
+	                    <td><input type="checkbox" ng-model="item.isShow" ng-change="listChange()"/></td>
+	                </tr>
+	            </tbody>
+            </table>
+            <div class="footer">
+                <span class="xy-btn xy-btn-default" ng-click="recover()">恢复默认设置</span>
+                <span class="xy-btn xy-btn-primary" ng-click="submit()">保存</span>
+            </div>
+        </div>
+    </div>
+</div>

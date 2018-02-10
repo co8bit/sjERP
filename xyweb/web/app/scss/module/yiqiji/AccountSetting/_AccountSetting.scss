@@ -1,0 +1,21 @@
+.account-setting {
+    .title {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #888;
+    }
+    .search-bar {
+        height: 80px;
+        margin-bottom: 9px;
+    }
+    .table {
+        div {
+            span {
+                width: 16%;
+            }
+        }
+    }
+}

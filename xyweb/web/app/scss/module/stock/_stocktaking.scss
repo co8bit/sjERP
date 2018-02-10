@@ -1,0 +1,358 @@
+.stocktaking {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  // 功能区
+  .function-tab {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    bottom: 70px;
+    background-color: #eeeeee;
+    justify-content: space-between;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .stocktaking-good-list-tab.typical-left-right-narrow {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      .t-left,
+      .t-right {
+      }
+      //搜索和货物上下结构
+      .t-left {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        .promptSelect{
+          width: 100%;
+          height: 500px;
+          p{
+            color: #888;
+            line-height: 500px;
+            font-size: 46px;
+            text-align: center;
+            letter-spacing : 12px;
+          }
+        }
+        .search-and-cat {
+          width: 100%;
+          display: flex;
+          flex-shrink: 0;
+          flex-direction: column;
+          justify-content: center;
+          background-color: white;
+        }
+        .good-list {
+          display: flex;
+          flex-flow: row wrap;
+          align-content: flex-start;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          margin-top: 5px;
+          margin-right: -18px;
+          .good-unit {
+            margin-top: 2px;
+            margin-right: 2px;
+            background-color: white;
+            flex-shrink: 0;
+            cursor: pointer;
+
+            .item-info {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              padding: 5px;
+              .spec-name {
+                text-align: end;
+                font-size: 0.9em;
+              }
+              &:hover {
+                background-color: #ee7258;
+                color: white;
+              }
+              &:active {
+                background-color: darken(#ee7258, 5%);
+              }
+            }
+            .already-add {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              background-color: #ee7258;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              opacity: 0.8;
+              z-index: 100;
+              .click-to-modify {
+                margin-top: 5px;
+                font-size: 0.9em;
+              }
+            }
+            .editing {
+              background-color: #E76646;
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+      .t-right {
+        //width: 38%;
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        margin-left: 10px;
+        width: 280px;
+        .spec {
+          background-color: white;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+
+          .quantity {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            outline: thin dotted \9
+          ; /* IE6-9 */
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          }
+
+          .mt-s {
+            margin-top: 5px;
+          }
+          .mt-s.item3line {
+            display: flex;
+            justify-content: space-between;
+            div {
+              width: 135px;
+              display: flex;
+              flex-flow: row;
+            }
+            span {
+              display: flex;
+              align-items: center;
+            }
+            input {
+              width: 85px;
+              margin-right: 5px;
+            }
+            input:disabled {
+              border: none;
+              box-shadow: none;
+            }
+          }
+          .input-long {
+            border: none;
+            border-left: 5px solid lightblue;
+            width: 260px;
+            height: 24px;
+          }
+          button {
+            margin-top: 10px;
+            align-self: center;
+          }
+        }
+        .numpad {
+          margin-top: 10px;
+        }
+      }
+    }
+    // good-list-tab
+    // 提交页面
+    .stocktaking-submit-tab.typical-left-right-narrow {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      // border: 1px solid red;
+      // padding: 10px;
+      .t-left,
+      .t-right {
+        // border: 1px solid blue;
+      }
+      //搜索和货物上下结构
+      .t-left {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        .good-list {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          // border: 1px solid red;
+          flex-grow: 1;
+          //overflow: hidden;
+          .table-head,
+          .table-line {
+            display: flex;
+            flex-shrink: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 10px 0px 10px;
+            height: 35px;
+            background-color: white;
+            span {
+              width: 80px;
+              flex-grow: 1;
+              text-align: center;
+            }
+          }
+          .table-line-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-right: -17px;
+            /*overflow-x: hidden;*/
+            /*overflow-y: scroll;*/
+            .table-line {
+              display: flex;
+              margin-top: 1px;
+              span{
+                flex: 1;
+              }
+                .ellipsis {
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  display: block;
+                  text-align: center;
+                }
+
+                .ellipsis.rtl {
+                  cursor: auto;
+                  direction: rtl;
+                }
+
+                .ellipsis:hover {
+                  background: #eee;
+                  z-index: 100;
+                  height: auto;
+                  white-space: normal;
+                  word-break: break-all;
+                  padding: 5px;
+                }
+            }
+          }
+        }
+      }
+      .t-right {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        margin-left: 10px;
+        width: 280px;
+        .right-container {
+          background-color: white;
+          padding: 20px;
+          .two-number {
+            display: flex;
+            justify-content: space-between;
+            .big-number {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              font-family: simhei;
+              .money-number {
+                font-size: 25px;
+                font-weight: 500;
+                color: #ee7258;
+              }
+            }
+          }
+          .mt-s {
+            margin-top: 5px;
+            .replace-unit{
+                text-indent:1em;
+            }
+          }
+          .input-container {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            span {
+              flex-shrink: 0;
+              width: 70px;
+            }
+            input {
+              height: 25px;
+              width: 150px;
+              background-color: #eeeeee;
+              border: none;
+              border-left: 5px solid #dbb5a8;
+            }
+            input:disabled {
+              background: #fff;
+            }
+            textarea {
+              height: 100px;
+              width: 150px;
+              background-color: #eeeeee;
+              border: none;
+              border-left: 5px solid #dbb5a8;
+              overflow: hidden;
+              resize: none;
+            }
+            textarea:disabled {
+              background: #fff;
+            }
+          }
+          .check_time{
+            margin-top: 15px;
+            input{
+              border: none;
+              width: 150px;
+              text-align: center;
+              border-bottom: 1px solid #000;
+            }
+          }
+          .btn-container {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+          }
+          .auto-complete-content {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-end;
+            div {
+              width: 170px;
+              margin-top: 1px;
+              button {
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 5px 0;
+                background: #eee;
+
+                &:hover {
+                  background: darken(#eee, 5%);
+                }
+              }
+            }
+          }
+        }
+
+      }
+      // t-right
+    }
+    // submit-tab
+  }
+  //function-tab
+}

@@ -1,0 +1,159 @@
+<div class="receipt-and-payment" ng-controller="ReceiptAndPaymentController">
+
+    <div class="title-bar">
+        <span class="function-name" ng-show="docInfo._class == 71">财务 / 新建收款单</span>
+        <span class="function-name" ng-show="docInfo._class == 72">财务 / 新建付款单</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png">
+        </div>
+    </div>
+    <!-- <button ng-click="test();">测试按钮</button> -->
+    <div class="function-tab" id="function-tab">
+        <div class="left-right">
+            <!-- ↓ t-left -->
+            <div class="t-left function-block">
+                <div class="wanglaidanwei">
+                    <span ng-show="docInfo._class == 71">收款对象名称</span>
+                    <span ng-show="docInfo._class == 72">付款对象名称</span>
+                </div>
+                <div class="input-container">
+                    <input ng-show="docInfo._class == 71" id="companyNameInput" class="company-input cstmr-name-input" ng-class="{hit: docInfo.company.cid > 0}" type="text" placeholder="收款对象名称" ng-model="companyNameInput" ng-focus="clickcompanyNameInput();">
+                    <input ng-show="docInfo._class == 72" id="companyNameInput" class="company-input cstmr-name-input" ng-class="{hit: docInfo.company.cid > 0}" type="text" placeholder="付款对象名称" ng-model="companyNameInput" ng-focus="clickcompanyNameInput();">
+                    <span class="required">*</span>
+                    
+                    <div class="auto-list auto-complete-content auto-complete-block auto-complete-list" ng-show="isCompanyListShow == true">
+                        <div class="new-company auto-complete-content">
+                            <button class="add-new-cstmr" ng-click="clickAddNewCompany()">增加新单位</button>
+                        </div>
+                        <!-- 自动完成的往来单位列表 -->
+                        <!-- 选择单位 -->
+                        <div class="auto-complete-content" ng-repeat="item in companyList | filter:companyNameInput">
+                            <button ng-click="clickCompany(item);">{{item.name}}</button>
+                        </div>
+                    </div>
+                </div>
+                <!--                 <div>
+                    <span>已选定cid:{{docInfo.company.cid}}</span>
+                </div> -->
+                <!-- 自动完成下拉列表 -->
+                <div class="check_time">
+                    <label>开单日期</label>
+                    <input class="date-input" id="datepicker1" type="text"  ng-model="reg_time" readonly="readonly">
+                </div>
+                <div class="zongdaishoujine">
+                    <span for="" ng-show="docInfo._class == 71">总待收金额:{{docInfo.totRemain | number:2}}</span>
+                    <span for="" ng-show="docInfo._class == 72">总待付金额:{{docInfo.totRemain | number:2}}</span>
+                </div>
+                <div class="shoukuanjine">
+                    <span ng-show="docInfo._class == 71">本次收款金额</span>
+                    <span ng-show="docInfo._class == 72">本次付款金额</span>
+                </div>
+                <div class="pay">
+                    <div>
+                        <span>现金支付</span>
+                        <input class="input-s-s" type="text" onchange="value = parseFloat(value).toFixed(2);" ng-model="docInfo.cash" ng-focus="numPad.setState(0);" ng-blur="inputNumber('cash')" >
+                        <span>元</span>
+                    </div>
+                    <div class="link">+</div>
+                    <div>
+                        <span>银行支付</span>
+                        <input class="input-s-s" type="text " onchange="value = parseFloat(value).toFixed(2);" ng-model="docInfo.bank" ng-blur="inputNumber('bank')" ng-focus="numPad.setState(1); ">
+                        <span>元</span>
+                    </div>
+                    <div class="link">+</div>
+                    <div>
+                        <span>网络支付</span>
+                        <input class="input-s-s" type="text " onchange="value = parseFloat(value).toFixed(2);" ng-model="docInfo.online_pay" ng-blur="inputNumber('online_pay')" ng-focus="numPad.setState(2);">
+                        <span>元</span>
+                    </div>
+                    <div class="link">=</div>
+                    <div class="actual-container">
+                        <span ng-show="docInfo._class == 71">实收</span>
+                        <span ng-show="docInfo._class == 72">实付</span>
+                        <span class="actual">{{docInfo.actual}}</span>
+                        <span>元</span>
+                        <span class="required">*</span>
+                    </div>
+                    <div class="total-money-container">
+                        <span ng-show="docInfo._class == 71">下列单据的收款总计（需要跟实收一致）</span>
+                        <span ng-show="docInfo._class == 72">下列单据的付款总计（需要跟实付一致）</span>
+                        <span class="total-money">{{totalMoney |number:2}}</span>
+                        <span>元</span>
+                    </div>
+                </div>
+                <textarea class="remark" placeholder="填写备注信息" ng-model="model.docInfo.remark" />
+                <!--                 <div class="line-content">
+                    <button ng-click="clearAllocated();">清空分配金额</button>
+                </div> -->
+            </div>
+            <div class="t-right" ng-show="false">
+                <div ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'"></div>
+            </div>
+            <!-- left-right -->
+        </div>
+        <div class="table">
+            <div class="head table-row">
+                <span class="time">创建时间</span>
+                <!--<span class="time">出入库时间</span>-->
+                <!--<span class="sn">单号</span>-->
+                <span>类别</span>
+                <!-- <span>经办人</span> -->
+                <span>状态</span>
+                <span>货物价值</span>
+                <!--<span>优惠</span>-->
+                <span ng-show="docInfo._class == 71">待收金额</span>
+                <span ng-show="docInfo._class == 72">待付金额</span>
+                <span ng-show="docInfo._class == 71" class="money">收款金额</span>
+                <span ng-show="docInfo._class == 72" class="money">付款金额</span>
+                <span class="required"></span>
+                <span class="operate">操作</span>
+            </div>
+            <div class="table-row" ng-repeat="item in orderList" ng-hide="item.status == 100">
+                <span class="time">{{item.reg_time_show}} </span>
+                <!--<span class="ellipsis rtl time">{{item.leave_time_show}} </span>-->
+                <!--<span class="ellipsis rtl sn">{{item.sn}}</span>-->
+                <span>{{item.class_show}} </span>
+                <!-- <span>{{item.operator_name}} </span> -->
+                <span>{{item.status_show}} </span>
+                <span ng-bind-html="item.value_show"></span>
+                <!--<span ng-bind-html="item.off_show"></span>-->
+                <!--<span ng-bind-html="item.receivable_show"></span>-->
+                <span ng-show="docInfo._class == 71" ng-bind-html="item.remain_show"></span>
+                <span ng-show="docInfo._class == 72" ng-bind-html="item.remain_opposite_show"></span>
+                <span  class="money ">
+                    <input class="money-input" ng-if="docInfo._class == 71" type="number" placeholder="收款金额" ng-model="item.money" ng-blur="onlyNumber(item,'money');" ng-change="judge(item,$index);log($index);calcTotalMoney($index);">
+                    <input class="money-input"  ng-blur="onlyNumber(item,'money');"  ng-if="docInfo._class == 72" type="number" placeholder="付款金额" ng-model="item.money" ng-change="judge(item,$index);log($index);calcTotalMoney($index);">
+                </span>
+                <span class="required">*</span>
+                <span class="operate">
+                    <button ng-click="EventService.emit(EventService.ev.ORDER_VIEW_DETAILS,item.oid);">查看详情</button>
+                </span>
+            </div>
+        </div>
+        <div class="foot">
+            <div>
+                <span>总计</span>
+                <!--<span class="time">出入库时间</span>-->
+                <!--<span class="sn">单号</span>-->
+                <span></span>
+                <!-- <span>经办人</span> -->
+                <span></span>
+                <span ng-bind-html="totalValue|number:2"></span>
+                <!--<span>优惠</span>-->
+                <span ng-bind-html="totalRemain|number:2"></span>
+                <span ng-bind-html="totalNow"></span>
+                <span class="required"></span>
+                <span></span>
+            </div> 
+        </div>
+        <div class="page-navi">
+            <div ng-click="selectPage(item)" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in pageList">
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+        <div class="line-final">
+            <button class="btn-submit" ng-show="docInfo._class == 71" ng-click="createReceiptOrPayment();">创建收款单</button>
+            <button class="btn-submit" ng-show="docInfo._class == 72" ng-click="createReceiptOrPayment();">创建付款单</button>
+        </div>
+    </div>
+</div>

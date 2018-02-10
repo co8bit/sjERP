@@ -1,0 +1,215 @@
+<div class="account-pay" ng-controller="AccountPayController">
+    <!-- 立即开通弹出的月份选择框 -->
+    <div id="select-dialog" class="select-dialog">
+        <div class="select-dialog-container">
+            <div class="select-title">
+                <a>请选择时长：</a>
+            </div>
+            <div class="month-container">
+                <div id="month-1" class="month" ng-click="selectYear(1)">
+                    <a>1年</a>
+                    <div>
+                        <a id="original-price-0"></a>
+                    </div>
+                </div>
+                <div id="month-2" class="month" ng-click="selectYear(2)" ng-show="moreUser">
+                    <a>2年</a>
+                    <div>
+                        <a id="original-price-1"></a>
+                    </div>
+                </div>
+                <div id="month-3" class="month" ng-click="selectYear(3)" ng-show="moreUser">
+                    <a>3年</a>
+                    <div>
+                        <a id="original-price-2"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a ng-click="setMemberInfoCount()">确定</a>
+                <a ng-click="hideSelectDialog()">取消</a>
+            </div>
+        </div>
+    </div>
+    <!--标题栏-->
+    <div class="title-bar">
+        <span class="function-name">充值</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png" />
+        </div>
+    </div>
+    <!--充值页的主体-->
+    <div class="price">
+        <div class="block first">
+            <div class="top-container">
+
+                <a class="tag">功能对比</a>
+                <div class="price-container">
+                    <div class="price-block left-block">
+                        <div class="row content-row">
+                            <div class="price-title">
+                                公司用户数
+                            </div>
+                        </div>
+                        <div class="row price-row">
+                            <div class="price-title">
+                                价格
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="row content-row">
+                            <div class="price-title">
+                           <span>1用户</span><span>2用户</span>
+                            </div>
+                        </div>
+                        <div class="row price-row">
+                            <div class="item">
+                                <div class="price" >
+                                    <p><span class="active">360</span><span class="month">/年</span></p>
+                                </div>
+                                <div class="btn-container">
+                                    <a ng-click="setMemberInfoType(1)" >{{btnsName[1]}}</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="price" >
+                                    <p><span class="active">888</span><span class="month">/年</span></p>
+                                </div>
+                                <div class="btn-container">
+                                    <a ng-click="setMemberInfoType(2)"> {{btnsName[1]}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="row content-row">
+                            <div class="price-title">
+                            <span>3用户</span><span>4用户</span>
+                            </div>
+                        </div>
+                        <div class="row price-row">
+                            <div class="item">
+                                <div class="price" >
+                                    <p><span class="active">999</span><span class="month">/年</span></p>
+                                    <p><span class="active">1699</span><span class="month">/2年</span></p>
+                                    <p><span class="active">2199</span><span class="month">/3年</span></p>
+                                </div>
+                                <div class="btn-container">
+                                    <a ng-click="setMemberInfoType(3)">{{btnsName[1]}}</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="price" >
+                                    <p><span class="active">1288</span><span class="month">/年</span></p>
+                                    <p><span class="active">2288</span><span class="month">/2年</span></p>
+                                    <p><span class="active">2888</span><span class="month">/3年</span><p>
+                                </div>
+                                <div class="btn-container">
+                                    <a ng-click="setMemberInfoType(4)">{{btnsName[1]}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="row content-row">
+                            <div class="price-title">
+                                <span>5用户</span><span>6-10用户</span>
+                            </div>
+                        </div>
+                            <div class="row price-row">
+                                <div class="item">
+                                    <div class="price" >
+                                        <p><span class="active">1666</span><span class="month">/年</span></p>
+                                        <p><span class="active">2888</span><span class="month">/2年</span></p>
+                                        <p><span class="active">3666</span><span class="month">/3年</span><p>
+                                    </div>
+                                    <div class="btn-container">
+                                        <a ng-click="setMemberInfoType(5)">{{btnsName[1]}}</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="price" >
+                                        <p><span class="active">2999</span><span class="month">/年</span></p>
+                                        <p><span class="active">4999</span><span class="month">/2年</span></p>
+                                        <p><span class="active">6999</span><span class="month">/3年</span><p>
+                                    </div>
+                                    <div class="btn-container">
+                                        <a ng-click="setMemberInfoType(6)">{{btnsName[1]}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="price-block">
+                        <div class="row top-row">
+                            <span>大客户</span>
+                            <img src="web/app/img/misc/price_card_4.png">
+                        </div>
+                        <div class="row price-row">
+                            <div class="item">
+                                <div class="price" >
+                                    <span>299/用户/年</span>
+                                </div>
+                                <div class="big-btn-container">
+                                    <a ng-click="" ng-hide="userAccountInfo.member_class > 1">联系客服</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="custom-made">
+                        <p>为满足更多应用场景我们提供了定制版本 <span>电话详情：15355494747</span> <button>联系客服QQ</button></p>
+
+                    </div>
+                </div>
+
+                <div class="notes-container">
+                    <a>注：</a>
+                    <a>1.在星云进销存内发送短信时所产生的短信费率，如一键发送短信对账单、发送短信通知或发送短信祝福语</a>
+                    <a>2.赠送的短信费可以抵扣用户在星云进销存内发送短信时所产生的费用，当月有效</a>
+                    <a>3.网络支持方式包括：官网右下角客服、邮件、QQ</a>
+                    <a>4.远程支持方式是指利用远程桌面帮您直接操作软件解决问题，如QQ的远程桌面、TeamViewr的远程桌面等</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="block second">
+            <div class="text-container">
+                <a class="big-text">更多时间，更低费用</a>
+                <a class="small-text">成为会员，尊享星云权益</a>
+            </div>
+            <div class="point-container">
+                <div class="point">
+                    <img src="web/app/img/misc/price_point_1.png">
+                    <div>
+                        <a class="big-text">更多时间</a>
+                        <a class="small-text">时间就是金钱，将您从不应该花时间的、无意义的工作中解放出来，使您能有更多的时间去思考自己的生意战略、能有更多的时间去陪伴自己的家人。用更聪明的方法赚取更多的钱</a>
+                    </div>
+                </div>
+                <div class="point">
+                    <img src="web/app/img/misc/price_point_2.png">
+                    <div>
+                        <a class="big-text">权限管理</a>
+                        <a class="small-text">每名用户均可单独订制权限，只能查看自己权限内的数据，数据更安全</a>
+                    </div>
+                </div>
+            </div>
+            <div class="point-container">
+                <div class="point">
+                    <img src="web/app/img/misc/price_point_3.png">
+                    <div>
+                        <a class="big-text">更低费用</a>
+                        <a class="small-text">超低短信费率，与传统手机短信相比，每月节省的金额，远远超过成为会员所需费用，还能智能发送对账单和群发短信。星云，无所不能</a>
+                    </div>
+                </div>
+                <div class="point">
+                    <img src="web/app/img/misc/price_point_4.png">
+                    <div>
+                        <a class="big-text">专属顾问</a>
+                        <a class="small-text">专属个人顾问，结合您的使用场景与行业，为您量身订制软件使用建议与解答问题</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

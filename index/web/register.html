@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit"/>
+        <title>星云进销存</title>
+        <link rel="stylesheet" type="text/css" href="../lib/reset/reset.css?xyvs=2.0.1"/>
+        <link rel="stylesheet" type="text/css" href="../css/global.css?xyvs=2.0.1"/>
+        <link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.css"/>
+        <script src="../lib/jquery/js/jquery-3.2.1.min.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../lib/jquery/js/js.cookie.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../lib/jquery/js/jquery.md5.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src='//kefu.easemob.com/webim/easemob.js?tenantId=27074&hide=false&sat=false' async='async'></script>
+        <script src="../js/statistics.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/share.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/NetWork.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+    </head>
+</head>
+<body>
+<div class="registerWindows" id="registerWindows">
+   <div class="bigWindows">
+       <div class="windows-input" id="windows_input">
+           <h5>星云进销存</h5>
+           <div class="first-register" id="first-register">
+               <p class="smallTittle">欢迎注册</p>
+               <input class="phoneNum" name="phone" id="phoneNum" type="number" placeholder="请输入手机号码">
+               <div class="verifyCode" id="verifyCode">
+                   <input id="verifyInput" type="text" placeholder="输入验证码"><img id="verifyImg" src="" alt="">
+               </div>
+               <button class="getAuth" id="getAuth">获取短信验证码</button>
+               <p class="inputError"></p>
+               <div class="serviceContent">
+                   查看<a href="../web/serviceContent.html?xyvs=2.0.1" target="_blank">服务条款</a>
+               </div>
+               <a href="login.html?xyvs=2.0.1" class="resSub">有账号？点此登陆</a>
+           </div>
+           <div class="second-register" id="second-register">
+               <p class="smallTittle">注册创建者账号</p>
+               <p class="inputError"></p>
+               <input class="phoneNum" name="phone" id="phoneInput" type="number" placeholder="请输入手机号码">
+               <input class="passwordNum" name="password" id="passwordInput" type="password" placeholder="请输入密码">
+               <p class="inputError"></p>
+               <div class="sectionAuth">
+                   <input class="authNum" name="auth" id="authInput" type="number" placeholder="请输入验证码">
+                   <button class="againSend" id="againSend">重新发送</button>
+               </div>
+               <p class="inputError"></p>
+               <div class="serviceContent">
+                   <input type="checkbox" id="agreeService"  checked="checked" value="1" name="agreeService">同意<a href="../web/serviceContent.html?xyvs=2.0.1" target="_blank">服务条款</a>
+               </div>
+               <p class="inputError"></p>
+               <button class="registerSub" id="registerSub">下一步</button>
+           </div>
+           <span><i class="iLf"></i>或<i class="iRg"></i></span>
+           <button href="../index.html?xyvs=2.0.1" class="back" id="back">返回</button>
+       </div>
+   </div>
+</div>
+<script src="../js/commonly.js?xyvs=2.0.1"></script>
+<script src="../js/register.js?xyvs=2.0.1"></script>
+</body>
+</html>

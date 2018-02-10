@@ -1,0 +1,188 @@
+$widthTRight:280px; // 左右结构页面右半边宽度
+$gap-width-1: 20px; //典型沟壑宽度
+$gap-width-2:8px;
+
+// // 选项卡容器 这个好像只有销售开单和财务单用了
+// %function-tab {
+
+//     padding-top: $gap-width-2;
+//     padding-left: 50px;
+//     padding-right: 50px;
+//     height: 1000px;
+//     background-color: $backgroundColor1;
+//     // 左右布局结构，（左侧货物列表，右侧输入框）
+//     .typical-left-right {
+
+//         display:flex;
+//         font-size: 0px;
+//         .t-left {
+//             @extend %fontStandard;
+//             display: block;
+//             margin: 0 ($widthTRight + $gap-width-1) 0 0;
+//             // float:left;
+//             // border:1px solid green;
+//         }
+//         .t-right {
+//             @extend %fontStandard;
+//             background-color: $backgroundColorContent;
+//             width: $widthTRight;
+//             display: block;
+//             float: right;
+//         }
+//     }
+
+//     // 典型左右布局窄间距版
+//     .typical-left-right-narrow {
+//         @extend .typical-left-right;
+//         .t-left {
+//             margin: 0 ($widthTRight + $gap-width-2) 0 0;
+//         }
+//     }
+// }
+
+// // 多标签功能页标签栏下面的内容
+// .function-tab {
+//     @extend %function-tab;
+// }
+
+// // 单标签（没有标签栏）功能页内容
+// .function-tab-simple { 
+//     @extend %function-tab;
+//     padding-top: 45px;
+// }
+
+// // 功能块
+// .function-block {
+//     background-color: $backgroundColorContent;
+// }
+
+// // 搜索框模块
+// .search-module {
+//     margin-left: 1px;
+//     background-color: $backgroundColorContent;
+//     padding: $gap-width-1 $gap-width-1 $gap-width-1 $gap-width-1;
+//     >input {
+//         width: 300px;
+//         height: 25px;
+//     }
+//     .btn-search {
+//         float: right;
+//     }
+//     .cat-select {
+//         margin-top: $gap-width-1;
+//     }
+// }
+
+// // 货物列表，方块阵列
+// .good-list-module {
+//     margin-top: 5px;
+//     position: fixed;
+//     top: 200px;
+//     right: 360px;
+//     bottom: 0px;
+//     left: 50px;
+//     overflow: auto;
+//     .good-unit {
+//         float: left;
+//         margin-left: 1px;
+//         margin-top: 1px;
+//         width: 112px;
+//         height: 112px;
+//         background-color: $backgroundColorContent;
+//         // border:1px solid blue;
+//     }
+// }
+
+// %normal-table-cell {
+//     text-align: right;
+//     width: 80px;
+// }
+
+// // 普通列表
+// .normal-table {
+//     display:block;
+//     margin:0px -1px 0px -1px;
+//     thead {
+//         tr {
+//             display: block;
+//             height: 30px;
+//             font-size:$fontSizeStandard;
+//             background-color: $backgroundColorContent;
+//             th {
+//                 @extend %normal-table-cell;
+//             }
+//         }
+//     }
+//     tbody {
+//         tr {
+//             display: block;
+//             margin-top: 1px;
+//             height: 30px;
+//             font-size:$fontSizeStandard;
+//             background-color: $backgroundColorContent;
+//             td {
+//                 @extend %normal-table-cell;
+//                 text-align: right;
+//                 .sbs-button {
+//                     width: 35px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// // 常用行高 ----------------------------------------------------------------------------------------------------------------------------
+// .line-field-name {
+//     margin-top:15px;
+//     margin-bottom:15px;
+// }
+
+// .line-content {
+//     margin-top:10px;
+// }
+
+// .line-margin-s {
+//     margin-top:10px;
+// }
+
+// .mt-0 {
+//     margin-top:0px;
+// }
+
+// .mt-s {
+//     margin-top:8px;
+// }
+
+// .mt-s1 {
+//     margin-top:5px;
+// }
+
+// .mt-m {
+//      margin-top:10px;
+// }
+
+// .mt-l {
+//     margin-top:15px;
+// }
+
+// .mr-s {
+//     margin-right:5px;
+// }
+
+// .line-margin-m {
+//     margin-top:20px;
+// }
+
+// .line-margin-l {
+//     margin-top:40px;
+// }
+
+// .line-final-center {
+//     margin-top:40px;
+//     text-align:center;
+// }
+
+// .tcenter {
+//     text-align:center;
+// }
+

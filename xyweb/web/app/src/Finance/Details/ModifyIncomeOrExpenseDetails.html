@@ -1,0 +1,72 @@
+<div class="modify-income-or-expense-details" ng-controller="ModifyIncomeOrExpenseDetailsController">
+    <div class="title-bar-detail">
+        <div class="left">
+            <span>{{model.orderInfo.class_show}}详情</span>
+        </div>
+        <div class="middle">
+            <!--<span class="top" ng-show="docInfo.class == 5">财务/应收款调整单</span>-->
+            <!--<span class="top" ng-show="docInfo.class == 6">财务/应付款调整单</span>-->
+            <span class="top">客户：{{docInfo.company_name}}</span>
+            <div class="bottom">
+                <span>单号:{{docInfo.sn}}</span>
+                <span>经办人:{{docInfo.operator_name}}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quit" ng-click="quit()">
+                <img src="web/app/img/misc/pic_close.png"></img>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="more" ng-click="isShowMore = !isShowMore">
+            <img src="web/app/img/misc/pic_more.png"></img>
+        </div>
+        <div class="top-buttons" ng-show="isShowMore">
+            <div ng-show="!isEditing" ng-click="isEditing=true;">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>修改</button>
+            </div>
+            <div ng-show="isEditing" ng-click="clickModify();">
+                <img src="web/app/img/misc/pic_modify.png">
+                <button>完成修改</button>
+            </div>
+            <div ng-click="isHistoryShow = !isHistoryShow">
+                <img src="web/app/img/misc/pic_log.png">
+                <button>查看日志</button>
+            </div>
+        </div>
+        <div class="log" ng-show="isHistoryShow">
+            <span>{{docInfo.history}}</span>
+        </div>
+        <div class="info-container">
+            <div class="left">
+                <div>
+                    <span ng-show="docInfo.class == 5">摘要</span>
+                    <span ng-show="docInfo.class == 6">摘要</span>
+                </div>
+                <div>
+                    <input type="text" ng-model="docInfo.name" disabled="true">
+                </div>
+            </div>
+            <div class="middle">
+                <div>
+                    <span ng-show="docInfo.class == 5">应收款调整金额</span>
+                    <span ng-show="docInfo.class == 6">应付款调整金额</span>
+                </div>
+                <div class="data">
+                    <div>
+                        <span ng-bind-html="model.orderInfo.actualPayment |number:2"></span>
+                        <!--<input type="text" ng-model="companyIncome_show" disabled="true">-->
+                        <span>元</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right">
+                    <textarea type="text" placeholder="填写备注信息" ng-model="docInfo.remark"
+                              ng-disabled="!isEditing">
+            </div>
+        </div>
+    </div>
+</div>

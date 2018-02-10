@@ -1,0 +1,47 @@
+span.pointer{
+    cursor: pointer;
+}
+.red{
+	color: red;
+}
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
+.orange{
+	color: #ee7258;
+}
+div.title-name-row{
+    span.title-name{
+        display: block;
+        width: 100px; //按使用情况修改宽度。。100px四个字
+        border-top: 5px solid #dbb5a8;
+        border-radius: 5px;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 5px;
+        text-align: center;
+    }
+}
+div.input-row{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    input{
+        width: 100%; //按使用情况修改宽度
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        background-color: #eeeeee;
+        border-left: 5px solid #dbb5a8;
+    }
+    span.required{
+        display: flex;
+        align-items: center;
+        color: red;
+        font-weight: bold;
+    }
+}

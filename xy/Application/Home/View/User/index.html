@@ -1,0 +1,166 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+
+<form class="form-signin" method="post" action="{:U('User/register')}">
+  <h1>普通用户注册</h1>
+  <label for="inputEmail" class="sr-only">用户名</label>
+  <input type="text" id="inputEmail" name="username" class="form-control" required autofocus value='12345678901'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">密码</label>
+  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required value='123456'>
+  <label for="inputEmail" class="sr-only">status</label>
+  <input type="text" id="inputEmail" name="status" class="form-control" value='1'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">姓名</label>
+  <input type="text" id="inputEmail" name="name" class="form-control" required value='xingming'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">rpg</label>
+  <input type="text" id="inputEmail" name="rpg" class="form-control" value='2'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">mobile</label>
+  <input type="text" id="inputEmail" name="mobile" class="form-control" value='52365896521'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">email</label>
+  <input type="text" id="inputEmail" name="email" class="form-control" value='email@em.com'>
+  <label></label>
+  <label for="inputEmail" class="sr-only">qq</label>
+  <input type="text" id="inputEmail" name="qq" class="form-control" value='qq'>
+  <label></label>
+
+  <button class="btn btn-lg btn-success btn-block" type="submit">注册</button>
+  <label></label>
+</form>
+
+
+<p>
+<h1>logout</h1>
+<a href="{:U('User/logout')}">logout</a>
+
+<p>
+
+<form class="form-signin" method="post" action="{:U('User/editShopName')}">
+  <h1>修改公司用户名</h1>
+  <input type="text" id="inputEmail" name="shopName" class="form-control" autofocus>
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">修改</button>
+</form>
+
+<p>
+
+<form class="form-signin" method="post" action="{:U('User/setUserTODAY_HISTORY_CONFIG')}">
+  <h1>setUserTODAY_HISTORY_CONFIG</h1>
+  <input type="text" id="inputEmail" name="value" class="form-control" value='{"data":{"time":[1,0,0],"class":[1,0,0,0,0,0,0,0,0,0,0],"status":[1,0,0,0,0,0,0,0,0,0,0]}}'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">set</button>
+</form>
+
+<p>
+
+<form class="form-signin" method="post" action="{:U('User/getUserTODAY_HISTORY_CONFIG')}">
+  <h1>getUserTODAY_HISTORY_CONFIG</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">get</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('User/getUserInfo_shopName')}">
+  <h1>getUserInfo_shopName</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">getUserInfo_shopName</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('User/getShopInfo')}">
+  <h1>getShopInfo</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">getShopInfo</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('User/setGTClientID')}">
+  <h1>setGTClientID</h1>
+  <input type="text" id="inputEmail" name="GTClientID" class="form-control" autofocus value='f54692f33932d097974f903ff05ed2d2'>
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">setGTClientID</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('User/editShopInfo')}">
+  <h1>editShopInfo</h1>
+  <label for="inputEmail" class="sr-only">shop_name</label>
+  <input type="text" id="inputEmail" name="shop_name" class="form-control" value='shop_name'>
+  <label for="inputEmail" class="sr-only">industry</label>
+  <input type="text" id="inputEmail" name="industry" class="form-control" value='industry'>
+  <label for="inputEmail" class="sr-only">province</label>
+  <input type="text" id="inputEmail" name="province" class="form-control" value='province'>
+  <label for="inputEmail" class="sr-only">city</label>
+  <input type="text" id="inputEmail" name="city" class="form-control" value='city'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">go</button>
+</form>
+
+
+
+<form class="form-signin" method="post" action="{:U('User/editUserInfo')}">
+  <h1>editUserInfo</h1>
+  <label for="inputEmail" class="sr-only">uid</label>
+  <input type="text" id="inputEmail" name="uid" class="form-control" value='1'>
+  <label for="inputEmail" class="sr-only">password</label>
+  <input type="text" id="inputEmail" name="password" class="form-control" value='password'>
+  <label for="inputEmail" class="sr-only">rpg</label>
+  <input type="text" id="inputEmail" name="rpg" class="form-control" value='1'>
+  <label for="inputEmail" class="sr-only">mobile</label>
+  <input type="text" id="inputEmail" name="mobile" class="form-control" value='15355444452'>
+  <label for="inputEmail" class="sr-only">email</label>
+  <input type="text" id="inputEmail" name="email" class="form-control" value='email@email.com'>
+  <label for="inputEmail" class="sr-only">name</label>
+  <input type="text" id="inputEmail" name="name" class="form-control" value='name'>
+  <label for="inputEmail" class="sr-only">qq</label>
+  <input type="text" id="inputEmail" name="qq" class="form-control" value='qq'>
+  <label for="inputEmail" class="sr-only">status</label>
+  <input type="text" id="inputEmail" name="status" class="form-control" value='1'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">go</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('User/getList')}">
+  <h1>getList</h1>
+  <input type="text" id="inputEmail" name="type" class="form-control" autofocus value='1'>
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">getList</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('User/editUserPasswd')}">
+  <h1>editUserPasswd</h1>
+  <input type="text" id="" name="admin_mobile" class="form-control" autofocus value="{:C('ROOT_USER_MOBILE')}" />
+  <input type="password" id="" onchange="md5()" name="password" class="form-control password"  value='123456' />
+  <input type="text" name="type" value="3" />
+  <input type="text" name="verify_code" />
+  <label></label>
+  <button class="btn btn-lg btn-success btn-block" type="submit">editUserPasswd</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('User/setOptionArray')}">
+  <h1>setOptionArray</h1>
+  <input type="text" name="option_array"  value="[1,2,3]"/>
+  <button class="btn btn-lg btn-success btn-block" type="submit">setOptionArray</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('User/getOptionArray')}">
+  <h1>getOptionArray</h1>
+
+  <button class="btn btn-lg btn-success btn-block" type="submit">getOptionArray</button>
+</form>
+<script src="__PUBLIC__/jquery.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/jquery.md5.js" type="text/javascript"></script>
+<script type="text/javascript">
+  function md5(){
+    alert($(".password").val());
+    $(".password").val($.md5("sjerp"+$(".password").val()));
+    console.log($(".password").val());
+  }
+
+</script>
+

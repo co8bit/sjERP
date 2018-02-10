@@ -1,0 +1,53 @@
+<div class="statement-wechat" ng-controller="StatementWechatController">
+	<div class="wechat-wrap">
+		<div class="title">
+			<span>发送对账单</span>
+			<span class="quit" ng-click="statementWechat_quit()"><img src="web/app/img/misc/pic_close.png"/></span>
+		</div>
+		<div class="wechat-content">
+			<div class="left">
+				<div class="phone"><img src="web/app/img/misc/bg_Phone.png" /></div>
+				<div class="message">
+					<div class="head">对账单</div>
+					<div class="customer-info">
+						<div >
+							<span class="info-left">客户名称</span><span class="info-right">{{model.data[0].cid_name}}</span>
+						</div>
+						<div>
+							<span class="info-left">订单结余</span>
+							<span class="info-right red" ng-if="model.balance > 0">应付{{model.balance |number : 2}}元</span>
+							<span class="info-right" ng-if="model.balance == 0">0元</span>
+							<span class="info-right blue" ng-if="model.balance < 0">应收{{0-model.balance |number : 2}}元</span>
+						</div>
+					</div>
+					<div class="body">
+						<div class="list" ng-repeat="item in model.data">
+							<label class="list-title">{{item.class_show}}</label>
+							<div class="list-info">
+								<span class="list-info-left">
+									<span class="sn">{{item.sn}}</span>
+									<span class="time">{{item.reg_time_show}}</span>
+								</span>
+								<span class="list-info-right">
+									<span ng-if="item.remain < 0" class="blue">应收{{0 - item.remain}}元</span>
+									<span ng-if="item.remain > 0" class="red">应付{{item.remain}}元</span>
+								</span>
+							</div>
+						</div>
+						
+					</div>
+					<div class="xy-logo">跃迁科技</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="wechat-QR">
+					<div id="wechat-QR"></div>
+					<span>扫码即可微信分享</span>
+				</div>
+				<div class="share">分享密码：<span class="red">{{model.sharePasswd}}</span></div>
+			</div>
+			
+		</div>
+	</div>
+
+</div>

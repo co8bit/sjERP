@@ -1,0 +1,138 @@
+// 管理商品scss
+.manage-good-cat {
+  position: relative;
+  // 选项卡
+
+  // 标题
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 291px;
+    height: 36px;
+    background: #fff;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 145px;
+      height: 36px;
+      background: #f9f9f9;
+      color: #a3a3a3;
+      border-right: 1px solid #eeeeee;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    span:hover {
+      background: #fff;
+      font-weight: bold;
+    }
+
+    .highlight {
+      background: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .row {
+
+      display: flex;
+      margin-bottom : 10px;
+    .total{
+      border-top: 2px solid orangered; padding: 1em 0 ;background-color: white;width: 100%;
+      div {color: #a3a3a3;}
+      .item {display: inline-block;border-right: 2px solid grey;padding: 0 auto;min-width: 10em;text-align: center;
+          .red{
+            color : red; font-size : 25px ;
+          }
+          .blue{
+            color : blue; font-size : 25px ;
+          }
+
+      }
+
+    }
+  }
+
+
+  // 商品信息管理
+  .manage-good {
+    .table {
+      .table-row {
+        span {
+          width: 30%;
+          max-width: 130px;
+          .fa-sort{
+            width: 6px;
+            height: 10px;
+            padding-left: 3px;
+          }
+        }
+        span.price_title.pointer:hover {
+          color: rgb(255,69,0);
+          padding: 5px;
+        }
+        span.tip{
+          position:relative;
+
+          .tip-img{
+            width: 24px;
+            position: absolute;
+          }
+          .tip-content{
+            position: absolute;
+            width: 150px;
+          }
+        }
+        .price_title{
+          display: block;
+          text-align: right;
+        }
+        .price{
+          display: block;
+          text-align: right;
+        }
+        .tooltip-inner{
+            font-size: 12px;
+            width: 150px;
+            height: 40px;
+        }
+      }
+    }
+  }
+
+  // 商品类别管理
+  .manage-cat {
+    .table {
+      margin-top: 5px;
+      div {
+
+        span {
+          width: 20%;
+        }
+        .two-imgs {
+          span {
+            width: 80px;
+
+            span {
+              width: 50%;
+            }
+          }
+          
+        }
+        .price_title{
+          display: block;
+          text-align: center;
+        }
+        .price{
+          display: block;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

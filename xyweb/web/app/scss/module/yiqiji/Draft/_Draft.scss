@@ -1,0 +1,36 @@
+.Draft {
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 450px;
+        height: 36px;
+        background: #eee;
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 36px;
+            background: #f9f9f9;
+            color: #a3a3a3;
+            border-right: 1px solid #eeeeee;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            &:hover {
+                background: #fff;
+                font-weight: bold;
+            }
+        }
+        .highlight {
+            background: #fff;
+            font-weight: bold;
+        }
+    }
+    .time-container {
+        .batchCheck {
+            margin-left: 30px;
+        }
+    }
+}

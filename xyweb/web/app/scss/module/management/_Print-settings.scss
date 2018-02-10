@@ -1,0 +1,96 @@
+.print_settings {
+    max-width: 1366px;
+    min-width: 800px;
+    margin: auto;
+    .title {
+        font-weight: bold;
+        color: #888;
+        margin: 0, 0, 15px, 0;
+        padding: 0;
+        border: 0;
+    }
+    .xy-panel {
+        padding: 20px;
+        .xy-panel-body {
+            padding: 0;
+            padding-top: 20px;
+        }
+        .xy-panel-body-row {
+            display: flex;
+            flex-direction: row;
+            input{
+                width: 50%;
+                background: #eee
+            }
+            td {
+                border-top: none;
+            }
+            .xy-btn-design{
+                  background: $themeColor;
+                  color: white;
+                  outline: none;
+                  margin-left: 10px;
+                  &:hover {
+                    background-color: darken($btnSubmitColor, 5%);
+                    color: white;
+                    outline: none;
+                  }
+                  &:active {
+                    background-color: darken($btnSubmitColor, 15%);
+                    color: white;
+                    outline: none;
+                  }
+            }
+            .xy-checkbox {
+                label {
+                    font-size: 15px;
+                    margin-right: 25px;
+                    input {
+                        display: inline-block;
+                        height: 16px;
+                        width: 16px;
+                    }
+                }
+            }
+            .template{
+                height: 30px;
+                line-height: 30px;
+            }
+            .xy-panel-body-left{
+                height: 35px;
+                line-height: 45px;
+            }
+            .xy-check_font_size {
+                margin: 0 15px;
+                font-size: 16px;
+                line-height: 30px;
+                .dropdown {
+                    display: inline-block;
+                    border-color: $btnTopRightEmpColor;
+                }
+            }
+            .check_gridLine{
+                line-height: 30px;
+                label{
+                    width: 50px;
+                }
+            }
+        }
+        .btn-subject{
+           background: $themeColor;
+                  color: white;
+                  outline: none;
+                  margin: 30px 0;
+                  &:hover {
+                    background-color: darken($btnSubmitColor, 5%);
+                    color: white;
+                    outline: none;
+                  }
+                  &:active {
+                    background-color: darken($btnSubmitColor, 15%);
+                    color: white;
+                    outline: none;
+                  }
+        }
+    }
+}

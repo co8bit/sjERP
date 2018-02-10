@@ -1,0 +1,114 @@
+$input-height-s:20px;
+// .input-s-s {
+//     height: $input-height-s;
+//     width: 80px;
+//     padding:2px;
+//     color: $color-normal-text;
+// }
+// .input-s-m {
+//     height:$input-height-s;
+//     width:150px;
+//     border:none;
+//     padding:2px;
+//     color:white;
+// }
+// .input-s-l {
+//     height: $input-height-s;
+//     width: 200px;
+// }
+// // 文本框
+// .textarea-s-l {
+//     height:24px;
+//     width:320px;
+//     // resize:both;
+//     resize:vertical;
+// }
+// // 100%宽度输入框
+// .input-s-f {
+//     height:20px;
+//     width:100%;
+//     resize:vertical;
+// }
+// // 100%宽度输入框
+// .input-m-f {
+//     height:40px;
+//     width:100%;
+//     resize:vertical;
+// }
+// // 搜索框内容直接命中结果并选中时内容变为蓝色
+// .hit {
+//     color:blue;
+// }
+.input-dropdown {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    input {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        &.left {
+            padding-right: 20px;
+        }
+        &.right {
+            padding-left: 20px;
+        }
+    }
+    i {
+        position: absolute;
+        border: none;
+        height: 30px;
+        background: transparent;
+        line-height: 30px;
+        right: 0;
+        width: 20px;
+        &.left {
+            left: 0;
+        }
+        &.right {
+            right: 0;
+        }
+    }
+    .dropdown-list {
+        position: absolute;
+        width: 100%;
+        min-width: 200px;
+        height: 150px;
+        top: 35px;
+        left: 0;
+        border: 1px solid #cccccc;
+        z-index: 2;
+        background: white;
+        border-color: rgba(82, 168, 236, 0.8);
+        outline: 0;
+        border-radius: 5px;
+        outline: thin dotted \9;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+        overflow-y: scroll;
+        position: absolute;
+        display: flex;
+        flex-flow: column nowrap;
+        &.no-scroll {
+            overflow: initial;
+        }
+        .item {
+            width: 100%;
+            padding: 3px 5px;
+            border-bottom: 1px solid #eeeeee;
+            cursor: pointer;
+            &:nth-last-child {
+                border: none;
+            }
+            &.hover:hover {
+                background: #eeeeee;
+            }
+            &.title {
+                background: rgba(82, 168, 236, 0.8);
+                &:hover {
+                    background: darken(rgba(82, 168, 236, 0.8), 5%);
+                }
+            }
+        }
+    }
+}

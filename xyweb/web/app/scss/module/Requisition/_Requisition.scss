@@ -1,0 +1,343 @@
+.Requisition {
+    background: white;
+    height: 94%;
+    overflow-y: scroll;
+    .scroll_wrap {
+        position: fixed;
+        right: 0px;
+        width: 20px;
+        height: 100%;
+        background: white;
+    }
+    .title-bar {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+    }
+    .warehouse_info {
+        display: flex;
+        flex-flow: row;
+        padding: 0 10%;
+        margin: 50px 0;
+        .warehouse {
+            width: 50%;
+            .warehouse_name {
+                display: block;
+                width: 95px;
+                height: 70px;
+                border-top: 5px solid #dbb5a8;
+                border-radius: 5px;
+                line-height: 70px;
+                font-size: 20px;
+                font-weight: bold;
+                padding-left: 5px;
+            }
+            input {
+                height: 40px;
+                width: 50%;
+                border: none;
+                border-radius: 5px;
+                background-color: #eeeeee;
+                border-left: 5px solid #dbb5a8;
+            }
+            .sto-list {
+                display: flex;
+                align-content: flex-start;
+                flex-wrap: wrap;
+                width: 88%;
+                background-color: white;
+                width: 100%;
+                div {
+                    width: 150px;
+                    margin-top: 10px;
+                    margin-right: 10px;
+                    border-radius: 5px;
+                    button {
+                        width: 150px;
+                        height: 30px;
+                        border: none;
+                        border-radius: 5px;
+                        &:hover {
+                            color: white;
+                            background-color: grey;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .goodList_info {
+        display: flex;
+        flex-flow: column;
+        padding: 0 10%;
+        div {
+            .goodList_name {
+                display: block;
+                width: 95px;
+                height: 70px;
+                border-top: 5px solid #dbb5a8;
+                border-radius: 5px;
+                line-height: 70px;
+                font-size: 20px;
+                font-weight: bold;
+                padding-left: 5px;
+            }
+        }
+        .goodList {
+            .table {
+                .head {
+                    span {
+                        width: 13%;
+                    }
+                }
+            }
+            .goodList_add_btn {
+                button {
+                    height: 35px;
+                    width: 100px;
+                    border: none;
+                    font-size: 16px;
+                    color: white;
+                    background-color: $btnSubmitColor;
+                    &:hover {
+                        background-color: darken($btnSubmitColor, 5%);
+                    }
+                    &:active {
+                        background-color: darken($btnSubmitColor, 15%);
+                    }
+                }
+            }
+        }
+    }
+    .remark {
+        display: flex;
+        flex-flow: column;
+        padding: 0 10%;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        div {
+            .remark_name {
+                display: block;
+                width: 95px;
+                height: 70px;
+                border-top: 5px solid #dbb5a8;
+                border-radius: 5px;
+                line-height: 70px;
+                font-size: 20px;
+                font-weight: bold;
+                padding-left: 5px;
+            }
+            textarea {
+                width: 70%;
+                height: 135px;
+            }
+        }
+    }
+    .footer {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10%;
+        bottom: 0;
+        width: 100%;
+        height: 65px;
+        align-items: center;
+        div {
+            border: none;
+        }
+        .transactor {
+            width: 300px;
+            span {
+                width: 50px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            select {
+                width: 150px;
+            }
+        }
+        .time {
+            width: 550px;
+            label {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .date-input {
+                border: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                border-bottom: 1px solid black;
+                text-align: center;
+            }
+            .submit-btn {
+                margin: 1px 0 0 50px;
+                display: inline-block;
+                width: 200px;
+                button {
+                    height: 35px;
+                    width: 200px;
+                    color: white;
+                    border: none;
+                    font-size: 20px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                    background: $btnSubmitColor;
+                }
+            }
+        }
+    }
+    .GoodListDialog {
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        overflow: hidden;
+        width: 100%;
+        /*height: 100%;*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgb(163, 163, 163);
+        /*z-index: 1000000;*/
+        /*height: 135%;*/
+        .goodListTotal {
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            /*align-items: center;*/
+            /*justify-content: center;*/
+            /*margin-top: 5%;*/
+            overflow: hidden;
+            width: 80%;
+            height: 100%;
+            .search-and-cat {
+                width: 100%;
+                display: flex;
+                flex-shrink: 0;
+                flex-direction: column;
+                justify-content: center;
+                /*background-color: white;*/
+            }
+            .search-bar-red {
+                background: transparent;
+                /*padding: 0px 32px 0px 0px;*/
+                padding: 4px 35px 0 24px;
+                height: 60px;
+                margin-left: -24px;
+                /*margin-right: -44px;*/
+                //box-shadow: 1px 1px 3px #2b2b2b;
+            }
+            .filter-bar-red {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 1px 1px 3px #2b2b2b;
+                padding: 0 24px;
+                .create-spu-btn {
+                    margin: 0;
+                }
+            }
+            .quit {
+                position: fixed;
+                bottom: 50px;
+                right: 30px;
+                text-align: center;
+                /*padding: 5px;*/
+                button {
+                    box-shadow: 1px 1px 3px #2b2b2b;
+                }
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: -10px;
+                }
+            }
+            .btnquit {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-top: 10px;
+                margin-right: -45px;
+                button {
+                    background: none;
+                }
+                /*padding: 5px;*/
+                img {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: -10px;
+                }
+            }
+            .good-list {
+                /*width: 100%;*/
+
+                display: flex;
+                flex-flow: row wrap;
+                align-content: flex-start;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                margin-top: 5px;
+                margin-right: -18px;
+                /*box-shadow: 10px 10px 5px #888888;*/
+                .good-unit {
+                    position: relative;
+                    margin-top: 2px;
+                    margin-right: 2px;
+                    background-color: white;
+                    flex-shrink: 0;
+                    width: 101.6px;
+                    height: 101.6px;
+                    cursor: pointer;
+                    .item-info {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 5px;
+                        .spec-name {
+                            text-align: end;
+                            font-size: 0.9em;
+                        }
+                        &:hover {
+                            background-color: #ee7258;
+                            color: white;
+                        }
+                        &:active {
+                            background-color: darken(#ee7258, 5%);
+                        }
+                    }
+                    .already-add {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #ee7258;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        opacity: 0.8;
+                        z-index: 100;
+                        .click-to-modify {
+                            margin-top: 5px;
+                            font-size: 0.9em;
+                        }
+                    }
+                    .editing {
+                        background-color: #E76646;
+                        opacity: 0.9;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+<div class="search">
+    <div class="result">
+        <span>搜索"{{model.searchContent}}"的结果</span>
+    </div>
+    <!-- 选项卡 -->
+    <div class="title">
+        <span ng-class="{selected:pageState.activeTab == 1}" ng-click="clickTab(1);">单据</span>
+        <span ng-class="{selected:pageState.activeTab == 2}" ng-click="clickTab(2);">商品名</span>
+        <span ng-class="{selected:pageState.activeTab == 3}" ng-click="clickTab(3);">往来单位</span>
+    </div>
+    <!-- 表格 -->
+    <div class="table first-table" ng-show="pageState.activeTab == 1">
+        <div class="head table-row">
+            <span>创建时间</span>
+            <!--<span>出/入库时间</span>-->
+            <!--<span>单号</span>-->
+            <span>类别</span>
+            <span>经办人</span>
+            <span>状态</span>
+            <span>总金额</span>
+            <!--<span>待收</span>-->
+            <!--<span>待付</span>-->
+            <!--<span>结余</span>-->
+            <span>详情</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data">
+            <span>{{item.reg_time_show}}</span>
+            <!--<span>{{item.leave_time_show}}</span>-->
+            <!-- 单号 -->
+            <!--<span ng-show="item.fid > 0">{{item.fid}}</span>-->
+            <!--<span ng-show="item.oid > 0">{{item.oid}}</span>-->
+            <!--<span ng-show="item.wid > 0">{{item.wid}}</span>-->
+            <!-- 类别 -->
+            <span>{{item.class_show}}</span>
+            <!-- 经办人 -->
+            <span>{{item.operator_name}}</span>
+            <!-- 状态 -->
+            <!-- <span class="cb">{{item.status}}</span> -->
+            <span>{{item.status_show}}</span>
+            <!-- 总金额 -->
+            <span ng-bind-html="item.value_show"></span>
+            <!-- 待收 -->
+            <!--<span ng-show="!(item.remain >= 0)" ng-bind-html="item.zero_show"></span>-->
+            <!--<span ng-show="item.remain >= 0" ng-bind-html="item.remain_show"></span>-->
+            <!-- 待付 -->
+            <!--<span ng-show="(item.remain >= 0)" ng-bind-html="item.zero_show"></span>-->
+            <!--<span ng-show="!(item.remain >= 0)" ng-bind-html="item.remain_show"></span>-->
+            <!-- 结余 -->
+            <!--<span ng-bind-html="item.balance_show"></span>-->
+            <!-- 查看详情 -->
+            <span>
+                <button ng-click="viewDetails(item)">详情</button>
+            </span>
+        </div>
+    </div>
+    <div class="table second-table" ng-show="pageState.activeTab == 2">
+        <div class="head table-row">
+            <span>商品编号</span>
+            <span>商品名</span>
+            <span>规格</span>
+            <span>类别</span>
+            <span>库存</span>
+            <!--<span>单价</span>-->
+            <!--<span>金额</span>-->
+            <span>详情</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data ">
+            <span>{{item.sn}}</span>
+            <span>{{item.spu_name}}</span>
+            <span>{{item.spec_name}}</span>
+            <span>{{item.cat_name}}</span>
+            <span>{{item.stock}}</span>
+            <!--<span ng-bind-html="item.unit_price_show"></span>-->
+            <!--<span ng-bind-html="item.tot_price_show"></span>-->
+            <span>
+                <button ng-click="EventService.emit(EventService.ev.START_CREATE_EDIT_SPU, item.spu_id);">详情</button>
+            </span>
+        </div>
+    </div>
+    <div class="table third-table" ng-show="pageState.activeTab == 3">
+        <div class="head table-row">
+            <span>单位名称</span>
+            <span>速查码</span>
+            <span>备注信息</span>
+            <span>启用</span>
+            <span>查看详情</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data">
+            <span>{{item.name}}</span>
+            <span>{{item.qcode}}</span>
+            <span class="ellipsis">{{item.remark}}</span>
+            <span ng-show="item.status == 1">✔</span>
+            <span ng-show="item.status != 1">✘</span>
+            <span>
+                <button
+                        ng-click="checkRecord(item.cid)">
+                查看详情
+                </button>
+            </span>
+        </div>
+    </div>
+    <!-- 分页 -->
+    <div class="page-navi">
+        <div ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in paginator.pageList" ng-click="paginator.clickButton(item);">
+            <span >{{item.content}}</span>
+        </div>
+    </div>
+</div>

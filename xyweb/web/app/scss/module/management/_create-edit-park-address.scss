@@ -1,0 +1,78 @@
+.create-edit-park-address {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+
+  .below-title-bar {
+    background: #eee;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .create-edit-park-address-container {
+      height: 400px;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      right: 100px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+
+      div {
+        width: 60%;
+      }
+
+      .park-address-container {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        span {
+          flex-shrink: 0;
+          font-size: 16px;
+        }
+        input {
+          width: 100%;
+          height: 38px;
+          padding-left: 20px;
+          background: #f9f9f9;
+          border: none;
+          font-size: 13px;
+        }
+      }
+
+      .create-edit-container {
+        margin-top: 50px;
+        //height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $themeColor;
+          height: 32px;
+          /*width: 159px;*/
+          padding-left: 48px;
+          padding-right: 48px;
+          color: #fdfdfd;
+          border: none;
+          outline: none;
+          font-weight: bold;
+          font-size: 15px;
+        }
+
+        button:hover {
+          background: darken($themeColor, 5%);
+        }
+      }
+    }
+  }
+
+}

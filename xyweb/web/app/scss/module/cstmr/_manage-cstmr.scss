@@ -1,0 +1,35 @@
+// 往来单位scss
+.manage-cstmr {
+  position: relative;
+
+  // 搜索
+  .search-bar {
+    background: #fff;
+    margin-bottom: 9px;
+  }
+
+  .table {
+    div {
+      padding-left: 30px;
+      padding-right: 30px;
+
+      .ellipsis.cid-name {
+        cursor: pointer;
+      }
+      
+      span {
+        width: 20%;
+      }
+      .price{
+        width: 110px;
+        text-align: right;
+      }
+        .number_algin_item1{
+          display: block;
+          width: 110px;
+          text-align: right;
+          padding-right: 30px;
+        }
+    }
+  }
+}

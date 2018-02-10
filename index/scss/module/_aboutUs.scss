@@ -1,0 +1,48 @@
+.about-us {
+    width: 100%;
+    min-width: 1100px;
+    .block {
+        width: 100%;
+        min-width: 1100px;
+        &.first,
+        &.third {
+            background: #F2F7EB;
+        }
+        &.second,&.four {
+            margin: 50px 0;
+        }
+        &.five{
+            .content {
+                @extend .flex;
+                justify-content: space-between;
+                .section {
+                    @extend .flex;
+                    align-items: center;
+                    height: 280px;
+                    padding: 15px;
+                    box-sizing: border-box;
+                    width: 24%;
+                    font-size: 24px;
+                    color: #000;
+                    background: #F2F7EB;
+                    line-height: 50px;
+                }
+            }
+        }
+        .content {
+            width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            .title {
+                font-size: 32px;
+                font-weight: bold;
+                margin-top: 50px;
+            }
+            p {
+                margin-top: 20px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+        }
+    }
+}

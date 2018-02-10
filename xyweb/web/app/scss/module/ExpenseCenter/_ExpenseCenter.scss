@@ -1,0 +1,497 @@
+.expense-center {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    .charge-container-bg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(163, 163, 163, 0.6);
+        z-index: 1000000;
+        .charge-container {
+            width: 450px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            background: #fff;
+            box-shadow: 0 0 5px #aaa;
+            div {
+                margin: 20px 0;
+            }
+            .close {
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                cursor: pointer;
+                img {
+                    padding: 7px;
+                    &:hover {
+                        background: #f2f2f2;
+                    }
+                }
+            }
+            .top {
+                display: flex;
+                align-items: center;
+                flex-flow: row;
+                margin-top: 50px;
+                a {
+                    font-size: 20px;
+                    letter-spacing: 5px;
+                    color: #000;
+                    display: flex;
+                }
+                input {
+                    width: 200px;
+                    height: 50px;
+                    border: 2px solid $themeColor;
+                    margin: 0 10px;
+                }
+            }
+            .bottom {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                a {
+                    display: flex;
+                    justify-content: center;
+                    font-size: 14px;
+                    letter-spacing: 5px;
+                    color: #747474;
+                }
+                .charge {
+                    font-size: 20px;
+                    letter-spacing: 5px;
+                    color: #fff;
+                    font-weight: bold;
+                    padding: 10px 20px;
+                    background: $themeColor;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                    &:hover {
+                        background: darken($themeColor, 5%);
+                    }
+                }
+            }
+        }
+    }
+    .detail-container-bg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(163, 163, 163, 0.6);
+        z-index: 1000000;
+        .detail-container {
+            width: 600px;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            background: #fff;
+            box-shadow: 0 0 5px #aaa;
+            padding: 20px;
+            .content-container {
+                color: #444;
+                div {
+                    display: flex;
+                    flex-flow: row;
+                    margin: 10px;
+                    span {
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        width: 80px;
+                    }
+                    p {
+                        width: 460px;
+                        max-height: 150px;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                    }
+                    .recipient {
+                        max-height: 100px;
+                    }
+                }
+            }
+            .btn-container {
+                margin-top: 10px;
+                a {
+                    cursor: pointer;
+                    font-size: 14px;
+                    background: $subthemeColor;
+                    color: #fff;
+                    padding: 5px 20px;
+                    &:hover {
+                        background: darken($subthemeColor, 5%);
+                    }
+                }
+            }
+        }
+    }
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-y: scroll;
+        background: #eee;
+        a {
+            color: #000;
+        }
+        .top-wrapper {
+            display: flex;
+            margin-top: 50px;
+            width: 56%;
+            min-width: 1000px;
+            height: 700px;
+            justify-content: space-between;
+            .left-container {
+                width: 36%;
+                height: 100%;
+                background: #fff;
+                .top-container {
+                    display: flex;
+                    flex-flow: column;
+                    align-items: center;
+                    min-height: 155px;
+                    padding-top: 30px;
+                    img {
+                        margin-bottom: 9px
+                    }
+                    .welcome-container {
+                        width: 100%;
+                        height: 24px;
+                        // display: flex;
+                        // justify-content: flex-end;
+                        // align-items: center;
+                        text-align: center;
+                        margin-bottom: 14px;
+                        .welcome {}
+                        .free {
+                            width: 50%;
+                            height: 24px;
+                            margin: 0 10px;
+                            padding: 4px 8px;
+                            font-size: 12px;
+                            background: $themeColor;
+                            color: #fff;
+                            border-radius: 10px;
+                        }
+                    }
+                    .vip-end-countdown {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+                .divide-container {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                    div {
+                        width: 20%;
+                        height: 2px;
+                        background: #eee;
+                    }
+                    a {
+                        color: #444;
+                        margin: 0 10px;
+                        flex-shrink: 0;
+                    }
+                    span {
+                        font-weight: bold;
+                    }
+                    .class-1 {
+                        color: #FCCF0D;
+                    }
+                    .class-2 {
+                        color: #000000;
+                    }
+                    .class-3 {
+                        color: #6A4A6A;
+                    }
+                    .class-5 {
+                        color: #9F2D46;
+                    }
+                }
+                .price-container {
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    .class-container {
+                        width: 50%;
+                        flex-grow: 1;
+                        display: flex;
+                        flex-flow: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        background: #fff;
+                        &.head {
+                            a {
+                                color: #888;
+                            }
+                        }
+                        div {
+                            height: 44px;
+                            width: 85%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .h {
+                            flex-flow: row wrap;
+                            .num {
+                                font-size: 12px;
+                            }
+                        }
+                        .v {
+                            flex-flow: column;
+                        }
+                        .content-container {
+                            width: 100%;
+                            height: 325px;
+                            display: flex;
+                            flex-flow: column;
+                            align-items: center;
+                            a {
+                                padding: 4px 0;
+                            }
+                            .qq {
+                                width: 70%;
+                                height: 30px;
+                                margin: 22px 0;
+                                border: 1px solid #9f2d46;
+                                border-radius: 8px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .btn-container {
+                    width: 100%;
+                    height: 70px;
+                    margin-top: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 40px;
+                        font-size: 20px;
+                        letter-spacing: 7px;
+                        width: 300px;
+                        height: 70px;
+                        color: #fff;
+                        background: $themeColor;
+                        cursor: pointer;
+                        &:hover {
+                            background: darken($themeColor, 5%);
+                        }
+                    }
+                }
+            }
+            .right-container {
+                width: 60%;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                img {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+                .remain-charge-container {
+                    width: 100%;
+                    background: #fff;
+                    padding: 0 30px;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-around;
+                    .remain-container {
+                        width: 100%;
+                        height: 50%;
+                        display: flex;
+                        flex-flow: row;
+                        border-bottom: 1px solid #2b2b2b;
+                        padding-bottom: 20px;
+                        .left {
+                            width: 50%;
+                            display: flex;
+                            flex-flow: column;
+                            justify-content: center;
+                            span {
+                                align-self: center;
+                                .num {
+                                    font-size: 36px;
+                                }
+                                .sign {
+                                    margin-left: 10px;
+                                    font-size: 30px;
+                                }
+                            }
+                            .title {
+                                font-size: 20px;
+                                letter-spacing: 5px;
+                            }
+                        }
+                        .right {
+                            width: 50%;
+                            display: flex;
+                            flex-flow: column;
+                            justify-content: center;
+                            span {
+                                align-self: center;
+                                .num {
+                                    font-size: 36px;
+                                }
+                                .sign {
+                                    margin-left: 10px;
+                                    font-size: 30px;
+                                }
+                            }
+                            .title {
+                                font-size: 20px;
+                                letter-spacing: 5px;
+                            }
+                        }
+                    }
+                    .divide {
+                        width: 89%;
+                        height: 1px;
+                        background: #a7a7a7;
+                    }
+                    .charge-container {
+                        width: 100%;
+                        height: 42%;
+                        display: flex;
+                        flex-flow: row;
+                        .left {
+                            width: 50%;
+                            padding-left: 9%;
+                            display: flex;
+                            flex-flow: column;
+                            justify-content: center;
+                            a {
+                                margin: 6px 0;
+                            }
+                        }
+                        .right {
+                            width: 50%;
+                            display: flex;
+                            flex-flow: row;
+                            align-items: center;
+                            .charge {
+                                width: 92px;
+                                height: 37px;
+                                background: $themeColor;
+                                color: #fff;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 18px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                margin-right: 30px;
+                                border-radius: 20px;
+                                &:hover {
+                                    background: darken($themeColor, 5%);
+                                    color: #fff;
+                                }
+                            }
+                            div {
+                                display: flex;
+                                flex-flow: column;
+                                a {
+                                    margin: 6px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-wrapper {
+            width: 56%;
+            min-width: 1000px;
+            margin-bottom: 50px;
+            .tab-container {
+                height: 80px;
+                margin-top: 20px;
+                margin-bottom: 5px;
+                background: #fff;
+                display: flex;
+                align-content: center;
+                flex-flow: row;
+               .pay-menu{
+                   width: 50%;
+                   display: flex;
+                   align-content: center;
+                   flex-flow: row;
+                   margin-right: 0;
+                   span {
+                       text-align: center;
+                       font-size: 24px;
+                       font-weight: bold;
+                       letter-spacing: 5px;
+                       color: #282828;
+                       width: 150px;
+                       height: 74px;
+                       margin: 0 20px;
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       cursor: pointer;
+                       &:hover {
+                           border-bottom: 2px solid $themeColor;
+                       }
+                   }
+               }
+                .time-container{
+                        padding-left: 70px;
+                }
+                .selectedTab {
+                    border-bottom: 2px solid $themeColor;
+                }
+            }
+            .table {
+                div {
+                    span {
+                        width: 15%;
+                        &.big-span{
+                            width: 30%;
+                        }
+                    }
+
+                }
+                .head {
+                    span {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

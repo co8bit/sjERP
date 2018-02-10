@@ -1,0 +1,52 @@
+<div class="shop-info">
+    <div class="title">
+        <span ng-show="isYqj">公 司 设 置</span>
+        <span ng-show="!isYqj && isEditting">店 铺 设 置</span>
+        <span ng-show="!isYqj && !isEditting">店 铺 信 息</span>
+    </div>
+    <div class="content">
+        <div class="above-container">
+            <div>
+                <span>公司名</span>
+                <input type="text" ng-model="shopInfo.shop_name" ng-disabled="loginStatus.rpg != 1 && loginStatus.rpg != 8" >
+                <span class="required" ng-show="isEditting">*</span>
+            </div>
+            <div>
+                <span>行业</span>
+                <input type="text" ng-model="shopInfo.industry" ng-disabled="loginStatus.rpg != 1 && loginStatus.rpg != 8">
+                <span class="required" ng-show="isEditting">*</span>
+            </div>
+        </div>
+        <div class="above-container">
+            <div>
+                <span>省份</span>
+                <select name="mySelect" id="mySelect"
+                        ng-options="option.name for option in model.geoData"
+                        ng-model="model.selectedProvince"
+                        ng-disabled="!isEditting"
+                        ></select>
+                <!-- <select name="mySelect" id="mySelect" ng-options="option.name for option in selectedCity.sub" ng-model="selectedDistrict" ng-hide="!selectedCity.sub"></select> -->
+                <span class="required" ng-show="isEditting">*</span>
+            </div>
+            <div>
+                <span>城市</span>
+                <select name="mySelect" id="mySelect"
+                        ng-options="option.name for option in model.selectedProvince.sub"
+                        ng-model="model.selectedCity"
+                        ng-disabled="!isEditting"
+                        ></select>
+                <span class="required" ng-show="isEditting">*</span>
+            </div>
+        </div>
+        <div class="below-container">
+
+            <button ng-show="isEditting" ng-click="clickFinishEdit();">完成编辑</button>
+        </div>
+    </div>
+
+    <!--<button ng-click="test();">test</button>-->
+    <!--     <div>
+        <span>地址</span>
+        <input type="text">
+    </div> -->
+</div>

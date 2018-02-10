@@ -1,0 +1,42 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<body>
+<h1>服务器控制台</h1>
+<h2>==============================================</h2>
+
+
+
+
+<form class="form-signin" method="post" action="{:U('Index/watchLog')}">
+  <label for="inputEmail" class="sr-only">查看昨日log：</label>
+  <input type="text" id="inputPassword" name="type" value="1" class="form-control" required style='display:none'>
+  <button type="submit">查询</button>
+</form>
+
+<form class="form-signin" method="post" action="{:U('Index/watchLog')}">
+  <label for="inputEmail" class="sr-only">查看前天log：</label>
+  <input type="text"  name="type" value="2" class="form-control" required style='display:none'>
+  <button type="submit">查询</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Index/watchLog')}">
+  <label for="inputEmail" class="sr-only">按具体日期查看log：</label>
+  月份（如05）：<input type="text" id="inputEmail" name="m" value="{:date('m')}" class="form-control">
+  日期（如08）：<input type="text"  name="d" value='' class="form-control">
+  <button class="btn btn-lg btn-success btn-block" type="submit">查询</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Login/login')}">
+  <label for="inputEmail" class="sr-only">管理员账户--手机号登录</label>
+  用户名：{:C('ROOT_USER_MOBILE')} 密码：123456
+  <input type="text" id="inputEmail" name="username" value="{:C('ROOT_USER_MOBILE')}" class="form-control" required autofocus style='display:none'>
+  <input type="password" name="password" value='de2886ca66a1e008e70e910e2c716bff' style='display:none'>
+  <input type="text"  name="mode" value="2" class="form-control" required style='display:none'>
+  <input type="text"  name="type" value="1" class="form-control" required style='display:none'>
+  <button type="submit">登录</button>
+  <a href="{:U('User/logout')}">登出</a>
+</form>
+</body>
+</html>

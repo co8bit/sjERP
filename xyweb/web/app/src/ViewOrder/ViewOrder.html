@@ -1,0 +1,267 @@
+<div class="vieworder">
+
+    <!-- 订单类型过滤器 -->
+    <div class="filter" ng-hide='rpg == 11'>
+        <span id="selectAllOrder" ng-class="{cb:classCheckbox.flag_none}" ng-click="checkClassCheckbox(1);">全部</span>
+        <div ng-repeat="item in classCheckbox.option">
+            <span ng-class="{cb:item.flag_chosen,'bthover':isMobile==false}" ng-click="checkClassCheckbox(item)">{{item.optionName}}</span>
+        </div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-bar">
+        <div>
+            <img src="web/app/img/misc/pic_search_grey.png">
+            <input type="text" placeholder="单号/往来对象/经办人/状态" ng-model="queryInfo.query">
+        </div>
+    </div>
+
+    <!-- 日期选择器 -->
+    <div class="time-container" ng-show="pageState.page == 2">
+        <span class="time">时间</span>
+        <div id="reportrange" class="pull-left dateRange">
+            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+            <span id="searchDateRange"></span>
+            <b class="caret"></b>
+        </div>
+    </div>
+    <div class="checkbox-row">
+        <!-- 订单状态过滤器 -->
+        <div id="classCheckbox" class="checkbox"
+             ng-show="classCheckbox.selectedId != 5 && classCheckbox.selectedId != 6 && classCheckbox.selectedId != 54 &&classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 83 && classCheckbox.selectedId != 84 && classCheckbox.selectedId != 85">
+            <span>状态</span>
+            <div>
+                <button class="select-all" ng-class="{cb:statusCheckbox.flag_none,}"
+                        ng-click="statusCheckbox.selectAll();">全部
+                </button>
+                <div>
+                    <div ng-repeat="item in statusCheckbox.option"
+                         ng-hide='item.id == 1  && (classCheckbox.selectedId == 81 || classCheckbox.selectedId == 82) || (item.id == 81 || item.id == 83) && classCheckbox.selectedId == 81'>
+                        <button ng-class="{cb:item.flag_chosen,'bthover':isMobile==false}"
+                                ng-click="statusCheckbox.select(item);">
+                            {{item.optionName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 收款方式过滤器 -->
+        <div id="financeTypeCheckbox" class="checkbox"
+             ng-show="classCheckbox.selectedId != 53&&classCheckbox.selectedId != 54 && rpg != 3 && !IsYqjShow ">
+            <span>收款方式</span>
+            <div>
+                <button class="select-all" ng-class="{cb:financeTypeCheckbox.flag_none}"
+                        ng-click="financeTypeCheckbox.selectAll();">不选
+                </button>
+                <div ng-if="!isMobile">
+                    <div ng-repeat="item in financeTypeCheckbox.option">
+                        <button ng-class="{cb:item.flag_chosen,'bthover':isMobile==false}"
+                                ng-click="financeTypeCheckbox.select(item);">
+                            {{item.optionName}}
+                        </button>
+                    </div>
+                </div>
+                <div ng-if="isMobile">
+                    <div ng-repeat="item in financeTypeCheckbox.option">
+                        <button ng-class="{cb:item.flag_chosen,'bthover':isMobile==false}"
+                                ng-click="financeTypeCheckbox.selectSingle(item);">
+                            {{item.optionName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 类别过滤器 -->
+        <div id="bigClassCheckbox" class="checkbox" ng-show="isAll && !IsYqjShow">
+            <span>单据种类</span>
+            <div>
+                <button class="select-all" ng-class="{cb:bigClassCheckbox.flag_none}"
+                        ng-click="bigClassCheckbox.selectAll();">全部
+                </button>
+                <div>
+                    <div ng-repeat="item in bigClassCheckbox.option">
+                        <button ng-class="{cb:item.flag_chosen,'bthover':isMobile==false}"
+                                ng-click="bigClassCheckbox.select(item);">
+                            {{item.optionName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 表 -->
+    <div class="table" st-table="stOrderInfo" st-safe-src="displayedOrderInfo">
+        <div class="head table-row">
+            <span class="sheetId sn" ng-show=" isInFinanceMode && !IsYqjShow">单据单号</span>
+            <span class="time" ng-show="!isInFinanceMode">创建时间</span>
+            <!--<span class="time" ng-show="classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 53">出入库时间</span>-->
+            <!--<span class="sn">单号</span>-->
+            <span class="cat">类别</span>
+            <!-- 里面的classCheckbox.selectedId和item.status的值是一样的，只不过要通过selectedID来判断用户需要查看的是什么单据类型 -->
+            <span ng-show="classCheckbox.selectedId == 0 && !IsYqjShow" class="cid-name">往来对象</span>
+            <span ng-show="classCheckbox.selectedId == 71||classCheckbox.selectedId == 5" class="cid-name">收款对象</span>
+            <span ng-show="classCheckbox.selectedId == 72||classCheckbox.selectedId == 6" class="cid-name">付款对象</span>
+            <span ng-show="classCheckbox.selectedId == 1 || classCheckbox.selectedId == 2" class="cid-name">客户</span>
+            <span ng-show="classCheckbox.selectedId == 3 || classCheckbox.selectedId == 4" class="cid-name">供货商</span>
+            <span ng-show="classCheckbox.selectedId == 73">收入来源</span>
+            <span ng-show="classCheckbox.selectedId == 74">费用用途</span>
+            <span ng-show="classCheckbox.selectedId != 0 && classCheckbox.selectedId != 1 && classCheckbox.selectedId != 2 && classCheckbox.selectedId != 3 && classCheckbox.selectedId != 4 && classCheckbox.selectedId != 53
+            	&& classCheckbox.selectedId != 81 && classCheckbox.selectedId != 82 && classCheckbox.selectedId != 83 && classCheckbox.selectedId != 84">经办人</span>
+            <span ng-show="classCheckbox.selectedId == 82">申领人</span>
+            <span ng-show="classCheckbox.selectedId == 81 || classCheckbox.selectedId == 83 || classCheckbox.selectedId == 84">操作人</span>
+            <span ng-show="classCheckbox.selectedId == 53">执行人</span>
+            <span ng-show="classCheckbox.selectedId == 53">盘点人</span>
+            <span ng-show="classCheckbox.selectedId == 53">变动数量</span>
+            <span
+                    ng-show="classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && !isInFinanceMode">状态</span>
+
+
+            <span class="price"
+                  ng-show="(classCheckbox.selectedId == 0 || classCheckbox.selectedId == 1 || classCheckbox.selectedId == 2 || classCheckbox.selectedId == 3 || classCheckbox.selectedId == 4) && rpg!=3">总金额</span>
+            <span class="price"
+                  ng-show="classCheckbox.selectedId == 73 || classCheckbox.selectedId == 74 || classCheckbox.selectedId == 5 || classCheckbox.selectedId == 6
+                  || classCheckbox.selectedId == 81 || classCheckbox.selectedId == 82 || classCheckbox.selectedId == 83 || classCheckbox.selectedId == 84 || classCheckbox.selectedId == 85">金额</span>
+            <span class="price" ng-show="classCheckbox.selectedId == 53 &&isRequisitionShow">变动金额</span>
+            <span class="price" ng-show="classCheckbox.selectedId == 54 &&isRequisitionShow">调拨金额</span>
+            <span class="price" ng-show="classCheckbox.selectedId == 71">收款金额</span>
+            <span class="price" ng-show="classCheckbox.selectedId == 72">付款金额</span>
+            <span class="price" ng-show="isInFinanceMode && isInCashShow">现金金额</span>
+            <span class="price" ng-show="isInFinanceMode && isInBankShow">银行金额</span>
+            <span class="price" ng-show="isInFinanceMode && isInOnlinePayShow">网络金额</span>
+
+            <!--<span ng-show="classCheckbox.selectedId != 3 && classCheckbox.selectedId != 2  && classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74">待收</span>-->
+
+            <!--<span ng-show="classCheckbox.selectedId != 1 && classCheckbox.selectedId != 4  && classCheckbox.selectedId != 53  && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74">待付</span>-->
+
+            <span class="remark" ng-if="isMinShow && !isInFinanceMode">备注</span>
+
+            <span class="operate">操作</span>
+        </div>
+        <div class="table-row" ng-repeat="item in stOrderInfo"
+             ng-class='{statusRed:(item.status==91||item.status==92),statusBlue:item.status==3}'>
+
+            <!-- 单据单号 -->
+            <span class="sheetId sn" ng-show="isInFinanceMode && !IsYqjShow">{{item.sn}}</span>
+            <!--创建时间-->
+            <span class="time" ng-show="!isInFinanceMode" ng-bind-html="item.reg_time_show"></span>
+            <!--{{item.reg_time_show}}-->
+            <!--出入库时间-->
+            <!--<span class="ellipsis rtl time" ng-show="classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 53">{{item.leave_time_show}}</span>-->
+            <!-- 单号 -->
+            <!--<span class="ellipsis rtl sn">{{item.sn}}</span>-->
+            <!-- 类别 -->
+            <span class="cat">{{item.class | _class}}</span>
+            <!-- 往来对象 -->
+            <span ng-click="checkDetails(item)" class="ellipsis cid-name"
+                  ng-show="classCheckbox.selectedId != 53 && classCheckbox.selectedId != 54 &&classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && !IsYqjShow">{{item.cid_name == '' ? '-' : item.cid_name}}</span>
+            <!-- 收入来源/费用用途 -->
+            <span ng-show="classCheckbox.selectedId == 73 || classCheckbox.selectedId == 74">{{item.name}}</span>
+            <!-- 经办人 -->
+            <span ng-show="classCheckbox.selectedId != 0 && classCheckbox.selectedId != 1 && classCheckbox.selectedId != 2 && classCheckbox.selectedId != 3 && classCheckbox.selectedId != 4">{{item.operator_name}}</span>
+            <!--盘点人-->
+            <span ng-show="classCheckbox.selectedId == 53">{{item.check_name}}</span>
+            <!--变动数量-->
+            <span ng-show="classCheckbox.selectedId == 53">{{item.num}}</span>
+            <!-- 状态 -->
+            <span class=" ellipsis"
+                  ng-show="classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && !isInFinanceMode">{{item.status | status}}</span>
+
+            <!-- :item.status!=91 -->
+
+            <!--金额-->
+            <span class="price" ng-show="rpg != 3">
+                <span ng-show="classCheckbox.selectedId != 5 && item.class != 53 &&item.class != 54 &&  item.class != 3 &&item.class !=4 && classCheckbox.selectedId != 6 && classCheckbox.selectedId != 71 &&
+                        classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 0
+                        && item.class != 81 && item.class != 82 && item.class != 83 && item.class != 84 && item.class != 85"
+                      ng-bind-html="item.value_show"></span>
+                <span ng-show="classCheckbox.selectedId == 0 && item.class != 5  && item.class != 3 &&item.class !=4 && item.class != 6  && item.class != 71 && item.class != 72 && item.class != 73 &&
+                        item.class != 53 && item.class != 54 && item.class != 74 && item.class != 81 && item.class != 82 && item.class != 83 && item.class != 84 && item.class != 85"
+                      ng-bind-html="item.value_show"></span>
+
+                <span ng-show="classCheckbox.selectedId == 0 && item.class != 1 && item.class != 2 && item.class != 3 && item.class != 4 && item.class != 53 && item.class != 54
+                      || classCheckbox.selectedId == 5 || classCheckbox.selectedId == 6 || classCheckbox.selectedId == 71 || classCheckbox.selectedId == 72
+                      || classCheckbox.selectedId == 73 || classCheckbox.selectedId == 74
+                      || classCheckbox.selectedId == 81 || classCheckbox.selectedId == 82 || classCheckbox.selectedId == 83 || classCheckbox.selectedId == 84 || classCheckbox.selectedId == 85"
+                      ng-bind-html="item.income_show"></span>
+
+                <span ng-show=" (item.class == 53 && rpg == 1)  ||
+                                                            (item.class == 53 && rpg == 7)  ||
+                                                            (item.class == 3 && rpg == 1)   ||
+                                                            (item.class == 4 && rpg == 1)   ||
+                                                            (item.class == 3 && rpg == 7)   ||
+                                                            (item.class == 4 && rpg == 7)"
+                      ng-bind-html="item.value_show"></span>
+
+                <span ng-show="item.class == 53 && rpg != 1 && rpg!=7">-</span>
+                <span ng-show="item.class == 54">{{item.value_show}}</span>
+            </span>
+            <!-- 现金 -->
+            <span class="price" ng-show="isInFinanceMode && isInCashShow">
+                <span class="number_algin_item1" ng-if="item.cash > 0 && item.class != 3 && item.class != 4">
+                    <span class="number_algin_item1"
+                          ng-if="item.class != 72 && item.class != 74"> +{{item.cash_show}}</span>
+                    <span class="green number_algin_item1" ng-if="item.class == 72 || item.class == 74"> -{{item.cash_show}}</span>
+                </span>
+                <span class="number_algin_item1" ng-if="item.cash > 0 && item.class == 3 || item.class == 4">
+                    <span class="green number_algin_item1"
+                          ng-if="item.status != 91 &&  item.status != 93 && item.status != 3">-{{item.cash_show}}</span>
+                    <span class="number_algin_item1"
+                          ng-if=" item.status == 91 ||  item.status == 93">{{item.cash_show}}</span>
+                    <span class="number_algin_item1" ng-if="item.status == 3">-{{item.cash_show}}</span>
+                </span>
+
+                <span ng-if="item.cash < 0 && item.class != 3 && item.class != 4" class="number_algin_item1">{{item.cash_show}}</span>
+            </span>
+            <!-- 银行 -->
+            <span class="price" ng-show="isInFinanceMode && isInBankShow">
+                <span class="number_algin_item1" ng-if="item.bank > 0 && item.class != 3 && item.class != 4">
+                    <span class=" number_algin_item1"
+                          ng-if="item.class != 72 && item.class != 74">+{{item.bank_show}}</span>
+                    <span class="green number_algin_item1" ng-if="item.class == 72 || item.class == 74">-{{item.bank_show}}</span>
+                </span>
+                <span class="number_algin_item1" ng-if="item.bank > 0 && item.class == 3 || item.class == 4">
+                    <span class="green number_algin_item1"
+                          ng-if="item.status != 91 &&  item.status != 93 && item.status != 3">-{{item.bank_show}}</span>
+                    <span class="number_algin_item1"
+                          ng-if=" item.status == 91 ||  item.status == 93">{{item.bank_show}}</span>
+                    <span class="number_algin_item1" ng-if="item.status == 3">-{{item.bank_show}}</span>
+                </span>
+                <span class="number_algin_item1" ng-if="item.bank < 0 && item.class != 3 && item.class != 4">{{item.bank_show}}</span>
+            </span>
+            <!-- 网络 -->
+            <span class="price" ng-show="isInFinanceMode && isInOnlinePayShow">
+                <span class="number_algin_item1" ng-if="item.online_pay > 0 && item.class != 3 && item.class != 4">
+                    <span class="number_algin_item1" ng-if="item.class != 72 && item.class != 74">+{{item.online_pay_show}}</span>
+                    <span class="green number_algin_item1" ng-if="item.class == 72 || item.class == 74">-{{item.online_pay_show}}</span>
+                </span>
+                <span class="number_algin_item1" ng-if="item.online_pay > 0 && item.class == 3 || item.class == 4">
+                    <span class="green number_algin_item1"
+                          ng-if="item.status != 91 &&  item.status != 93 && item.status != 3">-{{item.online_pay_show}}</span>
+                    <span class="number_algin_item1" ng-if=" item.status == 91 ||  item.status == 93">{{item.online_pay_show}}</span>
+                    <span class="number_algin_item1" ng-if="item.status == 3">-{{item.online_pay_show}}</span>
+                </span>
+                <span class="number_algin_item1" ng-if="item.online_pay < 0 && item.class != 3 && item.class != 4 ">{{item.online_pay_show}}</span>
+            </span>
+            <!-- 待收 -->
+            <!--<span ng-show="classCheckbox.selectedId != 3 && classCheckbox.selectedId != 2  && classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 0" ng-bind-html="item.remain_show < 0 ? remain_opposite_show : item.remain_show"></span>-->
+            <!--<span ng-show="classCheckbox.selectedId == 0 && item.remain > 0" ng-bind-html="item.remain_show"></span>-->
+            <!--<span ng-show="classCheckbox.selectedId == 0 && item.remain <= 0">-</span>-->
+            <!-- 待付 -->
+            <!--<span ng-show="classCheckbox.selectedId != 1 && classCheckbox.selectedId != 4  && classCheckbox.selectedId != 53 && classCheckbox.selectedId != 71 && classCheckbox.selectedId != 72 && classCheckbox.selectedId != 73 && classCheckbox.selectedId != 74 && classCheckbox.selectedId != 0"ng-bind-html="item.remain_show < 0 ? remain_opposite_show : item.remain_show"></span>-->
+            <!--<span ng-show="classCheckbox.selectedId == 0 && item.remain < 0" ng-bind-html="item.remain_opposite_show"></span>-->
+            <!--<span ng-show="classCheckbox.selectedId == 0 && item.remain >= 0">-</span>-->
+            <!-- 备注 -->
+            <span class="ellipsis remark" ng-if="isMinShow && !isInFinanceMode">{{item.remark}}</span>
+            <!-- 查看详情 -->
+            <span class="operate"><button ng-click="viewDetails(item)" ng-class='{"notAllowed": item.class == 85}'
+                                          ng-disabled="item.class == 85">详情</button></span>
+        </div>
+    </div>
+    <div id="navi" class="page-navi">
+        <div ng-click="paginator.clickButton(item);" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}"
+             ng-repeat="item in paginator.pageList">
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+</div>

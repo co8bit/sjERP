@@ -1,0 +1,316 @@
+// 新建往来单位scss
+.create-cstmr {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  input[type=text],input[type=number] {
+    border: none;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    background: #f9f9f9;
+  }
+
+  input[type=text]:disabled {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+  }
+
+  input[type=number]:disabled {
+    @extend input[type=text]:disabled;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background: #eee;
+
+    .top-container {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: row;
+
+      .left {
+        width: 33%;
+        padding-top: 3%;
+        //padding-bottom: 4vw;
+        margin-right: 10px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          width: 70%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+
+          .note{
+            width: 70%;
+            font-size:small;
+            margin: 0;
+            .red{color: #f00;width: 3em;margin: 0}
+          }
+
+          span {
+            width: 35%;
+          }
+
+          input {
+            width: 50%;
+            margin-bottom: 0;
+          }
+
+          textarea {
+            @extend input;
+            padding: 10px 20px;
+            rows: 8;
+            border: none;
+            background: #f9f9f9;
+            resize: none;
+          }
+
+          textarea:disabled {
+            background: #fff;
+            border: none;
+            box-shadow: none;
+          }
+        }
+
+        .pull-down-menu {
+          position: relative;
+          display: flex;
+          justify-content: flex-start;
+          flex-flow: row wrap;
+          max-height: 500px;
+          background-color: white;
+          opacity: 1;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          div {
+            width: 25%;
+            span {
+              margin-top: 1px;
+              width: 90%;
+              height: 25px;
+              border: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              background: #f9f9f9;
+              &:hover {
+                color: white;
+                background-color: grey;
+              }
+            }
+            .first-qcode {
+              background-color: $themeColor;
+              color: white;
+            }
+          }
+        }
+
+        .enable {
+          width: 33%;
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+
+          input {
+            width: auto;
+          }
+        }
+      }
+
+      .right {
+        width: 66%;
+        padding: 3%;
+        background: #fff;
+        overflow: auto;
+
+        .edit {
+          display: flex;
+          justify-content: center;
+
+          button {
+            border: none;
+            outline: none;
+            padding: 6px 20px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: $subthemeColor;
+          }
+
+          button:hover {
+            background: darken($subthemeColor, 5%);
+          }
+
+          button:disabled {
+            background: darken($subthemeColor, 5%);
+          }
+        }
+
+        .contact-container {
+          border-bottom: 1px solid #aaa;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+
+          .contact {
+
+            span {
+              width: 70px;
+            }
+
+            .contact-bar {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+
+              input {
+                width: auto;
+                margin: 0;
+              }
+            }
+
+            input {
+              width: 25%;
+            }
+
+            .phone {
+              margin-bottom: 20px;
+
+              span {
+                float: left;
+                margin-top: 10px;
+              }
+
+              .container {
+                display: flex;
+                flex-flow: row wrap;
+
+                .outer {
+                  width: 25%;
+                  margin-right: 8%;
+                  height: 38px;
+                  margin-bottom: 10px;
+
+                  div {
+                    height: 38px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    input {
+                      width: 85%;
+                      height: 38px;
+                      margin: 0;
+                    }
+
+                    img {
+                      cursor: pointer;
+                    }
+                  }
+                }
+
+                .add {
+                  width: 25%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 38px;
+                  background: #f9f9f9;
+                  outline: none;
+                  border: none;
+                  cursor: pointer;
+
+                  img {
+                    height: 28px;
+                  }
+                }
+              }
+            }
+
+            .car-license {
+              @extend .phone;
+            }
+
+            .delete-contact {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+
+              div {
+                width: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 38px;
+                background: #f9f9f9;
+                cursor: pointer;
+
+                img {
+                  height: 28px;
+                }
+              }
+
+            }
+          }
+        }
+
+        .add-contact {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          div {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            background: #f9f9f9;
+            cursor: pointer;
+
+            img {
+              height: 28px;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom-btn {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        margin-right: 10px;
+        border: none;
+        background: $themeColor;
+        padding: 8px 38px;
+        margin-top: 28px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background: darken(#ee7258, 5%);
+      }
+    }
+  }
+
+
+}

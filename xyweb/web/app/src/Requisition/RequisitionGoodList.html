@@ -1,0 +1,45 @@
+
+    <div class="goodListTotal">
+        <div class="search-and-cat">
+            <div class="search-bar-red">
+                <div>
+                    <img src="web/app/img/misc/pic_search_grey.png">
+                    <input type="text" ng-model="queryInfo.query" placeholder="类别/商品名/规格/速查码" />
+                </div>
+                <div class="btnquit" ng-click="quitGoodListTotal()">
+                    <button>
+                        <img src="web/app/img/misc/good_list_close.png"></img>
+                    </button>
+                </div>
+            </div>
+            <div class="filter-bar-red">
+                <span>类别筛选</span>
+                <div>
+                    <button ng-click="setCatTo('')" ng-class="{highlight:selectedCatId == ''}">全部</button>
+                    <button ng-class="{highlight:selectedCatId == item.cat_id}" ng-repeat="item in catInfo" ng-click="setCatTo(item.cat_id)" ng-show="item.status == '1'">{{item.cat_name}}</button>
+                </div>
+            </div>
+        </div>
+        <div ng-show="orderInfo.cartAgent.editingCartItem.sku_id > 0 && priceInput.isShow" ng-include="'web/app/src/Requisition/RequisitionPriceInput.html'" ng-controller="RequisitionPriceInputController">
+
+        </div>
+
+        <div class="good-list" id="good-list">
+            <div class="good-unit" ng-repeat="item in skuInfo" ng-show="item.status == '1' && item.isShowAgain">
+                <div class="item-info" ng-click="setCartItem(item);">
+                    <div class="spec-name ellipsis">{{item.spec_name}}</div>
+                    <div class="spu-name ellipsis">{{item.spu_name}}</div>
+                    <div>{{item.stock|number:2}}件</div>
+                </div>
+                <div class="already-add" ng-click="editCartItem(item)" ng-class="{editing:orderInfo.cartAgent.editingCartItem.sku_id == item.sku_id}" ng-show="(orderInfo.cartAgent.cartItemList[item.sku_id].quantity > 0 || orderInfo.cartAgent.editingCartItem.sku_id == item.sku_id)">
+                    <div class="ellipsis">{{orderInfo.cartAgent.cartItemList[item.sku_id].spu_name}}</div>
+                    <div>已添加</div>
+                    <div>{{orderInfo.cartAgent.cartItemList[item.sku_id].quantity|number:2}}件</div>
+                    <div class="click-to-modify">点击修改</div>
+                </div>
+            </div>
+        </div>
+        <div class="quit" ng-click="quitGoodListTotal()">
+            <button class="btn-submit" ng-click="achieveAdd()" >完成添加</button>
+        </div>
+    </div>

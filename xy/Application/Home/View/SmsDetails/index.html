@@ -1,0 +1,25 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+<form class="form-signin" method="post" action="{:U('SmsDetails/SendSMSStatementOfAccount')}">
+  <h1>SendSMSStatementOfAccount</h1>
+  <label>phoneArray:</label>
+  <input type="text" id="inputEmail" name="phoneArray" value='["57128121110"]'>
+  <label>dateSt:</label>
+  <input type="text" id="inputEmail" name="dateSt" value='{$Think.NOW_TIME}'>
+  <label>dateEnd:</label>
+  <input type="text" id="inputEmail" name="dateEnd" value='{$Think.NOW_TIME}'>
+  <label>money:</label>
+  <input type="text" id="inputEmail" name="money" value='-587380.52'>
+  <label>content:</label>
+  <input type="text" id="inputEmail" name="content" placeholder="第1张单据：2016-11-27日销售单，那瓦霍白43只装15件X32.61=489.15元。该单总计489.15元，优惠90.99元，该单还差-587380.52元结清。第2张单据：2016-11-27日付款单，付您：80.33元">
+  <label>token:</label>
+  <input type="text" id="inputEmail" name="token" value=''>
+  <label>sign:</label>
+  <input type="text" id="inputEmail" name="sign" value=''>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>

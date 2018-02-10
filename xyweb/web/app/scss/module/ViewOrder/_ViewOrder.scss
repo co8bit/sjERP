@@ -1,0 +1,155 @@
+.vieworder {
+  button {
+    outline: none;
+  }
+
+  .filter {
+    display: flex;
+    align-items: center;
+    height: 36px;
+
+    .cb {
+      background: #fff;
+      font-weight: bold;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //width: 80px;
+      padding-left: 12px;
+      padding-right: 12px;
+      height: 36px;
+      background: #f9f9f9;
+      color: #a3a3a3;
+      border-right: 1px solid #eeeeee;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .bthover:hover {
+      background: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .checkbox-row{
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .checkbox {
+    width: 32%;
+    float: left;
+    display: flex;
+    button {
+      border: none;
+      padding: 4px;
+      background: #e6e6e6;
+      color: #000000;
+    }
+
+    .bthover:hover {
+      background: $subthemeColor;
+      color: #fff;
+    }
+
+    .cb {
+      border: none;
+      padding: 4px;
+      background: $subthemeColor;
+      color: #ffffff;
+    }
+
+    .cb:hover {
+      background: #e6e6e6;
+      background: darken($subthemeColor, 5%);
+    }
+
+    span {
+      margin: 0 10px 0 22px;
+      line-height: 20px;
+      min-width: 60px;
+    }
+
+    div {
+      width: 100%;
+
+      .select-all {
+        margin-bottom: 6px;
+      }
+
+      div {
+        width: auto;
+        display: flex;
+        flex-flow: row wrap;
+        margin-right: 10px;
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  .table {
+      .statusRed{
+        color:#ff0000;
+      }
+      .statusBlue{
+        color:#0000ff;
+      }
+
+    div {
+     
+      
+      span {
+        width: 15%;
+        margin: 0;
+      }
+      .cat {
+        width: 5%;
+        min-width: 100px;
+      }
+      .cid-name {
+        width: 20%;
+        min-width: 170px;
+      }
+      .ellipsis.cid-name {
+        cursor: pointer;
+      }
+      .sn {
+        width: 15%;
+        min-width: 160px;
+      }
+      .time {
+        width: 15%;
+        min-width: 160px;
+      }
+      .status {
+        width: 5%;
+        min-width: 50px;
+      }
+
+      .operate {
+        width: 10%;
+        min-width: 100px;
+      }
+      .price{
+        width: 110px;
+        text-align: right;
+        .number_algin_item1{
+          display: block;
+          width: 110px;
+          text-align: right;
+          padding-right: 25px;
+        }
+      }
+      .remark{
+        width: 150px;
+      }
+      
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="summary-sheet">
+	<div class="small-chart" ng-show="isAllChart">
+		<div class="chart-block" id="chart1" ng-click="clickChart(1);"></div>
+		<div class="chart-block" id="chart2" ng-click="clickChart(2);"></div>
+		<div class="chart-block" id="chart3" ng-click="clickChart(3);"></div>
+		<div class="chart-block" id="chart4" ng-click="clickChart(4);"></div>
+		<div class="chart-block" id="chart5" ng-click="clickChart(5);"></div>
+		<div class="chart-block" id="chart6" ng-click="clickChart(6);"></div>
+	</div>
+	<div class="big-chart" ng-show="!isAllChart">
+		<div class="back-row">
+			<button class="xy-btn xy-btn-green" ng-click="back();">返回</button>
+		</div>
+		<div class="center">
+			<div class="time-container">
+				<span class="time">时间</span>
+				<div id="reportrange" class="pull-left dateRange">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					<span id="searchDateRange"></span>
+					<b class="caret"></b>
+				</div>
+			</div>
+			<div class="chart" ng-show = "nowIndex == 1 || nowIndex == 2">
+				<div class="show-chart" id="showChart1"></div>
+			</div>
+			<div class="chart" ng-show = "nowIndex == 3 || nowIndex == 4">
+				<div class="show-chart" id="showChart2"></div>
+			</div>
+			<div class="chart" ng-show = "nowIndex == 5 || nowIndex == 6">
+				<div class="show-chart" id="showChart3"></div>
+			</div>
+		</div>
+	</div>
+</div>

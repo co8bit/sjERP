@@ -1,0 +1,65 @@
+<div class="stocktaking-submit-tab typical-left-right-narrow" ng-controller="RequisitionSubmitController">
+    <div class="t-left">
+        <div class="good-list">
+            <div class="table-head">
+                <span>名称</span>
+                <span>规格</span>
+                <span>类别</span>
+                <span>系统中库存</span>
+                <span>调拨数量</span>
+                <span ng-show = "rpg==1||rpg==7">单价</span>
+                <span>调拨金额</span>
+                <span>操作</span>
+            </div>
+            <div class="table-line-container">
+                <div class="table-line" ng-repeat="item in orderInfo.cartAgent.cartItemList">
+                    <span>{{item.spu_name}}</span>
+                    <span>{{item.spec_name}}</span>
+                    <span>{{item.cat_name}}</span>
+                    <span>{{}}</span>
+                    <span>{{item.quantity}}</span>
+                    <span ng-show = "rpg==1||rpg==7">{{item.unit_price | number:2}}</span>
+                    <span>{{}}</span>
+                    <span><img ng-click="clickDelete(item);" src="web/app/img/misc/pic_delete.png"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="t-right">
+        <div class="right-container">
+            <div class="two-number">
+                <div class="big-number">
+                    <span ng-show = "rpg==1||rpg==7" class="money-number">{{totProfitAndLossValue | number:2}}</span>
+                    <span ng-show = "rpg==1||rpg==7">调拨总数</span>
+                </div>
+                <div class="big-number">
+                    <span class="money-number">{{totProfitAndLossQuantity | number:2}}</span>
+                    <span>调拨总金额</span>
+                </div>
+            </div>
+            <div class="select-container">
+                <span>调出仓库：</span>
+                <select name="" ng-init="warehouse_out = warehouse[0]" ng-model="warehouse_out" ng-options="x for x in warehouse">
+                	<option value="item">{{x}}</option>
+                </select>
+                <!--<input class="auto-complete-content" type="text" ng-class="{cb: orderInfo.check_uid > 0}" ng-model="userNameInput"
+                    ng-click="userNameInput = '';clickUserInput();">-->
+                <!--<span class="required">*</span>-->
+            </div>
+            <div class="select-container">
+                <span>调入仓库：</span>
+                <select name="" ng-init="warehouse_out = warehouse[0]" ng-model="warehouse_out" ng-options="x for x in warehouse">
+                	<option value="item">{{x}}</option>
+                </select>
+            </div>
+            <div class="check_time" style="height: 50px;">
+                <label>调拨日期</label>
+                <input class="date-input" id="datepicker1" type="text"  ng-model="reg_time">
+            </div>
+            <div class="btn-container">
+                <button class="btn-submit-s" ng-click="clickExecute();">执行盘点单</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,74 @@
+/*
+Error: File to import not found or unreadable: test2.
+       Load paths:
+         Compass::SpriteImporter
+         C:/xampp/htdocs/xyweb/web/app/scss
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets
+         C:/Users/Damien/.compass/extensions/readme.txt/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/susy-2.1.3/sass
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-normalize-1.5/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-h5bp-0.1.2/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/html5-boilerplate-2.1.0/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/sassy-maps-0.4.0/sass
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/breakpoint-2.5.0/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/zurb-foundation-5.3.0/stylesheets
+         C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets
+        on line 3 of C:/xampp/htdocs/xyweb/web/app/scss/test.scss
+
+1: // base.scss
+2: 
+3: @import 'test2' ;
+4: 
+5: body {
+6:   font: 100% Helvetica, sans-serif;
+7:   background-color: #efefef;
+8: }
+
+Backtrace:
+C:/xampp/htdocs/xyweb/web/app/scss/test.scss:3
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:66:in `import'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:64:in `import'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:28:in `imported_file'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:36:in `css_import?'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+org/jruby/RubyArray.java:2412:in `map'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `visit_children'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/root_node.rb:20:in `render'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/engine.rb:268:in `render'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+org/jruby/RubyMethod.java:128:in `call'
+file:/C:/Users/Damien/Desktop/compass.app/compass-app.jar!/hook/compass_patch.rb:108:in `update_stylesheet'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `update_stylesheets'
+org/jruby/RubyArray.java:1613:in `each'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:328:in `watch'
+org/jruby/RubyProc.java:271:in `call'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/listener.rb:252:in `on_change'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/listener.rb:290:in `initialize_adapter'
+org/jruby/RubyProc.java:271:in `call'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Users/Damien/Desktop/compass.app/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/adapter.rb:297:in `start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: test2.\A        Load paths:\A          Compass::SpriteImporter\A          C:/xampp/htdocs/xyweb/web/app/scss\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets\A          C:/Users/Damien/.compass/extensions/readme.txt/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/susy-2.1.3/sass\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-normalize-1.5/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-h5bp-0.1.2/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/html5-boilerplate-2.1.0/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/sassy-maps-0.4.0/sass\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/breakpoint-2.5.0/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/zurb-foundation-5.3.0/stylesheets\A          C:/Users/Damien/Desktop/compass.app/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets\A         on line 3 of C:/xampp/htdocs/xyweb/web/app/scss/test.scss\A \A 1: // base.scss\A 2: \A 3: @import 'test2' ;\A 4: \A 5: body {\A 6:   font: 100% Helvetica, sans-serif;\A 7:   background-color: #efefef;\A 8: }"; }

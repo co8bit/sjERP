@@ -1,0 +1,230 @@
+<div class="today-summary-sheet">
+    <div class="return" ng-show="!model.isToday">
+        <button ng-click="goBack()">返回</button>
+    </div>
+    <div class="title">
+        <span class="left">营业额</span>
+        <span>|</span>
+        <span class="right text">{{model.reg_date2}}日数据</span>
+    </div>
+    <div class="row">
+        <div class="total">
+            <div class="item">
+                <div>总结余</div>
+                <div>{{data.statistics.balance_cash_total + data.statistics.balance_bank_total +
+                    data.statistics.balance_online_pay_total | number:2}}
+                </div>
+            </div>
+            <div class="item">
+                <div>销售额</div>
+                <div>{{data.statistics.sale | number:2}}</div>
+            </div>
+            <div class="item">
+                <div>销售优惠</div>
+                <div>{{data.statistics.sale_off | number:2}}</div>
+            </div>
+            <div class="item">
+                <div>实收</div>
+                <div>{{data.statistics.actually_income | number:2}}</div>
+            </div>
+            <div class="item">
+                <div>应收</div>
+                <div>{{data.statistics.receivable | number:2}}</div>
+            </div>
+            <div class="item">
+                <div>实付</div>
+                <div>{{data.statistics.actually_paid | number:2}}</div>
+            </div>
+            <div class="item">
+                <div>应付</div>
+                <div>{{data.statistics.payable | number:2}}</div>
+            </div>
+            <div class="item" ng-if="!IsSalesperson">
+                <div>毛利润</div>
+                <div>{{data.statistics.gross_profit | number:2}}</div>
+            </div>
+            <!-- <div class="item" ng-if="!IsSalesperson">
+                <div>净利润</div>
+                <div>{{data.statistics.net_profit | number:2}}</div>
+            </div> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="detail purple">
+            <div class="head">
+                <div class="small">现金结余（元）</div>
+                <div>{{data.statistics.balance_cash_total | number:2}}</div>
+                <div class="detailBtn" ng-click="viewOrder('cash')">详情</div>
+            </div>
+            <div class="select-group">
+                <div class="select-group-head" ng-click="toggleSelectList(0)"><label>▽</label>现金收入<span>￥{{data.statistics.income_cash_total | number:2}}</span>
+                </div>
+                <div ng-show="showLabel[0]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionReceiptCashTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financeReceiptCashTotal | number:2}}</span>
+                    </div>
+                    <div class="option">
+                        <label>&nbsp;</label>其他类<span>￥{{data.statistics.incomeCashTotal | number:2}}</span></div>
+                </div>
+            </div>
+            <div class="select-group">
+                <div id="select_group_1" ng-click="toggleSelectList(1)" class="select-group-head">
+                    <label>▽</label>现金付款<span>￥{{data.statistics.paid_cash_total | number:2}}</span></div>
+                <div ng-show="showLabel[1]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionPaidCashTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financePaidCashTotal | number:2}}</span>
+                    </div>
+                    <div class="option">
+                        <label>&nbsp;</label>其他类<span>￥{{data.statistics.expenseCashTotal | number:2}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="detail peach">
+            <div class="head">
+                <div class="small">银行结余（元）</div>
+                <div>{{data.statistics.balance_bank_total | number:2}}</div>
+                <div class="detailBtn" ng-click="viewOrder('bank');">详情</div>
+            </div>
+            <div class="select-group">
+                <div class="select-group-head" ng-click="toggleSelectList(2)"><label>▽</label>银行收入<span>￥{{data.statistics.income_bank_total | number:2}}</span>
+                </div>
+                <div ng-show="showLabel[2]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionReceiptBankTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financeReceiptBankTotal | number:2}}</span>
+                    </div>
+                    <div class="option">
+                        <label>&nbsp;</label>其他类<span>￥{{data.statistics.incomeBankTotal | number:2}}</span></div>
+                </div>
+            </div>
+            <div class="select-group">
+                <div id="select_group_3" ng-click="toggleSelectList(3)" class="select-group-head">
+                    <label>▽</label>银行付款<span>￥{{data.statistics.paid_bank_total | number:2}}</span></div>
+                <div ng-show="showLabel[3]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionPaidBankTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financePaidBankTotal | number:2}}</span>
+                    </div>
+                    <div class="option">
+                        <label>&nbsp;</label>其他类<span>￥{{data.statistics.expenseBankTotal | number:2}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="detail skyblue">
+            <div class="head">
+                <div class="small">网络结余（元）</div>
+                <div>{{data.statistics.balance_online_pay_total | number:2}}</div>
+                <div class="detailBtn" ng-click="viewOrder('online');">详情</div>
+            </div>
+            <div class="select-group">
+                <div class="select-group-head" ng-click="toggleSelectList(4)"><label>▽</label>网络收入<span>￥{{data.statistics.income_online_pay_total | number:2}}</span>
+                </div>
+                <div ng-show="showLabel[4]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionReceiptOnline_payTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financeReceiptOnline_payTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>其他类<span>￥{{data.statistics.incomeeOnline_payTotal | number:2}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="select-group">
+                <div id="select_group_5" ng-click="toggleSelectList(5)" class="select-group-head">
+                    <label>▽</label>网络付款<span>￥{{data.statistics.paid_online_pay_total | number:2}}</span></div>
+                <div ng-show="showLabel[5]" class="select-group-body">
+                    <div class="option"><label>&nbsp;</label>交易类<span>￥{{data.statistics.transactionPaidOnline_payTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>财务类<span>￥{{data.statistics.financePaidOnline_payTotal | number:2}}</span>
+                    </div>
+                    <div class="option"><label>&nbsp;</label>其他类<span>￥{{data.statistics.expenseOnline_payTotal | number:2}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="title">
+        <span class="left">汇总</span>
+        <span>|</span>
+        <span class="right" ng-class="{highlight:model.todayPageStete == 1}"
+              ng-click="model.todayPageStete = 1">销售汇总表</span>
+        <span>|</span>
+        <span class="right" ng-class="{highlight:model.todayPageStete == 2}"
+              ng-click="model.todayPageStete = 2">其他收入和费用</span>
+    </div>
+    <!--     <div>
+        <button ng-click="$log.debug(stat)">1234</button>
+    </div> -->
+    <!-- 汇总表 -->
+    <div class="table t1" ng-show="model.todayPageStete == 1">
+        <div class="head table-row">
+            <span>序号</span>
+            <span>名称</span>
+            <span>规格</span>
+            <span class="price_title" ng-if="!IsSalesperson">销售平均单价</span>
+            <span class="price_title">销售数量</span>
+            <span class="price_title">销售总金额</span>
+            <span class="price_title">货物总成本</span>
+            <span class="price_title" ng-if="!IsSalesperson">销售利润</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data.statistics.skuStatistics">
+            <span>{{$index+1}}</span>
+            <!-- <span class="ellipsis pointer" ng-click="skuDetail(item)">{{item.spu_name}}</span> -->
+            <span class="ellipsis pointer">{{item.spu_name}}</span>
+            <span class="ellipsis pointer">{{item.spec_name}}</span>
+            <span class="price" ng-bind-html="item.avgPrice | number : 2"></span>
+            <span class="price">{{item.quantity | number : 2}}</span>
+            <span class="price" ng-bind-html="item.pilePrice | number : 2"></span>
+            <span class="price" class="price" ng-bind-html="item.cost | number : 2"></span>
+            <span class="price" ng-bind-html="item.gross_profit | number : 2"></span>
+
+        </div>
+        <div class="table-row foot">
+            <span>总计</span>
+            <span></span>
+            <span></span>
+            <span class="price"></span>
+            <span class="price">{{data.total.quantity | number : 2}}</span>
+            <span class="price" ng-if="!IsSalesperson">{{data.total.price | number : 2}}</span>
+            <span class="price" ng-if="IsSalesperson"></span>
+            <span class="price">{{data.total.cost | number : 2}}</span>
+            <span class="price" ng-if="!IsSalesperson">{{data.total.profit | number : 2}}</span>
+        </div>
+    </div>
+    <!-- 费用与其他收入 -->
+    <div class="table t2" ng-show="model.todayPageStete == 2">
+        <div class="head table-row">
+            <span>创建时间</span>
+            <span>单号</span>
+            <span>类别</span>
+            <span>经办人</span>
+            <span>备注</span>
+            <span>金额</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data.statistics.IorE">
+            <span>{{item.reg_time_show}}</span>
+            <span>{{item.sn}}</span>
+            <span>{{item.class_show}}</span>
+            <span>{{item.operator_name}}</span>
+            <span class="ellipsis">{{item.remark}}</span>
+            <span ng-bind-html="item.income_show"></span>
+        </div>
+        <div class="foot table-row">
+            <span>总计</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span ng-bind-html="data.total.income | number : 2"></span>
+        </div>
+    </div>
+</div>
+
+<style>
+
+</style>

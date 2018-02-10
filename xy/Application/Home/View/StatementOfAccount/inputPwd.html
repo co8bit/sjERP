@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>输入密码</title>
+    <style type="text/css">
+      form {
+        width: 300px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        font-size: 21px;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+      }
+
+      label input {
+        height: 35px;
+        width: 150px;
+        border: none;
+        border-radius: 5px;
+        padding: 0 5px;
+        font-size: 16px;
+        background-color: #eeeeee;
+        /*border-left: 3px solid #dbb5a8;*/
+      }
+      label input:focus {
+          outline: 0;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+      }
+
+      span.required {
+        color: red;
+      }
+
+      .submit {
+        display: block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        margin: 0 auto;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        outline: none;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+      }
+
+      .submit:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form id="form" method="post" action="{:U('Home/StatementOfAccount/show_statement','','',true)}">
+      <h1>请输入查询密码</h1>
+      <label>
+        密码:
+        <input name="s_pwd" type="text" maxlength="6" autofocus value='' placeholder="请输入查询密码">
+        <input type="hidden" name="s_guid" value="{$s_guid}">
+        <span class="required">*</span>
+      </label>
+      <input class="submit" value="请求查询" type="submit">
+    </form>
+  </body>
+
+</html>

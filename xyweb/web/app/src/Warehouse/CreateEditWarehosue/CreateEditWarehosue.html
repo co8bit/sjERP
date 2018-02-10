@@ -1,0 +1,40 @@
+<!-- 新建类别 -->
+<div class="create-edit-warehouse" ng-controller="CreateEditWarehouseController">
+
+    <div class="title-bar">
+        <span ng-show="isCreate">新建仓库</span>
+        <span ng-show="!isCreate">编辑仓库</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png">
+        </div>
+    </div>
+    <div class="below-title-bar">
+        <div class="create-edit-cat-container">
+            <div class="input-container">
+                <div>
+                    <span>仓库名称：</span>
+                    <input type="text" ng-model="stoInfo.sto.sto_name">
+                    <span class="required">*</span>
+                </div>
+                <div class="">
+                    <span>备注： </span>
+                    <textarea  ng-model="stoInfo.sto.remark"></textarea>
+                </div>
+                <div  ng-click="changeIndex()" >
+                    <span class="stoDefault" ng-show="!isDefault"><i class="fa fa-square-o"></i></span>
+                    <span class="stoDefault" ng-show="isDefault"><i class="fa fa-check-square-o"></i></span>
+                        在筛选过程中，优先显示此类别
+                </div>
+                <div ng-click="changeStatus()">
+                    <span class="stoDefault" ng-show="isDisabled"><i class="fa fa-square-o"></i></span>
+                    <span class="stoDefault" ng-show="!isDisabled"><i class="fa fa-check-square-o"></i></span>
+                    启用
+                </div>
+            </div>
+            <div class="create-edit-container">
+                <button ng-show="isCreate"  ng-click="createStoBtn (1)">新建</button>
+                <button ng-show="!isCreate" ng-click="createStoBtn (2)">修改</button>
+            </div>
+        </div>
+    </div>
+</div>

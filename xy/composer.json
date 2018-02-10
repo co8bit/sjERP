@@ -1,0 +1,7 @@
+{
+    "require": {
+        "fzaninotto/faker": "^1.6",
+        "phpmailer/phpmailer": "~5.2",
+        "qiniu/php-sdk": "^7.1"
+    }
+}

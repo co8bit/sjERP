@@ -1,0 +1,12 @@
+test/node_modules/
+node_modules/
+debug.log
+.sass-cache/
+.idea/
+/unsupport/.sass-cache/
+/web/app/.sass-cache/
+/.vscode
+web/app/.project
+.project
+web/app/scss/styleframeworkglobal.css
+web/app/scss/styleframeworkglobal.css.map

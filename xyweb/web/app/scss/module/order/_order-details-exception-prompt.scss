@@ -1,0 +1,98 @@
+.order-details-exception-prompt {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 526px;
+    height: 320px;
+    padding: 50px;
+    background: #fff;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: 20px;
+      color: #989898;
+      font-weight: bold;
+    }
+
+    .reason {
+      align-self: flex-start;
+      font-size: 14px;
+    }
+
+    .exception-picker {
+      width: 65%;
+      display: flex;
+      flex-flow: column;
+
+      div {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 85px;
+          height: 22px;
+          font-size: 14px;
+          padding-top: 2px;
+          flex-grow: 1;
+        }
+
+        button {
+          width: 85px;
+          background: none;
+          outline: none;
+          border: 1px solid #a5a5a5;
+        }
+
+        button:hover {
+          border: 1px solid $subthemeColor;
+          background: $subthemeColor;
+          color: #fff;
+        }
+
+        .highlight {
+          border: 1px solid $subthemeColor;
+          background: $subthemeColor;
+          color: #fff;
+        }
+
+        textarea {
+          flex-grow: 2;
+          height: 66px;
+          outline: none;
+          font-size: 13px;
+          padding-left: 8px;
+          resize: none;
+        }
+
+        .inputhighlight {
+          border: 1px solid $subthemeColor;
+        }
+      }
+    }
+
+    .confirm-cancel {
+      button {
+        padding: 6px 20px;
+        border: none;
+        outline: none;
+        background: $subthemeColor;
+        color: #fff;
+      }
+
+      button:hover {
+        background: darken($subthemeColor, 5%);
+      }
+    }
+  }
+}

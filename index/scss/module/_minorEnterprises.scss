@@ -1,0 +1,48 @@
+.minor_enterprises {
+    width: 100%;
+    min-width: 1100px;
+    .block-row {
+        width: 100%;
+        .block {
+            width: 1100px;
+            margin: 0 auto;
+            @extend .flex;
+            .content {
+                width: 100%;
+                overflow: hidden;
+                .title{
+                    margin: 100px;
+                    text-align: center;
+                    font-size: 56px;
+                }
+                .reg-msg {
+                    text-align: center;
+                    font-size: 44px;
+                    margin: 50px 0;
+                    line-height: 60px;
+                }
+                .btn-row {
+                    margin-bottom: 50px;
+                    .btn-blue {
+                        width: 150px;
+                        height: 50px;
+                    }
+                }
+            }
+            .user-num {
+                width: 100%;
+                @extend .flex;
+                justify-content: center;
+                align-items: center;
+                height: 230px;
+                span {
+                    margin-left: 20px;
+                    font-size: 44px;
+                }
+            }
+        }
+        &.top, &.reg {
+            background: #F0FBFC;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<div class="stocktaking" ng-controller="StockTakingController">
+
+    <div class="title-bar">
+        <span class="function-name">盘点单</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="last-step" ng-class="{invisible : pageState == 0}">
+            <button ng-click="clickLastStep();">上一步</button>
+        </div>
+        <div class="btn-tab-group">
+            <div ng-class="{highlight : pageState == 0}" ng-click="pageState = 0;">
+                <button class="btn-tab-num-circle">1</button>
+                <button class="tab">选择货物</button>
+            </div>
+            <div ng-class="{highlight : pageState == 1}" ng-click="pageState = 1;">
+                <button class="btn-tab-num-circle">2</button>
+                <button class="tab">开单</button>
+            </div>
+        </div>
+        <div class="next-step" ng-class="{invisible : pageState == 1}">
+            <button ng-click="clickNextStep();">下一步</button>
+        </div>
+    </div>
+    <!-- 选货页面 -->
+    <div ng-show="cartAgent.editingCartItem.sku_id > 0 && priceInput.isShow"  ng-include="'web/app/src/Stock/StockTaking/StockTakingPriceInput.html'" ng-controller="StockTakingPriceInputController"></div>
+    <div class="function-tab" ng-include="'web/app/src/Stock/StockTaking/StockTakingGoodList.html'"
+         ng-controller="StockTakingGoodListController" ng-show="pageState == 0"></div>
+    <!-- 提交页面 -->
+    <div class="function-tab" ng-include="'web/app/src/Stock/StockTaking/StockTakingSubmit.html'"
+         ng-controller="StockTakingSubmitController" ng-show="pageState == 1 "></div>
+</div>

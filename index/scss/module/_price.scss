@@ -1,0 +1,337 @@
+$themeColor: #ee7258;
+$subthemeColor: #36bc9b;
+.price {
+    .block-wrap {
+        width: 100%;
+        min-width: 1100px;
+        .block {
+            margin: 0 auto;
+            a {
+                cursor: auto;
+                color: #000;
+            }
+        }
+        .first {
+            height: 600px;
+            width: 1100px;
+            margin: 0 auto;
+            @extend .flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            .text-container {
+                margin-top: 150px;
+                @extend .flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                .big-text {
+                    font-size: 36px;
+                }
+                .small-text {
+                    margin-top: 20px;
+                    font-size: 20px;
+                    color: #444;
+                }
+            }
+            .point-container {
+                @extend .flex;
+                flex-flow: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin: 0 auto;
+                .point {
+                    @extend .flex;
+                    flex-flow: row;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    width: 48%;
+                    img {
+                        flex-shrink: 0;
+                        width: 99px;
+                        height: 99px;
+                        margin-right: 30px;
+                    }
+                    div {
+                        height: 130px;
+                        @extend .flex;
+                        flex-flow: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        .big-text {
+                            font-size: 20px;
+                        }
+                        .small-text {
+                            margin-top: 14px;
+                            font-size: 16px;
+                            color: #444;
+                            span {
+                                color: #ee7258;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .second {
+            height: 400px;
+            /*min-width: 1200px;*/
+            padding: 45px 0 ;
+            background: #f7f7f7;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            .custom-made{
+                display: flex;
+                background-color: #fff;
+                width: 100%;
+                margin-top: 5px;
+                text-align: center;
+                height: 50px;
+                align-items: center;
+                justify-content: center;
+                p{
+                    span{
+
+                        margin-left: 20px;
+                    }
+                    a{
+                        line-height: 40px;
+                        display: inline-block;
+                        width: 100px;
+                        background-color: white;
+                        border-radius: 5px;
+                        text-align: center;
+                        border: 1px solid $themeColor;
+                        margin-left: 20px;
+                        height: 40px;
+                    }
+                }
+            }
+            div {
+                /*width: 100%;*/
+            }
+            .top-container {
+                height: 600px;
+
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: space-between;
+                a {
+                    font-size: 14px;
+                }
+                .tag {
+                    width: 16.6%;
+                    height: 40px;
+                    border-radius: 5px;
+                    background: $themeColor;
+                    font-size: 18px;
+                    letter-spacing: 4px;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                    align-items: center;
+                }
+                .price-container {
+                    width: 100%;
+                    max-width: 1388px;
+                    min-width: 1000px;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-flow: row;
+                    flex-wrap: wrap;
+                    .price-block {
+                        width: 20%;
+                        min-width: 150px;
+                        margin-left: 5px;
+                        .row {
+                            background: #FFFFFF;
+                            text-align: center;
+                            justify-content: center;
+                            margin-bottom: 2px;
+                            .price-title {
+                                width: 100%;
+                                display: flex;
+                                justify-content:space-around;
+                                align-items: center;
+                                color: #444444;
+                                font-size: 16px;
+                            }
+                        }
+                        .top-row {
+                            display: flex;
+                            flex-flow: column;
+                            align-items: center;
+                            height: 100px;
+                            span {
+                                font-size: 16px;
+                                font-weight: bold;
+                                margin: 5px 0;
+                            }
+                            img {
+                                width: 40px;
+                                height: 25px;
+                            }
+                        }
+                        .content-row {
+                            display: flex;
+                            justify-content: space-around;
+                            min-height: 100px;
+                        }
+                        .price-row {
+                            display: flex;
+                            flex-wrap: wrap;
+                            height: 200px;
+                            .item{
+                                width: 50%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-around;
+                                .price {
+                                    margin-top: 20px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    width: 100%;
+                                    height: 50px;
+                                    p{
+                                        margin-top: 10px;
+                                        span{
+                                            display: inline-block;
+                                        }
+                                        .active {
+                                            font-size: 18px;
+                                            color: #f26549;
+                                        }
+                                    }
+
+
+                                    s {
+                                        font-size: 16px;
+                                        color: #222222;
+                                    }
+                                }
+                                .life-price {
+                                    margin: 10px 0;
+                                    span {
+                                        font-size: 20px;
+                                    }
+                                    s {
+                                        font-size: 16px;
+                                        margin: 0 5px;
+                                    }
+                                    .active {
+                                        font-size: 20px;
+                                        color: #f26549;
+                                    }
+                                }
+                                .sale {
+                                    display: flex;
+                                    flex-flow: row;
+                                    width: 90%;
+                                    height: 50px;
+                                    box-sizing: border-box;
+                                    background-color: #ee7258;
+                                    color: white;
+                                    padding: 8px;
+                                    border-radius: 5px;
+                                    font-size: small;
+                                    text-align: center;
+                                    .left {
+                                        width: 25px;
+                                    }
+                                    .mid {
+                                        line-height: 30px;
+                                        font-size: 24px;
+                                    }
+                                }
+                                .btn-container {
+                                    width: 100%;
+                                    height: 60px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    a {
+                                        width: 80%;
+                                        height: 20px;
+                                        border: 1px solid $themeColor;
+                                        border-radius: 20px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .big-btn-container {
+                                    border-top: 2px solid #f7f7f7 ;
+                                    width: 100%;
+                                    height: 80px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    a {
+                                        width:120%;
+                                        height: 30px;
+                                        border: 1px solid $themeColor;
+                                        border-radius: 20px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+
+                        }
+                        .big-row {
+                            height: 382px;
+                            display: flex;
+                            .content-container {
+                                padding-top: 70px;
+                                width: 100%;
+                                height: 325px;
+                                display: flex;
+                                flex-flow: column;
+                                align-items: center;
+                                a {
+                                    padding: 4px 0;
+                                }
+                                .qq {
+                                    width: 70%;
+                                    height: 30px;
+                                    margin: 22px 0;
+                                    border: 1px solid #9f2d46;
+                                    border-radius: 8px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                    .left-block {
+                        margin: 0;
+                        width: 18%;
+                    }
+                }
+                .notes-container {
+                    max-width: 1388px;
+                    margin-top: 40px;
+                    display: flex;
+                    flex-flow: column;
+                    margin-left: 200px;
+                    a {
+                        color: #888;
+                        margin-bottom: 3px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

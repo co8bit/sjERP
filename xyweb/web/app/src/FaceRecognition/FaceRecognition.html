@@ -1,0 +1,20 @@
+<!--人脸识别-->
+
+<div class="face" ng-controller="FaceRecognitionController">
+   <div class="table">
+       <div class="head table-row">
+           <span>编号</span>
+           <span>进店时间</span>
+           <span>交易次数</span>
+           <span>照片</span>
+           <span>查看详情</span>
+       </div>
+     <div class="table-row">
+         <span>{{$index+1}}</span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span><button ng-click="faceDetail(item)">详情</button></span>
+     </div>
+   </div>
+</div>

@@ -1,0 +1,221 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>create_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Company/create_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                               <label><font color=black>name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="name" type="text" value="外婆家" autofocus="">
+                                </div>
+
+                                <label><font color=black>速查编码*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="qcode" type="text" autofocus="" value="wpj">
+                                </div>
+
+                                <label><font color=black>address</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="address" type="text" value="西溪路525号">
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text">
+                                </div>
+
+                                <label><font color=black>init_payable</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="init_payable" type="text" value="10">
+                                </div>
+                                
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="status" type="number" value='1'>
+                                </div>
+
+                                <label><font color=black>contact</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="contact" type="text" value='[{"contact_name":"wbx","phonenum":[{"mobile":"15023658955"},{"mobile":"57128121110"}],"car_license":[{"car_license":"浙AA5202"},{"car_license":"car_license"}]},{"contact_name":"lalalala","phonenum":[{"mobile":"15236555555"}],"car_license":[{"car_license":"浙BB5204"},{"car_license":"car_license2"}]}]'>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>edit_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Company/edit_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+                                <label><font color=black>cid*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="cid" type="text" autofocus="" value='1'>
+                                </div>
+
+                               <label><font color=black>name*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="name" type="text" autofocus="" value='editCompanyName'>
+                                </div>
+
+                                <label><font color=black>速查编码*</font></label>
+                               <div class="input-control text" data-role="input-control">
+                                   <input name="qcode" type="text" autofocus="" value='scm2'>
+                                </div>
+
+                                <label><font color=black>address</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="address" type="text" value='address2'>
+                                </div>
+
+                                <label><font color=black>remark</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="remark" type="text" value='remark2'>
+                                </div>
+                                
+                                <label><font color=black>status</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                    <input name="status" type="number" value=1>
+                                </div>
+
+                                <label><font color=black>contact</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="contact" type="text" value='[{"contact_id":1,"contact_name":"wbx","phonenum":[{"phonenum_id":1,"mobile":"15023658955"},{"phonenum_id":2,"mobile":"57128121110"}],"car_license":[{"carlicense_id":1,"car_license":"浙AA5202"},{"carlicense_id":2,"car_license":"car_license"}]},{"contact_id":0,"new":1,"contact_name":"contact_name","phonenum":[{"mobile":"15236555555"}],"car_license":[{"car_license":"浙BB5204"},{"car_license":"car_license2"}]},{"contact_id":2,"delete":1}]'>
+                                </div>
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   <form id="form" method="post" action="{:U("Company/deleteCompany")}">
+      <h1>deleteCompany</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="">
+        </div>
+        <input value="删除" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Company/queryList")}">
+      <h1>queryList</h1>
+      <label><font color=black>type*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="type" type="text" autofocus="" value='1'>
+        </div>
+        <input value="查询" type="submit">
+  </form>
+
+
+    <form id="form" method="post" action="{:U("Company/get_")}">
+      <h1>get_</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='1'>
+        </div>
+        <input value="查询" type="submit">
+  </form>
+
+
+
+   <form id="form" method="post" action="{:U("Company/getBalance")}">
+      <h1>getBalance</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='1'>
+        </div>
+        <input value="查询" type="submit">
+  </form>
+
+
+
+  <form id="form" method="post" action="{:U("Company/queryRemain")}">
+      <h1>queryRemain</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='1'>
+        </div>
+
+        <label><font color=black>type*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="type" type="text" autofocus="" value='1'>
+        </div>
+
+        <input value="查询" type="submit">
+  </form>
+
+
+
+
+
+  <form id="form" method="post" action="{:U("Company/requestStatementOfAccount")}">
+      <h1>requestStatementOfAccount</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='1'>
+        </div>
+
+        <label><font color=black>idList*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="idList" type="text" autofocus="" value='[{"id":34,"class":"1"},{"id":15,"class":"2"}]'>
+        </div>
+
+        <input value="请求查询" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Company/requestStatementOfWechatAccount")}">
+      <h1>requestStatementOfWechatAccount</h1>
+      <label><font color=black>cid*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="cid" type="text" autofocus="" value='2'>
+        </div>
+
+        <label><font color=black>idList*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="idList" type="text" autofocus="" value='[{"id":"47","class":1},{"id":"48","class":1},{"id":"52","class":1}]'>
+        </div>
+
+        <label><font color=black>idList*</font></label>
+       <div class="input-control text" data-role="input-control">
+           <input name="pwd" type="text" autofocus="" value='123456'>
+        </div>
+        <input value="请求查询" type="submit">
+  </form>
+
+  <form id="form" method="post" action="{:U("Company/resetRemain")}">
+      <h1>resetRemain</h1>
+        <input value="更新" type="submit">
+  </form>
+    <form id="form" method="post" action="{:U("Company/companyTransactionStatistics")}">
+    <h1>往来单位销售详情统计</h1>
+    <div class="input-control text" data-role="input-control">
+        <input name="cid" type="text" value= 6>
+    </div>
+    <input value="更新" type="submit">
+    </form>
+</body>
+</html>

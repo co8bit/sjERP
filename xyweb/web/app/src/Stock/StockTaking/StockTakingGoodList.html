@@ -1,0 +1,45 @@
+<div class="typical-left-right-narrow stocktaking-good-list-tab" ng-controller="StockTakingGoodListController">
+    <div class="t-left">
+        <div class="search-and-cat">
+            <div class="search-bar-red">
+                <div>
+                    <img src="web/app/img/misc/pic_search_grey.png">
+                    <input type="text" ng-model="queryInfo.query" placeholder="类别/商品名/规格" />
+                </div>
+                <!--<button class="create-spu-btn" ng-click="createSKU()">创建商品</button>-->
+            </div>
+            <div class="filter-bar-red" ng-show="stoListShow">
+                <span>仓库选择</span>
+                <div>
+                    <button ng-repeat="item in stoList" ng-click="setStoTo(item)" ng-class="{bgr:selectedStoId == item.sto_id,highlight:selectedStoId == item.sto_id, normal:selectedStoId != item.sto_id}" ng-show="item.status == 1">{{item.sto_name}}</button>
+                </div>
+            </div>
+            <div class="filter-bar-red">
+                <span>类别筛选</span>
+                <div>
+                    <button ng-click="setCatTo('')" ng-class="{bgr:selectedCatId == '',highlight:selectedCatId==''}">全部</button>
+                    <button ng-repeat="item in catList" ng-click="setCatTo(item.cat_id)" ng-class="{bgr:selectedCatId == item.cat_id,highlight:selectedCatId == item.cat_id, normal:selectedCatId != item.cat_id}" ng-show="item.status == 1">{{item.cat_name}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="promptSelect" ng-show="isPromptSelectShow">
+            <p ng-show="alreadySelect">请选择仓库</p>
+            <p ng-show="!alreadySelect">加载中...</p>
+        </div>
+        <div class="good-list">
+            <div class="good-unit" ng-init="setGoodListWH()" ng-repeat="item in skuOrderInfo" ng-show="item.status == '1'&& item.isShowAgain">
+                <div class="item-info" ng-click="setCartItem(item);">
+                    <div class="spec-name ellipsis">{{item.spu_name}}</div>
+                    <div class="spu-name ellipsis">{{item.spec_name}}</div>
+                    <div>{{item.stock}}件</div>
+                </div>
+                <!--ng-click="cartAgent.setEditingCartItemByCartItem(cartAgent.cartItemList[item.sku_id])"-->
+                <div class="already-add" ng-show="cartAgent.cartItemList[item.sku_id].quantity >= 0  || cartAgent.editingCartItem.sku_id == item.sku_id" ng-click="setCartItem(item);">
+                    <div>已添加</div>
+                    <span>{{cartAgent.cartItemList[item.sku_id].quantity | number:2}}件</span>
+                    <div class="click-to-modify">点击修改</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- 新建类别 -->
+<div class="create-edit-cat" ng-controller="CreateEditCatController">
+
+    <div class="title-bar">
+        <span ng-show="!(catInfo.cat_id > 0)">新建类别</span>
+        <span ng-show="(catInfo.cat_id > 0)">编辑类别</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+    <div class="below-title-bar">
+        <div class="create-edit-cat-container">
+            <div class="input-container">
+                <div>
+                    <span>类别名称：</span>
+                    <input type="text" ng-model="catInfo.cat_name">
+                    <span class="required">*</span>
+                </div>
+                <div>
+                    <input type="checkbox" ng-model="catInfo.cat_index" ng-true-value="'1'"
+                           ng-false-value="'2'" id="cat_index">
+                    <label for="cat_index">在筛选过程中，优先显示此类别</label>
+                </div>
+                <div>
+                    <input type="checkbox" ng-model="catInfo.status" ng-true-value="'1'"
+                           ng-false-value="'0'" id="status">
+                    <label for="status">启用</label>
+                </div>
+            </div>
+            <div class="create-edit-container">
+                <button ng-show="(catInfo.cat_id > 0)" ng-click="confirmDeleteCat(catInfo)">删除</button>
+                <button ng-show="!(catInfo.cat_id > 0)" ng-click="createCat(catInfo)">创建并退出</button>
+                <button ng-show="!(catInfo.cat_id > 0)" ng-click="createCat(catInfo,1)">创建并继续</button>
+                <button ng-show="(catInfo.cat_id > 0)" ng-click="editCat(catInfo)">修改</button>
+            </div>
+            <!--     <div>
+                    <button ng-click="test();">test</button>
+                </div> -->
+            <!-- <button ng-click="createCatAndContinue()">创建并继续</button> -->
+        </div>
+    </div>
+</div>

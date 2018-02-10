@@ -1,0 +1,62 @@
+<div class="income-and-expense" ng-controller="ModifyIncomeOrExpenseController">
+    <div class="title-bar">
+        <span class="function-name" ng-show="docInfoClass==5">应收款调整</span>
+        <span class="function-name" ng-show="docInfoClass==6">应付款调整</span>
+
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png">
+        </div>
+    </div>
+    <div class="function-tab">
+        <div class="left-right">
+            <div class="t-left">
+                <div class="shourulaiyuan">
+                    <span >客户名称</span>
+                </div>
+                <div class="company-list">
+                    <input class="input-income" type="text" ng-click="clickcompanyNameInput()" ng-model="companyNameInput">
+
+                    <div class="auto-list auto-complete-content auto-complete-block auto-complete-list" ng-show="isCompanyListShow == true">
+                        <div class="new-company auto-complete-content">
+                            <button class="add-new-cstmr" ng-click="clickAddNewCompany()">增加新单位</button>
+                        </div>
+                        <!-- 自动完成的往来单位列表 -->
+                        <!-- 选择单位 -->
+                        <div class="auto-complete-content" ng-repeat="item in companyList | filter: companyNameInput" >
+                            <button ng-click="clickCompany(item)">{{item.name}}</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="value-input">
+                    <!-- 应收款 -->
+                    <div class="row" ng-show="docInfoClass == 5">
+                        <span>该客户应收款: {{0 - balance}}</span>
+                        <span><span class="fu">+</span>增加应收款金额 <input id="first-input" class="input-s-s" type="number" ng-model="companyIncome">元</span>
+                    </div>
+                    <div class="row" ng-show="docInfoClass == 6">
+                        <span>该客户应付款: {{balance}}</span>
+                        <span><span class="fu">+</span>增加应付款金额 <input id="first-input" class="input-s-s" type="number" ng-model="companyIncome">元</span>
+                    </div>
+                    <div class="row">
+                        <span ng-show="docInfoClass==5"><span class="fu">=</span>应收款: {{0 - balance + companyIncome | number: 2}}</span>
+                        <span ng-show="docInfoClass==6"><span class="fu">+</span>应付款: {{balance + companyIncome | number: 2}}</span>
+                    </div>
+                </div>
+                <div class="check_time">
+                    <label>开单日期</label>
+                    <input class="date-input" id="datepicker1" readonly="readonly" type="text"  ng-model="reg_time_show" readonly="readonly">
+                </div>
+                <textarea class="remark" placeholder="填写备注信息"  ng-model="companyRemark" />
+                <div class="sumbit-line">
+                    <button class="btn-submit"  ng-click="create(5)" ng-show="docInfoClass==5">创建应收款调整单</button>
+                    <button class="btn-submit"  ng-click="create(6)" ng-show="docInfoClass==6">创建应付款调整单</button>
+                </div>
+            </div>
+            <!-- <div class="t-right">
+                <div ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'"></div>
+            </div> -->
+        </div>
+    </div>
+
+</div>

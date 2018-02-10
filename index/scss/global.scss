@@ -1,0 +1,162 @@
+@import 'framework';
+
+body {
+  font-family: "Microsoft YaHei";
+  header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 5px #F24C3D;
+    .head {
+      width: 100%;
+      min-width: 1000px;
+      max-width: 1100px;
+      height: 70px;
+      background: white;
+      margin: 0 auto;
+      padding: 0 50px;
+      box-sizing: border-box;
+      @extend .flex;
+      justify-content: space-between;
+      align-items: center;
+      nav {
+        @extend .flex;
+        align-items: center;
+        background: white;
+        border: none;
+        ul {
+          @extend .flex;
+          justify-content: space-between;
+          align-items: center;
+          li {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 15px;
+            cursor: pointer;
+            height: 100%;
+            &.btn-orange {
+              border-radius: 10px;
+            }
+            &.login,
+            &.reg {
+              color: #F24C3D;
+              font-size: 20px;
+              margin: 0 0 0 20px;
+            }
+            &.active {
+              a {
+                color: #F24C3D;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @import 'module/_register';
+  @import 'module/_login';
+  .page-content {
+    margin-top: 70px;
+    @import 'module/home';
+    @import 'module/price';
+    @import 'module/select_dialog';
+    @import 'module/video';
+    @import 'module/quesition';
+    @import 'module/bookingDemo';
+    @import 'module/aboutUs';
+    @import 'module/contactUs';
+    @import 'module/minorEnterprises';
+    @import 'module/freeze';
+    @import 'module/metals';
+    @import 'module/ClientCase';
+    @import 'module/common';
+    @import 'module/agency';
+  }
+  .footer {
+    width: 100%;
+    margin-top: 100px;
+    min-width: 1100px;
+    .content {
+      width: 1100px;
+      margin: 0 auto;
+      @extend .flex;
+      justify-content: space-around;
+      ul {
+        height: 250px;
+        li {
+          margin-top: 15px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        .title {
+          cursor: auto;
+          font-size: 16px;
+          margin-top: 20px;
+          font-weight: bold;
+        }
+        .divide {
+          margin-bottom: 20px;
+          cursor: auto;
+          width: 26px;
+          height: 2px;
+          background: #ee7258;
+        }
+        .join {
+          position: relative;
+          @extend .flex;
+          margin-top: 20px;
+          div {
+            margin-right: 15px;
+            .icon {
+              cursor: pointer;
+            }
+            .qrcode {
+              position: absolute;
+              display: none;
+              top: -160px;
+              left: -20px;
+              width: 150px;
+              height: 150px;
+            }
+            &:hover .qrcode {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      height: 70px;
+      background: #3b3e45;
+      @extend .flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      div {
+        width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 16px;
+      }
+      .top {
+        a {
+          color: white;
+        }
+      }
+      .bottom {
+        margin-top: 10px;
+        a {
+          height: 16px;
+        }
+        span {
+          height: 20px;
+          margin: 0px 0px 0px 0px;
+          color: #939393;
+        }
+      }
+    }
+  }
+}

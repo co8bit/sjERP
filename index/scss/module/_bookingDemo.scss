@@ -1,0 +1,90 @@
+.bookingDemo {
+    width: 100%;
+    min-width: 1100px;
+    position: relative;
+    @extend .flex;
+    flex-flow: column;
+    .top-wrap {
+        width: 100%;
+        min-width: 1100px;
+        background: #fc7347;
+        .top {
+            width: 1100px;
+            height: 300px;
+            margin: 0 auto;
+            color: #FFFFFF;
+            position: relative;
+            @extend .flex;
+            flex-flow: column;
+            justify-content: center;
+            div{
+                margin-left: 30px;
+                &.t1 {
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+                &.t2 {
+                    font-size: 22px;
+                    margin-top: 50px;
+                }
+            }
+            .form-wrap{
+                position: absolute;
+                top: 130px;
+                right: 0;
+                width: 500px;
+                height: 670px;
+                border-radius: 10px;
+                overflow: hidden;
+                background: #E0E0E0;
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    .main {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .media-row {
+        width: 100%;
+        min-width: 1100px;
+        .media {
+            width: 1100px;
+            height: 500px;
+            margin: 0 auto;
+            top: 300px;
+            background: white;
+            padding-left: 30px;
+            color: #000000;
+            box-sizing: border-box;
+            .title{
+                margin-top: 100px;
+                font-size: 26px;
+                font-weight: bold;
+            }
+            ul{
+                margin-top: 15px;
+                list-style: none;
+                li{
+                    color: #454545;
+                    font-size: 18px;
+                    margin-top: 5px;
+                    padding-top: 5px
+                }
+                li:before{
+                    content: '■';
+                    color: #fc7347;
+                    font-size: 12px;
+                    margin-right: 15px;
+                }
+            }
+            p{
+                margin-top: 15px;
+                font-size: 22px;
+            }
+        }
+    }
+
+}

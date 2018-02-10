@@ -1,0 +1,44 @@
+<div class="spec-bg" ng-controller="RequisitionPriceInputController">
+	<div class="spec-and-numpad">
+		<div class="spec-container">
+			<span>当前选择的货品为</span>
+			<div class="selected">
+				<input class="spu" type="text" ng-model="orderInfo.cartAgent.editingCartItem.spu_name" placeholder="选择商品" disabled="true">
+			</div>
+			<div class="selected">
+				<input class="spec" type="text" ng-model="orderInfo.cartAgent.editingCartItem.spec_name" placeholder="规格" disabled="true">
+			</div>
+			<div class="mt-s item3line">
+				<span class="left">系统中数量</span>
+				<input type="text" ng-model="orderInfo.cartAgent.editingCartItem.stock" disabled="true" />
+				<span class="replace-unit"></span>
+			</div>
+			<div class="mt-s item3line">
+				<span class="left">调拨数量</span>
+				<input class="quantity" id="first-input" type="text" ng-init="orderInfo.cartAgent.editingCartItem.quantity = 0" ng-model="orderInfo.cartAgent.editingCartItem.quantity" ng-click="numPad.setState(0)" ng-focus="orderInfo.cartAgent.editingCartItem.quantity = '';numPad.setState(0);" />
+				<span class="replace-unit"></span>
+			</div>
+			<div class="mt-s item3line">
+				<span class="left">调拨单价</span>
+				<input type="text" ng-init="orderInfo.cartAgent.editingCartItem.unit_price = 0" ng-model="orderInfo.cartAgent.editingCartItem.unit_price" ng-click="numPad.setState(1)" ng-focus="orderInfo.cartAgent.editingCartItem.unit_price = '';orderInfo.cartAgent.editingCartItem.isedit=true;numPad.setState(1)" />
+				<span class="replace-unit"></span>
+			</div>
+			<div class="mt-s item3line">
+				<span class="left">调拨金额</span>
+				<input ng-model="profitAndLossValue | number : 2" disabled="true">
+				<span>元</span>
+			</div>
+			<!--<div class="prompt">-->
+				<!--<span>注：1.未更改调拨单价，则生成同价调拨单</span><br />-->
+				<!--<span class="replace-2">2.更改了调拨单价，则生成变价调拨单</span>-->
+
+			<!--</div>-->
+			<div class="submit">
+				<button class="btn-submit-s" ng-click="finishEditing()" ng-disabled="orderInfo.cartAgent.editingCartItem.sku_id <= 0">添加</button>
+				<button class="btn-submit-s" ng-click="cancelInput()">取消</button>
+			</div>
+		</div>
+		<!-- 小键盘 -->
+		<div class="numpad-container" ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'" ng-show="orderInfo.cartAgent.editingCartItem.sku_id > 0"></div>
+	</div>
+</div>

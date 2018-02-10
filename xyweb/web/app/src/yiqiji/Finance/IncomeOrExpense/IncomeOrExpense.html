@@ -1,0 +1,157 @@
+<div class="income-and-expense" ng-controller="IncomeOrExpenseController">
+
+	<div class="title-bar">
+		<span class="function-name" ng-show="orderInfo._class == 81">收入开单 </span>
+		<span class="function-name" ng-show="orderInfo._class == 82">支出开单</span>
+		<div class="quit" ng-click="quit()">
+			<img src="web/app/img/misc/pic_close.png">
+		</div>
+	</div>
+	<div class="info-box">
+		<div class="cstmr-container">
+			<div class="title-name-row">
+				<span class="title-name" ng-show="orderInfo._class == 81">收入来源</span>
+				<span class="title-name" ng-show="orderInfo._class == 82">申领人</span>
+			</div>
+			<div class="input-row">
+				<input ng-show="orderInfo._class == 81" type="text" placeholder="收入来源" ng-model="orderInfo.cid_name ">
+				<input ng-show="orderInfo._class == 82" ng-disabled="userInfo.rpg == 11" type="text" placeholder="申领人" ng-model="userInput" ng-focus="clickUserInput()">
+				<span class="required">*</span>
+			</div>
+			<div class="cstmr-list" ng-show="isUserListShow">
+				<div class="auto-complete-content" ng-if="isAdmin" >
+					<button class="active" ng-click="clickAddAccount()">增加成员</button>
+				</div>
+				<div class="auto-complete-content" ng-repeat="item in userList | filter:userInput">
+					<button ng-click="clickUserItem(item);">{{item.name}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="order-list-table">
+			<div class="title-name-row">
+				<span class="title-name" ng-show="orderInfo._class == 81">收入信息</span>
+				<span class="title-name" ng-show="orderInfo._class == 82">支出信息</span>
+			</div>
+			<div class="table">
+				<div class="head table-row">
+					<span class="index">序号</span>
+					<span>分类</span>
+					<span ng-show="orderInfo._class == 81">收入项目</span>
+					<span ng-show="orderInfo._class == 82">支出项目</span>
+					<span>总金额</span>
+					<span>备注</span>
+					<span ng-if="orderInfo._class == 82">是否有发票</span>
+					<span>操作</span>
+				</div>
+				<div class="table-row" ng-repeat="item in cartAgent.cartItemList track by $index">
+					<span class="index">{{$index + 1}}</span>
+					<span>
+						<div class="input-dropdown">
+							<input type="text" class="left dropdown-input" ng-model="item.spec_name" id="" value="" ng-focus="clickCheckCat(item);" ng-change="setItemCat(item)" />
+							<i class="fa fa-angle-down"></i>
+							<div class="dropdown-list" ng-show="item.catListShow">
+								<div class="item hover title" ng-click="createCat(item);">创建新类别</div>
+								<div class="item hover" ng-repeat="x in catList | filter : item.spec_name" ng-click="setItemCat(item,x);">{{x.spec_name}}</div>
+							</div>
+						</div>
+					</span>
+					<span><input type="text" ng-model="item.item_name" /></span>
+					<span ng-show="orderInfo._class == 82" ><input type="number" ng-model="item.total_price" ng-change="updataIncome(item);" /></span>
+					<span ng-show="orderInfo._class == 81" class="pointer"><input type="number" ng-model="item.total_price" readonly="readonly" ng-click="showCardBox(item);" /></span>
+					<span><input type="text" ng-model="item.cost_remark" /></span>
+					<span ng-if="orderInfo._class == 82" class="check-fa pointer" ng-click="item.is_invoice = !item.is_invoice">
+						<i class="fa fa-square-o" ng-show="!item.is_invoice"></i><i class="fa fa-check-square-o" ng-show="item.is_invoice"></i>
+					</span>
+					<span class="two-imgs">
+						<span class="pointer" ng-click="cartAgent.hideList();deleteCartItem($index)"><i class="fa fa-times"></i></span>
+						<!--是最后一个才显示添加按钮-->
+						<span class="pointer" ng-click="cartAgent.hideList();addCartItem()" ng-show="item == cartAgent.cartItemList[cartAgent.cartItemList.length-1]"><i class="fa fa-plus"></i>
+					</span>
+					</span>
+				</div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 3"></div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 2"></div>
+				<div class="table-row" ng-show="cartAgent.cartItemList.length < 1"></div>
+				<div class="table-row">
+					<span class="index">总计</span>
+					<span></span>
+					<span></span>
+					<span>{{orderInfo.income}}</span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="remark-row">
+				<div class="title-name-row">
+					<span class="title-name">备注</span>
+				</div>
+				<textarea ng-model="orderInfo.remark"></textarea>
+			</div>
+		</div>
+		<div class="card-box-wrap" ng-show="cardBoxIsShow">
+			<div class="card-box">
+				<div class="title-bar-green">
+					<span class="title">添加收款金额</span>
+					<span class="quit-i" ng-click="closeCardBox();"><i class="fa fa-times"></i></span>
+					<!--<img class="quit" src="web/app/img/misc/pic_close.png" alt="" />-->
+				</div>
+				<div class="card-content">
+					<div class="search-row">
+						<div class="search-box">
+							<input type="text" ng-model="queryAccount" placeholder="账户简称/速查码/账号" />
+							<img src="web/app/img/misc/pic_search.png" ng-click="closeCardBox();" />
+						</div>
+						<button class="xy-btn xy-btn-green" ng-click="addAccount()">新增账户</button>
+					</div>
+					<div class="table">
+						<div class="table-row head">
+							<span>序号</span>
+							<span>账户简称</span>
+							<span>账户类型</span>
+							<span>开户人</span>
+							<span>账号</span>
+							<span>账户余额</span>
+							<span>金额</span>
+						</div>
+						<div class="table-body">
+							<div class="table-row" ng-repeat="item in accountList | filter : queryAccount">
+								<span>{{$index + 1}}</span>
+								<span class="ellipsis">{{item.account_name}}</span>
+								<span ng-show="item.account_source_type == 1">银行</span>
+								<span ng-show="item.account_source_type == 2">网络</span>
+								<span ng-show="item.account_source_type == 3">现金</span>
+								<span>{{item.account_creator}}</span>
+								<span class="ellipsis">{{item.account_number}}</span>
+								<span>{{item.account_balance}}</span>
+								<span> <input type="number" ng-model="item.cost" ng-change="updataPrice();" />  </span>
+							</div>
+						</div>
+						<div class="table-row">
+							<span>合计</span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span>{{thisItemPilePrice}}</span>
+						</div>
+					</div>
+					<div class="button-row">
+						<button class="xy-btn xy-btn-green" ng-click="closeCardBox();">取消</button>
+						<button class="xy-btn xy-btn-green" ng-click="addItemPilePrice();">确认</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="time-row ">
+			<label>开单日期</label>
+			<input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+		</div>
+		<div class="btn-row">
+			<button class="xy-btn xy-btn-orange" ng-click="cartAgent.hideList();createOrder();">提交</button>
+		</div>
+	</div>
+</div>
+
+

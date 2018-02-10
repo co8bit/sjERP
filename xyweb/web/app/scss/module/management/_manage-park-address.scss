@@ -1,0 +1,26 @@
+.manage-park-address {
+
+  // 标题
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 145px;
+    height: 36px;
+    background: #fff;
+
+    span {
+      color: #a3a3a3;
+      font-weight: bold;
+    }
+  }
+
+  .table {
+    div {
+
+      span {
+        width: 30%;
+      }
+    }
+  }
+}

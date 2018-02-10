@@ -1,0 +1,64 @@
+.search {
+
+  .result {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 291px;
+    height: 36px;
+    background: #fff;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 145px;
+      height: 36px;
+      background: #f9f9f9;
+      color: #a3a3a3;
+      border-right: 1px solid #eeeeee;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    span:hover {
+      background: #fff;
+      font-weight: bold;
+    }
+
+    .selected {
+      background: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .first-table {
+    div {
+      span {
+        width: 16%;
+      }
+    }
+  }
+
+  .second-table {
+    div {
+      span {
+        width: 16%;
+      }
+    }
+  }
+
+  .third-table {
+    div {
+      span {
+        width: 18%;
+      }
+    }
+  }
+}

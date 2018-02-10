@@ -1,0 +1,29 @@
+<!-- <div ng-controller="CreateOverflowOrLossController"> -->
+<div class="numpad">
+    <div class="left">
+        <div>
+            <span ng-click="numPad.pressNum(7)">7</span>
+            <span ng-click="numPad.pressNum(8)">8</span>
+            <span ng-click="numPad.pressNum(9)">9</span>
+        </div>
+        <div>
+            <span ng-click="numPad.pressNum(4)">4</span>
+            <span ng-click="numPad.pressNum(5)">5</span>
+            <span ng-click="numPad.pressNum(6)">6</span>
+        </div>
+        <div>
+            <span ng-click="numPad.pressNum(1)">1</span>
+            <span ng-click="numPad.pressNum(2)">2</span>
+            <span ng-click="numPad.pressNum(3)">3</span>
+        </div>
+        <div>
+            <span class="wide" ng-click="numPad.pressNum(0)">0</span>
+            <span class="point" ng-click="numPad.pressNum('.')">.</span>
+        </div>
+    </div>
+    <div class="right">
+        <span class="clear" ng-click="numPad.pressOther('Clear')">C</span>
+        <span class="backspace" ng-click="numPad.pressOther('BackSpace')">←</span>
+        <span class="finish" ng-click="numPad.pressOther('Finish')">{{numPad.buttonNameStr['Finish']}}</span>
+    </div>
+</div>

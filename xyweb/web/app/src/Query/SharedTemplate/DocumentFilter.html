@@ -1,0 +1,50 @@
+<div>
+    <input type="text" placeholder="单据编号/商品名称/备注" ng-model="filter.search">
+    <br>
+    <label for="">创建时间范围</label>
+    <span>起始时间</span>
+    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+    <span>结束时间</span>
+    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+    <br>
+    <label for="">时间段</label>
+    <input type="checkbox">
+    <span>早上</span>
+    <input type="checkbox">
+    <span>下午</span>
+    <br>
+
+    <!-- 类别 -->
+    <label for="">类别</label>
+    <input type="checkbox" ng-model="filter.docClass[1]">
+    <span>销售出库单</span>
+    <input type="checkbox">
+    <span>销售退货单</span>
+    <br>
+    <label for="">状态</label>
+    <input type="checkbox">
+    <span>已完成</span>
+    <input type="checkbox">
+    <span>未完成</span>
+    <input type="checkbox">
+    <span>暂缓处理</span>
+    <input type="checkbox">
+    <span>异常</span>
+    <input type="checkbox">
+    <span>曾经异常</span>
+    <input type="checkbox">
+    <span>被删除</span>
+    <input type="checkbox">
+    <span>前台已打印，但库管未打印单据</span>
+    <input type="checkbox">
+    <span>库管已打印，但未出库单据</span>
+    <input type="checkbox">
+    <span>已出库但未送达</span>
+    <input type="checkbox">
+    <span>库管已打印，等待入库</span>
+    <br>
+    <label for="">往来单位</label>
+    <input type="text">
+    <label for="">经手人</label>
+    <input type="text">
+</div>

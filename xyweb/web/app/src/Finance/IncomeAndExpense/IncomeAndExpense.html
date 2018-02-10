@@ -1,0 +1,85 @@
+<div class="income-and-expense" ng-controller="IncomeAndExpenseController">
+
+    <div class="title-bar">
+        <span class="function-name" ng-show="docInfo._class == 73">财务 / 新建其他收入单</span>
+        <span class="function-name" ng-show="docInfo._class == 74">财务 / 新建支出费用单</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png">
+        </div>
+    </div>
+    <div class="function-tab">
+        <div class="left-right">
+            <div class="t-left">
+                <div class="shourulaiyuan">
+                    <span ng-show="docInfo._class == 73">收入来源</span>
+                    <span ng-show="docInfo._class == 74">费用用途</span>
+                </div>
+                <input class="input-income" type="text" ng-model="docInfo._name">
+                <div class="common">
+                    <span ng-show="docInfo._class == 73">常用收入来源</span>
+                    <span ng-show="docInfo._class == 74">常用费用用途</span>
+                </div>
+                <div class="common-button" ng-show="docInfo._class == 73">
+                    <button class="btn-alt" ng-click="docInfo.setName('意外所得')">意外所得</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('红包')">红包</button>
+                </div>
+                <div class="common-button" ng-show="docInfo._class == 74">
+                    <button class="btn-alt" ng-click="docInfo.setName('工资奖金')">工资奖金</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('租金水电')">租金水电</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('物流人工')">物流人工</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('营销广告')">营销广告</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('资金税费')">资金税费</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('办公行政')">办公行政</button>
+                    <button class="btn-alt" ng-click="docInfo.setName('日常杂费')">日常杂费</button>
+                </div>
+                <div class="value-title">
+                    <span class="" ng-show="docInfo._class == 73">收款金额</span>
+                    <span ng-show="docInfo._class == 74">付款金额</span>
+                </div>
+                <div class="pay">
+                    <div>
+                        <span>现金支付</span>
+                        <input id="first-input" class="input-s-s" ng-class="{ 'active-input' : numPad.state == 0 }" type="text" ng-model="docInfo.cash"
+                            ng-click="numPad.setState(0);" ng-focus="numPad.setState(0);"  onchange="value = parseFloat(value).toFixed(2);" ng-keyup="inputNumber('cash')">
+                        <span>元</span>
+                    </div>
+                    <div class="link">+</div>
+                    <div>
+                        <span>银行支付</span>
+                        <input id="second-input" class="input-s-s" ng-class="{ 'active-input' : numPad.state == 1 }" type="text" ng-model="docInfo.bank"
+                            ng-click="numPad.setState(1);" ng-focus="numPad.setState(1);"  onchange="value = parseFloat(value).toFixed(2);" ng-keyup="inputNumber('bank')">
+                        <span>元</span>
+                    </div>
+                    <div class="link">+</div>
+                    <div>
+                        <span>网络支付</span>
+                        <input id="third-input" class="input-s-s" ng-class="{ 'active-input' : numPad.state == 2 }" type="text" ng-model="docInfo.online_pay"
+                            ng-click="numPad.setState(2);" ng-focus="numPad.setState(2);" onchange="value = parseFloat(value).toFixed(2);" ng-keyup="inputNumber('online_pay')">
+                        <span>元</span>
+                    </div>
+                    <div class="link">=</div>
+                    <div class="actual-container">
+                        <span ng-show="docInfo._class == 73">实收</span>
+                        <span ng-show="docInfo._class == 74">实付</span>
+                        <span class="actual">{{docInfo.actual}}</span>
+                        <span>元</span>
+                        <span class="required">*</span>
+                    </div>
+                </div>
+                <div class="check_time">
+                    <label>开单日期</label>
+                    <input class="date-input" id="datepicker1" type="text"  ng-model="reg_time" readonly="readonly">
+                </div>
+                <textarea class="remark" placeholder="填写备注信息" ng-model="docInfo.remark" />
+                <div class="sumbit-line">
+                    <button class="btn-submit" ng-show="docInfo._class == 73" ng-click="createIncome();">创建其他收入单</button>
+                    <button class="btn-submit" ng-show="docInfo._class == 74" ng-click="createExpense();">创建支出费用单</button>
+                </div>
+                <!-- end of left -->
+            </div>
+            <div class="t-right">
+                <div ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>

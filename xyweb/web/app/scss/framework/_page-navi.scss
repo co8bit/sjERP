@@ -1,0 +1,50 @@
+.page-navi {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+
+  div {
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .bthover:hover {
+    background: $subthemeColor;
+    color: #fff;
+  }
+  .cb {
+    background: $subthemeColor;
+    color: #fff;
+  }
+}
+.apppage-navi {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+
+  div {
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .cb {
+    background: $subthemeColor;
+    color: #fff;
+  }
+}

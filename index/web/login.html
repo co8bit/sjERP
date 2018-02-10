@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit"/>
+        <title>星云进销存</title>
+        <link rel="stylesheet" type="text/css" href="../lib/reset/reset.css?xyvs=2.0.1"/>
+        <link rel="stylesheet" type="text/css" href="../css/global.css?xyvs=2.0.1"/>
+        <link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.css"/>
+        <script src="../lib/jquery/js/jquery-3.2.1.min.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../lib/jquery/js/js.cookie.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../lib/jquery/js/jquery.md5.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src='//kefu.easemob.com/webim/easemob.js?tenantId=27074&hide=false&sat=false' async='async'></script>
+        <script src="../js/statistics.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/share.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/NetWork.js?xyvs=2.0.1" type="text/javascript" charset="utf-8"></script>
+    </head>
+</head>
+<body>
+<div class="loginWindows" id="loginWindows">
+    <div class="windows">
+        <h5>星云进销存</h5>
+        <div class="select-loginWay" id="select-loginWay">
+            <p class="smallTittle">请选择登陆方式</p>
+            <button id="creatorLogin">创建者登陆</button>
+            <button id="staffLogin">员工登陆</button>
+            <a class="haveNum" href="register.html?xyvs=2.0.1">没有账号？注册创建者账号</a>
+        </div>
+        <div class="login-input" id="login-input">
+          <div id="creator-input">
+              <p>创建者账号</p>
+              <input type="text" class="username" name="username" id="creatorUsername">
+              <p class="inputError"></p>
+          </div>
+            <div id="staff-input">
+                <p >员工账号</p>
+                <input type="text" class="username" name="username" id="staffUsername">
+                <p class="inputError"></p>
+            </div>
+            <p>密码</p>
+            <input type="password" class="password" name="password" id="password">
+            <p class="inputError"></p>
+            <!--<div class="select-remember">-->
+                <!--<label class="rememberNum" for="rememberNum"><input type="checkbox" name="rememberNum" checked="checked" id="rememberNum">记住账号</label>-->
+                <!--<label class="rememberNum"  for="rememberPassword"><input type="checkbox" name="rememberPassword" checked="checked" id="rememberPassword">自动登录</label>-->
+            <!--</div>-->
+            <button class="loginSub" id="loginSub">登录</button>
+            <button class="changeLoginWay" id="changeLoginWay"></button>
+            <span><i class="iLf"></i>或<i class="iRg"></i></span>
+            <button class="resCreateNum" id="login-input-back">返回</button>
+            <button href="" class="forgetSub" id="forgetTo">忘记密码</button>
+        </div>
+        <div class="third-login" id="third-login">
+            <p class="smallTittle">填写信息</p>
+            <input type="text" class="companyName" name="companyName" id="companyName" placeholder="公司名">
+            <p class="inputError"></p>
+            <input type="text" class="industryName" name="industryName" id="industryName" placeholder="行业">
+            <p class="inputError"></p>
+            <div class="where">
+                <select class="province" id="province">
+                    <option>请选择省份</option>
+                </select>
+                <select class="city" id="city">
+                    <option>请选择城市</option>
+                </select>
+            </div>
+            <p class="inputError"></p>
+            <div class="whereKnow">
+                <p >从何处得知我们</p>
+                <div class="know-select">
+                    <label ><input type="checkbox" name="where">网上搜索</label>
+                    <label ><input type="checkbox" name="where">熟人推荐</label>
+                    <label ><input type="checkbox" name="where">手机商店</label>
+                    <!--<label ><input type="checkbox" name="where">其他</label>-->
+                    <!--<label ><input type="checkbox" name="where">邀请码</label>-->
+                </div>
+            </div>
+            <button class="third-next" id="third_next">下一步</button>
+        </div>
+        <div class="select-version" id="select-version">
+            <button class="select-back" id="select_back">返回</button>
+            <p class="select-tittle">请选择版本</p>
+            <div>
+                <div class="select-yiqiji">
+                    <img src="../img/register01.jpg" alt="">
+                    <p>财务报销、审核一体化管理。固定资 产、收支流水、工资单、应收应付、 利润表、多人记账。</p>
+                    <button class="yiqijiSub" id="yiqijiSub">易企记</button>
+                </div>
+                <div class="select-jinxiaocun" >
+                    <img src="../img/register02.jpg" alt="">
+                    <p>店铺销售、采购、库存、账目新一代 管理软件。电子对账、欠款管理、报 表分析、价格记忆、店仓分离。</p>
+                    <button class="jinxiaocunSub" id="jinxiaocunSub">星云进销存</button>
+                </div>
+            </div>
+        </div>
+        <div class="forget-password" id="forget-password">
+            <p class="smallTittle">重置密码</p>
+            <input class="phoneNum" name="phone" id="phoneNum" type="number" placeholder="请输入手机号码">
+            <p class="inputError"></p>
+            <button class="getAuth" id="forgetGetAuth">获取短信验证码</button>
+        </div>
+        <div class="forget-password-input" id="forget-password-input">
+            <p class="smallTittle">重置密码</p>
+            <input class="phoneNum" name="phone" id="phoneInput" type="number" placeholder="请输入手机号码">
+            <p class="inputError"></p>
+            <input class="passwordNum" name="password" id="passwordInput" type="password" placeholder="请输入重置密码">
+            <p class="inputError"></p>
+            <div class="sectionAuth">
+                <input class="authNum" name="auth" id="authInput" type="number" placeholder="请输入验证码">
+                <button class="againSend" id="againSend">重新发送</button>
+            </div>
+            <p class="inputError"></p>
+            <button class="forget-sub" id="forgetSub">确定</button>
+        </div>
+        <div class="login-bottom" id="login-bottom">
+            <span><i></i>或<i></i></span>
+            <button class="back" id="back">返回</button>
+        </div>
+    </div>
+</div>
+<script src="../js/data.js?xyvs=2.0.1"></script>
+<script src="../js/commonly.js?xyvs=2.0.1"></script>
+<script src="../js/login.js?xyvs=2.0.1"></script>
+</body>
+</html>

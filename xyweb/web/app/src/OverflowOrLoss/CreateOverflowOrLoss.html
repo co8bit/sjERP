@@ -1,0 +1,74 @@
+<div class="functionPage">
+    <h1>报溢报损</h1>
+    <button ng-click="reload()">刷新</button>
+    <!-- 商品搜索输入框 -->
+    <label for="">搜索</label>
+    <input type="text" ng-model="query" />
+
+
+    <!-- 商品列表 -->
+    <ul id="dialogParent" class="goodList">
+        <li ng-repeat="spu in goodList | filter:query" class="spu" ng-click="clickSPU(spu)">
+            {{spu.skus[0].spu_name}}
+        </li>
+    </ul>
+
+    <hr style="clear:left;">
+
+    <!-- 选货界面 -->
+    <div id="dialog-add-new" title="编辑商品详情">
+        <div ng-include="'src/SharedComponent/EditCartItemDialog/AddANewCartItem.html'" ng-controller="AddANewCartItemController"></div>
+    </div>
+
+    <!-- 购物车 -->
+    <label for="" >购物车</label>
+
+    <div ng-include="'src/SharedComponent/Cart/Cart.html'" ng-controller="CartController">
+    </div>
+
+    <hr>
+
+    <!-- 报溢报损的其他信息 -->
+    <label for="">报溢还是报损</label>
+    {{order.orderType}}
+    <input type="radio" ng-model="order.orderType" ng-value="1" />
+    <span>报溢</span>
+    <input type="radio" ng-model="order.orderType" ng-value="2"/>
+    <span>报损</span>
+
+    <br>
+
+    <label for="">盘点人</label>
+    <input type="text" placeholder="盘点人" ng-model="checker"/>
+    <button ng-click="gotoSelectChecker()">选择</button>
+
+    <br>
+
+    <label for="">变动数量</label>
+    <input type="text" disabled="true" ng-model="cartAgent.count">
+
+    <br>
+
+    <label for="">变动总价值</label>
+    <input type="text" disabled="true" ng-model="cartAgent.totPrice">
+
+    <br>
+
+    <input type="text"  placeholder="备注" ng-model="order.remark"/>
+
+    <br>
+
+    <label for="">调整执行人</label>
+    <span>{{operator}}</span>
+    
+
+
+    <br>
+
+    <button ng-click="createOverflowOrLoss()">提交</button>
+
+    <br>
+    <hr>
+
+    <button ng-click="test()">test</button>
+</div>

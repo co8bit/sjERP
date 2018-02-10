@@ -1,0 +1,51 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+<form class="form-signin" method="post" action="{:U('Config/getLockShopStatus')}">
+  <h1>getLockShopStatus</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">getLockShopStatus</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Config/lockShop')}">
+  <h1>lockShop</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">lockShop</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Config/unlockShop')}">
+  <h1>unlockShop</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">unlockShop</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Config/setShopConfig')}">
+  <h1>setShopConfig</h1>
+  <label>order_flow_mode:</label>
+  <input type="text" id="inputEmail" name="order_flow_mode" value='1'>
+  <label>audit_flow_mode:</label>
+  <input type="text" id="inputEmail" name="audit_flow_mode" value='1'>
+  <label>ck_jump_warehouseConfirm:</label>
+  <input type="text" id="inputEmail" name="ck_jump_warehouseConfirm" value='1'>
+  <label>ck_jump_warehouOut:</label>
+  <input type="text" id="inputEmail" name="ck_jump_warehouOut" value='1'>
+  <label>ck_jump_deliver:</label>
+  <input type="text" id="inputEmail" name="ck_jump_deliver" value='1'>
+  <label>rk_jump_warehouseConfirm:</label>
+  <input type="text" id="inputEmail" name="rk_jump_warehouseConfirm" value='1'>
+  <label>rk_jump_deliver:</label>
+  <input type="text" id="inputEmail" name="rk_jump_deliver" value='1'>
+  <label>is_show_foreground_printer_button:</label>
+  <input type="text" id="inputEmail" name="is_show_foreground_printer_button" value='1'>
+  <button class="btn btn-lg btn-success btn-block" type="submit">提交</button>
+</form>
+
+
+<form class="form-signin" method="post" action="{:U('Config/getShopConfig')}">
+  <h1>getShopConfig</h1>
+  <button class="btn btn-lg btn-success btn-block" type="submit">getShopConfig</button>
+</form>

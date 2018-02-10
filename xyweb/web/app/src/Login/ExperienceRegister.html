@@ -1,0 +1,42 @@
+<div class="loginAndRegisterMode" ng-controller="ExperienceRegisterController">
+    <div class="content">
+        <div class="head" ng-click="gotoOfficialSite()">星云进销存</div>
+        <div class="middle">
+            <div class="title">欢 迎 体 验</div>
+            <div class="input-row">
+                <input type="number" placeholder="请输入手机号" ng-model="mobile" ng-keydown="">
+                <span class="required">*</span>
+            </div>
+            <div class="where-know" ng-show="!model.recovery">
+                <div class="title" >从 何 处 得 知 我 们 ?</div>
+                <div class="option">
+                    <div class="xy-checkbox-inline">
+                        <input type="radio" ng-value="1" ng-model="selected" id="search">
+                        <label for="search">网上搜索</label>
+                    </div>
+                    <div class="xy-checkbox-inline">
+                        <input type="radio" ng-value="2" ng-model="selected" id="recommend">
+                        <label for="recommend">熟人推荐</label>
+                    </div>
+                    <div class="xy-checkbox-inline">
+                        <input type="radio" ng-value="3" ng-model="selected" id="appstore">
+                        <label for="appstore">手机应用商店</label>
+                    </div>
+                    <div class="xy-checkbox other">
+                        <input type="radio" ng-value="4" ng-model="selected" id="other">
+                        <label for="other">其他</label>
+                        <input type="text" ng-show="selected == 4"
+                               ng-model="other" ng-keydown="keydown($event);">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="xy-btn xy-btn-green" id="popup-submit" type="submit" value="立即体验" ng-click="registerVisitorMobile()" ng-keydown="">立即体验</button>
+            </div>
+            <div id="popup-captcha"></div>
+        </div>
+        <div class="back-btn-row">
+            <button type="button" class="xy-btn xy-btn-lg xy-btn-orange" ng-click="gotoOfficialSite()">返回</button>
+        </div>
+    </div>
+</div>

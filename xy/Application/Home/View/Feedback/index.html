@@ -1,0 +1,35 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>create_</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action="{:U("Feedback/create_")}">
+                  <div class="tile-group three">
+                      <div class="row">
+
+                                <label><font color=black>content</font></label>
+                                <div class="input-control text" data-role="input-control">
+                                   <input name="content" type="text" value='这里是一条反馈意见'>
+                                </div>
+
+                            <div class="row">
+                          <input value="提交" type="submit">
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

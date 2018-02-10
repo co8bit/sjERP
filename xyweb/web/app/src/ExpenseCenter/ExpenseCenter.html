@@ -1,0 +1,296 @@
+<div class="expense-center" ng-controller="ExpenseCenterController">
+    <script id='spay-script' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=47b40780-4666-4770-8925-cde65821bf37'></script>
+
+    <div class="title-bar">
+        <a class="function-name">费用中心</a>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png" />
+        </div>
+    </div>
+    <div class="detail-container-bg" ng-show="isSMSDetailDialogShow">
+        <div class="detail-container">
+            <div class="content-container">
+                <div>
+                    <span>短信条数：</span>
+                    <p>{{sms.sms_num}}</p>
+                </div>
+                <div>
+                    <span>收件人&ensp;&ensp;：</span>
+                    <p class="recipient">{{sms.sms_recipient}}</p>
+                </div>
+                <div>
+                    <span>短信内容：</span>
+                    <p>{{sms.sms_content}}</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a ng-click="isSMSDetailDialogShow = false">确定</a>
+            </div>
+        </div>
+    </div>
+    <div class="charge-container-bg" ng-show="isChargeDialogShow">
+        <div class="charge-container">
+            <div class="close">
+                <img src="web/app/img/misc/pic_close_black.png" ng-click="isChargeDialogShow = false;">
+            </div>
+            <div class="top">
+                <a>充值金额</a>
+                <input type="number" ng-model="chargeNum">
+                <a>元</a>
+            </div>
+            <div class="bottom">
+                <a class="charge" ng-click="charge()">立即充值</a>
+                <a>群发短信更便捷</a>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="top-wrapper">
+            <div class="left-container">
+                <div class="top-container">
+                    <!--<img src="web/app/img/misc/expense_center_card_0.png" ng-show="userAccountInfo.member_class == 0">-->
+                    <!--<img src="web/app/img/misc/expense_center_card_1.png" ng-show="userAccountInfo.member_class == 1">-->
+                    <!--<img src="web/app/img/misc/expense_center_card_2.png" ng-show="userAccountInfo.member_class == 2">-->
+                    <!--<img src="web/app/img/misc/expense_center_card_3.png" ng-show="userAccountInfo.member_class == 3">-->
+                    <!--<img src="web/app/img/misc/expense_center_card_3.png" ng-show="userAccountInfo.member_class == 5">-->
+                    <div class="welcome-container">
+                        <a class="welcome">您好,{{userInfo.name}}</a>
+                        <!-- <div> -->
+                            <!--<a class="free" ng-show="userAccountInfo.member_class == 0">免费</a>-->
+                            <!--<a class="free" ng-show="userAccountInfo.member_class == 1">金卡</a>-->
+                            <!--<a class="free" ng-show="userAccountInfo.member_class == 2">黑卡</a>-->
+                            <!--<a class="free" ng-show="userAccountInfo.member_class == 3">钻石卡</a>-->
+                            <!--<a class="free" ng-show="userAccountInfo.member_class == 5">大客户</a>-->
+                        <!-- </div> -->
+                    </div>
+                    <div ng-show="VipEndCountdown != 0" class="vip-end-countdown">
+                        <a class="">会员剩余 {{VipEndCountdown}} 日到期</a>
+                    </div>
+                    <div ng-show="VipEndCountdown != 0" class="vip-end-countdown">
+                        <a class="">会员到期日：{{vip_end_date}}</a>
+                    </div>
+                </div>
+                <div class="divide-container">
+                    <div></div>
+                    <a>用户权益</a>
+                    <!--<a ng-show="userAccountInfo.member_class == 0">免费用户权益</a>-->
+                    <!--<a ng-show="userAccountInfo.member_class == 1"><span class="class-1">金卡会员</span>权益</a>-->
+                    <!--<a ng-show="userAccountInfo.member_class == 2"><span class="class-2">黑卡会员</span>权益</a>-->
+                    <!--<a ng-show="userAccountInfo.member_class == 3"><span class="class-3">钻石卡会员</span>权益</a>-->
+                    <!--<a ng-show="userAccountInfo.member_class == 5"><span class="class-5">大客户</span>权益</a>-->
+                    <div></div>
+                </div>
+                <div class="price-container">
+                    <div class="class-container head">
+                        <div>
+                            <a>公司用户数</a>
+                        </div>
+                        <div class="h">
+                            <a>短信费率</a>
+                        </div>
+                        <div class="h">
+                            <a>赠送短信费</a>
+                        </div>
+                        <div>
+                            <a>专属顾问</a>
+                        </div>
+                        <div>
+                            <a>客服支持方式</a>
+                        </div>
+                        <div class="v">
+                            <a>官方支持</a>
+                            <a>响应优先级</a>
+                        </div>
+                    </div>
+                    <div class="class-container" ng-show="userAccountInfo.member_class == 0">
+                        <div>
+                            <a>2用户</a>
+                        </div>
+                        <div>
+                            <a>0.08元/条</a>
+                        </div>
+                        <div>
+                            <a>-</a>
+                        </div>
+                        <div>
+                            <a>-</a>
+                        </div>
+                        <div class="h">
+                            <a>网络</a>
+                        </div>
+                        <div>
+                            <a>中</a>
+                        </div>
+                    </div>
+                    <div class="class-container" ng-show="userAccountInfo.member_class == 1">
+                        <div>
+                            <a>3用户</a>
+                        </div>
+                        <div>
+                            <a>0.06元/条</a>
+                        </div>
+                        <div>
+                            <a>5元/月</a>
+                        </div>
+                        <div>
+                            <a>有</a>
+                        </div>
+                        <div class="h">
+                            <a>网络、远程</a>
+                            <a>微信、电话</a>
+                        </div>
+                        <div>
+                            <a>高</a>
+                        </div>
+                    </div>
+                    <div class="class-container" ng-show="userAccountInfo.member_class == 2">
+                        <div>
+                            <a>5用户</a>
+                        </div>
+                        <div>
+                            <a>0.06元/条</a>
+                        </div>
+                        <div>
+                            <a>10元/月</a>
+                        </div>
+                        <div>
+                            <a>有</a>
+                        </div>
+                        <div class="h">
+                            <a>网络、远程</a>
+                            <a>微信、电话</a>
+                        </div>
+                        <div>
+                            <a>优先</a>
+                        </div>
+                    </div>
+                    <div class="class-container" ng-show="userAccountInfo.member_class == 3">
+                        <div>
+                            <a>10用户</a>
+                        </div>
+                        <div>
+                            <a>0.06元/条</a>
+                        </div>
+                        <div>
+                            <a>30元/月</a>
+                        </div>
+                        <div>
+                            <a>有</a>
+                        </div>
+                        <div class="h">
+                            <a>网络、远程</a>
+                            <a>微信、电话</a>
+                        </div>
+                        <div>
+                            <a>最优</a>
+                        </div>
+                    </div>
+                    <div class="class-container" ng-show="userAccountInfo.member_class == 5">
+                        <div>
+                            <a>更多用户</a>
+                        </div>
+                        <div>
+                            <a>更多优惠</a>
+                        </div>
+                        <div>
+                            <a>更多赠送</a>
+                        </div>
+                        <div>
+                            <a>有</a>
+                        </div>
+                        <div class="h">
+                            <a>网络、远程</a>
+                            <a>微信、电话</a>
+                        </div>
+                        <div>
+                            <a>最优</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <a ng-click="EventService.emit(EventService.ev.START_ACCOUNT_PAY)" ng-show="userAccountInfo.member_class == 0">立即开通正式会员</a>
+                    <a ng-click="EventService.emit(EventService.ev.START_ACCOUNT_PAY)" ng-show="userAccountInfo.member_class > 0">立即升级或续费</a>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="web/app/img/misc/pic_banner.png">
+                <div class="remain-charge-container">
+                    <div class="remain-container">
+                        <div class="left">
+                            <span class="title">账户余额</span>
+                            <span>
+                            	<span class="num">{{userAccountInfo.balance / 100}}</span>
+                            	<span class="sign">元</span>
+                        	</span>
+                        </div>
+                        <div class="right">
+                            <span class="title">本月赠送短信余额</span>
+                            <span>
+                            	<span class="num">{{userAccountInfo.balance_sms_gift / 100}}</span>
+                            	<span class="sign">元</span>
+                        	</span>
+                        </div>
+                    </div>
+                    <div class="charge-container">
+                        <div class="left">
+                            <a>累计节约短信费：{{saved.sms_saved_money}}元</a>
+                            <a>累计节约编写时间：{{saved.sms_saved_time}}小时</a>
+                        </div>
+                        <div class="right">
+                            <a class="charge" ng-click="isChargeDialogShow = true;">充&ensp;值</a>
+                            <div>
+                                <a>升级</a>
+                                <a>获取更多赠送短信</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-wrapper">
+            <div class="tab-container">
+                <div class="pay-menu">
+                    <span ng-class="{selectedTab: tab == 2}" ng-click="selectTab(2);">支出明细</span>
+                    <span ng-class="{selectedTab: tab == 1}" ng-click="selectTab(1);">充值明细</span>
+                </div>
+                <div class="time-container" ng-show="true">
+                    <span class="time">时间</span>
+                    <!-- <div>
+                        <input id="datepicker1" type="text" ng-model="timeFilter.reg_st_time" readonly="readonly" ng-click="timeFilter.reg_st_time=undefined;query.request();">
+                        <span>至</span>
+                        <input id="datepicker2" type="text" ng-model="timeFilter.reg_end_time" readonly="readonly" ng-click="timeFilter.reg_end_time=undefined;query.request();">
+                    </div> -->
+                    <div id="reportrange" class="pull-left dateRange">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span id="searchDateRange"></span>
+                        <b class="caret"></b>
+                    </div>
+                </div>
+            </div>
+            <div class="table" st-table="stExpenseInfo" st-safe-src="data">
+                <div class="head table-row">
+                    <span>日期</span>
+                    <span>类别</span>
+                    <span>操作人</span>
+                    <span>状态</span>
+                    <span>金额（元）</span>
+                    <span ng-show="tab == 2">详情</span>
+                </div>
+                <div class="table-row" ng-repeat="item in stExpenseInfo">
+                    <span class="">{{item.time_show}}</span>
+                    <span class="big-sapn ellipsis">{{item.class}}</span>
+                    <span class="ellipsis">{{item.operator_name}}</span>
+                    <span class="">{{item.bill_status}}</span>
+                    <span class="">{{item.money / 100}}</span>
+                    <span ng-show="tab == 2" ng-click="setSMS(item);"><button>详情</button></span>
+                </div>
+                <div class="table-row"></div>
+            </div>
+            <div class="page-navi">
+                <div ng-click="paginator.clickButton(item);" ng-class="{'cb':item.isNowPage == true,'bthover':isMobile==false}" ng-repeat="item in paginator.pageList">
+                    <span>{{item.content}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1204 @@
+#cnzz_stat_icon_1260605815 {
+    display: none;
+}
+
+@mixin left-center($top: 0, $left: 0) {
+    position: relative;
+    float: left;
+    top: $top;
+    left: $left;
+}
+
+// 公用的load界面
+.spinner {
+    margin: 100px auto 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding-top: 16%;
+    z-index: 9999999;
+}
+
+.spinner>div {
+    width: 30px;
+    height: 30px;
+    background-color: #ee7258;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0.0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+.icon-load {
+    margin: 100px auto 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding-top: 5%;
+    z-index: 9999999;
+    img {
+        width: 5%;
+        height: 5%;
+        margin-bottom: -8px;
+        margin-right: 5px;
+    }
+    .logo {
+        font-size: 33px;
+        margin-bottom: 8px;
+    }
+    .loading {
+        color: #a3a3a3;
+        margin-top: 11px;
+        margin-left: 4px;
+        font-size: 22px;
+    }
+}
+
+.tips {
+    margin: 100px auto 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    padding-top: 25%;
+    z-index: 9999999;
+    .bold {
+        font-weight: bold;
+    }
+}
+
+// 公用的提示界面
+.shared-toast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(163, 163, 163, 0.6);
+    z-index: 1000000;
+    // 提示内容
+    .toast-content {
+        width: 354px;
+        height: 286px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        color: #555;
+        font-size: 20px;
+        box-shadow: 0 0 5px #aaa;
+    }
+}
+
+// 公用的确认对话框
+.confirm-dialog-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(163, 163, 163, 0.6);
+    z-index: 1000000;
+    .confirm-dialog {
+        width: 354px;
+        height: 286px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        background: #fff;
+        box-shadow: 0 0 5px #aaa;
+        padding: 20px 0;
+        .close-btn{
+            width: 90%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size:30px;
+            color:#e3613e;
+            i {
+                cursor:pointer;
+            }
+        }
+        .content-tips {
+            width: 80%;
+            flex-grow: 1;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 16px;
+            .red {
+                color: #ee7258;
+                font-size: 10px;
+                margin-top: 10px;
+            }
+        }
+        .content-container {
+            width: 80%;
+            flex-grow: 1;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 20px;
+            &>div {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .left {
+                    display: flex;
+                    width: 48%;
+                    justify-content: flex-end;
+                    font-weight: bold;
+                }
+                .right {
+                    display: flex;
+                    width: 50%;
+                    justify-content: flex-start;
+                    flex: row wrap;
+                    word-break: break-all;
+                }
+            }
+            .title {
+                justify-content: center;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .center {
+                justify-content: center;
+            }
+            .red {
+                color: #ee7258;
+            }
+        }
+        .btn-container {
+            flex-grow: 1;
+            margin-top: 10px;
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            button {
+                border: none;
+                outline: none;
+                color: #fff;
+                background: $subthemeColor;
+                height: 30px;
+                padding: 0 24px;
+                font-size: 13px;
+                flex-shrink: 0;
+                margin-left: 10px;
+            }
+            button:hover {
+                background: darken($subthemeColor, 5%);
+            }
+        }
+    }
+    .wider {
+        width: 550px;
+    }
+    .bigger {
+        width: 550px;
+        height: 400px;
+    }
+}
+/**
+     * 操作记录共用弹窗
+ */
+.history-dialog-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(163, 163, 163, 0.6);
+    z-index: 1000000;
+    .history-dialog {
+        width: 500px;
+        height: 400px;
+        background: white;
+        overflow: hidden;
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        .content {
+            width: 520px;
+            height: 310px;
+            overflow-y: scroll;
+            .item{
+                max-height: 60px;
+                padding: 4px 15px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                border: none;
+                outline: none;
+                color: #fff;
+                background: $subthemeColor;
+                height: 30px;
+                padding: 0 24px;
+                font-size: 13px;
+                flex-shrink: 0;
+                margin-left: 10px;
+            }
+            button:hover {
+                background: darken($subthemeColor, 5%);
+            }
+        }
+    }
+}
+///////////////结算对话框
+.settlement-dialog{
+    margin-bottom:-40px;
+    position: relative;
+    .close{
+        position: absolute;
+        top: -52px;
+        left: 287px;
+        width: 100%;
+        span{
+            img{
+                height:20px;
+                cursor: pointer;
+            }
+        }
+    }
+    .plus_{
+        width:50%;
+        text-align:center;
+        p{
+        padding-bottom:10px;
+        }
+    }
+
+    button{background:#e3613e;}
+}
+
+// 加号菜单所弹出的菜单
+.plus-menu {
+    position: absolute;
+    width: 269px;
+    top: 44px;
+    left: 155px;
+    z-index: 1;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    z-index: 2;
+    display: flex;
+    .block {
+        background: rgba(190, 99, 81, 0.9);
+        span {
+            position: relative;
+            float: left;
+            height: 0;
+            top: 20px;
+            left: 27px;
+            opacity: 1;
+        }
+        span:hover {
+            color: #ec7358;
+        }
+        .head-div {
+            height: 50px;
+            background: $themeColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div {
+                float: left;
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 27px;
+                width: 294px;
+                background: #d2654e;
+                border-radius: 15px;
+                padding-left: 65px;
+                left: -25px;
+            }
+        }
+        .block-div {
+            border-right: 1px solid #6a6a6c;
+            border-bottom: 1px solid #6a6a6c;
+            &:last-child {
+                border-bottom: none;
+            }
+            div {
+                display: inline-flex;
+                flex-direction: column;
+                margin: 12px 0;
+            }
+        }
+        .last-div {
+            background-color: #be6351;
+            opacity: 0.9;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 12px;
+            img {
+                margin-top: 6px;
+            }
+            div {
+                margin: 8px 0;
+            }
+        }
+        a {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            width: 269px;
+            height: 31px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 6px 19px;
+            outline: none;
+            cursor: pointer;
+        }
+        a:hover {
+            background: #fff;
+            color: #ec7358;
+        }
+        .timeMode {
+            background: #96C8CD;
+            color: #FFFFFF;
+            a {
+                color: #FFFFFF;
+                &:hover {
+                    color: #000000;
+                    background: #FFFFFF;
+                }
+            }
+            &:hover {
+                background: #96C8CD;
+            }
+        }
+        .timeMode2{
+            @extend .timeMode;
+            background: rgba(77, 153, 162, 0.8);
+            &:hover {
+                background: rgba(77, 153, 162, 0.8);
+            }
+        }
+        &.create {
+            .block-div {
+                border-bottom: 1px solid #6a6a6c;
+            }
+        }
+    }
+}
+
+// 首页右上角菜单样式
+@mixin menu($right) {
+    position: absolute;
+    top: 55px;
+    width: 100px;
+    right: $right;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 0 5px #aaa;
+    border-top: 2px solid $subthemeColor;
+    // 首页右上角设置和用户菜单上方的青色小半圆
+    .img-semi-circle {
+        position: relative;
+        float: left;
+        margin-top: -6px;
+        margin-left: 9px;
+    }
+    // 首页右上角设置和用户的公有子菜单
+    .btn-corner-menu {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-top: 1px solid #eeeeee;
+        img {
+            width: 20px;
+        }
+        button {
+            width: 66px;
+            color: #808080;
+            font-size: 12px;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+    }
+    .btn-corner-menu:hover {
+        background: #f8f8f8;
+    }
+}
+
+////////////////////首页右上角反馈框按钮
+.feedback-menu {
+    @include menu(108px);
+}
+.feedback-menu {
+  top: 40px;
+  width:285px;
+  height:170px;
+  display: flex;
+  justify-content: center;
+
+ .feedback-container {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px #aaa;
+    background: #fff;
+    border-radius: 2px;
+
+    .content {
+      width: 92%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      background: #fafafc;
+      margin-top: 9px;
+
+        textarea {
+          width: 100%;
+          height: 100%;
+          border: 1px solid #ccc;
+          outline: none;
+          border-radius: 5px;
+          resize:none;
+        }
+
+    }
+
+    button {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      height: 31px;
+      line-height: 12px;
+      width: 100px;
+      font-size: 15px;
+      font-weight: bold;
+      background: $themeColor;
+      color: #fff;
+      border: none;
+      outline: none;
+    }
+
+    button:hover {
+      background: darken($themeColor, 5%);
+    }
+  }
+}
+
+// 首页右上角设置菜单
+.setting-menu {
+    @include menu(108px);
+}
+
+// 首页右上角用户菜单
+.user-menu {
+    @include menu(3px);
+}
+
+// 整体页面
+.app {
+    .timeModeTipBox {
+        position: absolute;
+        right: 580px;
+        height: 40px;
+        border: 1px red solid;
+        border-radius: 20px;
+        z-index: 9999;
+        line-height: 40px;
+        padding: 0 20px;
+        cursor: pointer;
+        color: red;
+        font-weight: bold;
+        background: #eee;
+    }
+    // 标题栏
+    .app-title {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        //font-family: PingFangSC-Medium;
+        color: #666666;
+        font-size: 18px;
+        height: 44px;
+        .icon-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 12px;
+            cursor: pointer;
+            img {
+                width: 21px;
+                height: 21px;
+                margin-bottom: 2px;
+                margin-right: 5px;
+            }
+            // 星云两字
+            .xingyun {
+                //margin: 14px 0px 14px 35px;
+                font-weight: bold;
+                //@include left-center(12px, 32px);
+            }
+            // 进销存两字
+            .jinxiaocun {
+                //@include left-center(12px, 32px);
+            }
+        }
+        // 单号/客户输入框容器
+        .input-container {
+            //@include left-center(10px, 102px);
+            margin-left: 55px;
+            // 单号/客户输入框
+            input {
+                position: relative;
+                width: 160px;
+                border-radius: 15px;
+                padding-left: 5px;
+                height: 24px;
+                font-size: 9px;
+            }
+            //input:focus {
+            //  outline: none;
+            //  border: 1px solid #7b9dd4;
+            //  border-radius: 15px;
+            //  box-shadow: 0 0 0 1px #a6c8ff;
+            //}
+            //放大镜
+            img {
+                position: relative;
+                float: right;
+                right: 22px;
+                top: 7px;
+                cursor: pointer;
+            }
+        }
+        // 设置和用户按钮的容器
+        .setting-container {
+            position: absolute;
+            top: 7px;
+            right: 26px;
+            justify-self: flex-end;
+            display: flex;
+            align-items: center;
+            div {
+                cursor: pointer;
+            }
+            .feedback-menu-container {
+                display: flex;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+                img {
+                    height: 16px;
+                    margin-left: 10px;
+                }
+                button {
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+                    margin: 0 10px 0 3px;
+                    font-size: 13px;
+                    color: #898989;
+                    outline: none;
+                }
+                a {
+                    color: #898989;
+                    &:hover {
+                        color: #898989;
+                    }
+                    &:visited {
+                        color: #898989;
+                    }
+                }
+            }
+            .charge-menu-container,
+            .added-service-menu-container,
+            .help-menu-container {
+                @extend .feedback-menu-container;
+            }
+            .setting-menu-container {
+                display: flex;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+                img {
+                    margin-left: 10px;
+                }
+                button {
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+                    margin: 0 10px 0 3px;
+                    font-size: 13px;
+                    color: #898989;
+                    outline: none;
+                }
+                &.top{
+                    z-index: 10000;
+                    background: white;
+                    border: 2px solid blue;
+                }
+            }
+
+            .user-menu-container {
+                display: flex;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+                padding-left: 10px;
+                img {
+                    margin: 3px;
+                }
+                .card {
+                    width: 20px;
+                    height: 16px;
+                }
+                button {
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+                    margin: 0 3px;
+                    font-size: 13px;
+                    color: #898989;
+                    outline: none;
+                }
+            }
+            .setting-menu-container:hover {
+                background: #f8f8f8;
+            }
+            .user-menu-container:hover {
+                background: #f8f8f8;
+            }
+            .feedback-menu-container:hover {
+                background: #f8f8f8;
+            }
+        }
+    }
+    .sidenav-and-function-body {
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 0;
+        background-color: #eeeeee;
+        // 侧边栏
+        .sidenav {
+            //font-family: PingFangSC-Medium;
+            /*position: fixed;*/
+            width: 175px;
+            height: 100%;
+            overflow-y: scroll;
+            background-color: #464646;
+            // 侧边栏和功能主体
+            .scroll_wrap {
+                position: absolute;
+                width: 20px;
+                height: 100%;
+                left: 155px;
+                background: #eeeeee;
+                z-index: 1;
+                border: none;
+            }
+            .qrcode {
+                width: 155px;
+                height: 11vh;
+                position: absolute;
+                bottom: 45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 11vh;
+                    height: 11vh;
+                }
+            }
+            div {
+                cursor: pointer;
+            }
+            button {
+                border: none;
+                background: transparent;
+                padding: 0;
+                font-size: 13px;
+                color: #e3e3e3;
+                font-weight: bold;
+                outline: none;
+            }
+            // 前往开单区域
+            .plus-btn-area {
+                position: relative;
+                height: 50px;
+                width: 155px;
+                background-color: $themeColor;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                // 前往开单按钮
+                button {
+                    position: relative;
+                    //margin-left: 19px;
+                    letter-spacing: 2px;
+                    color: #fff;
+                }
+                // 前往开单加号按钮
+                img {
+                    //padding-left: 15px;
+                    //height: 24px;
+                    margin-left: 15px;
+                    margin-right: 11px;
+                }
+            }
+            .plus-btn-area:hover {
+                background: darken($themeColor, 5%);
+            }
+            .timeMode {
+                background: #96C8CD;
+                color: #FFFFFF;
+                a {
+                    color: #FFFFFF;
+                    &:hover {
+                        color: #000000;
+                        background: #FFFFFF;
+                    }
+                }
+                &:hover {
+                    background: #96C8CD;
+                }
+            }
+            // 侧边栏选项
+            .function-area {
+                display: flex;
+                align-items: center;
+                width: 155px;
+                height: 50px;
+                img {
+                    margin-right: 16px;
+                }
+                img.noDropBtn {
+                    margin-left: 25px;
+                }
+                .dropImg {
+                    width: 13px;
+                    margin: 0 5px;
+                }
+            }
+            .function-area:last-child {
+                margin-bottom: 300px;
+            }
+            .function-area:hover {
+                background: #272727;
+                border-left: 2px solid #36bc9b;
+                button {
+                    color: #fff;
+                }
+            }
+            .function-area.highlight {
+                background: #272727;
+                border-left: 2px solid #36bc9b;
+                button {
+                    color: #fff;
+                }
+            }
+            // 侧边栏子选项
+            .sub-function-area {
+                display: flex;
+                align-items: center;
+                width: 155px;
+                height: 30px;
+                img {
+                    visibility: hidden;
+                    margin-left: 22px;
+                    margin-right: 23px;
+                }
+            }
+            .sub-function-area:hover {
+                background: #272727;
+                button {
+                    color: #fff;
+                }
+                .point {
+                    visibility: visible;
+                }
+            }
+            .sub-function-area.highlight {
+                background: #272727;
+                .point {
+                    visibility: visible;
+                }
+            }
+        }
+        // 功能主体
+        .function-body {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: -17px;
+            overflow-y: scroll;
+            margin-left: 155px;
+            font-size: 15px;
+            padding: 30px;
+            z-index: 1;
+            // overflow: hidden;
+        }
+    }
+}
+.checkTimeModeBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .timeBox {
+        width: 300px;
+        padding: 15px;
+        background: white;
+        border-radius: 15px;
+        .title {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .quit {
+                height: 30px;
+                cursor: pointer;
+            }
+        }
+        .middle {
+            margin-top: 20px;
+            input {
+                text-align: center;
+            }
+        }
+        .tip {
+            color: red;
+        }
+        .btn-row {
+            margin: 20px 0;
+            text-align: center;
+        }
+    }
+}
+ .mainContent {
+    height: 100%;
+    .login-box-wrap {
+        height: 100%;
+    }
+ }
+//  position: relative;
+.novice_boot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    div {
+        position: absolute;
+    }
+    div.title {
+        width: 150px;
+        height: 50px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-left: 46%;
+        margin-top: 50px;
+    }
+    .welcome {
+        top: 16%;
+        right: 30%;
+        width: 500px;
+        height: 450px;
+        padding: 20px;
+        border-radius: 50px;
+        background: white;
+        .next {
+            position: absolute;
+            bottom: 0;
+            height: 50px;
+            width: 460px;
+            display: flex;
+            justify-content: space-around;
+            a {
+                display: block;
+                color: blue;
+                width: 100px;
+                text-align: center;
+                line-height: 50px;
+                cursor: pointer;
+            }
+            button {
+                height: 45px;
+                width: 130px;
+                padding-bottom: 2px;
+                border: none;
+                font-size: 24px;
+                font-weight: bold;
+                border-radius: 5px;
+                color: white;
+                background-color: $btnSubmitColor;
+                &:hover {
+                    background-color: darken($btnSubmitColor, 5%);
+                }
+                &:active {
+                    background-color: darken($btnSubmitColor, 15%);
+                }
+            }
+        }
+        div {
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            .title {
+                text-align: center;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            p.title {
+                text-align: left;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            p.content {
+                padding: 0 2em;
+                font-size: 14px;
+                margin-top: 15px;
+            }
+        }
+    }
+    .step-0 {
+        top: 0px;
+        right: 185px;
+        height: 50px;
+        width: 70px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex0.png');
+    }
+    .step-1 {
+        top: 55px;
+        right: 108px;
+        height: 240px;
+        width: 100px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex1.png');
+    }
+    .step-2 {
+        top: 45px;
+        height: 50px;
+        width: 155px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex2.png');
+    }
+    .step-3 {
+        top: 150px;
+        height: 50px;
+        width: 155px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex3.png');
+    }
+    .step-4 {
+        top: 205px;
+        height: 110px;
+        width: 155px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex4.png');
+    }
+    .step-5 {
+        top: 400px;
+        height: 40px;
+        width: 155px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex5.png');
+    }
+    .step-6 {
+        top: 510px;
+        height: 40px;
+        width: 155px;
+        border: 2px solid blue;
+        background: transparent;
+        background: url('../img/misc/stepIndex6.png');
+    }
+    img {
+        position: absolute;
+    }
+    .img0 {
+        top: 50px;
+        right: 160px;
+    }
+    .img1 {
+        top: 145px;
+        right: 115px;
+    }
+    .img2 {
+        top: 50px;
+        left: 180px;
+    }
+    .img3 {
+        top: 155px;
+        left: 180px;
+    }
+    .img4 {
+        top: 245px;
+        left: 180px;
+    }
+    .img5 {
+        top: 405px;
+        left: 180px;
+    }
+    .img6 {
+        top: 515px;
+        left: 180px;
+    }
+}
+.upDate-tip-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 55px;
+    .upDate-tip-box {
+        width: 550px;
+        height: 580px;
+        background: white;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        .tip-img-row {
+            display: flex;
+            justify-content: center;
+            img{
+                width: 550px;
+                height: 480px;
+            }
+        }
+        .tip-step-row {
+            height: 100px;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            ul {
+                width: 200px;
+                display: flex;
+                flex-flow: row;
+                justify-content: space-around;
+                align-items: center;
+                li {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background: white;
+                    border: 1px solid #222;
+                    cursor: pointer;
+                }
+                .active {
+                    background: red;
+                }
+            }
+            button {
+                height: 50px;
+                margin: 0;
+            }
+        }
+    }
+
+}
+//}

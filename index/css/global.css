@@ -1,0 +1,2045 @@
+@charset "UTF-8";
+.flex, .btn-row, body header .head, body header .head nav, body header .head nav ul, body .page-content .home .top-wrap .top, body .page-content .home .top-wrap .top .content, body .page-content .home .t-row .text-row, body .page-content .home .t-row .text-row .text-node, body .page-content .home .t-row-wrap .t-row, body .page-content .price .block-wrap .first, body .page-content .price .block-wrap .first .text-container, body .page-content .price .block-wrap .first .point-container, body .page-content .price .block-wrap .first .point-container .point, body .page-content .price .block-wrap .first .point-container .point div, body .page-content .select-dialog, body .page-content .select-dialog .select-dialog-container, body .page-content .select-dialog .select-dialog-container a, body .page-content .select-dialog .select-dialog-container .select-title, body .page-content .select-dialog .select-dialog-container .month-container, body .page-content .select-dialog .select-dialog-container .month-container > div, body .page-content .select-dialog .select-dialog-container .month-container .month, body .page-content .select-dialog .select-dialog-container .month-container .month div, body .page-content .select-dialog .select-dialog-container .btn-container, body .page-content .mainPage .video-list .container .content .row, body .page-content .mainPage .video-list .container .content .row .video-div, body .page-content .question .block div span, body .page-content .bookingDemo, body .page-content .bookingDemo .top-wrap .top, body .page-content .about-us .block.five .content, body .page-content .about-us .block.five .content .section, body .page-content .minor_enterprises .block-row .block, body .page-content .minor_enterprises .block-row .block .user-num, body .page-content .freeze .block-row .block, body .page-content .freeze .block-row.top .block, body .page-content .metals .block-row .block, body .page-content .metals .block-row .block .user-num, body .page-content .metals .block-row.top .block, body .page-content .client-case .block.top, body .page-content .agency .section-one .section-one-banner, body .footer .content, body .footer .content ul .join, body .footer .copyright {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */ }
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none; }
+  .btn.btn-red {
+    background: #F24C3D;
+    color: white; }
+    .btn.btn-red:hover {
+      background-color: #f03625; }
+    .btn.btn-red:active {
+      background-color: #d41f0e; }
+    .btn.btn-red.btn-none.green {
+      border-color: #F24C3D;
+      color: #000000;
+      margin: 0 auto; }
+      .btn.btn-red.btn-none.green:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad; }
+  .btn.btn-blue {
+    background: #32B3F1;
+    color: white; }
+    .btn.btn-blue:hover {
+      background-color: #f03625; }
+    .btn.btn-blue:active {
+      background-color: #d41f0e; }
+    .btn.btn-blue.btn-none.green {
+      border-color: #F24C3D;
+      color: #000000;
+      margin: 0 auto; }
+      .btn.btn-blue.btn-none.green:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad; }
+
+.btn-row.center {
+  justify-content: center; }
+
+body {
+  font-family: "Microsoft YaHei"; }
+  body header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 5px #F24C3D; }
+    body header .head {
+      width: 100%;
+      min-width: 1000px;
+      max-width: 1100px;
+      height: 70px;
+      background: white;
+      margin: 0 auto;
+      padding: 0 50px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      align-items: center; }
+      body header .head nav {
+        align-items: center;
+        background: white;
+        border: none; }
+        body header .head nav ul {
+          justify-content: space-between;
+          align-items: center; }
+          body header .head nav ul li {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 15px;
+            cursor: pointer;
+            height: 100%; }
+            body header .head nav ul li.btn-orange {
+              border-radius: 10px; }
+            body header .head nav ul li.login, body header .head nav ul li.reg {
+              color: #F24C3D;
+              font-size: 20px;
+              margin: 0 0 0 20px; }
+            body header .head nav ul li.active a {
+              color: #F24C3D; }
+  body body {
+    margin-top: 0; }
+  body .registerWindows {
+    width: 100%;
+    height: 1px;
+    background: url("../img/login.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center; }
+    body .registerWindows input[type=number] {
+      -moz-appearance: textfield; }
+    body .registerWindows input[type=number]::-webkit-inner-spin-button,
+    body .registerWindows input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+    body .registerWindows .bigWindows {
+      align-self: center;
+      width: 1025px;
+      height: 600px;
+      text-align: center;
+      color: white; }
+      body .registerWindows .bigWindows .windows-input {
+        margin: 0 auto;
+        width: 350px;
+        height: 400px; }
+        body .registerWindows .bigWindows .windows-input .serviceContent {
+          text-align: left;
+          margin: 5px 0 0 10px;
+          width: 100%;
+          height: 30px;
+          font-size: 18px; }
+          body .registerWindows .bigWindows .windows-input .serviceContent input[type=checkbox] {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 3px;
+            margin-right: 5px; }
+          body .registerWindows .bigWindows .windows-input .serviceContent a {
+            margin-left: 2px;
+            color: #71d4e3; }
+            body .registerWindows .bigWindows .windows-input .serviceContent a:hover {
+              color: #2aabd2; }
+        body .registerWindows .bigWindows .windows-input h5 {
+          font-size: 26px; }
+        body .registerWindows .bigWindows .windows-input .smallTittle {
+          text-align: left;
+          font-size: 18px;
+          margin-top: 40px; }
+        body .registerWindows .bigWindows .windows-input .first-register .getAuth, body .registerWindows .bigWindows .windows-input .first-register .resSub, body .registerWindows .bigWindows .windows-input .first-register .back {
+          cursor: pointer; }
+        body .registerWindows .bigWindows .windows-input .first-register .phoneNum, body .registerWindows .bigWindows .windows-input .first-register .getAuth, body .registerWindows .bigWindows .windows-input .first-register .resSub, body .registerWindows .bigWindows .windows-input .first-register .back {
+          background-color: #fff;
+          outline: none;
+          box-sizing: content-box;
+          width: 300px;
+          height: 40px;
+          padding: 5px 25px;
+          border-radius: 10px;
+          margin-top: 10px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 18px;
+          border: 1px solid transparent; }
+        body .registerWindows .bigWindows .windows-input .first-register .phoneNum:focus {
+          border: 1px solid #f25749; }
+        body .registerWindows .bigWindows .windows-input .first-register .verifyCode {
+          width: 100%;
+          height: 58px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 10px; }
+          body .registerWindows .bigWindows .windows-input .first-register .verifyCode input[type=text] {
+            background-color: #fff;
+            outline: none;
+            box-sizing: content-box;
+            height: 40px;
+            padding: 5px 25px;
+            border-radius: 10px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid transparent;
+            width: 35%; }
+          body .registerWindows .bigWindows .windows-input .first-register .verifyCode img {
+            height: 50px;
+            display: inline-block;
+            margin-left: 10px;
+            width: 45%; }
+        body .registerWindows .bigWindows .windows-input .first-register .getAuth {
+          color: #f25749;
+          font-weight: 600; }
+        body .registerWindows .bigWindows .windows-input .first-register .getAuth:hover {
+          background-color: #f5f5f5; }
+        body .registerWindows .bigWindows .windows-input .first-register .resSub {
+          display: block;
+          background-color: #f25749;
+          color: white; }
+        body .registerWindows .bigWindows .windows-input .first-register .resSub:hover {
+          background-color: #f24446; }
+        body .registerWindows .bigWindows .windows-input .second-register {
+          display: none; }
+          body .registerWindows .bigWindows .windows-input .second-register .phoneNum, body .registerWindows .bigWindows .windows-input .second-register .passwordNum, body .registerWindows .bigWindows .windows-input .second-register .authNum, body .registerWindows .bigWindows .windows-input .second-register .againSend, body .registerWindows .bigWindows .windows-input .second-register .registerSub {
+            outline: none;
+            background-color: #fff;
+            display: inline-block;
+            height: 50px;
+            width: 100%;
+            margin-top: 8px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 18px; }
+          body .registerWindows .bigWindows .windows-input .second-register .sectionAuth {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-around; }
+            body .registerWindows .bigWindows .windows-input .second-register .sectionAuth .authNum, body .registerWindows .bigWindows .windows-input .second-register .sectionAuth .againSend {
+              width: 48%;
+              margin-top: 8px;
+              height: 40px; }
+            body .registerWindows .bigWindows .windows-input .second-register .sectionAuth .againSend {
+              color: #f25749; }
+          body .registerWindows .bigWindows .windows-input .second-register .registerSub {
+            margin-top: 10px;
+            background-color: #f25749;
+            color: #fff; }
+          body .registerWindows .bigWindows .windows-input .second-register .registerSub:hover {
+            background-color: #f24446; }
+          body .registerWindows .bigWindows .windows-input .second-register .registerSub, body .registerWindows .bigWindows .windows-input .second-register .againSend {
+            font-size: 16px;
+            cursor: pointer; }
+        body .registerWindows .bigWindows .windows-input .back {
+          display: block;
+          background-color: transparent;
+          font-size: 30px;
+          color: #71d4e3;
+          margin: 20px auto 0;
+          border: none;
+          cursor: pointer;
+          outline: none; }
+        body .registerWindows .bigWindows .windows-input .inputError {
+          display: none;
+          padding-top: 10px;
+          color: #71d4e3;
+          font-size: 18px;
+          text-align: left;
+          line-height: 20px;
+          height: 25px;
+          text-indent: 10px; }
+        body .registerWindows .bigWindows .windows-input span {
+          display: block;
+          margin-top: 30px;
+          font-size: 16px;
+          text-align: center;
+          color: #bbb; }
+          body .registerWindows .bigWindows .windows-input span i {
+            display: inline-block;
+            width: 100px;
+            border-bottom: 1px solid #bbb;
+            position: relative;
+            top: -6px; }
+          body .registerWindows .bigWindows .windows-input span .iLf {
+            margin-right: 10px; }
+          body .registerWindows .bigWindows .windows-input span .iRg {
+            margin-left: 10px; }
+  body .loginWindows {
+    color: #fff;
+    width: 100%;
+    height: 1px;
+    background: url("../img/login.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    body .loginWindows input[type=number] {
+      -moz-appearance: textfield; }
+    body .loginWindows input[type=number]::-webkit-inner-spin-button,
+    body .loginWindows input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+    body .loginWindows button {
+      outline: none; }
+    body .loginWindows .windows {
+      text-align: center;
+      font-size: 15px; }
+      body .loginWindows .windows h5 {
+        font-size: 26px;
+        padding-bottom: 30px; }
+      body .loginWindows .windows .select-loginWay {
+        width: 350px;
+        height: 230px; }
+        body .loginWindows .windows .select-loginWay p {
+          text-align: left;
+          font-size: 16px;
+          padding-bottom: 5px; }
+        body .loginWindows .windows .select-loginWay #creatorLogin {
+          color: #f25749; }
+        body .loginWindows .windows .select-loginWay button, body .loginWindows .windows .select-loginWay a {
+          border-radius: 5px;
+          margin-top: 20px; }
+        body .loginWindows .windows .select-loginWay .haveNum {
+          background-color: #f25749;
+          color: #fff; }
+        body .loginWindows .windows .select-loginWay .haveNum:hover {
+          background-color: #f24446; }
+        body .loginWindows .windows .select-loginWay #creatorLogin, body .loginWindows .windows .select-loginWay #staffLogin {
+          box-sizing: border-box;
+          width: 100%;
+          height: 40px;
+          padding: 5px 20px;
+          cursor: pointer;
+          background-color: #fff;
+          border: none; }
+        body .loginWindows .windows .select-loginWay #creatorLogin:hover, body .loginWindows .windows .select-loginWay #staffLogin:hover {
+          background-color: #ddd; }
+      body .loginWindows .windows .login-input {
+        display: none;
+        width: 350px;
+        height: 400px; }
+        body .loginWindows .windows .login-input p {
+          text-align: left;
+          font-size: 18px;
+          margin-top: 10px; }
+        body .loginWindows .windows .login-input .username, body .loginWindows .windows .login-input .password {
+          margin-top: 10px; }
+        body .loginWindows .windows .login-input .loginSub {
+          color: #fff;
+          margin-top: 30px;
+          background-color: #f25749;
+          font-size: 20px;
+          cursor: pointer; }
+        body .loginWindows .windows .login-input .loginSub:hover {
+          background-color: #f24446; }
+        body .loginWindows .windows .login-input .username, body .loginWindows .windows .login-input .password, body .loginWindows .windows .login-input .loginSub, body .loginWindows .windows .login-input .changeLoginWay {
+          display: block;
+          border: none;
+          text-align: center;
+          box-sizing: border-box;
+          width: 100%;
+          height: 40px;
+          padding: 5px 20px;
+          border-radius: 5px; }
+        body .loginWindows .windows .login-input .changeLoginWay {
+          margin-top: 20px;
+          font-size: 14px;
+          color: #71d4e3;
+          background-color: transparent;
+          cursor: pointer; }
+        body .loginWindows .windows .login-input .select-remember {
+          width: 100%;
+          display: flex;
+          height: 20px;
+          justify-content: space-between;
+          margin-top: 5px; }
+          body .loginWindows .windows .login-input .select-remember label {
+            font-size: 16px; }
+          body .loginWindows .windows .login-input .select-remember .rememberNum {
+            text-align: left; }
+          body .loginWindows .windows .login-input .select-remember input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            top: 5px;
+            margin-right: 5px; }
+        body .loginWindows .windows .login-input span {
+          display: block;
+          margin-top: 10px;
+          font-size: 16px;
+          text-align: center;
+          color: #fff; }
+          body .loginWindows .windows .login-input span i {
+            display: inline-block;
+            width: 100px;
+            border-bottom: 1px solid #fff;
+            position: relative;
+            top: -6px; }
+          body .loginWindows .windows .login-input span .iLf {
+            margin-right: 10px; }
+          body .loginWindows .windows .login-input span .iRg {
+            margin-left: 10px; }
+        body .loginWindows .windows .login-input .resCreateNum, body .loginWindows .windows .login-input .forgetSub {
+          position: relative;
+          margin-top: 10px;
+          cursor: pointer;
+          border: none;
+          background-color: #fff;
+          width: 40%;
+          height: 50px;
+          line-height: 50px;
+          font-size: 16px;
+          display: inline-block;
+          color: black; }
+          body .loginWindows .windows .login-input .resCreateNum:hover, body .loginWindows .windows .login-input .forgetSub:hover {
+            background-color: #f5f5f5; }
+        body .loginWindows .windows .login-input .resCreateNum {
+          left: 5px;
+          border-radius: 5px 0 0 5px; }
+        body .loginWindows .windows .login-input .forgerPassword:before {
+          content: "|";
+          position: relative;
+          right: 35px; }
+        body .loginWindows .windows .login-input .forgerPassword {
+          right: 5px;
+          border-radius: 0 5px 5px 0; }
+      body .loginWindows .windows .third-login {
+        display: none;
+        width: 350px;
+        height: 320px; }
+        body .loginWindows .windows .third-login .companyName, body .loginWindows .windows .third-login .industryName, body .loginWindows .windows .third-login .third-next, body .loginWindows .windows .third-login .where, body .loginWindows .windows .third-login .whereKnow {
+          text-align: center;
+          box-sizing: border-box;
+          width: 100%;
+          border-radius: 5px;
+          height: 40px;
+          padding: 5px 20px;
+          margin-top: 5px;
+          font-size: 16px; }
+        body .loginWindows .windows .third-login .smallTittle {
+          text-align: left; }
+        body .loginWindows .windows .third-login button {
+          border: none;
+          background-color: #fff; }
+        body .loginWindows .windows .third-login .where {
+          padding: 0;
+          display: flex;
+          justify-content: space-between; }
+          body .loginWindows .windows .third-login .where .province, body .loginWindows .windows .third-login .where .city {
+            background-color: #fff;
+            text-align: center;
+            display: inline-block;
+            width: 172px;
+            height: 100%;
+            padding: 0 2%;
+            border: 0;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            color: #999; }
+            body .loginWindows .windows .third-login .where .province option, body .loginWindows .windows .third-login .where .city option {
+              text-align: center;
+              width: 171px;
+              overflow: hidden; }
+          body .loginWindows .windows .third-login .where .province {
+            margin-left: 2px;
+            border-radius: 5px 0 0 5px; }
+          body .loginWindows .windows .third-login .where .city {
+            margin-right: 2px;
+            border-radius: 0 5px 5px 0; }
+          body .loginWindows .windows .third-login .where select::-ms-expand {
+            display: none; }
+        body .loginWindows .windows .third-login .whereKnow {
+          padding: 10px 0 0 0;
+          height: 100px; }
+          body .loginWindows .windows .third-login .whereKnow p {
+            font-size: 18px;
+            text-align: left;
+            color: #71d4e3; }
+          body .loginWindows .windows .third-login .whereKnow .know-select {
+            margin-top: 8px;
+            font-size: 16px; }
+            body .loginWindows .windows .third-login .whereKnow .know-select label {
+              margin-top: 10px;
+              text-align: left;
+              display: inline-block;
+              height: 20px;
+              flex: 1;
+              width: 33%;
+              float: left; }
+              body .loginWindows .windows .third-login .whereKnow .know-select label input {
+                position: relative;
+                top: 4px;
+                width: 18px;
+                height: 18px; }
+        body .loginWindows .windows .third-login .third-next {
+          background-color: #f25749;
+          font-size: 18px;
+          color: white;
+          margin-top: 10px;
+          cursor: pointer; }
+      body .loginWindows .windows .select-version {
+        display: none;
+        box-sizing: border-box;
+        width: 1025px;
+        height: 600px;
+        background-color: rgba(63, 75, 84, 0.9);
+        border-radius: 5px; }
+        body .loginWindows .windows .select-version .select-back {
+          width: 80px;
+          height: 50px;
+          background-color: transparent;
+          color: #71d4e3;
+          border: none;
+          font-size: 20px;
+          margin-left: 940px;
+          cursor: pointer; }
+        body .loginWindows .windows .select-version .select-back:hover {
+          background-color: #3f4b54; }
+        body .loginWindows .windows .select-version .select-tittle {
+          text-align: center;
+          font-size: 20px;
+          margin-top: 20px; }
+        body .loginWindows .windows .select-version .select-yiqiji, body .loginWindows .windows .select-version .select-jinxiaocun {
+          margin-top: 40px;
+          padding: 0 40px;
+          width: 350px;
+          height: 390px;
+          display: inline-block; }
+          body .loginWindows .windows .select-version .select-yiqiji img, body .loginWindows .windows .select-version .select-jinxiaocun img {
+            width: 350px;
+            height: 200px; }
+          body .loginWindows .windows .select-version .select-yiqiji p, body .loginWindows .windows .select-version .select-jinxiaocun p {
+            margin: 40px 0;
+            font-size: 18px;
+            text-align: left;
+            text-indent: 37px; }
+          body .loginWindows .windows .select-version .select-yiqiji button, body .loginWindows .windows .select-version .select-jinxiaocun button {
+            width: 180px;
+            height: 50px;
+            background-color: #f25749;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 20px;
+            cursor: pointer; }
+          body .loginWindows .windows .select-version .select-yiqiji button:hover, body .loginWindows .windows .select-version .select-jinxiaocun button:hover {
+            background-color: #f24446; }
+      body .loginWindows .windows .inputError {
+        display: none;
+        color: #71d4e3;
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: left; }
+      body .loginWindows .windows .forget-password {
+        display: none;
+        width: 350px; }
+        body .loginWindows .windows .forget-password .getAuth, body .loginWindows .windows .forget-password .resSub, body .loginWindows .windows .forget-password .back {
+          cursor: pointer; }
+        body .loginWindows .windows .forget-password .phoneNum, body .loginWindows .windows .forget-password .getAuth, body .loginWindows .windows .forget-password .resSub, body .loginWindows .windows .forget-password .back {
+          background-color: #fff;
+          outline: none;
+          box-sizing: content-box;
+          width: 300px;
+          height: 40px;
+          padding: 5px 25px;
+          border-radius: 10px;
+          margin-top: 20px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 18px;
+          border: 1px solid transparent; }
+        body .loginWindows .windows .forget-password .phoneNum:focus {
+          border: 1px solid #f25749; }
+        body .loginWindows .windows .forget-password .getAuth {
+          color: #fff;
+          background-color: #f25749;
+          font-weight: 600; }
+        body .loginWindows .windows .forget-password .getAuth:hover {
+          background-color: #f24446; }
+      body .loginWindows .windows .forget-password-input {
+        display: none;
+        width: 350px; }
+        body .loginWindows .windows .forget-password-input .phoneNum, body .loginWindows .windows .forget-password-input .passwordNum, body .loginWindows .windows .forget-password-input .authNum, body .loginWindows .windows .forget-password-input .againSend, body .loginWindows .windows .forget-password-input .forget-sub {
+          outline: none;
+          background-color: #fff;
+          display: inline-block;
+          height: 50px;
+          width: 100%;
+          margin-top: 8px;
+          border-radius: 5px;
+          border: none;
+          text-align: center;
+          font-size: 18px; }
+        body .loginWindows .windows .forget-password-input .sectionAuth {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: space-around; }
+          body .loginWindows .windows .forget-password-input .sectionAuth .authNum, body .loginWindows .windows .forget-password-input .sectionAuth .againSend {
+            width: 48%;
+            margin-top: 8px;
+            height: 40px; }
+          body .loginWindows .windows .forget-password-input .sectionAuth .againSend {
+            color: #f25749; }
+        body .loginWindows .windows .forget-password-input .forget-sub {
+          margin-top: 10px;
+          background-color: #f25749;
+          color: #fff; }
+        body .loginWindows .windows .forget-password-input .forget-sub:hover {
+          background-color: #f24446; }
+        body .loginWindows .windows .forget-password-input .forget-sub, body .loginWindows .windows .forget-password-input .againSend {
+          font-size: 16px;
+          cursor: pointer; }
+      body .loginWindows .windows span {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: center;
+        color: #fff; }
+        body .loginWindows .windows span i {
+          display: inline-block;
+          width: 100px;
+          border-bottom: 1px solid #fff;
+          position: relative;
+          top: -6px; }
+        body .loginWindows .windows span .iLf {
+          margin-right: 10px; }
+        body .loginWindows .windows span .iRg {
+          margin-left: 10px; }
+      body .loginWindows .windows a {
+        display: block;
+        width: 100%;
+        height: 50px;
+        line-height: 50px; }
+      body .loginWindows .windows .back {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        color: #71d4e3;
+        margin-top: 10px;
+        font-size: 22px; }
+  body .page-content {
+    margin-top: 70px; }
+    body .page-content .home {
+      background: white; }
+      body .page-content .home .top-wrap {
+        width: 100%;
+        min-width: 1100px;
+        background: #f25749;
+        height: 550px; }
+        body .page-content .home .top-wrap .top {
+          position: relative;
+          width: 1100px;
+          margin: 0 auto;
+          height: 100%;
+          background-size: 1100px 550px; }
+          body .page-content .home .top-wrap .top .left {
+            box-sizing: border-box;
+            margin-left: 30px;
+            height: 530px;
+            width: 180px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            color: #444444; }
+            body .page-content .home .top-wrap .top .left .title {
+              text-align: center;
+              line-height: 50px;
+              font-size: 22px;
+              border-bottom: 1px solid #BFBFBF; }
+            body .page-content .home .top-wrap .top .left ul {
+              width: 100%; }
+              body .page-content .home .top-wrap .top .left ul li {
+                font-size: 20px;
+                margin-top: 25px;
+                cursor: pointer;
+                padding-left: 5px;
+                height: 30px;
+                line-height: 40px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center; }
+                body .page-content .home .top-wrap .top .left ul li.title {
+                  font-size: 24px; }
+                body .page-content .home .top-wrap .top .left ul li.divide {
+                  height: 2px;
+                  background: #69717D; }
+                body .page-content .home .top-wrap .top .left ul li:hover {
+                  background: #F24C3C; }
+                  body .page-content .home .top-wrap .top .left ul li:hover a {
+                    color: white; }
+                body .page-content .home .top-wrap .top .left ul li i {
+                  width: 20px;
+                  height: 25px;
+                  margin-right: 5px; }
+          body .page-content .home .top-wrap .top .cloud {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            cursor: pointer; }
+          body .page-content .home .top-wrap .top .sun {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100px;
+            height: 100px; }
+          body .page-content .home .top-wrap .top .content {
+            width: 890px;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 42px;
+            font-weight: bold; }
+            body .page-content .home .top-wrap .top .content .title {
+              font-size: 64px;
+              margin-bottom: 30px; }
+      body .page-content .home .t-row {
+        width: 1100px;
+        margin: 150px auto 0; }
+        body .page-content .home .t-row.t1 {
+          margin-top: 30px; }
+        body .page-content .home .t-row .nowCount {
+          text-align: center;
+          font-size: 48px;
+          color: #333333; }
+          body .page-content .home .t-row .nowCount .red {
+            color: #F25749;
+            font-size: 60px; }
+          body .page-content .home .t-row .nowCount p {
+            margin-top: 30px;
+            font-size: 36px; }
+        body .page-content .home .t-row .title {
+          margin-top: 100px;
+          text-align: center;
+          font-size: 60px; }
+        body .page-content .home .t-row .text-row {
+          justify-content: space-between; }
+          body .page-content .home .t-row .text-row .text-node {
+            flex-flow: column;
+            justify-content: space-between;
+            color: #333333; }
+            body .page-content .home .t-row .text-row .text-node.col-2 {
+              width: 50%; }
+              body .page-content .home .t-row .text-row .text-node.col-2 .title {
+                font-size: 48px; }
+              body .page-content .home .t-row .text-row .text-node.col-2 .content {
+                font-size: 30px;
+                line-height: 40px; }
+              body .page-content .home .t-row .text-row .text-node.col-2 img {
+                height: 290px;
+                margin-top: 50px; }
+            body .page-content .home .t-row .text-row .text-node.col-3 {
+              width: 33.33333%; }
+              body .page-content .home .t-row .text-row .text-node.col-3 .title {
+                font-size: 36px; }
+              body .page-content .home .t-row .text-row .text-node.col-3 .content {
+                font-size: 24px;
+                line-height: 35px; }
+              body .page-content .home .t-row .text-row .text-node.col-3 img {
+                height: 367px; }
+        body .page-content .home .t-row .content {
+          text-align: center;
+          margin-top: 25px;
+          font-size: 34px; }
+          body .page-content .home .t-row .content .orange {
+            color: #fd411e; }
+        body .page-content .home .t-row img {
+          width: 100%;
+          margin: 0 auto; }
+          body .page-content .home .t-row img.pointer {
+            cursor: pointer; }
+      body .page-content .home .t-row-wrap {
+        margin-top: 150px;
+        width: 100%;
+        min-width: 1100px;
+        background: #F24C3C; }
+        body .page-content .home .t-row-wrap .t-row {
+          height: 500px;
+          width: 1100px;
+          align-items: center; }
+          body .page-content .home .t-row-wrap .t-row .img {
+            width: 100%; }
+    body .page-content .price .block-wrap {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .price .block-wrap .block {
+        margin: 0 auto; }
+        body .page-content .price .block-wrap .block a {
+          cursor: auto;
+          color: #000; }
+      body .page-content .price .block-wrap .first {
+        height: 600px;
+        width: 1100px;
+        margin: 0 auto;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center; }
+        body .page-content .price .block-wrap .first .text-container {
+          margin-top: 150px;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center; }
+          body .page-content .price .block-wrap .first .text-container .big-text {
+            font-size: 36px; }
+          body .page-content .price .block-wrap .first .text-container .small-text {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #444; }
+        body .page-content .price .block-wrap .first .point-container {
+          flex-flow: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          margin: 0 auto; }
+          body .page-content .price .block-wrap .first .point-container .point {
+            flex-flow: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 48%; }
+            body .page-content .price .block-wrap .first .point-container .point img {
+              flex-shrink: 0;
+              width: 99px;
+              height: 99px;
+              margin-right: 30px; }
+            body .page-content .price .block-wrap .first .point-container .point div {
+              height: 130px;
+              flex-flow: column;
+              justify-content: flex-start;
+              align-items: flex-start; }
+              body .page-content .price .block-wrap .first .point-container .point div .big-text {
+                font-size: 20px; }
+              body .page-content .price .block-wrap .first .point-container .point div .small-text {
+                margin-top: 14px;
+                font-size: 16px;
+                color: #444; }
+                body .page-content .price .block-wrap .first .point-container .point div .small-text span {
+                  color: #ee7258; }
+      body .page-content .price .block-wrap .second {
+        height: 400px;
+        /*min-width: 1200px;*/
+        padding: 45px 0;
+        background: #f7f7f7;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center; }
+        body .page-content .price .block-wrap .second .custom-made {
+          display: flex;
+          background-color: #fff;
+          width: 100%;
+          margin-top: 5px;
+          text-align: center;
+          height: 50px;
+          align-items: center;
+          justify-content: center; }
+          body .page-content .price .block-wrap .second .custom-made p span {
+            margin-left: 20px; }
+          body .page-content .price .block-wrap .second .custom-made p a {
+            line-height: 40px;
+            display: inline-block;
+            width: 100px;
+            background-color: white;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #ee7258;
+            margin-left: 20px;
+            height: 40px; }
+        body .page-content .price .block-wrap .second div {
+          /*width: 100%;*/ }
+        body .page-content .price .block-wrap .second .top-container {
+          height: 600px;
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: space-between; }
+          body .page-content .price .block-wrap .second .top-container a {
+            font-size: 14px; }
+          body .page-content .price .block-wrap .second .top-container .tag {
+            width: 16.6%;
+            height: 40px;
+            border-radius: 5px;
+            background: #ee7258;
+            font-size: 18px;
+            letter-spacing: 4px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            align-items: center; }
+          body .page-content .price .block-wrap .second .top-container .price-container {
+            width: 100%;
+            max-width: 1388px;
+            min-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap; }
+            body .page-content .price .block-wrap .second .top-container .price-container .price-block {
+              width: 20%;
+              min-width: 150px;
+              margin-left: 5px; }
+              body .page-content .price .block-wrap .second .top-container .price-container .price-block .row {
+                background: #FFFFFF;
+                text-align: center;
+                justify-content: center;
+                margin-bottom: 2px; }
+                body .page-content .price .block-wrap .second .top-container .price-container .price-block .row .price-title {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                  color: #444444;
+                  font-size: 16px; }
+              body .page-content .price .block-wrap .second .top-container .price-container .price-block .top-row {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                height: 100px; }
+                body .page-content .price .block-wrap .second .top-container .price-container .price-block .top-row span {
+                  font-size: 16px;
+                  font-weight: bold;
+                  margin: 5px 0; }
+                body .page-content .price .block-wrap .second .top-container .price-container .price-block .top-row img {
+                  width: 40px;
+                  height: 25px; }
+              body .page-content .price .block-wrap .second .top-container .price-container .price-block .content-row {
+                display: flex;
+                justify-content: space-around;
+                min-height: 100px; }
+              body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row {
+                display: flex;
+                flex-wrap: wrap;
+                height: 200px; }
+                body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item {
+                  width: 50%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .price {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 100%;
+                    height: 50px; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .price p {
+                      margin-top: 10px; }
+                      body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .price p span {
+                        display: inline-block; }
+                      body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .price p .active {
+                        font-size: 18px;
+                        color: #f26549; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .price s {
+                      font-size: 16px;
+                      color: #222222; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .life-price {
+                    margin: 10px 0; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .life-price span {
+                      font-size: 20px; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .life-price s {
+                      font-size: 16px;
+                      margin: 0 5px; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .life-price .active {
+                      font-size: 20px;
+                      color: #f26549; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .sale {
+                    display: flex;
+                    flex-flow: row;
+                    width: 90%;
+                    height: 50px;
+                    box-sizing: border-box;
+                    background-color: #ee7258;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    font-size: small;
+                    text-align: center; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .sale .left {
+                      width: 25px; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .sale .mid {
+                      line-height: 30px;
+                      font-size: 24px; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .btn-container {
+                    width: 100%;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .btn-container a {
+                      width: 80%;
+                      height: 20px;
+                      border: 1px solid #ee7258;
+                      border-radius: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .big-btn-container {
+                    border-top: 2px solid #f7f7f7;
+                    width: 100%;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; }
+                    body .page-content .price .block-wrap .second .top-container .price-container .price-block .price-row .item .big-btn-container a {
+                      width: 120%;
+                      height: 30px;
+                      border: 1px solid #ee7258;
+                      border-radius: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer; }
+              body .page-content .price .block-wrap .second .top-container .price-container .price-block .big-row {
+                height: 382px;
+                display: flex; }
+                body .page-content .price .block-wrap .second .top-container .price-container .price-block .big-row .content-container {
+                  padding-top: 70px;
+                  width: 100%;
+                  height: 325px;
+                  display: flex;
+                  flex-flow: column;
+                  align-items: center; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .big-row .content-container a {
+                    padding: 4px 0; }
+                  body .page-content .price .block-wrap .second .top-container .price-container .price-block .big-row .content-container .qq {
+                    width: 70%;
+                    height: 30px;
+                    margin: 22px 0;
+                    border: 1px solid #9f2d46;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer; }
+            body .page-content .price .block-wrap .second .top-container .price-container .left-block {
+              margin: 0;
+              width: 18%; }
+          body .page-content .price .block-wrap .second .top-container .notes-container {
+            max-width: 1388px;
+            margin-top: 40px;
+            display: flex;
+            flex-flow: column;
+            margin-left: 200px; }
+            body .page-content .price .block-wrap .second .top-container .notes-container a {
+              color: #888;
+              margin-bottom: 3px;
+              font-size: 14px; }
+    body .page-content .select-dialog {
+      visibility: hidden;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(163, 163, 163, 0.6);
+      z-index: 1000000; }
+      body .page-content .select-dialog .select-dialog-container {
+        width: 700px;
+        height: 250px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        background: #fff;
+        box-shadow: 0 0 5px #aaa; }
+        body .page-content .select-dialog .select-dialog-container a {
+          height: 30px;
+          padding: 0 24px;
+          font-size: 14px;
+          flex-shrink: 0;
+          justify-content: center;
+          color: #444; }
+        body .page-content .select-dialog .select-dialog-container .select-title {
+          width: 600px;
+          justify-content: flex-start; }
+          body .page-content .select-dialog .select-dialog-container .select-title a {
+            cursor: auto;
+            font-size: 17px;
+            padding: 0; }
+        body .page-content .select-dialog .select-dialog-container .month-container {
+          width: 610px;
+          justify-content: center; }
+          body .page-content .select-dialog .select-dialog-container .month-container > div {
+            width: 140px;
+            border-right: 1px solid #fff;
+            height: 80px;
+            flex-flow: column;
+            justify-content: center; }
+            body .page-content .select-dialog .select-dialog-container .month-container > div a {
+              font-size: 18px;
+              padding: 0; }
+          body .page-content .select-dialog .select-dialog-container .month-container .month {
+            border: 1px solid #ccc;
+            margin: 5px;
+            cursor: pointer;
+            flex-flow: column; }
+            body .page-content .select-dialog .select-dialog-container .month-container .month > a {
+              width: 100%; }
+            body .page-content .select-dialog .select-dialog-container .month-container .month div {
+              flex-flow: row;
+              justify-content: center; }
+              body .page-content .select-dialog .select-dialog-container .month-container .month div a {
+                font-size: 22px;
+                color: #db2b1e; }
+              body .page-content .select-dialog .select-dialog-container .month-container .month div sup {
+                color: #aaa;
+                font-size: 14px;
+                text-decoration: line-through; }
+            body .page-content .select-dialog .select-dialog-container .month-container .month:hover {
+              border: 1px solid #cb3b3b; }
+          body .page-content .select-dialog .select-dialog-container .month-container .selected {
+            border: 1px solid #cb3b3b; }
+          body .page-content .select-dialog .select-dialog-container .month-container .left {
+            border: none;
+            cursor: auto; }
+            body .page-content .select-dialog .select-dialog-container .month-container .left a {
+              cursor: auto; }
+            body .page-content .select-dialog .select-dialog-container .month-container .left:hover {
+              border: none; }
+        body .page-content .select-dialog .select-dialog-container .btn-container {
+          margin-top: 30px;
+          width: 80%;
+          justify-content: center;
+          align-items: center; }
+          body .page-content .select-dialog .select-dialog-container .btn-container a {
+            color: #fff;
+            background: #cb3b3b;
+            margin: 0 20px;
+            align-items: center; }
+          body .page-content .select-dialog .select-dialog-container .btn-container a:hover {
+            background: #bb3232; }
+    body .page-content .mainPage {
+      padding-top: 100px; }
+      body .page-content .mainPage .video-list {
+        box-sizing: border-box; }
+        body .page-content .mainPage .video-list .container {
+          width: 800px;
+          max-width: 1170px;
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto; }
+          body .page-content .mainPage .video-list .container .content {
+            border: solid 1px #e1e1e1;
+            background: #fbfbfb;
+            -webkit-box-shadow: 0 0 3px #eeeeee, inset 0 0 3px #ffffff;
+            box-shadow: 0 0 3px #eeeeee, inset 0 0 3px #ffffff;
+            margin-bottom: 1em;
+            padding: 30px; }
+            body .page-content .mainPage .video-list .container .content .row {
+              margin-right: -15px;
+              margin-left: -15px;
+              box-sizing: border-box;
+              flex-wrap: wrap; }
+              body .page-content .mainPage .video-list .container .content .row .module-title {
+                margin-top: 10px;
+                margin-bottom: 0px;
+                color: #666666; }
+              body .page-content .mainPage .video-list .container .content .row .video-div {
+                position: relative;
+                margin: 15px 25px;
+                text-align: center;
+                cursor: pointer;
+                width: 200px;
+                flex-flow: column; }
+                body .page-content .mainPage .video-list .container .content .row .video-div img {
+                  width: 200px; }
+                body .page-content .mainPage .video-list .container .content .row .video-div span a {
+                  margin-top: 10px;
+                  font-size: 17px;
+                  display: block;
+                  color: #666666;
+                  font-family: 'Microsoft YaHei'; }
+              body .page-content .mainPage .video-list .container .content .row .text-div {
+                margin: 15px 30px;
+                cursor: pointer; }
+                body .page-content .mainPage .video-list .container .content .row .text-div a {
+                  display: block;
+                  width: 200px;
+                  height: 50px;
+                  line-height: 50px;
+                  background: #ee7258;
+                  border-radius: 15px;
+                  text-align: center;
+                  color: white; }
+            body .page-content .mainPage .video-list .container .content .hide {
+              display: none; }
+    body .page-content .video-player-wrap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      min-width: 1100px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999; }
+      body .page-content .video-player-wrap .helpVideo {
+        position: relative;
+        width: 1100px;
+        margin: 0 auto;
+        margin-top: 70px; }
+        body .page-content .video-player-wrap .helpVideo .video-doading {
+          width: 800px;
+          height: 400px;
+          color: white;
+          font-size: 26px;
+          font-weight: bold;
+          margin-left: 100px;
+          text-align: center;
+          line-height: 400px; }
+        body .page-content .video-player-wrap .helpVideo .player {
+          position: absolute;
+          top: 0;
+          width: 800px;
+          margin-left: 100px; }
+        body .page-content .video-player-wrap .helpVideo .close {
+          position: absolute;
+          top: -75px;
+          left: 830px;
+          cursor: pointer; }
+          body .page-content .video-player-wrap .helpVideo .close img {
+            width: 100px; }
+    body .page-content .hide {
+      display: none; }
+    body .page-content .question {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .question .block {
+        width: 1100px;
+        margin: 0 auto; }
+        body .page-content .question .block .welcome {
+          color: #f24c3d;
+          margin-top: 100px;
+          margin-bottom: 30px;
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center; }
+        body .page-content .question .block .title {
+          font-size: 30px;
+          color: #000;
+          text-align: center;
+          margin-top: 70px; }
+        body .page-content .question .block div {
+          margin-top: 30px; }
+          body .page-content .question .block div span {
+            color: #4a3c3c;
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            cursor: auto;
+            line-height: 30px;
+            padding-left: 30px; }
+            body .page-content .question .block div span.big-text {
+              color: #000;
+              font-size: 16px;
+              font-weight: bold;
+              padding: 0; }
+    body .page-content .bookingDemo {
+      width: 100%;
+      min-width: 1100px;
+      position: relative;
+      flex-flow: column; }
+      body .page-content .bookingDemo .top-wrap {
+        width: 100%;
+        min-width: 1100px;
+        background: #fc7347; }
+        body .page-content .bookingDemo .top-wrap .top {
+          width: 1100px;
+          height: 300px;
+          margin: 0 auto;
+          color: #FFFFFF;
+          position: relative;
+          flex-flow: column;
+          justify-content: center; }
+          body .page-content .bookingDemo .top-wrap .top div {
+            margin-left: 30px; }
+            body .page-content .bookingDemo .top-wrap .top div.t1 {
+              font-size: 28px;
+              font-weight: bold; }
+            body .page-content .bookingDemo .top-wrap .top div.t2 {
+              font-size: 22px;
+              margin-top: 50px; }
+          body .page-content .bookingDemo .top-wrap .top .form-wrap {
+            position: absolute;
+            top: 130px;
+            right: 0;
+            width: 500px;
+            height: 670px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #E0E0E0; }
+            body .page-content .bookingDemo .top-wrap .top .form-wrap iframe {
+              width: 100%;
+              height: 100%; }
+              body .page-content .bookingDemo .top-wrap .top .form-wrap iframe .main {
+                margin-top: 20px; }
+      body .page-content .bookingDemo .media-row {
+        width: 100%;
+        min-width: 1100px; }
+        body .page-content .bookingDemo .media-row .media {
+          width: 1100px;
+          height: 500px;
+          margin: 0 auto;
+          top: 300px;
+          background: white;
+          padding-left: 30px;
+          color: #000000;
+          box-sizing: border-box; }
+          body .page-content .bookingDemo .media-row .media .title {
+            margin-top: 100px;
+            font-size: 26px;
+            font-weight: bold; }
+          body .page-content .bookingDemo .media-row .media ul {
+            margin-top: 15px;
+            list-style: none; }
+            body .page-content .bookingDemo .media-row .media ul li {
+              color: #454545;
+              font-size: 18px;
+              margin-top: 5px;
+              padding-top: 5px; }
+            body .page-content .bookingDemo .media-row .media ul li:before {
+              content: '■';
+              color: #fc7347;
+              font-size: 12px;
+              margin-right: 15px; }
+          body .page-content .bookingDemo .media-row .media p {
+            margin-top: 15px;
+            font-size: 22px; }
+    body .page-content .about-us {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .about-us .block {
+        width: 100%;
+        min-width: 1100px; }
+        body .page-content .about-us .block.first, body .page-content .about-us .block.third {
+          background: #F2F7EB; }
+        body .page-content .about-us .block.second, body .page-content .about-us .block.four {
+          margin: 50px 0; }
+        body .page-content .about-us .block.five .content {
+          justify-content: space-between; }
+          body .page-content .about-us .block.five .content .section {
+            align-items: center;
+            height: 280px;
+            padding: 15px;
+            box-sizing: border-box;
+            width: 24%;
+            font-size: 24px;
+            color: #000;
+            background: #F2F7EB;
+            line-height: 50px; }
+        body .page-content .about-us .block .content {
+          width: 1100px;
+          margin: 0 auto;
+          text-align: center; }
+          body .page-content .about-us .block .content .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 50px; }
+          body .page-content .about-us .block .content p {
+            margin-top: 20px;
+            font-size: 22px;
+            line-height: 30px; }
+    body .page-content .contact-us {
+      width: 1100px;
+      margin: 0 auto; }
+      body .page-content .contact-us .first {
+        height: 850px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center; }
+        body .page-content .contact-us .first .top-container {
+          margin-top: 100px;
+          display: flex;
+          flex-flow: column;
+          justify-content: space-between;
+          align-items: center; }
+          body .page-content .contact-us .first .top-container .big-text {
+            font-size: 45px;
+            letter-spacing: 10px;
+            color: #000; }
+          body .page-content .contact-us .first .top-container .small-text {
+            margin-top: 40px;
+            font-size: 26px;
+            letter-spacing: 14px;
+            color: #444; }
+        body .page-content .contact-us .first .bottom-container {
+          margin-left: 40px;
+          z-index: 100; }
+          body .page-content .contact-us .first .bottom-container .info {
+            width: 450px;
+            display: flex;
+            flex-flow: row;
+            margin-bottom: 40px; }
+            body .page-content .contact-us .first .bottom-container .info div {
+              display: flex;
+              flex-flow: column; }
+              body .page-content .contact-us .first .bottom-container .info div .small-text {
+                font-size: 18px;
+                letter-spacing: 4px; }
+              body .page-content .contact-us .first .bottom-container .info div .big-text {
+                margin-top: 12px;
+                font-size: 24px;
+                letter-spacing: 4px; }
+            body .page-content .contact-us .first .bottom-container .info .img-container {
+              width: 60px;
+              display: flex;
+              flex-flow: row;
+              justify-content: flex-start; }
+              body .page-content .contact-us .first .bottom-container .info .img-container img {
+                margin-bottom: 4px; }
+          body .page-content .contact-us .first .bottom-container .align-bottom {
+            align-items: flex-end; }
+          body .page-content .contact-us .first .bottom-container .align-center {
+            align-items: center;
+            margin-bottom: 60px; }
+      body .page-content .contact-us .second {
+        display: flex;
+        justify-content: center;
+        margin-top: -550px; }
+        body .page-content .contact-us .second img {
+          width: 787.5px;
+          height: 750px;
+          z-index: -1; }
+    body .page-content .shared-footer .us {
+      background: rgba(255, 255, 255, 0.5);
+      margin-top: -200px;
+      z-index: 1; }
+    body .page-content .minor_enterprises {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .minor_enterprises .block-row {
+        width: 100%; }
+        body .page-content .minor_enterprises .block-row .block {
+          width: 1100px;
+          margin: 0 auto; }
+          body .page-content .minor_enterprises .block-row .block .content {
+            width: 100%;
+            overflow: hidden; }
+            body .page-content .minor_enterprises .block-row .block .content .title {
+              margin: 100px;
+              text-align: center;
+              font-size: 56px; }
+            body .page-content .minor_enterprises .block-row .block .content .reg-msg {
+              text-align: center;
+              font-size: 44px;
+              margin: 50px 0;
+              line-height: 60px; }
+            body .page-content .minor_enterprises .block-row .block .content .btn-row {
+              margin-bottom: 50px; }
+              body .page-content .minor_enterprises .block-row .block .content .btn-row .btn-blue {
+                width: 150px;
+                height: 50px; }
+          body .page-content .minor_enterprises .block-row .block .user-num {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 230px; }
+            body .page-content .minor_enterprises .block-row .block .user-num span {
+              margin-left: 20px;
+              font-size: 44px; }
+        body .page-content .minor_enterprises .block-row.top, body .page-content .minor_enterprises .block-row.reg {
+          background: #F0FBFC; }
+    body .page-content .freeze {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .freeze .block-row {
+        width: 100%; }
+        body .page-content .freeze .block-row .block {
+          width: 1100px;
+          margin: 0 auto; }
+          body .page-content .freeze .block-row .block img {
+            width: 1100px; }
+          body .page-content .freeze .block-row .block .content {
+            width: 100%;
+            overflow: hidden;
+            color: white; }
+            body .page-content .freeze .block-row .block .content .title {
+              text-align: center;
+              font-size: 60px; }
+            body .page-content .freeze .block-row .block .content p {
+              text-align: center;
+              font-size: 36px;
+              margin-top: 20px; }
+              body .page-content .freeze .block-row .block .content p.small-text {
+                font-size: 26px; }
+        body .page-content .freeze .block-row.top {
+          background: rgba(165, 206, 236, 0.5); }
+          body .page-content .freeze .block-row.top .block {
+            height: 620px;
+            background: url("../img/freeze_t1.jpg") no-repeat;
+            background-size: 1100px 100%;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            color: white; }
+            body .page-content .freeze .block-row.top .block .title {
+              font-size: 50px; }
+            body .page-content .freeze .block-row.top .block p {
+              margin-top: 50px;
+              font-size: 26px;
+              text-align: center;
+              line-height: 50px; }
+        body .page-content .freeze .block-row.bottom {
+          background: #4992F2;
+          padding: 100px 0; }
+    body .page-content .metals {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .metals .block-row {
+        width: 100%; }
+        body .page-content .metals .block-row .block {
+          width: 1100px;
+          margin: 0 auto; }
+          body .page-content .metals .block-row .block img {
+            width: 1100px; }
+          body .page-content .metals .block-row .block .content {
+            width: 100%;
+            overflow: hidden;
+            color: white; }
+            body .page-content .metals .block-row .block .content .title {
+              text-align: center;
+              font-size: 60px; }
+            body .page-content .metals .block-row .block .content p {
+              text-align: center;
+              font-size: 36px;
+              margin-top: 20px; }
+              body .page-content .metals .block-row .block .content p.small-text {
+                font-size: 26px; }
+          body .page-content .metals .block-row .block .user-num {
+            justify-content: center;
+            align-items: center;
+            height: 230px; }
+            body .page-content .metals .block-row .block .user-num span {
+              margin-left: 20px;
+              font-size: 44px; }
+        body .page-content .metals .block-row.top {
+          background: #f5c107; }
+          body .page-content .metals .block-row.top .block {
+            height: 620px;
+            background: url("../img/metals_t1.jpg") no-repeat;
+            background-size: 1100px 100%;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            color: white; }
+            body .page-content .metals .block-row.top .block .title {
+              font-size: 50px; }
+            body .page-content .metals .block-row.top .block p {
+              margin-top: 50px;
+              font-size: 26px;
+              text-align: center;
+              line-height: 50px; }
+        body .page-content .metals .block-row.bottom {
+          background: #f5c107;
+          padding: 100px 0; }
+        body .page-content .metals .block-row.margin-top {
+          margin-top: 100px; }
+    body .page-content .client-case .block {
+      margin: 0 auto;
+      width: 1100px; }
+      body .page-content .client-case .block p {
+        color: #333333;
+        font-size: 20px; }
+        body .page-content .client-case .block p.title {
+          font-size: 30px; }
+        body .page-content .client-case .block p.orange, body .page-content .client-case .block p .orange {
+          color: #FC5F3A; }
+        body .page-content .client-case .block p.content {
+          margin-top: 13px; }
+      body .page-content .client-case .block.top {
+        background: url(../img/client_top.jpg) no-repeat;
+        height: 516px;
+        justify-content: center;
+        align-items: flex-end; }
+        body .page-content .client-case .block.top button {
+          margin-bottom: 50px;
+          height: 80px;
+          width: 280px;
+          font-size: 48px;
+          border-radius: 20px;
+          box-shadow: 0 0 15px #d68c7b;
+          background: #FC5f3A;
+          color: white;
+          cursor: auto; }
+      body .page-content .client-case .block.first, body .page-content .client-case .block.secont {
+        background: url(../img/client_bg_1.jpg) no-repeat;
+        margin-top: 200px;
+        height: 530px;
+        padding-top: 50px;
+        padding-left: 60px;
+        box-sizing: border-box;
+        line-height: 30px; }
+      body .page-content .client-case .block.secont {
+        background: url(../img/client_bg_2.jpg) no-repeat; }
+        body .page-content .client-case .block.secont .title {
+          margin-top: 40px; }
+        body .page-content .client-case .block.secont .content {
+          margin-top: 35px;
+          line-height: 36px; }
+    body .page-content .common {
+      margin-top: -20px; }
+      body .page-content .common .common-top {
+        width: 100%;
+        background-color: #c5d1fa;
+        height: 620px; }
+        body .page-content .common .common-top .common-content {
+          margin: 0 auto;
+          height: 100%;
+          max-width: 1100px;
+          min-width: 1100px;
+          background: url(../img/common1.jpg) no-repeat; }
+          body .page-content .common .common-top .common-content .common-text {
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;
+            margin-top: -100px; }
+            body .page-content .common .common-top .common-content .common-text h5 {
+              font-size: 50px;
+              font-weight: normal; }
+            body .page-content .common .common-top .common-content .common-text .common-p {
+              margin-top: 65px; }
+              body .page-content .common .common-top .common-content .common-text .common-p p {
+                font-size: 40px;
+                margin-top: 10px; }
+      body .page-content .common .common-content {
+        padding-top: 10px;
+        max-width: 1100px;
+        min-width: 1100px;
+        margin: 0 auto; }
+        body .page-content .common .common-content .common-content-top, body .page-content .common .common-content .common-content-bottom {
+          padding-top: 120px;
+          width: 100%; }
+          body .page-content .common .common-content .common-content-top .common-content-img, body .page-content .common .common-content .common-content-bottom .common-content-img {
+            width: 100%;
+            height: auto; }
+          body .page-content .common .common-content .common-content-top .common-content-text, body .page-content .common .common-content .common-content-bottom .common-content-text {
+            width: 100%;
+            display: flex;
+            justify-content: center; }
+            body .page-content .common .common-content .common-content-top .common-content-text .common-content-text-vessel, body .page-content .common .common-content .common-content-bottom .common-content-text .common-content-text-vessel {
+              text-align: center;
+              flex: 1;
+              height: 130px; }
+              body .page-content .common .common-content .common-content-top .common-content-text .common-content-text-vessel h5, body .page-content .common .common-content .common-content-bottom .common-content-text .common-content-text-vessel h5 {
+                font-weight: 500;
+                font-size: 30px; }
+              body .page-content .common .common-content .common-content-top .common-content-text .common-content-text-vessel div, body .page-content .common .common-content .common-content-bottom .common-content-text .common-content-text-vessel div {
+                margin-top: 32px; }
+                body .page-content .common .common-content .common-content-top .common-content-text .common-content-text-vessel div p, body .page-content .common .common-content .common-content-bottom .common-content-text .common-content-text-vessel div p {
+                  font-size: 20px;
+                  color: #323333; }
+      body .page-content .common .common-bottom {
+        width: 100%; }
+        body .page-content .common .common-bottom .common-bottom-top {
+          margin: 160px auto 0;
+          max-width: 1100px;
+          min-width: 1100px;
+          background: url(../img/common4.png) no-repeat;
+          height: 725px;
+          display: flex;
+          flex-flow: column;
+          justify-content: center; }
+          body .page-content .common .common-bottom .common-bottom-top h5 {
+            margin: 250px auto 0;
+            text-align: center;
+            font-size: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            height: 58px;
+            padding: 0 60px 0;
+            line-height: 58px;
+            width: 550px; }
+            body .page-content .common .common-bottom .common-bottom-top h5 span {
+              color: #6d8cf2; }
+          body .page-content .common .common-bottom .common-bottom-top .common-bottom-text {
+            text-align: center;
+            font-size: 25px;
+            margin-top: 80px; }
+            body .page-content .common .common-bottom .common-bottom-top .common-bottom-text p {
+              margin-top: 5px; }
+        body .page-content .common .common-bottom .common-bottom-bottom {
+          width: 100%;
+          height: 200px;
+          background-color: #f2f2f2;
+          padding-top: 68px; }
+          body .page-content .common .common-bottom .common-bottom-bottom .common-bottom-bottom-content {
+            width: 30%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center; }
+            body .page-content .common .common-bottom .common-bottom-bottom .common-bottom-bottom-content input {
+              padding: 10px 10px;
+              border-radius: 10px;
+              width: 200px;
+              background-color: #6d8cf2;
+              color: white;
+              cursor: pointer; }
+              body .page-content .common .common-bottom .common-bottom-bottom .common-bottom-bottom-content input:hover {
+                background-color: #6B6EF2; }
+    body .page-content .agency {
+      width: 100%;
+      min-width: 1100px; }
+      body .page-content .agency .section-one {
+        width: 100%;
+        height: 600px;
+        background: linear-gradient(#ff7f18, #f55d49);
+        margin-top: -20px; }
+        body .page-content .agency .section-one .section-one-banner {
+          flex-flow: column;
+          justify-content: center;
+          margin: 0 auto;
+          width: 1100px;
+          height: 650px; }
+          body .page-content .agency .section-one .section-one-banner .introduce {
+            display: flex;
+            justify-content: center; }
+            body .page-content .agency .section-one .section-one-banner .introduce span {
+              font-size: 22px;
+              color: #fff;
+              margin-left: 15px; }
+          body .page-content .agency .section-one .section-one-banner .shiftChange {
+            width: 30%;
+            margin: 200px auto 0;
+            display: flex;
+            justify-content: space-around; }
+            body .page-content .agency .section-one .section-one-banner .shiftChange button {
+              width: 140px;
+              height: 45px;
+              background-color: #fff;
+              color: #f55d49;
+              text-align: center;
+              font-size: 20px;
+              border: none;
+              border-radius: 8px;
+              font-weight: 700;
+              cursor: pointer;
+              outline: none; }
+              body .page-content .agency .section-one .section-one-banner .shiftChange button:hover {
+                background-color: #fff;
+                color: #ff7f18; }
+          body .page-content .agency .section-one .section-one-banner .contactWay {
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            margin-top: 35px; }
+            body .page-content .agency .section-one .section-one-banner .contactWay span {
+              display: inline-block;
+              margin-left: 30px; }
+      body .page-content .agency .productIntroduce .section-two {
+        width: 100%;
+        height: 400px; }
+        body .page-content .agency .productIntroduce .section-two .section-two-banner {
+          margin: 0 auto;
+          text-align: center;
+          width: 1100px;
+          padding-top: 75px; }
+          body .page-content .agency .productIntroduce .section-two .section-two-banner h5 {
+            font-size: 50px; }
+            body .page-content .agency .productIntroduce .section-two .section-two-banner h5 span {
+              height: 1px;
+              display: inline-block;
+              width: 150px;
+              border-bottom: 2px solid #888;
+              position: relative;
+              top: -12px; }
+          body .page-content .agency .productIntroduce .section-two .section-two-banner div {
+            margin-top: 50px; }
+            body .page-content .agency .productIntroduce .section-two .section-two-banner div p {
+              margin-top: 25px;
+              font-size: 25px; }
+      body .page-content .agency .productIntroduce .section-three {
+        background-color: #f5f5f5;
+        width: 100%;
+        height: 720px;
+        margin-top: -5px; }
+        body .page-content .agency .productIntroduce .section-three .section-three-banner {
+          margin: 0 auto;
+          width: 1100px;
+          padding: 100px 0;
+          text-align: center;
+          height: 520px; }
+          body .page-content .agency .productIntroduce .section-three .section-three-banner .three-inr {
+            font-size: 24px;
+            margin-top: 60px; }
+          body .page-content .agency .productIntroduce .section-three .section-three-banner .threeImg {
+            margin-top: 65px; }
+          body .page-content .agency .productIntroduce .section-three .section-three-banner h5 {
+            font-size: 50px; }
+            body .page-content .agency .productIntroduce .section-three .section-three-banner h5 strong {
+              color: #f66044; }
+            body .page-content .agency .productIntroduce .section-three .section-three-banner h5 span {
+              height: 1px;
+              display: inline-block;
+              width: 150px;
+              border-bottom: 2px solid #888;
+              position: relative;
+              top: -12px; }
+        body .page-content .agency .productIntroduce .section-three .three-list {
+          width: 100%;
+          display: flex; }
+          body .page-content .agency .productIntroduce .section-three .three-list span {
+            flex: 1;
+            font-size: 22px; }
+      body .page-content .agency .productIntroduce .section-four {
+        width: 100%;
+        height: 650px; }
+        body .page-content .agency .productIntroduce .section-four .section-four-banner {
+          padding-top: 70px;
+          width: 1100px;
+          margin: 0 auto; }
+          body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two {
+            border-bottom: 2px dashed #888;
+            height: 105px;
+            width: 100%;
+            display: flex; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-one, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-two, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-three, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-one, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-two, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-three {
+              text-align: left;
+              flex: 1; }
+              body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-one p, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-two p, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-three p, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-one p, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-two p, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-three p {
+                word-break: keep-all;
+                font-size: 18px;
+                color: #888888;
+                margin-top: 10px; }
+              body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-one h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-two h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-three h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-one h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-two h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-three h5 {
+                font-size: 25px;
+                margin-top: 25px; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-two-two, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-two-two {
+              margin-left: 70px; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-one, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-one {
+              padding-left: 70px; }
+              body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-one h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-one h5 {
+                color: #589cf8; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-two, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-two {
+              padding-left: 100px; }
+              body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-two h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-two h5 {
+                color: #f34c3d; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-three, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-three {
+              padding-left: 160px; }
+              body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-one .content-text-three h5, body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-two .content-text-three h5 {
+                color: #27bf67; }
+          body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-three {
+            white-space: nowrap;
+            padding-top: 20px;
+            width: 100%;
+            display: flex;
+            font-size: 16px;
+            color: #888; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-three div {
+              flex: 1; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-three .content-three-one {
+              padding-left: 70px; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-three .content-three-two {
+              padding-left: 135px; }
+            body .page-content .agency .productIntroduce .section-four .section-four-banner .four-content-three .content-three-three {
+              padding-left: 160px; }
+      body .page-content .agency .productIntroduce .section-five {
+        width: 100%;
+        height: 720px;
+        margin-top: -5px;
+        background-color: #f5f5f5; }
+        body .page-content .agency .productIntroduce .section-five .section-five-banner {
+          margin: 0 auto;
+          width: 1100px;
+          padding-top: 90px; }
+          body .page-content .agency .productIntroduce .section-five .section-five-banner h5 {
+            text-align: center;
+            font-size: 50px; }
+            body .page-content .agency .productIntroduce .section-five .section-five-banner h5 strong {
+              color: #f65f46; }
+            body .page-content .agency .productIntroduce .section-five .section-five-banner h5 span {
+              position: relative;
+              display: inline-block;
+              top: -15px;
+              width: 150px;
+              border-bottom: 1px solid #222; }
+          body .page-content .agency .productIntroduce .section-five .section-five-banner img {
+            margin-top: 100px; }
+      body .page-content .agency .productIntroduce .section-six {
+        display: flex;
+        width: 100%; }
+        body .page-content .agency .productIntroduce .section-six .section-six-banner {
+          width: 1100px;
+          margin: 0 auto;
+          padding-top: 110px; }
+          body .page-content .agency .productIntroduce .section-six .section-six-banner h5 {
+            text-align: center;
+            font-size: 50px; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner h5 strong {
+              color: #f55d48; }
+          body .page-content .agency .productIntroduce .section-six .section-six-banner .success-hint {
+            display: none;
+            font-size: 50px;
+            text-align: center;
+            margin: 100px auto 300px;
+            width: 560px; }
+          body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form {
+            margin: 100px auto 0;
+            width: 560px; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form label {
+              display: block;
+              font-size: 28px;
+              font-weight: 600;
+              color: #666;
+              margin-top: 55px; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form label input {
+                margin-left: 50px;
+                height: 50px;
+                border: 1px solid #888888;
+                border-radius: 15px;
+                padding: 5px 15px; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form label input:focus {
+                border-radius: 15px;
+                border: 1px solid #f5533d;
+                outline: none; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form button {
+              text-align: center;
+              width: 190px;
+              height: 60px;
+              background-color: #f5533d;
+              font-size: 30px;
+              color: white;
+              border: none;
+              border-radius: 15px;
+              margin: 40px 0 0 160px;
+              cursor: pointer;
+              outline: none; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-form button:hover {
+                background-color: #F51E28; }
+          body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact {
+            width: 98%;
+            height: 50px;
+            margin-top: 60px;
+            display: flex;
+            padding: 0 10px; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact p {
+              flex: 1;
+              font-size: 22px;
+              height: 30px;
+              line-height: 30px; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact p i {
+                position: relative;
+                top: 5px;
+                left: -5px;
+                margin-right: 5px;
+                height: 30px;
+                display: inline-block;
+                background: url("../img/agencyico.png") no-repeat; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .linkman i {
+              width: 25px;
+              background-position: 0 0; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .phone {
+              margin-left: -20px; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .phone i {
+                width: 70px;
+                background-position: 0 -36px; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .qq i {
+              width: 25px;
+              background-position: 0 -70px; }
+            body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .email {
+              margin-left: -20px; }
+              body .page-content .agency .productIntroduce .section-six .section-six-banner .six-contact .email i {
+                width: 38px;
+                background-position: 0 -108px; }
+      body .page-content .agency .cooperationEarn {
+        display: none;
+        width: 100%; }
+        body .page-content .agency .cooperationEarn .cooperationEarn-banner {
+          padding-top: 100px;
+          width: 1100px;
+          height: 600px;
+          margin: 0 auto; }
+      body .page-content .agency .bottomImg {
+        width: 100%;
+        margin: 0 auto; }
+      body .page-content .agency .span-left {
+        margin-right: 50px; }
+      body .page-content .agency .span-right {
+        margin-left: 50px; }
+      body .page-content .agency .inputError {
+        font-size: 20px;
+        margin: 20px 0 0 170px;
+        color: #b92c28; }
+  body .footer {
+    width: 100%;
+    margin-top: 100px;
+    min-width: 1100px; }
+    body .footer .content {
+      width: 1100px;
+      margin: 0 auto;
+      justify-content: space-around; }
+      body .footer .content ul {
+        height: 250px; }
+        body .footer .content ul li {
+          margin-top: 15px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 500; }
+        body .footer .content ul .title {
+          cursor: auto;
+          font-size: 16px;
+          margin-top: 20px;
+          font-weight: bold; }
+        body .footer .content ul .divide {
+          margin-bottom: 20px;
+          cursor: auto;
+          width: 26px;
+          height: 2px;
+          background: #ee7258; }
+        body .footer .content ul .join {
+          position: relative;
+          margin-top: 20px; }
+          body .footer .content ul .join div {
+            margin-right: 15px; }
+            body .footer .content ul .join div .icon {
+              cursor: pointer; }
+            body .footer .content ul .join div .qrcode {
+              position: absolute;
+              display: none;
+              top: -160px;
+              left: -20px;
+              width: 150px;
+              height: 150px; }
+            body .footer .content ul .join div:hover .qrcode {
+              display: block; }
+    body .footer .copyright {
+      height: 70px;
+      background: #3b3e45;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center; }
+      body .footer .copyright div {
+        width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 16px; }
+      body .footer .copyright .top a {
+        color: white; }
+      body .footer .copyright .bottom {
+        margin-top: 10px; }
+        body .footer .copyright .bottom a {
+          height: 16px; }
+        body .footer .copyright .bottom span {
+          height: 20px;
+          margin: 0px 0px 0px 0px;
+          color: #939393; }
+
+/*# sourceMappingURL=global.css.map */

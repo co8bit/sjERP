@@ -1,0 +1,48 @@
+<div class="spec-bg">
+    <div class="spec-and-numpad">
+        <div class="spec-container">
+            <span>当前选择的货品为</span>
+            <div class="selected">
+                <input class="spu" type="text" ng-model="cartAgent.editingCartItem.spu_name" placeholder="选择商品" disabled="true">
+            </div>
+            <div class="selected">
+                <input class="spec" type="text" ng-model="cartAgent.editingCartItem.spec_name" placeholder="规格" disabled="true">
+            </div>
+            <div class="mt-s item3line">
+                <span class="left">系统中数量</span>
+                <input type="text" ng-model="cartAgent.editingCartItem.stock" disabled="true" />
+                <span class="replace-unit"></span>
+            </div>
+            <div class="mt-s item3line">
+                <span class="left">清点后数量</span>
+                <input id="first-input" class="quantity" ng-show="!isMobile" type="text" ng-model="cartAgent.editingCartItem.quantity" ng-click="numPad.setState(0);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+                <input id="first-input" class="quantity" readonly="readonly" ng-show="isMobile" type="text" ng-model="cartAgent.editingCartItem.quantity" ng-focus="numPad.setState(0);" ng-disabled="cartAgent.editingCartItem.sku_id <= 0" />
+                <span class="replace-unit"></span>
+            </div>
+            <div class="mt-s item3line">
+                <span class="left">盈亏数量</span>
+                <input type="text" ng-model="profitAndLossAmount" disabled="true" />
+                <span class="replace-unit"></span>
+            </div>
+            <div class="mt-s item3line" ng-show = "rpg==1||rpg==7">
+                <span class="left">成本单价</span>
+                <input type="text" ng-model="cartAgent.editingCartItem.unit_price" disabled="true" />
+                <span>元</span>
+            </div>
+            <div class="mt-s item3line" ng-show = "rpg==1||rpg==7">
+                <span class="left">盈亏金额</span>
+                <input ng-model="profitAndLossValue" disabled="true">
+                <span>元</span>
+            </div>
+            <div class="submit">
+                <button class="btn-submit-s" ng-click="finishEditing()" ng-disabled="cartAgent.editingCartItem.sku_id <= 0">添加</button>
+                <button class="btn-submit-s" ng-click="cancelInput()">取消</button>
+            </div>
+        </div>
+        <!-- 小键盘 -->
+        <div class="numpad-container" ng-include="'web/app/src/SharedComponent/NumPad/NumPad.html'" ng-show="cartAgent.editingCartItem.sku_id > 0"></div>
+    </div>
+</div>
+
+
+

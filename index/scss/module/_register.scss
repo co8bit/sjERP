@@ -1,0 +1,191 @@
+$mainColor: #f25749;
+$hoveMainColor: #f24446;
+$fontColor: #fff;
+$minorFontColor: #71d4e3;
+body {
+  margin-top: 0;
+}
+
+.registerWindows {
+  width: 100%;
+  height: 1px;
+  background: url("../img/login.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  @include clearNum;
+  .bigWindows {
+    align-self: center;
+    width: 1025px;
+    height: 600px;
+    text-align: center;
+    color: white;
+    .windows-input {
+      margin: 0 auto;
+      width: 350px;
+      height: 400px;
+      .serviceContent{
+        input[type=checkbox]{
+             width: 16px;
+             height: 16px;
+             position: relative;
+          top: 3px;
+             margin-right: 5px;
+        }
+        a{
+          margin-left: 2px;
+          color: $minorFontColor;
+          &:hover{
+            color: #2aabd2;
+          }
+        }
+        text-align: left;
+        margin: 5px 0 0 10px;
+        width: 100%;
+        height: 30px;
+        font-size: 18px;
+      }
+      h5 {
+        font-size: 26px;
+      }
+      .smallTittle {
+        text-align: left;
+        font-size: 18px;
+        margin-top: 40px;
+      }
+      .first-register {
+        .getAuth, .resSub, .back {
+          cursor: pointer;
+        }
+
+        .phoneNum, .getAuth, .resSub, .back {
+          background-color: $fontColor;
+          outline: none;
+          box-sizing: content-box;
+          width: 300px;
+          height: 40px;
+          padding: 5px 25px;
+          border-radius: 10px;
+          margin-top: 10px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 18px;
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+        .phoneNum:focus {
+          border: 1px solid $mainColor;
+        }
+        .verifyCode{
+          width: 100%;
+          height: 58px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 10px;
+          input[type=text]{
+            background-color: #fff;
+            outline: none;
+            box-sizing: content-box;
+            height: 40px;
+            padding: 5px 25px;
+            border-radius: 10px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid transparent;
+            width: 35%;
+          }
+          img
+          {
+            height: 50px;
+            display: inline-block;
+            margin-left: 10px;
+            width: 45%;
+          }
+        }
+        .getAuth {
+          color: $mainColor;
+          font-weight: 600;
+        }
+        .getAuth:hover {
+          background-color: #f5f5f5;
+        }
+        .resSub {
+          display: block;
+          background-color: $mainColor;
+          color: white;
+        }
+        .resSub:hover {
+          background-color: $hoveMainColor;
+        }
+      }
+      .second-register {
+        display: none;
+        .phoneNum, .passwordNum, .authNum, .againSend, .registerSub {
+          outline: none;
+          background-color: #fff;
+          display: inline-block;
+          height: 50px;
+          width: 100%;
+          margin-top: 8px;
+          border-radius: 5px;
+          border: none;
+          text-align: center;
+          font-size: 18px;
+        }
+        .sectionAuth {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: space-around;
+          .authNum, .againSend {
+            width: 48%;
+            margin-top: 8px;
+            height: 40px;
+          }
+          .againSend {
+            color: $mainColor;
+          }
+        }
+        .registerSub {
+          margin-top: 10px;
+          background-color: $mainColor;
+          color: $fontColor;
+        }
+        .registerSub:hover {
+          background-color: $hoveMainColor;
+        }
+        .registerSub, .againSend {
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+      }
+      .back {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 30px;
+        color: $minorFontColor;
+        margin: 20px auto 0;
+        border: none;
+        cursor: pointer;
+        outline: none;
+      }
+      .inputError{
+        display: none;
+        padding-top: 10px;
+        color: $minorFontColor;
+        font-size: 18px;
+        text-align: left;
+        line-height: 20px;
+        height: 25px;
+        text-indent: 10px;
+      }
+      span {
+        @include or-division(30px, #bbb);
+      }
+    }
+  }
+}
+
+

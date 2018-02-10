@@ -1,0 +1,27 @@
+<div class="create-edit-park-address" ng-controller="CreateEditParkAddressController">
+
+    <div class="title-bar">
+        <span ng-show="!(editingParkAddress.parkaddress_id > 0)">新建停车位置</span>
+        <span ng-show="editingParkAddress.parkaddress_id > 0"> 编辑停车位置</span>
+        <div class="quit" ng-click="quit()">
+            <img src="web/app/img/misc/pic_close.png"></img>
+        </div>
+    </div>
+    <div class="below-title-bar">
+        <div class="create-edit-park-address-container">
+            <div class="park-address-container">
+                <span>停车位置：</span>
+                <input type="text" autofocus="autofocus" ng-model="editingParkAddress.park_address">
+                <span class="required">*</span>
+            </div>
+            <div class="create-edit-container">
+                <button ng-show="!(editingParkAddress.parkaddress_id > 0)"
+                        ng-click="clickCreate();">
+                    新建
+                </button>
+                <button ng-show="editingParkAddress.parkaddress_id > 0" ng-click="clickEdit();">保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

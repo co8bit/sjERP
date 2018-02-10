@@ -1,0 +1,51 @@
+<html>
+<title>{$Think.CONTROLLER_NAME}-服务器控制台</title>
+<h1>{$Think.CONTROLLER_NAME}</h1>
+<a href={:U("Index/index")}>返回Index</a>
+<h2>==============================================</h2>
+
+
+
+<body class="metro">
+
+    <div class="container">
+        <h1>upload_pic</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action='{:U("FaceRec/upload_pic")}' enctype="multipart/form-data" >
+                公司id<input type="text" name="cid" value='1' />
+                公司名称<input type="text" name="name" value='' />
+                <input type="file" name="photo" />
+                <input type="submit" value="提交" >
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>comparePhoto</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action='{:U("FaceRec/comparePhoto")}' enctype="multipart/form-data" >
+                <input type="file" name="photo" />
+                <input type="submit" value="提交" >
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>getCusList</h1>
+        <div class="tile-area no-padding clearfix">
+            <div class="grid">
+              <form id="form" method="post" action='{:U("CusList/getCusList")}' >
+            
+                <input type="submit" value="提交" >
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

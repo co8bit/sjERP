@@ -1,0 +1,98 @@
+<div class="cstmr-info-tab typical-left-right-narrow" ng-controller="CstmrInfoTabController">
+    <!-- 左半部分 -->
+    <div class="t-left">
+        <div class="left-container" id="left-container">
+            <!-- <div class="step-number one">1</div> -->
+            <div class="cstmr-container">
+                <div class="wanglaidanweixinxi">
+                    <span ng-show="orderInfo._class == 1 || orderInfo._class == 2">客户信息</span>
+                    <span ng-show="orderInfo._class == 3 || orderInfo._class == 4">供货商信息</span>
+                </div>
+                <div class="cstmr-name-container">
+                    <div class="input-container">
+                        <input ng-show="orderInfo._class == 1 || orderInfo._class == 2" class="cstmr-name-input" ng-class="{'color-blue': orderInfo.company.cid > 0}" type="text" placeholder="客户名称" ng-model="companyNameInput" ng-click="clickcompanyNameInput()">
+                        <input ng-show="orderInfo._class == 3 || orderInfo._class == 4" class="cstmr-name-input" ng-class="{'color-blue': orderInfo.company.cid > 0}" type="text" placeholder="供货商名称" ng-model="companyNameInput" ng-click="clickcompanyNameInput()">
+                        <span class="required">*</span>
+                    </div>
+                    <div class="auto-complete-list auto-complete-content" ng-show="isCompanyListShow == true">
+                        <div class="auto-complete-content">
+                            <button class="add-new-cstmr" ng-click="clickAddNewCompany()">增加新单位</button>
+                        </div>
+                        <!-- 自动完成的往来单位列表 -->
+                        <!-- 选择单位 -->
+                        <div class="auto-complete-content" ng-repeat="item in companyList | filter:companyNameInput">
+                            <button ng-click="clickCompany(item);">{{item.name}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="deliver">
+                    <label ng-show="orderInfo._class == 1 || orderInfo._class == 2">
+                        <input type="checkbox" ng-model="whetherDeliver" id="deliver" >
+                        送货信息
+                    </label>
+                    <label ng-show="orderInfo._class == 3 || orderInfo._class == 4" >
+                        <input type="checkbox" ng-model="whetherDeliver" id="deliver" >
+                        收货信息
+                    </label>
+                </div>
+
+                <!-- 自动完成下拉列表 -->
+            </div>
+            <!-- <div class="step-number two">2</div> -->
+            <div class="lianxirenxinxi" ng-show="contactNameIsShow">
+                <span>本次交易的联系人信息</span>
+            </div>
+            <div class="cstmr-info-group" ng-show="contactNameIsShow && companyNameInput != undefined && companyNameInput != '' || whetherDeliver">
+                <div class="zuijinshiyongdelianxiren">
+                    <span ng-show="(orderInfo._class == 1 || orderInfo._class == 2) && companyNameInput != undefined && companyNameInput != ''">该客户的联系人</span>
+                    <span ng-show="(orderInfo._class == 3 || orderInfo._class == 4) && companyNameInput != undefined && companyNameInput != ''">该供货商的联系人</span>
+                </div>
+                <!-- 联系人列表 -->
+                <div class="recent-cstmr-container" ng-show="companyNameInput != undefined && companyNameInput != '' || whetherDeliver">
+                    <button class="mr-s" ng-repeat="item in contactList " ng-click="clickContact(item);">{{item.contact_name}}</button>
+                    <button class="mr-s add-contact" ng-click="addContact();">或直接填写新的信息</button>
+                </div>
+                <div class="cstmr-info" ng-show="isCstmrInfoShow && companyNameInput != undefined && companyNameInput != '' || whetherDeliver">
+                    <div>
+                        <span>姓名：</span>
+                        <input class="" type="text" ng-model="orderInfo.contact_name" ng-focus="orderInfo.contact_name = '';">
+                        <span class="required">*</span>
+                    </div>
+
+                    <div>
+                        <span>电话：</span>
+                        <input class="contact-phonenum" type="number" ng-model="orderInfo.mobile" ng-focus="orderInfo.mobile ='';isContactPhonenumListShow = true;">
+                        <span class="required"></span>
+                    </div>
+                    <div ng-show="isContactPhonenumListShow" class="cstmr-list">
+                        <button ng-repeat="item in model.selectedContact.phonenum | filter:orderInfo.mobile" ng-click="orderInfo.setPhonenum(item.mobile); isContactPhonenumListShow = false;">{{item.mobile}}</button>
+                    </div>
+
+                    <div>
+                        <span>车牌号：</span>
+                        <input class="car-license-input" type="text" ng-model="orderInfo.car_license" ng-focus="orderInfo.car_license = '';isCarLicenseListShow = true;">
+                        <span class="required"></span>
+                    </div>
+                    <div class="cstmr-list" ng-show="isCarLicenseListShow">
+                        <button ng-repeat="item in model.selectedContact.car_license | filter:orderInfo.car_license" ng-click="orderInfo.setCarLicense(item.car_license);">{{item.car_license}}</button>
+                    </div>
+
+                    <div>
+                        <span>停车位置：</span>
+                        <input class="parkaddress-input" type="text" ng-model="orderInfo.park_address" ng-focus="orderInfo.park_address = '';isParkAddressListShow = true;">
+                        <span class="required"></span>
+                    </div>
+                    <div class="cstmr-list" ng-show="isParkAddressListShow">
+                        <button ng-repeat="item in parkAddressList | filter:orderInfo.park_address" ng-click="orderInfo.setParkAddress(item.park_address);">{{item.park_address}}</button>
+                    </div>
+                    <div>
+                        <span>备注：</span>
+                        <textarea class="cstmr-list" type="text" ng-model="orderInfo.contact_remark"></textarea>
+                        <span class="required"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,292 @@
+<div class="today-summary-sheet">
+    <div class="return" ng-show="!model.isToday">
+        <button ng-click="goBack()">返回</button>
+    </div>
+    <div class="title">
+        <span class="left">营业额</span>
+        <span>|</span>
+        <span class="right text">数据</span>
+    </div>
+    <div class="row">
+        <div class="left">
+            <div>
+                <span>{{data.statistics.sale | number:2}}</span>
+                <span>销售额</span>
+            </div>
+            <div>
+                <span>{{data.statistics.sale_off | number:2}}</span>
+                <span>销售优惠</span>
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <div>
+                    <span>结余总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.balance_cash_total + data.statistics.balance_bank_total + data.statistics.balance_online_pay_total | number:2}}</span>
+                    <span>总结余</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.balance_cash_total | number:2}}</span>
+                    <span>现金结余</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.balance_bank_total | number:2}}</span>
+                    <span>银行结余</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.balance_online_pay_total | number:2}}</span>
+                    <span>网络结余</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="left">
+            <div>
+                <span>{{data.statistics.actually_income | number:2}}</span>
+                <span>实收</span>
+            </div>
+            <div>
+                <span>{{data.statistics.receivable | number:2}}</span>
+                <span>应收款</span>
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <div>
+                    <span>实收总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.total_income | number:2}}</span>
+                    <span>总实收</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.income_cash_total | number:2}}</span>
+                    <span>现金收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.income_bank_total | number:2}}</span>
+                    <span>银行收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.income_online_pay_total | number:2}}</span>
+                    <span>网络收入总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>交易类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionReceiptTotalIncome | number:2}}</span>
+                    <span>总实收</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionReceiptCashTotal | number:2}}</span>
+                    <span>现金收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionReceiptBankTotal | number:2}}</span>
+                    <span>银行收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionReceiptOnline_payTotal | number:2}}</span>
+                    <span>网络收入总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>财务类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financeReceiptTotalIncome | number:2}}</span>
+                    <span>总实收</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financeReceiptCashTotal | number:2}}</span>
+                    <span>现金收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financeReceiptBankTotal | number:2}}</span>
+                    <span>银行收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financeReceiptOnline_payTotal | number:2}}</span>
+                    <span>网络收入总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>其他收入类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.other_income | number:2}}</span>
+                    <span>总实收</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.incomeCashTotal | number:2}}</span>
+                    <span>现金收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.incomeBankTotal | number:2}}</span>
+                    <span>银行收入总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.incomeeOnline_payTotal | number:2}}</span>
+                    <span>网络收入总计</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="left">
+            <div>
+                <span>{{data.statistics.actually_paid | number:2}}</span>
+                <span>实付</span>
+            </div>
+            <div>
+                <span>{{data.statistics.payable | number:2}}</span>
+                <span>应付款</span>
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <div>
+                    <span>实付总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.total_paid | number:2}}</span>
+                    <span>总实付</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.paid_cash_total | number:2}}</span>
+                    <span>现金付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.paid_bank_total | number:2}}</span>
+                    <span>银行付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.paid_online_pay_total | number:2}}</span>
+                    <span>网络付款总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>交易类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionPaidTotal | number:2}}</span>
+                    <span>总实付</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionPaidCashTotal | number:2}}</span>
+                    <span>现金付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionPaidBankTotal | number:2}}</span>
+                    <span>银行付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.transactionPaidOnline_payTotal | number:2}}</span>
+                    <span>网络付款总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>财务类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financePaidTotal | number:2}}</span>
+                    <span>总实付</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financePaidCashTotal | number:2}}</span>
+                    <span>现金付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financePaidBankTotal | number:2}}</span>
+                    <span>银行付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.financePaidOnline_payTotal | number:2}}</span>
+                    <span>网络付款总计</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span>费用类</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.expense | number:2}}</span>
+                    <span>总实付</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.expenseCashTotal | number:2}}</span>
+                    <span>现金付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.expenseBankTotal | number:2}}</span>
+                    <span>银行付款总计</span>
+                </div>
+                <div>
+                    <span>{{data.statistics.expenseOnline_payTotal | number:2}}</span>
+                    <span>网络付款总计</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <span class="left">汇总</span>
+        <span>|</span>
+        <span class="right" ng-class="{highlight:model.todayPageStete == 1}" ng-click="model.todayPageStete = 1">销售汇总表</span>
+        <span>|</span>
+        <span class="right" ng-class="{highlight:model.todayPageStete == 2}" ng-click="model.todayPageStete = 2">其他收入和费用</span>
+    </div>
+    <!--     <div>
+        <button ng-click="$log.debug(stat)">1234</button>
+    </div> -->
+    <!-- 汇总表 -->
+    <div class="table t1" ng-show="model.todayPageStete == 1">
+        <div class="head table-row">
+            <span>序号</span>
+            <span>编号</span>
+            <span>名称</span>
+            <span>规格</span>
+            <span>销售数量</span>
+            <span>销售平均单价</span>
+            <span>销售总金额</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data.statistics.skuStatistics">
+            <span>{{$index}}</span>
+            <span>{{item.sn}}</span>
+            <span>{{item.spu_name}}</span>
+            <span>{{item.spec_name}}</span>
+            <span>{{item.quantity}}</span>
+            <span ng-bind-html="item.avgPrice_show"></span>
+            <span ng-bind-html="item.pilePrice_show"></span>
+        </div>
+    </div>
+    <!-- 费用与其他收入 -->
+    <div class="table t2" ng-show="model.todayPageStete == 2">
+        <div class="head table-row">
+            <span>创建时间</span>
+            <span>单号</span>
+            <span>类别</span>
+            <span>经办人</span>
+            <span>金额</span>
+            <span>备注</span>
+        </div>
+        <div class="table-row" ng-repeat="item in data.statistics.IorE">
+            <span>{{item.reg_time_show}}</span>
+            <span>{{item.sn}}</span>
+            <span>{{item.class_show}}</span>
+            <span>{{item.operator_name}}</span>
+            <span ng-bind-html="item.income_show"></span>
+            <span class="ellipsis">{{item.remark}}</span>
+        </div>
+    </div>
+</div>

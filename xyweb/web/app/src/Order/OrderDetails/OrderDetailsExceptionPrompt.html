@@ -1,0 +1,30 @@
+<div class="order-details-exception-prompt" ng-controller="OrderDetailsExceptionPromptController">
+
+    <div class="content">
+        <div class="title">标记为异常</div>
+        <div class="reason">
+            <span>选择异常原因：</span>
+        </div>
+        <div class="exception-picker">
+            <div>
+                <button ng-class="{highlight:orderInfo.exceptionNo == 1}"
+                        ng-click="orderInfo.exceptionNo = 1;">库房货不够
+                </button>
+                <button ng-class="{highlight:orderInfo.exceptionNo == 2}"
+                        ng-click="orderInfo.exceptionNo = 2;">客户装不下
+                </button>
+                <button ng-class="{highlight:orderInfo.exceptionNo == 3}"
+                        ng-click="orderInfo.exceptionNo = 3;">其他
+                </button>
+            </div>
+            <div ng-show="orderInfo.exceptionNo > 0">
+                <span>请填写原因：</span>
+                <textarea ng-class="{inputhighlight:orderInfo.exceptionNo > 0}" ng-model="orderInfo.exception"></textarea>
+            </div>
+        </div>
+        <div class="confirm-cancel">
+            <button ng-click="confitmMarkException();">确认</button>
+            <button ng-click="PageService.closeDialog();">取消</button>
+        </div>
+    </div>
+</div>

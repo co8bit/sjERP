@@ -1,0 +1,97 @@
+.CorporateSector{
+    .search-bar {
+        height: 80px;
+        margin-bottom: 9px;
+        .search-row {
+            width: 50%;
+        }
+        .btn-row {
+            width: 300px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+    .table {
+        .table-row {
+            span {
+                &.name {
+                  width: 20%;
+                }
+                &.remark {
+                    width: 50%;
+                }
+                &.time {
+                    width: 20%;
+                }
+                &.tow-btn{
+                    width: 10%;
+                    max-width: 60px;
+                    min-width: 50px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    i{
+                        font-size: 20px;
+                        cursor: pointer;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+//  .add-sector {
+//      position: absolute;
+//      top: 160px;
+//      left: 35%;
+//      width: 400px;
+//      height: 300px;
+//      background: white;
+//      box-shadow: 0 0 15px #000000;
+//      border-radius: 10px;
+//      .title-bar {
+//          border-radius: 10px 10px 0 0;
+//          position: relative;
+//          .quit {
+//              border: none;
+//              border-radius: 0 10px 0 0;
+//          }
+//      }
+//      .middle {
+//          width: 300px;
+//          margin: 30px auto;
+//          .row {
+//              width: 100%;
+//              height: 50px;
+//              display: flex;
+//              align-items: center;
+//              justify-content: space-around;
+//              span {
+//                  width: 100px;
+//                  text-align: right;
+//              }
+//              select {
+//                  margin-left: 20px;
+//                  width: 200px;
+//                  height: 30px;
+//              }
+//              input {
+//                  margin-left: 20px;
+//                  width: 200px;
+//                  height: 30px;
+//              }
+//          }
+//          .btn-row {
+//              margin-top: 20px;
+//              display: flex;
+//              justify-content: flex-end;
+//              align-items: center;
+//              button {
+//                  margin-left: 15px;
+//              }
+//          }
+//      }
+//  }
+}

@@ -1,0 +1,403 @@
+$mainColor:#f25749;
+$hoveMainColor:#f24446;
+$fontColor:#fff;
+$minorFontColor:#71d4e3;
+.loginWindows {
+  color: $fontColor;
+  width: 100%;
+  height: 1px;
+  background: url("../img/login.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include clearNum;
+  button{
+    outline: none;
+  }
+  .windows{
+    text-align: center;
+    font-size: 15px;
+    h5 {
+      font-size: 26px;
+      padding-bottom: 30px;
+    }
+    .select-loginWay{
+      width: 350px;
+      height: 230px;
+      p{
+        text-align: left;
+        font-size: 16px;
+         padding-bottom: 5px;
+      }
+      #creatorLogin{
+        color: $mainColor;
+      }
+      button,a{
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .haveNum{
+        background-color: $mainColor;
+        color: $fontColor;
+      }
+      .haveNum:hover{
+        background-color: $hoveMainColor;
+      }
+      #creatorLogin,#staffLogin{
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        padding: 5px 20px;
+        cursor: pointer;
+        background-color: $fontColor;
+        border: none;
+      }
+      #creatorLogin:hover,#staffLogin:hover{
+        background-color: #ddd;
+      }
+    }
+    .login-input {
+      display: none;
+      width: 350px;
+      height: 400px;
+      p {
+        text-align: left;
+        font-size: 18px;
+        margin-top: 10px;
+      }
+      .username, .password {
+        margin-top: 10px;
+      }
+      .loginSub {
+        color: $fontColor;
+        margin-top: 30px;
+        background-color: $mainColor;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .loginSub:hover{
+        background-color: $hoveMainColor;
+      }
+      .username, .password, .loginSub, .changeLoginWay {
+        display: block;
+        border: none;
+        text-align: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        padding: 5px 20px;
+        border-radius: 5px;
+      }
+      .changeLoginWay {
+        margin-top: 20px;
+        font-size: 14px;
+        color: $minorFontColor;
+        background-color: rgba(0, 0, 0, 0);
+        cursor: pointer;
+      }
+      .select-remember {
+        width: 100%;
+        display: flex;
+        height: 20px;
+        justify-content: space-between;
+        margin-top: 5px;
+        label {
+          font-size: 16px;
+        }
+        .rememberNum {
+          text-align: left;
+        }
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+          position: relative;
+          top: 5px;
+          margin-right: 5px;
+        }
+      }
+      span {
+        @include or-division(10px,$fontColor);
+      }
+      .resCreateNum, .forgetSub {
+        position: relative;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+        background-color: #fff;
+        width: 40%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        display: inline-block;
+        color: black;
+        &:hover{
+          background-color: #f5f5f5;
+        }
+      }
+      .forgetSub{
+
+      }
+      .resCreateNum {
+        left: 5px;
+        border-radius: 5px 0 0 5px;
+      }
+      .forgerPassword:before {
+        content: "|";
+        position: relative;
+        right: 35px;
+      }
+      .forgerPassword {
+        right: 5px;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+    .third-login {
+      display: none;
+      width: 350px;
+      height: 320px;
+        .companyName, .industryName, .third-next, .where, .whereKnow {
+          text-align: center;
+          box-sizing: border-box;
+          width: 100%;
+          border-radius: 5px;
+          height: 40px;
+          padding: 5px 20px;
+          margin-top: 5px;
+          font-size: 16px;
+        }
+      .smallTittle{
+        text-align: left;
+      }
+        button {
+          border: none;
+          background-color: $fontColor;
+        }
+        .where {
+          padding: 0;
+          display: flex;
+          justify-content: space-between;
+          .province, .city {
+            background-color: #fff;
+            text-align: center;
+            display: inline-block;
+            width: 172px;
+            height: 100%;
+            padding: 0 2%;
+            border: 0;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            color: #999;
+            option {
+              text-align: center;
+              width: 171px;
+              overflow: hidden;
+            }
+          }
+          .province {
+            margin-left: 2px;
+            border-radius: 5px 0 0 5px;
+          }
+          .city {
+            margin-right: 2px;
+            border-radius: 0 5px 5px 0;
+          }
+          select::-ms-expand {
+            display: none;
+          }
+        }
+        .whereKnow {
+          padding: 10px 0 0 0;
+          height: 100px;
+          p {
+            font-size: 18px;
+            text-align: left;
+            color: $minorFontColor;
+          }
+          .know-select {
+            margin-top: 8px;
+            font-size: 16px;
+            label {
+              margin-top: 10px;
+              text-align: left;
+              display: inline-block;
+              height: 20px;
+              flex: 1;
+              width: 33%;
+              float: left;
+              input {
+                position: relative;
+                top: 4px;
+                width: 18px;
+                height: 18px;
+              }
+            }
+          }
+        }
+        .third-next {
+          background-color: $mainColor;
+          font-size: 18px;
+          color: white;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+      }
+    .select-version{
+      display: none;
+      box-sizing: border-box;
+      width: 1025px;
+      height: 600px;
+      background-color: rgba(63,75,84,.9);
+      border-radius: 5px;
+      .select-back{
+        width: 80px;
+        height: 50px;
+        background-color: rgba(0,0,0,0);
+        color: $minorFontColor;
+        border: none;
+        font-size: 20px;
+        margin-left: 940px;
+        cursor: pointer;
+      }
+      .select-back:hover{
+        background-color: rgb(63,75,84);
+      }
+      .select-tittle{
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .select-yiqiji,.select-jinxiaocun{
+        margin-top: 40px;
+        padding: 0 40px;
+        width: 350px;
+        height: 390px;
+        display: inline-block;
+        img{
+          width: 350px;
+          height: 200px;
+        }
+        p{
+          margin: 40px 0;
+          font-size: 18px;
+          text-align: left;
+          text-indent: 37px;
+        }
+        button{
+          width: 180px;
+          height: 50px;
+          background-color: $mainColor;
+          color: $fontColor;
+          border: none;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 20px;
+          cursor: pointer;
+        }
+        button:hover{
+          background-color: $hoveMainColor;
+        }
+      }
+    }
+    .inputError{
+      display: none;
+      color: $minorFontColor;
+      font-size: 20px;
+      margin-top: 10px;
+      text-align: left;
+    }
+    .forget-password{
+      display: none;
+      width: 350px;
+      .getAuth, .resSub, .back {
+        cursor: pointer;
+      }
+      .phoneNum, .getAuth, .resSub, .back {
+        background-color: $fontColor;
+        outline: none;
+        box-sizing: content-box;
+        width: 300px;
+        height: 40px;
+        padding: 5px 25px;
+        border-radius: 10px;
+        margin-top: 20px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid rgba(0, 0, 0, 0);
+      }
+      .phoneNum:focus {
+        border: 1px solid $mainColor;
+      }
+      .getAuth {
+        color: $fontColor;
+        background-color: $mainColor;
+        font-weight: 600;
+      }
+      .getAuth:hover {
+        background-color: $hoveMainColor;
+      }
+    }
+    .forget-password-input {
+      display: none;
+      width: 350px;
+      .phoneNum, .passwordNum, .authNum, .againSend, .forget-sub{
+        outline: none;
+        background-color: #fff;
+        display: inline-block;
+        height: 50px;
+        width: 100%;
+        margin-top: 8px;
+        border-radius: 5px;
+        border: none;
+        text-align: center;
+        font-size: 18px;
+      }
+      .sectionAuth {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        .authNum, .againSend {
+          width: 48%;
+          margin-top: 8px;
+          height: 40px;
+        }
+        .againSend {
+          color: $mainColor;
+        }
+      }
+      .forget-sub {
+        margin-top: 10px;
+        background-color: $mainColor;
+        color: $fontColor;
+      }
+      .forget-sub:hover {
+        background-color: $hoveMainColor;
+      }
+      .forget-sub, .againSend {
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+    }
+    span{
+      @include or-division(20px,$fontColor)
+    }
+    a{
+      display: block;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+    }
+    .back{
+      cursor: pointer;
+      border: none;
+      background-color: rgba(0,0,0,0);
+      color: $minorFontColor;
+      margin-top: 10px;
+      font-size: 22px;
+    }
+  }
+}

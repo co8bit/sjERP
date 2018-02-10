@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jasmine Spec Runner v2.4.1</title>
+    <link rel="shortcut icon" type="image/png" href="web/lib/jasmine-2.4.1/jasmine_favicon.png">
+    <link rel="stylesheet" href="web/lib/jasmine-2.4.1/jasmine.css">
+    <script src="web/lib/jasmine-2.4.1/jasmine.js"></script>
+    <script src="web/lib/jasmine-2.4.1/jasmine-html.js"></script>
+    <script src="web/lib/jasmine-2.4.1/boot.js"></script>
+    <!-- inclu de source files here... -->
+    <!-- electron上用 -->
+    <!-- <script src="web/app/src/Others/loadjq.js"></script> -->
+    <!-- jq -->
+    <script src="web/lib/jquery/jquery-1.11.3.min.js"></script>
+    <!-- <script src="web/lib/jquery-ui-1.11.4.base/jquery-ui.min.js"></script> -->
+    <!-- Angular -->
+    <script src="web/lib/angular-1.4.9/angular.min.js"></script>
+    <script src="web/lib/angular-1.4.9/angular-animate.js"></script>
+    <script src="web/lib/angular-1.4.9/angular-aria.js"></script>
+    <script src="web/lib/angular-1.4.9/angular-messages.js"></script>
+    <script src="web/lib/angular-1.4.9/angular-cookies.js"></script>
+    <script src="web/lib/angular-1.4.9/angular-route.js"></script>
+
+
+    <!-- 需要 angular-mocks -->
+    <script src="web/lib/angular-1.4.9/angular-mocks.js"></script>
+
+
+
+    <!-- app 代码 start -->
+
+    <!-- Main -->
+    <script src="web/app/src/SharedService/XY.js"></script>
+    <!-- Class Service -->
+    <!-- UI -->
+    <script src="web/app/src/ClassService/UI/PageStateInfoClass.js"></script>
+    <script src="web/app/src/SharedService/ClassService/OrderInfoClassService.js"></script>
+    <script src="web/app/src/SharedService/ClassService/NumPadClassService.js"></script>
+    <script src="web/app/src/SharedService/CartClassService.js"></script>
+    <!-- Shard Services -->
+    <!-- 启动 -->
+    <script src="web/app/src/SharedService/BootStrapService.js"></script>
+    <script src="web/app/src/SharedService/ClassService/FilterClassService.js"></script>
+    <script src="web/app/src/SharedService/UserService.js"></script>
+    <script src="web/app/src/SharedService/PageService.js"></script>
+    <script src="web/app/src/SharedService/NetworkService.js"></script>
+    <script src="web/app/src/SharedService/StockService.js"></script>
+    <script src="web/app/src/SharedService/PageService.js"></script>
+    <script src="web/app/src/SharedService/CstmrService.js"></script>
+    <script src="web/app/src/SharedService/OrderService.js"></script>
+    <script src="web/app/src/SharedService/EventService.js"></script>
+    <script src="web/app/src/SharedService/FinanceService.js"></script>
+    <!-- controller -->
+    <script src="web/app/src/Index/MainController.js"></script>
+    <script src="web/app/src/Login/ManageLogInController.js"></script>
+    <script src="web/app/src/Login/NormalLogInController.js"></script>
+    <script src="web/app/src/Navbar/NavController.js"></script>
+    <script src="web/app/src/Dashboard/DashboardController.js"></script>
+    <script src="web/app/src/Stock/ViewStockController.js"></script>
+    <script src="web/app/src/Profile/ProfileController.js"></script>
+    <script src="web/app/src/Advanced/AdvancedController.js"></script>
+    <script src="web/app/src/Settings/SettingsController.js"></script>
+    <script src="web/app/src/Category/ManageCatController.js"></script>
+    <script src="web/app/src/Category/createCatController.js"></script>
+    <script src="web/app/src/Category/editCatController.js"></script>
+    <script src="web/app/src/SPUSKU/edit_SPU_controller.js"></script>
+    <script src="web/app/src/SPUSKU/ManageGoodController.js"></script>
+    <script src="web/app/src/SPUSKU/Create_SPU_Controller.js"></script>
+    <script src="web/app/src/Cstmr/manageCstmrController.js"></script>
+    <script src="web/app/src/Cstmr/editCstmrController.js"></script>
+    <script src="web/app/src/Cstmr/createCstmrController.js"></script>
+    <script src="web/app/src/Query/QueryMenuController.js"></script>
+    <!-- 功能模块 -->
+    <!-- 创建者注册 -->
+    <script src="web/app/src/Register/AdminRegisterController.js"></script>
+    <!-- 注册普通用户 -->
+    <script src="web/app/src/Register/UserRegisterController.js"></script>
+    <!--  销售订单 SalesOrder -->
+    <script src="web/app/src/Order/SalesOrder/SalesOrderModel.js"></script>
+    <script src="web/app/src/Order/SalesOrder/SalesOrderController.js"></script>
+    <!-- 库存流水 -->
+    <script src="web/app/src/Query/StockHistoryController.js"></script>
+    <!-- 报溢报损 -->
+    <script src="web/app/src/OverflowOrLoss/CreateOverflowOrLossController.js"></script>
+    <script src="web/app/src/OverflowOrLoss/CreateOverflowOrLossModel.js"></script>
+    <!-- SharedComponent -->
+    <script src="web/app/src/SharedComponent/GoodList/GoodListController.js"></script>
+    <script src="web/app/src/SharedComponent/GoodList/GoodListFilter.js"></script>
+    <!-- 选货弹窗 AddANewCartItemDialog -->
+    <script src="web/app/src/SharedComponent/EditCartItemDialog/AddANewCartItemController.js"></script>
+    <!-- 购物车 -->
+    <script src="web/app/src/SharedComponent/Cart/CartController.js"></script>
+    <!-- 选择用户 -->
+    <script src="web/app/src/SharedComponent/SelectUser/SelectUserController.js"></script>
+    <!-- 临时 Temp -->
+    <script src="web/app/src/Temp/TempController.js"></script>
+
+    <!-- SkuDetail 库存详情 -->
+    <script src="web/app/src/SkuDetail/SkuDetailController.js"></script>
+    <!-- app 代码 end -->
+
+
+
+
+    <!-- include spec files here...-->
+    <script src="spec/Spec1.js"></script>
+
+
+
+</head>
+
+<body>
+</body>
+
+</html>

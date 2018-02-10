@@ -1,0 +1,56 @@
+.client-case {
+    .block {
+        margin: 0 auto;
+        width: 1100px;
+        p {
+            color: #333333;
+            font-size: 20px;
+            &.title {
+                font-size: 30px;
+            }
+            &.orange,.orange {
+                color: #FC5F3A;
+            }
+            &.content {
+                margin-top: 13px;
+            }
+        }
+        &.top {
+            background: url(../img/client_top.jpg) no-repeat;
+            height: 516px;
+            @extend .flex;
+            justify-content: center;
+            align-items: flex-end;
+            button {
+                margin-bottom: 50px;
+                height: 80px;
+                width: 280px;
+                font-size: 48px;
+                border-radius: 20px;
+                box-shadow: 0 0 15px #d68c7b;
+                background: #FC5f3A;
+                color: white;
+                cursor: auto;
+            }
+        }
+        &.first,&.secont {
+            background: url(../img/client_bg_1.jpg) no-repeat;
+            margin-top: 200px;
+            height: 530px;
+            padding-top: 50px;
+            padding-left: 60px;
+            box-sizing: border-box;
+            line-height: 30px;
+        }
+        &.secont {
+            background: url(../img/client_bg_2.jpg) no-repeat;
+            .title {
+                margin-top: 40px;
+            }
+            .content {
+                margin-top: 35px;
+                line-height: 36px;
+            }
+        }
+    }
+}

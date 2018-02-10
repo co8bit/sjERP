@@ -1,0 +1,27 @@
+<div>
+	<table>
+		<tr>
+			<th>单据编号</th>
+			<th>类别</th>
+			<th>客户名称</th>
+			<th>商品</th>
+			<th>创建时间</th>
+			<th>出入库时间</th>
+			<th>备注</th>
+			<th>经手人</th>
+			<th>状态</th>
+			
+		</tr>
+		<tr ng-repeat="item in orderList[1] | filter: filterfunc">
+			<td>{{item.oid}}</td>
+			<td>{{item.class}}</td>
+			<td>{{item.cid}}</td>
+			<td>{{item.cart}}</td>
+			<td>{{item.reg_time}}</td>
+			<td>{{item.leave_time}}</td>
+			<td>{{item.remark}}</td>
+			<td>{{item.uid_name}}</td>
+			<td>{{item.status}}</td>
+		</tr>
+	</table>
+</div>

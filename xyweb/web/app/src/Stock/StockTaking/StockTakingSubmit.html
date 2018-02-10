@@ -1,0 +1,67 @@
+<div class="stocktaking-submit-tab typical-left-right-narrow" ng-controller="StockTakingSubmitController">
+    <div class="t-left">
+        <div class="table">
+            <div class="table-row head">
+                <span>名称</span>
+                <span>类别</span>
+                <span>规格</span>
+                <span ng-show="rpg==1||rpg==7">单价</span>
+                <span>盘点前库存</span>
+                <span>盘点后库存</span>
+                <span>操作</span>
+            </div>
+            <div class="table-row" ng-repeat="item in cartAgent.cartItemList">
+                <span class="ellipsis">{{item.spu_name}}</span>
+                <span class="ellipsis">{{item.cat_name}}</span>
+                <span class="ellipsis">{{item.spec_name}}</span>
+                <span ng-show="rpg==1||rpg==7">{{item.unit_price | number:2}}</span>
+                <span>{{skuList2[item.sku_id].stock | number:2}}</span>
+                <span>{{item.quantity}}</span>
+                <span><img ng-click="clickDelete(item);" src="web/app/img/misc/pic_delete.png"></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="t-right">
+        <div class="right-container">
+            <div class="two-number">
+                <div class="big-number">
+                    <span ng-show="rpg==1||rpg==7" class="money-number">{{totProfitAndLossValue | number:2}}</span>
+                    <span ng-show="rpg==1||rpg==7">盈亏总金额</span>
+                </div>
+                <div class="big-number">
+                    <span class="money-number">{{totProfitAndLossQuantity | number:2}}</span>
+                    <span>盈亏总件数</span>
+                </div>
+            </div>
+            <div class="input-container">
+                <span>盘点人：</span>
+                <input class="auto-complete-content" type="text" ng-class="{cb: orderInfo.check_uid > 0}"
+                       ng-model="userNameInput"
+                       ng-click="userNameInput = '';clickUserInput();">
+                <span class="required">*</span>
+            </div>
+            <div class="rb auto-complete-content" ng-show="isUserListShow">
+                <div class="auto-complete-content" ng-repeat="item in userList | filter:userNameInput">
+                    <button ng-click="clickUser(item)">{{item.name}}</button>
+                </div>
+            </div>
+            <div class="input-container">
+                <span>执行人：</span>
+                <input type="text" ng-model="userInfo.name" disabled="true">
+            </div>
+            <div class="input-container">
+                <span>备注：</span>
+                <textarea type="text" ng-model="orderInfo.remark"/>
+            </div>
+            <div class="check_time" style="height: 50px;">
+                <label>开单日期</label>
+                <input class="date-input" id="datepicker1" type="text" ng-model="reg_time" readonly="readonly">
+            </div>
+            <div class="btn-container">
+                <button class="btn-submit-s" ng-click="clickExecute();">执行盘点单</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
