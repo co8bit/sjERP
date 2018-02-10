@@ -1,9 +1,7 @@
 Runtime/
 Public/Uploads/*
 xy.sublime-workspace
-config/key.php
 .idea
-config/localconfig.php
 log_file/
 api_gendoc.bat
 /.api_apigen.yaml
